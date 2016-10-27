@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3AE4977D-378E-4B00-8C45-4B8AA316F928}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BLL</RootNamespace>
+    <AssemblyName>BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\RELEASE\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'xxx|AnyCPU' ">
+    <OutputPath>bin\xxx\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataSetSurrogate, Version=1.0.1.0, Culture=neutral, PublicKeyToken=4fbddf16e3a769ae, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RELEASE\DataSetSurrogate.dll</HintPath>
+    </Reference>
+    <Reference Include="GenericProvider, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RELEASE\GenericProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="GenericUtil, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RELEASE\GenericUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\RELEASE\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RELEASE\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.2.3\lib\net40\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SqlAdminProvider, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RELEASE\SqlAdminProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="SrvComponent, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RELEASE\SrvComponent.dll</HintPath>
+    </Reference>
+    <Reference Include="SysModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\RELEASE\SysModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="SystemObject">
+      <HintPath>..\RELEASE\SystemObject.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL_FQC.cs" />
+    <Compile Include="bStationConfig.cs" />
+    <Compile Include="B_SNRULE_PARTNUMBER.cs" />
+    <Compile Include="B_SNRULE_WO.cs" />
+    <Compile Include="CfgIniFile.cs" />
+    <Compile Include="Check_Vsersion.cs" />
+    <Compile Include="Db_Procedure.cs" />
+    <Compile Include="ExcelToDb.cs" />
+    <Compile Include="BllMsSqllib.cs" />
+    <Compile Include="FileHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ProPublicStoredproc.cs" />
+    <Compile Include="Provider_Interface.cs" />
+    <Compile Include="R_Tr_Sn.cs" />
+    <Compile Include="ServerConfig.cs" />
+    <Compile Include="SetTime.cs" />
+    <Compile Include="tBomKeyPart.cs" />
+    <Compile Include="tB_MAIL_T.cs" />
+    <Compile Include="tB_User_Info.cs" />
+    <Compile Include="tCustomer.cs" />
+    <Compile Include="tErrorCode.cs" />
+    <Compile Include="tFixtureInfo.cs" />
+    <Compile Include="tKeyPart.cs" />
+    <Compile Include="tMaterialPreparation_1.cs" />
+    <Compile Include="tMaterialsReceive.cs" />
+    <Compile Include="tPackParameters.cs" />
+    <Compile Include="tPalletInfo.cs" />
+    <Compile Include="tPartKeyParts.cs" />
+    <Compile Include="tPartMap.cs" />
+    <Compile Include="tPartStorehousehad.cs" />
+    <Compile Include="tPlan_Rate_Report.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tProductRealSummary.cs" />
+    <Compile Include="tReasonCode.cs" />
+    <Compile Include="tRepairInfo.cs" />
+    <Compile Include="tReworkDetailInfo.cs" />
+    <Compile Include="tScrapInfo.cs" />
+    <Compile Include="tSmtKPMaster.cs" />
+    <Compile Include="tStationrecount.cs" />
+    <Compile Include="tStorehouseManage.cs" />
+    <Compile Include="tTargetPlan.cs" />
+    <Compile Include="tT_WO_Material.cs" />
+    <Compile Include="tVenderInfo.cs" />
+    <Compile Include="tVersion_Mark_info.cs" />
+    <Compile Include="tWarehouseWipTracking.cs" />
+    <Compile Include="tWipDetail.cs" />
+    <Compile Include="tWipKeyPart.cs" />
+    <Compile Include="tWipTracking.cs" />
+    <Compile Include="tWoBomInfo.cs" />
+    <Compile Include="tWoInfo.cs" />
+    <Compile Include="RecodeSystemLog.cs" />
+    <Compile Include="tProduct.cs" />
+    <Compile Include="tUserInfo.cs" />
+    <Compile Include="tFacInfo.cs" />
+    <Compile Include="tRoleInfo.cs" />
+    <Compile Include="tDeptInfo.cs" />
+    <Compile Include="tWorkFunctionInfo.cs" />
+    <Compile Include="tWsInfo.cs" />
+    <Compile Include="tLineInfo.cs" />
+    <Compile Include="tMachineInfo.cs" />
+    <Compile Include="tCraftInfo.cs" />
+    <Compile Include="tSmtKpNormalLog.cs" />
+    <Compile Include="tSmtKpMonitor.cs" />
+    <Compile Include="tPartBlocked.cs" />
+    <Compile Include="tSmtIO.cs" />
+    <Compile Include="tRouteInfo.cs" />
+    <Compile Include="tVendCode.cs" />
+    <Compile Include="tEditing.cs" />
+    <Compile Include="tz_whs_move_store.cs" />
+    <Compile Include="tZ_WHS_SAP_BACKFLUSH.cs" />
+    <Compile Include="tZ_WHS_TRACKING.cs" />
+    <Compile Include="t_Check_Timeout.cs" />
+    <Compile Include="T_DS_Out.cs" />
+    <Compile Include="T_EQC_TOOLS.cs" />
+    <Compile Include="tSmtWoMerge.cs" />
+    <Compile Include="t_Sn_UnBind.cs" />
+    <Compile Include="T_TESTRESULT_INFO.cs" />
+    <Compile Include="t_wo_Info_Erp.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{9237CAAC-CF56-4B80-B342-017750844091}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

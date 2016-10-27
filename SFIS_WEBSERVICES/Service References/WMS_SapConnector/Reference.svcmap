@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="dc5cc2e2-6504-463a-9459-12b60d8d43bf" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.16.171.232/SFC_MTR/SapConnector.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SapConnector.xsd" MetadataType="Schema" ID="4d6c0b3d-dd78-4a5f-9c0e-ecef7b07b550" SourceId="1" SourceUrl="http://172.16.171.232/SFC_MTR/SapConnector.svc?xsd=xsd2" />
+    <MetadataFile FileName="SapConnector.disco" MetadataType="Disco" ID="f971a07c-afc8-452a-8799-0a0a927199e4" SourceId="1" SourceUrl="http://172.16.171.232/SFC_MTR/SapConnector.svc?disco" />
+    <MetadataFile FileName="SapConnector1.xsd" MetadataType="Schema" ID="2eec454a-31d8-4502-a9be-90e8d7c0c374" SourceId="1" SourceUrl="http://172.16.171.232/SFC_MTR/SapConnector.svc?xsd=xsd3" />
+    <MetadataFile FileName="SapConnector2.xsd" MetadataType="Schema" ID="a67f5001-3b86-4c24-ad78-53299eee8483" SourceId="1" SourceUrl="http://172.16.171.232/SFC_MTR/SapConnector.svc?xsd=xsd1" />
+    <MetadataFile FileName="SapConnector3.xsd" MetadataType="Schema" ID="dcc8791f-38f1-45a9-8e11-e0391d6b3301" SourceId="1" SourceUrl="http://172.16.171.232/SFC_MTR/SapConnector.svc?xsd=xsd0" />
+    <MetadataFile FileName="SapConnector.wsdl" MetadataType="Wsdl" ID="f58cef78-e7dd-4e1f-a71c-ed7533742fc6" SourceId="1" SourceUrl="http://172.16.171.232/SFC_MTR/SapConnector.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

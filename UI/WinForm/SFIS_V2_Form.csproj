@@ -1,0 +1,1579 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{820C0CFF-DC3A-4031-A63B-73A20309D600}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SFIS_V2</RootNamespace>
+    <AssemblyName>SFIS_V4.0</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <ApplicationIcon>sfis.ico</ApplicationIcon>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\RELEASE\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\RELEASE\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'xxx|AnyCPU' ">
+    <OutputPath>bin\xxx\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataSetSurrogate, Version=1.0.1.0, Culture=neutral, PublicKeyToken=4fbddf16e3a769ae, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Entity\refDll\DataSetSurrogate.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar.Schedule, Version=12.5.0.2, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar2, Version=12.5.0.2, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GenericUtil, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\RELEASE\GenericUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="getWebServices, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\RELEASE\getWebServices.dll</HintPath>
+    </Reference>
+    <Reference Include="HistoryWebServices, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\RELEASE\HistoryWebServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.ADOX, Version=2.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\Entity\refDll\Interop.ADOX.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Excel, Version=1.3.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Entity\refDll\Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.LabelManager2, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Interop.Microsoft.Office.Core, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Entity\refDll\Interop.Microsoft.Office.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Office, Version=2.1.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Entity\refDll\Interop.Office.dll</HintPath>
+    </Reference>
+    <Reference Include="Krms_getWebServices, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\RELEASE\Krms_getWebServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\RELEASE\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PrintDLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\RELEASE\PrintDLL.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph, Version=5.1.5.25890, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\RELEASE\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\AutoSizeFormClass.cs" />
+    <Compile Include="BLL\cdbAccess.cs" />
+    <Compile Include="BLL\CExcel.cs" />
+    <Compile Include="BLL\ClsAllExcel.cs" />
+    <Compile Include="BLL\ClsCodeSoft.cs" />
+    <Compile Include="BLL\ClsReadExcel.cs" />
+    <Compile Include="BLL\Common.cs" />
+    <Compile Include="BLL\CreateAccessDb.cs" />
+    <Compile Include="BLL\DataGridViewToExcel.cs" />
+    <Compile Include="BLL\DataTableCrosstab.cs" />
+    <Compile Include="BLL\DayWeek.cs" />
+    <Compile Include="BLL\FtpClscs.cs" />
+    <Compile Include="BLL\InstallFont.cs" />
+    <Compile Include="BLL\ModifyLocalTime.cs" />
+    <Compile Include="BLL\MyFlowPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BLL\MyFlowPanel.Designer.cs">
+      <DependentUpon>MyFlowPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BLL\PrintCommandForZPL.cs" />
+    <Compile Include="BLL\publicfuntion.cs" />
+    <Compile Include="BLL\ReadCom.cs" />
+    <Compile Include="BLL\ClsCom.cs" />
+    <Compile Include="BLL\ReadIniFile.cs" />
+    <Compile Include="BLL\ReleaseData.cs" />
+    <Compile Include="BLL\SendMail.cs" />
+    <Compile Include="BLL\strEncrypt.cs" />
+    <Compile Include="BLL\WebrefClass.cs" />
+    <Compile Include="Packing_Ctn\Frm_CloseCarton.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packing_Ctn\Frm_CloseCarton.Designer.cs">
+      <DependentUpon>Frm_CloseCarton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Packing_Ctn\Frm_LabelQty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packing_Ctn\Frm_LabelQty.Designer.cs">
+      <DependentUpon>Frm_LabelQty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Packing_Ctn\Frm_NoCloseCtn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packing_Ctn\Frm_NoCloseCtn.Designer.cs">
+      <DependentUpon>Frm_NoCloseCtn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Packing_Ctn\Frm_Packing_Ctn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packing_Ctn\Frm_Packing_Ctn.Designer.cs">
+      <DependentUpon>Frm_Packing_Ctn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Packing_Ctn\Frm_Printcoordinates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packing_Ctn\Frm_Printcoordinates.Designer.cs">
+      <DependentUpon>Frm_Printcoordinates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Packing_Ctn\Frm_Reprint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packing_Ctn\Frm_Reprint.Designer.cs">
+      <DependentUpon>Frm_Reprint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAP数据上抛\SAP_UPLOAD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAP数据上抛\SAP_UPLOAD.Designer.cs">
+      <DependentUpon>SAP_UPLOAD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SMT入库\SMT入库.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SMT入库\SMT入库.Designer.cs">
+      <DependentUpon>SMT入库.cs</DependentUpon>
+    </Compile>
+    <Compile Include="仓储管理\采购订单管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="仓储管理\采购订单管理.Designer.cs">
+      <DependentUpon>采购订单管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他\Frm_CheckListBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他\Frm_CheckListBox.Designer.cs">
+      <DependentUpon>Frm_CheckListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他\Frm_StationName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他\Frm_StationName.Designer.cs">
+      <DependentUpon>Frm_StationName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="品质管理\Frm_FQC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="品质管理\Frm_FQC.Designer.cs">
+      <DependentUpon>Frm_FQC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="品质管理\Frm_Fqc_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="品质管理\Frm_Fqc_Report.Designer.cs">
+      <DependentUpon>Frm_Fqc_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="品质管理\Frm_Sel_Info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="品质管理\Frm_Sel_Info.designer.cs">
+      <DependentUpon>Frm_Sel_Info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="品质管理\Frm_SetDay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="品质管理\Frm_SetDay.designer.cs">
+      <DependentUpon>Frm_SetDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工单物料\Frm_InputQty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工单物料\Frm_InputQty.Designer.cs">
+      <DependentUpon>Frm_InputQty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工单物料\修改退料料盘数量.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工单物料\修改退料料盘数量.Designer.cs">
+      <DependentUpon>修改退料料盘数量.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工单物料\指定工单退料.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工单物料\指定工单退料.Designer.cs">
+      <DependentUpon>指定工单退料.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工单物料\工单退料.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工单物料\工单退料.Designer.cs">
+      <DependentUpon>工单退料.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工单物料\补印物料条码.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工单物料\补印物料条码.Designer.cs">
+      <DependentUpon>补印物料条码.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工单物料\工单接收撤销发料.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工单物料\工单接收撤销发料.Designer.cs">
+      <DependentUpon>工单接收撤销发料.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工单物料\物料管理主页面.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工单物料\物料管理主页面.Designer.cs">
+      <DependentUpon>物料管理主页面.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工单管理\Frm_AddSnRange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工单管理\Frm_AddSnRange.Designer.cs">
+      <DependentUpon>Frm_AddSnRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工单管理\Frm_ATE_SCRIPT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工单管理\Frm_ATE_SCRIPT.Designer.cs">
+      <DependentUpon>Frm_ATE_SCRIPT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工单管理\Frm_Crate_MO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工单管理\Frm_Crate_MO.Designer.cs">
+      <DependentUpon>Frm_Crate_MO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工单管理\Frm_RouteSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工单管理\Frm_RouteSelect.Designer.cs">
+      <DependentUpon>Frm_RouteSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工单管理\Frm_SnRange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工单管理\Frm_SnRange.Designer.cs">
+      <DependentUpon>Frm_SnRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工单管理\Frm_WO_LineSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工单管理\Frm_WO_LineSet.Designer.cs">
+      <DependentUpon>Frm_WO_LineSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\Frm_Create_Route.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\Frm_Create_Route.Designer.cs">
+      <DependentUpon>Frm_Create_Route.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\Frm_Cust_SnRule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\Frm_Cust_SnRule.Designer.cs">
+      <DependentUpon>Frm_Cust_SnRule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\ERP工单信息.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\ERP工单信息.Designer.cs">
+      <DependentUpon>ERP工单信息.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工单管理\Frm_WO_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工单管理\Frm_WO_Update.Designer.cs">
+      <DependentUpon>Frm_WO_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工单管理\生产工单管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工单管理\生产工单管理.Designer.cs">
+      <DependentUpon>生产工单管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\Frm_TimeOutSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\Frm_TimeOutSelect.Designer.cs">
+      <DependentUpon>Frm_TimeOutSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\新建生产流程.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\新建生产流程.Designer.cs">
+      <DependentUpon>新建生产流程.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\版本和标示位设定.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\版本和标示位设定.designer.cs">
+      <DependentUpon>版本和标示位设定.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\超时管控设定.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\超时管控设定.Designer.cs">
+      <DependentUpon>超时管控设定.cs</DependentUpon>
+    </Compile>
+    <Compile Include="成品出入库管理\SAP出货单打印.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="成品出入库管理\SAP出货单打印.Designer.cs">
+      <DependentUpon>SAP出货单打印.cs</DependentUpon>
+    </Compile>
+    <Compile Include="成品出入库管理\代工成品管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="成品出入库管理\代工成品管理.Designer.cs">
+      <DependentUpon>代工成品管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表管理\计划管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表管理\计划管理.Designer.cs">
+      <DependentUpon>计划管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表管理\达成率报表设定.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表管理\达成率报表设定.designer.cs">
+      <DependentUpon>达成率报表设定.cs</DependentUpon>
+    </Compile>
+    <Compile Include="生产管理\首盘备料线体变更.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="生产管理\首盘备料线体变更.Designer.cs">
+      <DependentUpon>首盘备料线体变更.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工单物料\原材料拆分.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工单物料\原材料拆分.Designer.cs">
+      <DependentUpon>原材料拆分.cs</DependentUpon>
+    </Compile>
+    <Compile Include="生产管理\产品退出工单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="生产管理\产品退出工单.Designer.cs">
+      <DependentUpon>产品退出工单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表管理\工单查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表管理\工单查询.Designer.cs">
+      <DependentUpon>工单查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表管理\达成监控.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表管理\达成监控.Designer.cs">
+      <DependentUpon>达成监控.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统设置\ATE权限分配.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统设置\ATE权限分配.Designer.cs">
+      <DependentUpon>ATE权限分配.cs</DependentUpon>
+    </Compile>
+    <Compile Include="主界面\MyTabControlEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="主界面\WebServiceIP设置.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="主界面\WebServiceIP设置.Designer.cs">
+      <DependentUpon>WebServiceIP设置.cs</DependentUpon>
+    </Compile>
+    <Compile Include="仓储管理\仓库库位管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="仓储管理\仓库库位管理.Designer.cs">
+      <DependentUpon>仓库库位管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="仓储管理\添加仓库.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="仓储管理\添加仓库.Designer.cs">
+      <DependentUpon>添加仓库.cs</DependentUpon>
+    </Compile>
+    <Compile Include="仓储管理\添加库位.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="仓储管理\添加库位.Designer.cs">
+      <DependentUpon>添加库位.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他\FrmMsg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他\FrmMsg.Designer.cs">
+      <DependentUpon>FrmMsg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他\FrmUsePwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他\FrmUsePwd.Designer.cs">
+      <DependentUpon>FrmUsePwd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="品质管理\FrmIQC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="品质管理\FrmIQC.Designer.cs">
+      <DependentUpon>FrmIQC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="品质管理\料站表审核.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="品质管理\料站表审核.Designer.cs">
+      <DependentUpon>料站表审核.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\BOM料站表比对.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\BOM料站表比对.Designer.cs">
+      <DependentUpon>BOM料站表比对.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他\FrmPartInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="其他\FrmPartInfo.Designer.cs">
+      <DependentUpon>FrmPartInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\SMT钢网管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\SMT钢网管理.Designer.cs">
+      <DependentUpon>SMT钢网管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\工单额外用料.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\工单额外用料.Designer.cs">
+      <DependentUpon>工单额外用料.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\添加厂商信息.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\添加厂商信息.Designer.cs">
+      <DependentUpon>添加厂商信息.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\管理流程.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\管理流程.Designer.cs">
+      <DependentUpon>管理流程.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\编辑料站表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\编辑料站表.Designer.cs">
+      <DependentUpon>编辑料站表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\序列号区间设置.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\序列号区间设置.Designer.cs">
+      <DependentUpon>序列号区间设置.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\编辑工艺参数.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\编辑工艺参数.Designer.cs">
+      <DependentUpon>编辑工艺参数.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\生产流程属性.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\生产流程属性.Designer.cs">
+      <DependentUpon>生产流程属性.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\创建Bom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\创建Bom.Designer.cs">
+      <DependentUpon>创建Bom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\新增Bom物料.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\新增Bom物料.Designer.cs">
+      <DependentUpon>新增Bom物料.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\显示途程组.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\显示途程组.Designer.cs">
+      <DependentUpon>显示途程组.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\添加工艺.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\添加工艺.Designer.cs">
+      <DependentUpon>添加工艺.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\计算详细条码.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\计算详细条码.Designer.cs">
+      <DependentUpon>计算详细条码.cs</DependentUpon>
+    </Compile>
+    <Compile Include="成品出入库管理\序列信息.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="成品出入库管理\序列信息.Designer.cs">
+      <DependentUpon>序列信息.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表管理\成品出入库查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表管理\成品出入库查询.designer.cs">
+      <DependentUpon>成品出入库查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表管理\QM产能报表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表管理\QM产能报表.Designer.cs">
+      <DependentUpon>QM产能报表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表管理\SelectDataListBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表管理\SelectDataListBox.Designer.cs">
+      <DependentUpon>SelectDataListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="生产管理\产品跟踪标签打印.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="生产管理\产品跟踪标签打印.Designer.cs">
+      <DependentUpon>产品跟踪标签打印.cs</DependentUpon>
+    </Compile>
+    <Compile Include="生产管理\报废与领出.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="生产管理\报废与领出.Designer.cs">
+      <DependentUpon>报废与领出.cs</DependentUpon>
+    </Compile>
+    <Compile Include="其他\InputQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表管理\在制品查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表管理\在制品查询.Designer.cs">
+      <DependentUpon>在制品查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="生产管理\工单合并.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="生产管理\工单合并.Designer.cs">
+      <DependentUpon>工单合并.cs</DependentUpon>
+    </Compile>
+    <Compile Include="生产管理\查询料站表审核.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="生产管理\查询料站表审核.Designer.cs">
+      <DependentUpon>查询料站表审核.cs</DependentUpon>
+    </Compile>
+    <Compile Include="生产管理\栈板关闭.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="生产管理\栈板关闭.Designer.cs">
+      <DependentUpon>栈板关闭.cs</DependentUpon>
+    </Compile>
+    <Compile Include="生产管理\栈板包装.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="生产管理\栈板包装.Designer.cs">
+      <DependentUpon>栈板包装.cs</DependentUpon>
+    </Compile>
+    <Compile Include="生产管理\栈板重印.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="生产管理\栈板重印.Designer.cs">
+      <DependentUpon>栈板重印.cs</DependentUpon>
+    </Compile>
+    <Compile Include="报表管理\生产记录查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表管理\生产记录查询.Designer.cs">
+      <DependentUpon>生产记录查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="生产管理\目标设定.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="生产管理\目标设定.Designer.cs">
+      <DependentUpon>目标设定.cs</DependentUpon>
+    </Compile>
+    <Compile Include="生产管理\输入权限.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表管理\SMT物料使用查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="报表管理\SMT物料使用查询.Designer.cs">
+      <DependentUpon>SMT物料使用查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统设置\FrmPrivliege.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统设置\FrmPrivliege.Designer.cs">
+      <DependentUpon>FrmPrivliege.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统设置\Frm_Station_Config_SubForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统设置\Frm_Station_Config_SubForm.Designer.cs">
+      <DependentUpon>Frm_Station_Config_SubForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统设置\站位配置.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统设置\站位配置.Designer.cs">
+      <DependentUpon>站位配置.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统设置\用户密码修改.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统设置\用户密码修改.Designer.cs">
+      <DependentUpon>用户密码修改.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统设置\包装容量设定.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统设置\包装容量设定.Designer.cs">
+      <DependentUpon>包装容量设定.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统设置\原因代码.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统设置\原因代码.Designer.cs">
+      <DependentUpon>原因代码.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统设置\用户权限管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统设置\用户权限管理.Designer.cs">
+      <DependentUpon>用户权限管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统设置\机器维护.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统设置\机器维护.Designer.cs">
+      <DependentUpon>机器维护.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\选择数据.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\选择数据.Designer.cs">
+      <DependentUpon>选择数据.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统设置\料站信息.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统设置\料站信息.Designer.cs">
+      <DependentUpon>料站信息.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\创建订单信息.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\创建订单信息.Designer.cs">
+      <DependentUpon>创建订单信息.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\创建生产工艺.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\创建生产工艺.Designer.cs">
+      <DependentUpon>创建生产工艺.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\创建生产计划.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\创建生产计划.Designer.cs">
+      <DependentUpon>创建生产计划.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统设置\工厂与部门.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统设置\工厂与部门.Designer.cs">
+      <DependentUpon>工厂与部门.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统设置\新增工厂.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统设置\新增工厂.Designer.cs">
+      <DependentUpon>新增工厂.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统设置\新增角色.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统设置\新增角色.Designer.cs">
+      <DependentUpon>新增角色.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\添加产品信息.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\添加产品信息.Designer.cs">
+      <DependentUpon>添加产品信息.cs</DependentUpon>
+    </Compile>
+    <Compile Include="生产管理\物料监控与补料.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="生产管理\物料监控与补料.Designer.cs">
+      <DependentUpon>物料监控与补料.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统设置\用户管理.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统设置\用户管理.Designer.cs">
+      <DependentUpon>用户管理.cs</DependentUpon>
+    </Compile>
+    <Compile Include="主界面\登录窗体.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="主界面\登录窗体.Designer.cs">
+      <DependentUpon>登录窗体.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\建立生产工单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\建立生产工单.Designer.cs">
+      <DependentUpon>建立生产工单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="生产管理\打印工单料表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="生产管理\打印工单料表.Designer.cs">
+      <DependentUpon>打印工单料表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="生产管理\原料清仓.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="生产管理\原料清仓.designer.cs">
+      <DependentUpon>原料清仓.cs</DependentUpon>
+    </Compile>
+    <Compile Include="工程管理\导入料站表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="工程管理\导入料站表.Designer.cs">
+      <DependentUpon>导入料站表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="主界面\主界面.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="主界面\主界面.designer.cs">
+      <DependentUpon>主界面.cs</DependentUpon>
+    </Compile>
+    <Compile Include="主界面\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BLL\MyFlowPanel.resx">
+      <DependentUpon>MyFlowPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packing_Ctn\Frm_CloseCarton.resx">
+      <DependentUpon>Frm_CloseCarton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packing_Ctn\Frm_LabelQty.resx">
+      <DependentUpon>Frm_LabelQty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packing_Ctn\Frm_NoCloseCtn.resx">
+      <DependentUpon>Frm_NoCloseCtn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packing_Ctn\Frm_Packing_Ctn.resx">
+      <DependentUpon>Frm_Packing_Ctn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packing_Ctn\Frm_Printcoordinates.resx">
+      <DependentUpon>Frm_Printcoordinates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packing_Ctn\Frm_Reprint.resx">
+      <DependentUpon>Frm_Reprint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAP数据上抛\SAP_UPLOAD.resx">
+      <DependentUpon>SAP_UPLOAD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SMT入库\SMT入库.resx">
+      <DependentUpon>SMT入库.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="主界面\WebServiceIP设置.resx">
+      <DependentUpon>WebServiceIP设置.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="仓储管理\仓库库位管理.resx">
+      <DependentUpon>仓库库位管理.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="仓储管理\添加仓库.resx">
+      <DependentUpon>添加仓库.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="仓储管理\添加库位.resx">
+      <DependentUpon>添加库位.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="仓储管理\采购订单管理.resx">
+      <DependentUpon>采购订单管理.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\FrmMsg.resx">
+      <DependentUpon>FrmMsg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\FrmUsePwd.resx">
+      <DependentUpon>FrmUsePwd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\Frm_CheckListBox.resx">
+      <DependentUpon>Frm_CheckListBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\Frm_StationName.resx">
+      <DependentUpon>Frm_StationName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\Frm_StationName.zu.resx">
+      <DependentUpon>Frm_StationName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="品质管理\FrmIQC.resx">
+      <DependentUpon>FrmIQC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="品质管理\Frm_FQC.resx">
+      <DependentUpon>Frm_FQC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="品质管理\Frm_Fqc_Report.resx">
+      <DependentUpon>Frm_Fqc_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="品质管理\Frm_Sel_Info.resx">
+      <DependentUpon>Frm_Sel_Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="品质管理\Frm_SetDay.resx">
+      <DependentUpon>Frm_SetDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工单物料\Frm_InputQty.resx">
+      <DependentUpon>Frm_InputQty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工单物料\修改退料料盘数量.resx">
+      <DependentUpon>修改退料料盘数量.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工单物料\指定工单退料.resx">
+      <DependentUpon>指定工单退料.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工单物料\工单退料.resx">
+      <DependentUpon>工单退料.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工单物料\补印物料条码.resx">
+      <DependentUpon>补印物料条码.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工单物料\工单接收撤销发料.resx">
+      <DependentUpon>工单接收撤销发料.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工单物料\物料管理主页面.resx">
+      <DependentUpon>物料管理主页面.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工单管理\Frm_AddSnRange.resx">
+      <DependentUpon>Frm_AddSnRange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工单管理\Frm_ATE_SCRIPT.resx">
+      <DependentUpon>Frm_ATE_SCRIPT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工单管理\Frm_RouteSelect.resx">
+      <DependentUpon>Frm_RouteSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工单管理\Frm_SnRange.resx">
+      <DependentUpon>Frm_SnRange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工单管理\Frm_WO_LineSet.resx">
+      <DependentUpon>Frm_WO_LineSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\BOM料站表比对.resx">
+      <DependentUpon>BOM料站表比对.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\FrmPartInfo.resx">
+      <DependentUpon>FrmPartInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工单管理\Frm_Crate_MO.resx">
+      <DependentUpon>Frm_Crate_MO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\Frm_Create_Route.resx">
+      <DependentUpon>Frm_Create_Route.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\Frm_Cust_SnRule.resx">
+      <DependentUpon>Frm_Cust_SnRule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\ERP工单信息.resx">
+      <DependentUpon>ERP工单信息.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\Frm_TimeOutSelect.resx">
+      <DependentUpon>Frm_TimeOutSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工单管理\Frm_WO_Update.resx">
+      <DependentUpon>Frm_WO_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\新建生产流程.resx">
+      <DependentUpon>新建生产流程.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\版本和标示位设定.resx">
+      <DependentUpon>版本和标示位设定.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工单管理\生产工单管理.resx">
+      <DependentUpon>生产工单管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\超时管控设定.resx">
+      <DependentUpon>超时管控设定.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\SMT钢网管理.resx">
+      <DependentUpon>SMT钢网管理.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\工单额外用料.resx">
+      <DependentUpon>工单额外用料.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\序列号区间设置.resx">
+      <DependentUpon>序列号区间设置.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="品质管理\料站表审核.resx">
+      <DependentUpon>料站表审核.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\添加厂商信息.resx">
+      <DependentUpon>添加厂商信息.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\管理流程.resx">
+      <DependentUpon>管理流程.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\编辑工艺参数.resx">
+      <DependentUpon>编辑工艺参数.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\生产流程属性.resx">
+      <DependentUpon>生产流程属性.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\创建Bom.resx">
+      <DependentUpon>创建Bom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\新增Bom物料.resx">
+      <DependentUpon>新增Bom物料.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\显示途程组.resx">
+      <DependentUpon>显示途程组.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\添加工艺.resx">
+      <DependentUpon>添加工艺.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\编辑料站表.resx">
+      <DependentUpon>编辑料站表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="其他\InputQuery.resx">
+      <DependentUpon>InputQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\计算详细条码.resx">
+      <DependentUpon>计算详细条码.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="成品出入库管理\SAP出货单打印.resx">
+      <DependentUpon>SAP出货单打印.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="成品出入库管理\代工成品管理.resx">
+      <DependentUpon>代工成品管理.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="成品出入库管理\序列信息.resx">
+      <DependentUpon>序列信息.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表管理\成品出入库查询.resx">
+      <DependentUpon>成品出入库查询.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表管理\计划管理.resx">
+      <DependentUpon>计划管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表管理\达成率报表设定.resx">
+      <DependentUpon>达成率报表设定.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="生产管理\首盘备料线体变更.resx">
+      <DependentUpon>首盘备料线体变更.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表管理\QM产能报表.resx">
+      <DependentUpon>QM产能报表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表管理\SelectDataListBox.resx">
+      <DependentUpon>SelectDataListBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="生产管理\产品跟踪标签打印.resx">
+      <DependentUpon>产品跟踪标签打印.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="生产管理\产品退出工单.resx">
+      <DependentUpon>产品退出工单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工单物料\原材料拆分.resx">
+      <DependentUpon>原材料拆分.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表管理\在制品查询.resx">
+      <DependentUpon>在制品查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="生产管理\工单合并.resx">
+      <DependentUpon>工单合并.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表管理\工单查询.resx">
+      <DependentUpon>工单查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="生产管理\报废与领出.resx">
+      <DependentUpon>报废与领出.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="生产管理\查询料站表审核.resx">
+      <DependentUpon>查询料站表审核.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="生产管理\栈板关闭.resx">
+      <DependentUpon>栈板关闭.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="生产管理\栈板包装.resx">
+      <DependentUpon>栈板包装.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="生产管理\栈板重印.resx">
+      <DependentUpon>栈板重印.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表管理\生产记录查询.resx">
+      <DependentUpon>生产记录查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="生产管理\目标设定.resx">
+      <DependentUpon>目标设定.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="生产管理\输入权限.resx">
+      <DependentUpon>输入权限.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表管理\SMT物料使用查询.resx">
+      <DependentUpon>SMT物料使用查询.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="报表管理\达成监控.resx">
+      <DependentUpon>达成监控.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统设置\ATE权限分配.resx">
+      <DependentUpon>ATE权限分配.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统设置\FrmPrivliege.resx">
+      <DependentUpon>FrmPrivliege.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统设置\Frm_Station_Config_SubForm.resx">
+      <DependentUpon>Frm_Station_Config_SubForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统设置\站位配置.resx">
+      <DependentUpon>站位配置.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统设置\用户密码修改.resx">
+      <DependentUpon>用户密码修改.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统设置\包装容量设定.resx">
+      <DependentUpon>包装容量设定.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统设置\原因代码.resx">
+      <DependentUpon>原因代码.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统设置\用户权限管理.resx">
+      <DependentUpon>用户权限管理.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统设置\机器维护.resx">
+      <DependentUpon>机器维护.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\选择数据.resx">
+      <DependentUpon>选择数据.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\创建订单信息.resx">
+      <DependentUpon>创建订单信息.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\创建生产工艺.resx">
+      <DependentUpon>创建生产工艺.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\创建生产计划.resx">
+      <DependentUpon>创建生产计划.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统设置\工厂与部门.resx">
+      <DependentUpon>工厂与部门.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统设置\料站信息.resx">
+      <DependentUpon>料站信息.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统设置\新增工厂.resx">
+      <DependentUpon>新增工厂.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统设置\新增角色.resx">
+      <DependentUpon>新增角色.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\添加产品信息.resx">
+      <DependentUpon>添加产品信息.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="生产管理\物料监控与补料.resx">
+      <DependentUpon>物料监控与补料.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统设置\用户管理.resx">
+      <DependentUpon>用户管理.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="主界面\登录窗体.resx">
+      <DependentUpon>登录窗体.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\建立生产工单.resx">
+      <DependentUpon>建立生产工单.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="生产管理\打印工单料表.resx">
+      <DependentUpon>打印工单料表.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="生产管理\原料清仓.resx">
+      <DependentUpon>原料清仓.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="工程管理\导入料站表.resx">
+      <DependentUpon>导入料站表.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="主界面\主界面.resx">
+      <DependentUpon>主界面.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统设置\线体设定.resx">
+      <DependentUpon>线体设定.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统设置\车间设定.resx">
+      <DependentUpon>车间设定.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="生产管理\首盘备料.resx">
+      <DependentUpon>首盘备料.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统设置\错误代码.resx">
+      <DependentUpon>错误代码.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="维修管理\Frm_ChangeKP.RESX">
+      <DependentUpon>Frm_ChangeKP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="维修管理\Frm_Duty.resx">
+      <DependentUpon>Frm_Duty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="维修管理\Frm_InputSn.resx">
+      <DependentUpon>Frm_InputSn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="维修管理\Frm_ReasonCode.resx">
+      <DependentUpon>Frm_ReasonCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="维修管理\Frm_RepairMain.resx">
+      <DependentUpon>Frm_RepairMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="维修管理\Frm_SelcetNextStation.resx">
+      <DependentUpon>Frm_SelcetNextStation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="维修管理\Frm_Update.resx">
+      <DependentUpon>Frm_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="维修管理\产品维修.resx">
+      <DependentUpon>产品维修.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="维修管理\责任单位.resx">
+      <DependentUpon>责任单位.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="过站管理\Frm_AssyFirst.resx">
+      <DependentUpon>Frm_AssyFirst.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="过站管理\Frm_ColorBoxPrint.resx">
+      <DependentUpon>Frm_ColorBoxPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="过站管理\Frm_ColorBox_RePrint.resx">
+      <DependentUpon>Frm_ColorBox_RePrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="过站管理\Frm_INPUT_SN_FIRST.resx">
+      <DependentUpon>Frm_INPUT_SN_FIRST.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="过站管理\Frm_ReworkInput.resx">
+      <DependentUpon>Frm_ReworkInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="过站管理\过站管理主页面.resx">
+      <DependentUpon>过站管理主页面.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="过站管理\Frm_TEST_INPUT.resx">
+      <DependentUpon>Frm_TEST_INPUT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="过站管理\Frm_TEST_MAIN_ONLY.resx">
+      <DependentUpon>Frm_TEST_MAIN_ONLY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="重工管理\Frm_ReworkByPiece.resx">
+      <DependentUpon>Frm_ReworkByPiece.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="重工管理\Frm_ReworkDetailInfo.resx">
+      <DependentUpon>Frm_ReworkDetailInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="重工管理\Frm_ReworkPD.resx">
+      <DependentUpon>Frm_ReworkPD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="重工管理\Frm_ReworkPDMain.resx">
+      <DependentUpon>Frm_ReworkPDMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="重工管理\添加重工信息.resx">
+      <DependentUpon>添加重工信息.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="系统设置\线体设定.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统设置\线体设定.Designer.cs">
+      <DependentUpon>线体设定.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统设置\车间设定.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统设置\车间设定.Designer.cs">
+      <DependentUpon>车间设定.cs</DependentUpon>
+    </Compile>
+    <Compile Include="生产管理\首盘备料.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="生产管理\首盘备料.Designer.cs">
+      <DependentUpon>首盘备料.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统设置\错误代码.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统设置\错误代码.Designer.cs">
+      <DependentUpon>错误代码.cs</DependentUpon>
+    </Compile>
+    <Compile Include="维修管理\Frm_ChangeKP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="维修管理\Frm_ChangeKP.Designer.cs">
+      <DependentUpon>Frm_ChangeKP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="维修管理\Frm_Duty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="维修管理\Frm_Duty.Designer.cs">
+      <DependentUpon>Frm_Duty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="维修管理\Frm_InputSn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="维修管理\Frm_InputSn.Designer.cs">
+      <DependentUpon>Frm_InputSn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="维修管理\Frm_ReasonCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="维修管理\Frm_ReasonCode.Designer.cs">
+      <DependentUpon>Frm_ReasonCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="维修管理\Frm_RepairMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="维修管理\Frm_RepairMain.Designer.cs">
+      <DependentUpon>Frm_RepairMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="维修管理\Frm_SelcetNextStation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="维修管理\Frm_SelcetNextStation.Designer.cs">
+      <DependentUpon>Frm_SelcetNextStation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="维修管理\Frm_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="维修管理\Frm_Update.Designer.cs">
+      <DependentUpon>Frm_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="维修管理\产品维修.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="维修管理\产品维修.Designer.cs">
+      <DependentUpon>产品维修.cs</DependentUpon>
+    </Compile>
+    <Compile Include="维修管理\责任单位.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="维修管理\责任单位.Designer.cs">
+      <DependentUpon>责任单位.cs</DependentUpon>
+    </Compile>
+    <Compile Include="过站管理\Frm_AssyFirst.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="过站管理\Frm_AssyFirst.Designer.cs">
+      <DependentUpon>Frm_AssyFirst.cs</DependentUpon>
+    </Compile>
+    <Compile Include="过站管理\Frm_ColorBoxPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="过站管理\Frm_ColorBoxPrint.Designer.cs">
+      <DependentUpon>Frm_ColorBoxPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="过站管理\Frm_ColorBox_RePrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="过站管理\Frm_ColorBox_RePrint.Designer.cs">
+      <DependentUpon>Frm_ColorBox_RePrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="过站管理\Frm_INPUT_SN_FIRST.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="过站管理\Frm_INPUT_SN_FIRST.Designer.cs">
+      <DependentUpon>Frm_INPUT_SN_FIRST.cs</DependentUpon>
+    </Compile>
+    <Compile Include="过站管理\Frm_ReworkInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="过站管理\Frm_ReworkInput.Designer.cs">
+      <DependentUpon>Frm_ReworkInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="过站管理\过站管理主页面.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="过站管理\过站管理主页面.Designer.cs">
+      <DependentUpon>过站管理主页面.cs</DependentUpon>
+    </Compile>
+    <Compile Include="过站管理\Frm_TEST_INPUT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="过站管理\Frm_TEST_INPUT.Designer.cs">
+      <DependentUpon>Frm_TEST_INPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="过站管理\Frm_TEST_MAIN_ONLY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="过站管理\Frm_TEST_MAIN_ONLY.Designer.cs">
+      <DependentUpon>Frm_TEST_MAIN_ONLY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="重工管理\Frm_ReworkByPiece.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="重工管理\Frm_ReworkByPiece.Designer.cs">
+      <DependentUpon>Frm_ReworkByPiece.cs</DependentUpon>
+    </Compile>
+    <Compile Include="重工管理\Frm_ReworkDetailInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="重工管理\Frm_ReworkDetailInfo.Designer.cs">
+      <DependentUpon>Frm_ReworkDetailInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="重工管理\Frm_ReworkPD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="重工管理\Frm_ReworkPD.Designer.cs">
+      <DependentUpon>Frm_ReworkPD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="重工管理\Frm_ReworkPDMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="重工管理\Frm_ReworkPDMain.Designer.cs">
+      <DependentUpon>Frm_ReworkPDMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="重工管理\添加重工信息.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="重工管理\添加重工信息.Designer.cs">
+      <DependentUpon>添加重工信息.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BLL\BLL.csproj">
+      <Project>{3AE4977D-378E-4B00-8C45-4B8AA316F928}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MsgNotice\MsgNotice.csproj">
+      <Project>{DB7F0DF8-2878-4F3B-82AF-E8C22AD5145F}</Project>
+      <Name>MsgNotice</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Notice\Notice.csproj">
+      <Project>{F58A0E2E-5435-4F5E-B156-D2F5717FCFB9}</Project>
+      <Name>Notice</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\refWebServices\CreateWebServicesDll.csproj">
+      <Project>{480FC105-A82F-40D7-9AA3-68DA7FEBBCBE}</Project>
+      <Name>CreateWebServicesDll</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="主界面\app.config" />
+    <None Include="系统文档\Application.mmap" />
+    <None Include="系统文档\SFIS系统使用手册.docx" />
+    <None Include="系统文档\SFIS系统服务器网络配置图.vsd" />
+    <None Include="系统文档\SFIS系统流程.vsd" />
+    <None Include="系统文档\系统架构.pdf" />
+    <None Include="系统文档\项目进度计划表.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\controlpanel.png" />
+    <None Include="Resources\42211_1410829815.png" />
+    <None Include="Resources\29453.gif" />
+    <None Include="Resources\twitter-blue.png" />
+    <None Include="Resources\cust.png" />
+    <None Include="Resources\cloud-out.png" />
+    <None Include="Resources\chalkboard.png" />
+    <None Include="Resources\alarm.png" />
+    <None Include="Resources\REPAIR.ICO" />
+    <None Include="Resources\gear blue-2.png" />
+    <None Include="Resources\gear_wheel.png" />
+    <None Include="Resources\display2.png" />
+    <None Include="Resources\gnome-dev-zipdisk-1.png" />
+    <None Include="Resources\11.bmp" />
+    <None Include="Resources\2222.bmp" />
+    <None Include="Resources\33333.bmp" />
+    <None Include="Resources\systemtray-3.png" />
+    <None Include="Resources\PACK_CTN.png" />
+    <Content Include="sfis.ico" />
+    <Content Include="主界面\34.ico" />
+    <Content Include="版本记录\版本记录.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Stockin\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

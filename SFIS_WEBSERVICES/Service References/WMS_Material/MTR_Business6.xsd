@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/BLL" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BLL" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="tSmtKpMonitor.CDATA">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="缺料" />
+      <xs:enumeration value="已经补料" />
+      <xs:enumeration value="刷完换料" />
+      <xs:enumeration value="首盘备料" />
+      <xs:enumeration value="删除" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="tSmtKpMonitor.CDATA" nillable="true" type="tns:tSmtKpMonitor.CDATA" />
+  <xs:simpleType name="tSmtIO.SmtIOStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="正在备料" />
+      <xs:enumeration value="备料完成" />
+      <xs:enumeration value="正在换线" />
+      <xs:enumeration value="已换线" />
+      <xs:enumeration value="下线" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="tSmtIO.SmtIOStatus" nillable="true" type="tns:tSmtIO.SmtIOStatus" />
+</xs:schema>

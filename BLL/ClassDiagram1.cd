@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BLL.BllMsSqllib" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAABAAAAAQAAAAAABAAA=</HashCode>
+      <FileName>BllMsSqllib.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BLL.CfgIniFile" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAgAAAAAAAAAAACAACAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>CfgIniFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.ExcelToDb" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAEAAAAIAAAAAAAQBAAAAAAAAAQAAAA=</HashCode>
+      <FileName>ExcelToDb.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.ProPublicStoredproc" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAEAAAAAAAAAAQAAAAAQACAAAAAQAIAAABAAAAAAAA=</HashCode>
+      <FileName>ProPublicStoredproc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.RecodeSystemLog" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RecodeSystemLog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.ServerConfig" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAACAQAAIAAEAAAACABAgIAAQACgAAAAAAA=</HashCode>
+      <FileName>ServerConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.SetTime" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SetTime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tBomKeyPart" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAABAAAAACAAAAAAAAEAAAAAAQAAAAAA=</HashCode>
+      <FileName>tBomKeyPart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tCraftInfo" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQACBAAIECAAgEAAAAAABRBAAAAAAAAAQ=</HashCode>
+      <FileName>tCraftInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tCustomer" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAABAAgAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>tCustomer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tDeptInfo" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAICAAAAAAAACACAAAAAAAAAA=</HashCode>
+      <FileName>tDeptInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tEditing" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAABAAAAAECAAAAAAgQAAAAAAAQAAAAA=</HashCode>
+      <FileName>tEditing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tErrorCode" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAABAAAAABAAgAAAAAAAAIAACAAAAAAg=</HashCode>
+      <FileName>tErrorCode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tFacInfo" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAAAAAgAAAAABAAAAgAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>tFacInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tFixtureInfo" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgoIAAAAAAAABgAEAIAAAAAAABAIQAgAAAAAAAAAQ=</HashCode>
+      <FileName>tFixtureInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tKeyPart" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAQAAAAAAAAAQAQAAAAAAgAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>tKeyPart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tLineInfo" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAQAACAAAAAAAIAAAAAAAAAQAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>tLineInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tMachineId" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAABAACAAAAAABAAAAAAAAAAAAAAAAAAABAQAAAAAA=</HashCode>
+      <FileName>tMachineInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tMaterialPreparation_1" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAQAAAAAAAAABBACAAAAAQAAACQAAAAAAAQAgAAAAA=</HashCode>
+      <FileName>tMaterialPreparation_1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tMaterialsReceive" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>tMaterialsReceive.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tPackParameters" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABgAQACAAAAAAAAAIAACAAAAAAAAAA=</HashCode>
+      <FileName>tPackParameters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tPalletInfo" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQBABIAAAAAABAAEEQAAAAAAAQgEBAAAAAAAAEQAA=</HashCode>
+      <FileName>tPalletInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.ErrMsg" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>tPalletInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.SimpleAsyncResult" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAACAAAAIAAAAAGAAAAEAAAhAQAAAAAQAAAAA=</HashCode>
+      <FileName>tPalletInfo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BLL.tPartBlocked" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQBAAQAAAAEAAAQEAAAAAAAAAAA=</HashCode>
+      <FileName>tPartBlocked.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tPartKeyParts" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAACAAAAAAAgAAA=</HashCode>
+      <FileName>tPartKeyParts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tPartMap" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>tPartMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tPartStorehousehad" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IABAAAAAIAAAAAAABgAAAAgAAIAAABAAAgAAAAAIAAA=</HashCode>
+      <FileName>tPartStorehousehad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tProduct" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAFAAAiAEAAAAAAAgAAAAAAAAAAgAAAABAACCAAAAA=</HashCode>
+      <FileName>tProduct.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tReasonCode" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAEAAQAAAAAAQAAAAAEAAAAABAABAAAAAAA=</HashCode>
+      <FileName>tReasonCode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tRepairInfo" Collapsed="true">
+    <Position X="12.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgAAAgAgAAGAAARIAAAAgRAAEAAAAAAAAQABAIAAAIA=</HashCode>
+      <FileName>tRepairInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tReworkDetailInfo" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAEAAAQAAAAAAAIAAAAEAAAAAAAAAAAAAABgAA=</HashCode>
+      <FileName>tReworkDetailInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tRoleInfo" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAEAAEAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>tRoleInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tRouteInfo" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAIAAgAAgAIAoAAggAAAIIAIgAAAABAAASAAAAA=</HashCode>
+      <FileName>tRouteInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tScrapInfo" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>tScrapInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tSmtIO" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAIAAACAABAAAAAAAAQAAAAAAAAABIAAAAAAAA=</HashCode>
+      <FileName>tSmtIO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tSmtKPMaster" Collapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABgAACAAAAAAAAAAAAAAEAAAAAAACMACSQAAAQJAYA=</HashCode>
+      <FileName>tSmtKPMaster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tSmtKpMonitor" Collapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAABEgCAAAIACAgCAAAAAAEBAJAAIIAAAoAAAgAAAA=</HashCode>
+      <FileName>tSmtKpMonitor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tSmtKpNormalLog" Collapsed="true">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAAAAAAAAA=</HashCode>
+      <FileName>tSmtKpNormalLog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tStationrecount" Collapsed="true">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAQAAAAAAAAAAAgABEAAAAgAACAgAACAAAAAAAAA=</HashCode>
+      <FileName>tStationrecount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tStorehouseManage" Collapsed="true">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABgAAIQgIhASAAQQAFEAABAAAAAABABAAAAAAAAAAAA=</HashCode>
+      <FileName>tStorehouseManage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tTargetPlan" Collapsed="true">
+    <Position X="5.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAARAAAAAAAABAIAAAAAAAACAAAAAAAAAAAAAgAIAAA=</HashCode>
+      <FileName>tTargetPlan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tVendCode" Collapsed="true">
+    <Position X="9.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>tVendCode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tVenderInfo" Collapsed="true">
+    <Position X="11" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAABAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>tVenderInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tWarehouseWipTracking" Collapsed="true">
+    <Position X="12.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAEAAAAAAAgAAAAAEAABEAAAA=</HashCode>
+      <FileName>tWarehouseWipTracking.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tWipDetail" Collapsed="true">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>tWipDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tWipKeyPart" Collapsed="true">
+    <Position X="2.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAEAACAAAABAAAAAAKIAAAAAAAAAAAAA=</HashCode>
+      <FileName>tWipKeyPart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tWipTracking" Collapsed="true">
+    <Position X="4" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAFAQKBwIABAAIAHAQIAAAggAAgAKpgCAiAEAgAABBA=</HashCode>
+      <FileName>tWipTracking.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tWoBomInfo" Collapsed="true">
+    <Position X="5.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQAgAAAAAAAAACABAAABAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>tWoBomInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tWsInfo" Collapsed="true">
+    <Position X="11" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAIAAAAAAAAAEAAAAAAAAAAAQAA=</HashCode>
+      <FileName>tWsInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.Properties.Settings" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tUserInfo" Collapsed="true">
+    <Position X="7.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAIAEACABAAgEgAAAAAAAAARAFAAQAAAABQCAQg=</HashCode>
+      <FileName>tUserInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.tWoInfo" Collapsed="true">
+    <Position X="7.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IEYAIQKAEkQBBADAEAAAoIABCAEAIAAIAIARIUggAIA=</HashCode>
+      <FileName>tWoInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

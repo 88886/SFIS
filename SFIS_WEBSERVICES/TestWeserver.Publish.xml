@@ -1,0 +1,70 @@
+<publishData>
+  <publishTarget publishUrl="\\172.16.196.210\SFIS_WEBSERVER2\">
+    <file relUrl="bin/Entity.dll" publishTime="07/27/2012 10:09:30" />
+    <file relUrl="publicfuntion.asmx" publishTime="07/23/2012 12:44:05" />
+    <file relUrl="AddProductInfo.asmx" publishTime="07/23/2012 12:46:27" />
+    <file relUrl="bin/Interop.Microsoft.Office.Core.dll" publishTime="01/24/2007 08:14:08" />
+    <file relUrl="RecodeSystemLog.asmx" publishTime="07/23/2012 12:43:41" />
+    <file relUrl="tWoInfo.asmx" publishTime="07/17/2012 09:20:46" />
+    <file relUrl="Web.config" publishTime="07/17/2012 09:16:11" />
+    <file relUrl="tDeptInfo.asmx" publishTime="07/23/2012 12:43:07" />
+    <file relUrl="bin/Interop.Office.dll" publishTime="08/16/2004 03:00:00" />
+    <file relUrl="tWoBomInfo.asmx" publishTime="07/23/2012 11:27:36" />
+    <file relUrl="bin/BLL.dll" publishTime="07/27/2012 13:49:36" />
+    <file relUrl="bin/Interop.Excel.dll" publishTime="08/16/2004 02:59:00" />
+    <file relUrl="bin/TestWeserver.pdb" publishTime="07/27/2012 13:49:41" />
+    <file relUrl="bin/DAL.pdb" publishTime="07/27/2012 13:12:31" />
+    <file relUrl="bin/Entity.pdb" publishTime="07/27/2012 10:09:30" />
+    <file relUrl="bin/DAL.dll" publishTime="07/27/2012 13:12:31" />
+    <file relUrl="tRoleInfo.asmx" publishTime="07/23/2012 12:41:45" />
+    <file relUrl="TestWeserver.Publish.xml" publishTime="07/27/2012 13:22:17" />
+    <file relUrl="bin/TestWeserver.dll" publishTime="07/27/2012 13:49:41" />
+    <file relUrl="tWsInfo.asmx" publishTime="07/23/2012 11:27:02" />
+    <file relUrl="tCraftInfo.asmx" publishTime="07/23/2012 12:43:22" />
+    <file relUrl="tProduct.asmx" publishTime="07/23/2012 12:42:01" />
+    <file relUrl="tStationNoInfo.asmx" publishTime="07/23/2012 11:29:01" />
+    <file relUrl="tSmtKpNormalLog.asmx" publishTime="07/27/2012 10:01:18" />
+    <file relUrl="bin/BLL.pdb" publishTime="07/27/2012 13:49:36" />
+    <file relUrl="tMachineInfo.asmx" publishTime="07/23/2012 12:42:18" />
+    <file relUrl="tLineInfo.asmx" publishTime="07/23/2012 12:42:42" />
+    <file relUrl="ExcelToDb.asmx" publishTime="07/23/2012 12:44:23" />
+    <file relUrl="tSmtKpMonitor.asmx" publishTime="07/25/2012 22:36:21" />
+    <file relUrl="tFacInfo.asmx" publishTime="07/23/2012 12:42:55" />
+    <file relUrl="tUserInfo.asmx" publishTime="07/23/2012 11:27:52" />
+    <file relUrl="MsConnSQL.asmx" publishTime="07/23/2012 15:46:05" />
+    <file relUrl="tPartBlocked.asmx" publishTime="07/26/2012 08:35:58" />
+  </publishTarget>
+  <publishTarget publishUrl="D:\SFIS_WEBSERVICES\">
+    <file relUrl="tWoBomInfo.asmx" publishTime="07/23/2012 11:27:36" />
+    <file relUrl="publicfuntion.asmx" publishTime="07/23/2012 12:44:05" />
+    <file relUrl="AddProductInfo.asmx" publishTime="07/23/2012 12:46:27" />
+    <file relUrl="bin/Interop.Microsoft.Office.Core.dll" publishTime="01/24/2007 08:14:08" />
+    <file relUrl="RecodeSystemLog.asmx" publishTime="07/23/2012 12:43:41" />
+    <file relUrl="tMachineInfo.asmx" publishTime="07/23/2012 12:42:18" />
+    <file relUrl="Web.config" publishTime="07/17/2012 09:16:11" />
+    <file relUrl="tDeptInfo.asmx" publishTime="07/23/2012 12:43:07" />
+    <file relUrl="bin/BLL.pdb" publishTime="07/26/2012 06:38:31" />
+    <file relUrl="MsConnSQL.asmx" publishTime="07/23/2012 15:46:05" />
+    <file relUrl="bin/BLL.dll" publishTime="07/26/2012 06:38:31" />
+    <file relUrl="bin/Interop.Office.dll" publishTime="08/16/2004 03:00:00" />
+    <file relUrl="bin/TestWeserver.pdb" publishTime="07/26/2012 06:41:18" />
+    <file relUrl="bin/DAL.pdb" publishTime="07/25/2012 22:43:41" />
+    <file relUrl="bin/Entity.pdb" publishTime="07/25/2012 22:43:40" />
+    <file relUrl="bin/DAL.dll" publishTime="07/25/2012 22:43:41" />
+    <file relUrl="tRoleInfo.asmx" publishTime="07/23/2012 12:41:45" />
+    <file relUrl="TestWeserver.Publish.xml" publishTime="07/25/2012 22:43:46" />
+    <file relUrl="bin/Entity.dll" publishTime="07/25/2012 22:43:40" />
+    <file relUrl="bin/TestWeserver.dll" publishTime="07/26/2012 06:41:18" />
+    <file relUrl="tWsInfo.asmx" publishTime="07/23/2012 11:27:02" />
+    <file relUrl="tCraftInfo.asmx" publishTime="07/23/2012 12:43:22" />
+    <file relUrl="tProduct.asmx" publishTime="07/23/2012 12:42:01" />
+    <file relUrl="tStationNoInfo.asmx" publishTime="07/23/2012 11:29:01" />
+    <file relUrl="tLineInfo.asmx" publishTime="07/23/2012 12:42:42" />
+    <file relUrl="ExcelToDb.asmx" publishTime="07/23/2012 12:44:23" />
+    <file relUrl="tSmtKpMonitor.asmx" publishTime="07/25/2012 22:36:21" />
+    <file relUrl="tFacInfo.asmx" publishTime="07/23/2012 12:42:55" />
+    <file relUrl="tUserInfo.asmx" publishTime="07/23/2012 11:27:52" />
+    <file relUrl="tWoInfo.asmx" publishTime="07/17/2012 09:20:46" />
+    <file relUrl="bin/Interop.Excel.dll" publishTime="08/16/2004 02:59:00" />
+  </publishTarget>
+</publishData>

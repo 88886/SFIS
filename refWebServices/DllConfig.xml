@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="gb2312"?>
+<AutoCreate>
+  <URLAddres URL="http://172.16.173.76/SFIS_WEBSER/"/>
+  <FileList>
+    <FileName Name="AddProductInfo.asmx"/>
+    <FileName Name="ExcelToDb.asmx"/>
+    <FileName Name="ExecuteSqlCmd.asmx"/>
+    <FileName Name="RecodeSystemLog.asmx"/>
+    <FileName Name="tCraftInfo.asmx"/>
+    <FileName Name="tDeptInfo.asmx"/>
+    <FileName Name="tFacInfo.asmx"/>
+    <FileName Name="tLineInfo.asmx"/>
+    <FileName Name="tMachineInfo.asmx"/>
+    <FileName Name="tPartBlocked.asmx"/>
+    <FileName Name="tPartMap.asmx"/>
+    <FileName Name="tPartStorehousehad.asmx"/>
+    <FileName Name="tProduct.asmx"/>
+    <FileName Name="tRoleInfo.asmx"/>
+    <FileName Name="tRouteInfo.asmx"/>
+    <FileName Name="tSmtKpMonitor.asmx"/>
+    <FileName Name="tSmtKpNormalLog.asmx"/>
+    <FileName Name="tStationNoInfo.asmx"/>
+    <FileName Name="tStorehouseManage.asmx"/>
+    <FileName Name="tUserInfo.asmx"/>
+    <FileName Name="tVenderCode.asmx"/>
+    <FileName Name="tVenderInfo.asmx"/>
+    <FileName Name="tWoBomInfo.asmx"/>
+    <FileName Name="tWoInfo.asmx"/>
+    <FileName Name="tWsInfo.asmx"/>    
+  </FileList>
+</AutoCreate>

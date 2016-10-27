@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="测试用例1.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="测试用例1_wcftest_Web_ESD_Info" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://testlogser/ESD_WcfService/Web_ESD_Info.svc</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,597 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7C507905-F63B-4AB7-8DA5-9AD6D3C076D5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TestWeserver</RootNamespace>
+    <AssemblyName>TestWeserver</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <UseIISExpress>false</UseIISExpress>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'xxx|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GenericUtil">
+      <HintPath>..\RELEASE\GenericUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\RELEASE\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="sapnco, Version=3.0.0.42, Culture=neutral, PublicKeyToken=50436dca5c7f7d23, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\SAP\SAP_DotNetConnector3_x86\sapnco.dll</HintPath>
+    </Reference>
+    <Reference Include="sapnco_utils, Version=3.0.0.42, Culture=neutral, PublicKeyToken=50436dca5c7f7d23, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\SAP\SAP_DotNetConnector3_x86\sapnco_utils.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AddProductInfo.asmx" />
+    <Content Include="Check_Version.asmx" />
+    <Content Include="CreateWebServieRef.asmx" />
+    <Content Include="ExcelToDb.asmx" />
+    <Content Include="ExecuteSqlCmd.asmx" />
+    <Content Include="MoblieWeb.asmx" />
+    <Content Include="RecodeSystemLog.asmx" />
+    <Content Include="SapConnector.asmx" />
+    <None Include="Service References\WH_Business\Warehouse_Business.wsdl" />
+    <None Include="Service References\WH_Business\Warehouse_Business.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WH_Business\Warehouse_Business1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WH_Business\Warehouse_Business2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WH_Business\Warehouse_Business3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WH_Business\Warehouse_Business4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WMS_Material\MTR_Business1.wsdl" />
+    <None Include="Service References\WMS_Material\MTR_Business6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WMS_Material\MTR_Business61.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WMS_Material\MTR_Business62.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WMS_Material\MTR_Business63.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WMS_Material\MTR_Business64.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WMS_Material\MTR_Business65.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WMS_SapConnector\configuration91.svcinfo" />
+    <None Include="Service References\WMS_SapConnector\configuration.svcinfo" />
+    <None Include="Service References\WMS_SapConnector\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WMS_Material\configuration91.svcinfo" />
+    <None Include="Service References\WMS_Material\configuration.svcinfo" />
+    <None Include="Service References\WMS_Material\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WMS_SapConnector\SapConnector.disco" />
+    <None Include="Service References\WH_Business\configuration91.svcinfo" />
+    <None Include="Service References\WH_Business\configuration.svcinfo" />
+    <None Include="Service References\WH_Business\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="tBomKeyPart.asmx" />
+    <Content Include="tB_MAIL_T.asmx" />
+    <Content Include="tB_SnRule_PartNumber.asmx" />
+    <Content Include="tB_SNRULE_WO.asmx" />
+    <Content Include="tB_User_Info.asmx" />
+    <Content Include="tCheckDataTestAte.asmx" />
+    <Content Include="tCraftInfo.asmx" />
+    <Content Include="tCustomer.asmx" />
+    <Content Include="tDeptInfo.asmx" />
+    <Content Include="tEditing.asmx" />
+    <Content Include="tEerrorCode.asmx" />
+    <Content Include="TestWeserver.Publish.xml" />
+    <Content Include="tFacInfo.asmx" />
+    <Content Include="tFixtureInfo.asmx" />
+    <Content Include="tGetServersTime.asmx" />
+    <Content Include="tKeyPart.asmx" />
+    <Content Include="tLineInfo.asmx" />
+    <Content Include="tMachineInfo.asmx" />
+    <Content Include="tMaterialPreparation.asmx" />
+    <Content Include="tMaterialsReceive.asmx" />
+    <Content Include="tPackParameters.asmx" />
+    <Content Include="tPalletInfo.asmx" />
+    <Content Include="tPartBlocked.asmx" />
+    <Content Include="tPartKeyParts.asmx" />
+    <Content Include="tPartMap.asmx" />
+    <Content Include="tPartStorehousehad.asmx" />
+    <Content Include="tPlan_Rate_Report.asmx" />
+    <Content Include="tPrivliege.asmx" />
+    <Content Include="tProduct.asmx" />
+    <Content Include="tProductRealSummary.asmx" />
+    <Content Include="tPublicStoredproc.asmx" />
+    <Content Include="tReasonCode.asmx" />
+    <Content Include="tRepairInfo.asmx" />
+    <Content Include="tReworkDetailInfo.asmx" />
+    <Content Include="tRoleInfo.asmx" />
+    <Content Include="tRouteInfo.asmx" />
+    <Content Include="tR_Tr_Sn.asmx" />
+    <Content Include="tScrapInfo.asmx" />
+    <Content Include="tSFIS_Interface.asmx" />
+    <Content Include="tSmtIO.asmx" />
+    <Content Include="tSmtKpMaster.asmx" />
+    <Content Include="tSmtKpMonitor.asmx" />
+    <Content Include="tSmtKpNormalLog.asmx" />
+    <Content Include="tSmtWoMerge.asmx" />
+    <Content Include="tSnUnBind.asmx" />
+    <Content Include="tStationConfig.asmx" />
+    <Content Include="tStationrecount.asmx" />
+    <Content Include="tStorehouseManage.asmx" />
+    <Content Include="tTargetPlan.asmx" />
+    <Content Include="tT_WO_Material.asmx" />
+    <Content Include="tUserInfo.asmx" />
+    <Content Include="tVenderCode.asmx" />
+    <Content Include="tVenderInfo.asmx" />
+    <Content Include="tVersion_Mark.asmx" />
+    <Content Include="tWarehouseWipTracking.asmx" />
+    <Content Include="tWipDetail.asmx" />
+    <Content Include="tWipKeyPart.asmx" />
+    <Content Include="tWipTracking.asmx" />
+    <Content Include="tWoBomInfo.asmx" />
+    <Content Include="tWoInfo.asmx" />
+    <Content Include="tWsInfo.asmx" />
+    <Content Include="tz_whs_move_store.asmx" />
+    <Content Include="tZ_Whs_SAP_BackFlush.asmx" />
+    <Content Include="t_Check_Timeout.asmx" />
+    <Content Include="T_DS_Out.asmx" />
+    <Content Include="T_wo_Info_Erp.asmx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web_FQC.asmx" />
+    <None Include="Service References\WMS_SapConnector\SapConnector.wsdl" />
+    <None Include="Service References\WMS_SapConnector\SapConnector.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WMS_SapConnector\SapConnector1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WMS_SapConnector\SapConnector2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WMS_SapConnector\SapConnector3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddProductInfo.asmx.cs">
+      <DependentUpon>AddProductInfo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CfgIniFile.cs" />
+    <Compile Include="Check_Version.asmx.cs">
+      <DependentUpon>Check_Version.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CreateWebServieRef.asmx.cs">
+      <DependentUpon>CreateWebServieRef.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ExcelToDb.asmx.cs">
+      <DependentUpon>ExcelToDb.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ExecuteSqlCmd.asmx.cs">
+      <DependentUpon>ExecuteSqlCmd.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MoblieWeb.asmx.cs">
+      <DependentUpon>MoblieWeb.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecodeSystemLog.asmx.cs">
+      <DependentUpon>RecodeSystemLog.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SapConnector.asmx.cs">
+      <DependentUpon>SapConnector.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Service References\WH_Business\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WMS_Material\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WMS_SapConnector\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="tBomKeyPart.asmx.cs">
+      <DependentUpon>tBomKeyPart.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tB_MAIL_T.asmx.cs">
+      <DependentUpon>tB_MAIL_T.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tB_SnRule_PartNumber.asmx.cs">
+      <DependentUpon>tB_SnRule_PartNumber.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tB_SNRULE_WO.asmx.cs">
+      <DependentUpon>tB_SNRULE_WO.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tB_User_Info.asmx.cs">
+      <DependentUpon>tB_User_Info.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tCheckDataTestAte.asmx.cs">
+      <DependentUpon>tCheckDataTestAte.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tCraftInfo.asmx.cs">
+      <DependentUpon>tCraftInfo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tCustomer.asmx.cs">
+      <DependentUpon>tCustomer.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tDeptInfo.asmx.cs">
+      <DependentUpon>tDeptInfo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tEditing.asmx.cs">
+      <DependentUpon>tEditing.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tEerrorCode.asmx.cs">
+      <DependentUpon>tEerrorCode.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tFacInfo.asmx.cs">
+      <DependentUpon>tFacInfo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tFixtureInfo.asmx.cs">
+      <DependentUpon>tFixtureInfo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tGetServersTime.asmx.cs">
+      <DependentUpon>tGetServersTime.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tKeyPart.asmx.cs">
+      <DependentUpon>tKeyPart.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tLineInfo.asmx.cs">
+      <DependentUpon>tLineInfo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tMachineInfo.asmx.cs">
+      <DependentUpon>tMachineInfo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tMaterialPreparation.asmx.cs">
+      <DependentUpon>tMaterialPreparation.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tMaterialsReceive.asmx.cs">
+      <DependentUpon>tMaterialsReceive.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tPackParameters.asmx.cs">
+      <DependentUpon>tPackParameters.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tPalletInfo.asmx.cs">
+      <DependentUpon>tPalletInfo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tPartBlocked.asmx.cs">
+      <DependentUpon>tPartBlocked.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tPartKeyParts.asmx.cs">
+      <DependentUpon>tPartKeyParts.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tPartMap.asmx.cs">
+      <DependentUpon>tPartMap.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tPartStorehousehad.asmx.cs">
+      <DependentUpon>tPartStorehousehad.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tPlan_Rate_Report.asmx.cs">
+      <DependentUpon>tPlan_Rate_Report.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tPrivliege.asmx.cs">
+      <DependentUpon>tPrivliege.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tProduct.asmx.cs">
+      <DependentUpon>tProduct.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tProductRealSummary.asmx.cs">
+      <DependentUpon>tProductRealSummary.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tPublicStoredproc.asmx.cs">
+      <DependentUpon>tPublicStoredproc.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tReasonCode.asmx.cs">
+      <DependentUpon>tReasonCode.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tRepairInfo.asmx.cs">
+      <DependentUpon>tRepairInfo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tReworkDetailInfo.asmx.cs">
+      <DependentUpon>tReworkDetailInfo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tRoleInfo.asmx.cs">
+      <DependentUpon>tRoleInfo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tRouteInfo.asmx.cs">
+      <DependentUpon>tRouteInfo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tR_Tr_Sn.asmx.cs">
+      <DependentUpon>tR_Tr_Sn.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tScrapInfo.asmx.cs">
+      <DependentUpon>tScrapInfo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tSFIS_Interface.asmx.cs">
+      <DependentUpon>tSFIS_Interface.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tSmtIO.asmx.cs">
+      <DependentUpon>tSmtIO.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tSmtKpMaster.asmx.cs">
+      <DependentUpon>tSmtKpMaster.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tSmtKpMonitor.asmx.cs">
+      <DependentUpon>tSmtKpMonitor.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tSmtKpNormalLog.asmx.cs">
+      <DependentUpon>tSmtKpNormalLog.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tSmtWoMerge.asmx.cs">
+      <DependentUpon>tSmtWoMerge.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tSnUnBind.asmx.cs">
+      <DependentUpon>tSnUnBind.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tStationConfig.asmx.cs">
+      <DependentUpon>tStationConfig.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tStationrecount.asmx.cs">
+      <DependentUpon>tStationrecount.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tStorehouseManage.asmx.cs">
+      <DependentUpon>tStorehouseManage.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tTargetPlan.asmx.cs">
+      <DependentUpon>tTargetPlan.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tT_WO_Material.asmx.cs">
+      <DependentUpon>tT_WO_Material.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tUserInfo.asmx.cs">
+      <DependentUpon>tUserInfo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tVenderCode.asmx.cs">
+      <DependentUpon>tVenderCode.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tVenderInfo.asmx.cs">
+      <DependentUpon>tVenderInfo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tVersion_Mark.asmx.cs">
+      <DependentUpon>tVersion_Mark.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tWarehouseWipTracking.asmx.cs">
+      <DependentUpon>tWarehouseWipTracking.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tWipDetail.asmx.cs">
+      <DependentUpon>tWipDetail.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tWipKeyPart.asmx.cs">
+      <DependentUpon>tWipKeyPart.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tWipTracking.asmx.cs">
+      <DependentUpon>tWipTracking.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tWoBomInfo.asmx.cs">
+      <DependentUpon>tWoBomInfo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tWoInfo.asmx.cs">
+      <DependentUpon>tWoInfo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tWsInfo.asmx.cs">
+      <DependentUpon>tWsInfo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tz_whs_move_store.asmx.cs">
+      <DependentUpon>tz_whs_move_store.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tZ_Whs_SAP_BackFlush.asmx.cs">
+      <DependentUpon>tZ_Whs_SAP_BackFlush.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="t_Check_Timeout.asmx.cs">
+      <DependentUpon>t_Check_Timeout.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="T_DS_Out.asmx.cs">
+      <DependentUpon>T_DS_Out.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="T_wo_Info_Erp.asmx.cs">
+      <DependentUpon>T_wo_Info_Erp.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Web_FQC.asmx.cs">
+      <DependentUpon>Web_FQC.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{3AE4977D-378E-4B00-8C45-4B8AA316F928}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{DF80870E-3F74-46C9-8DC8-A35F2406D7D4}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WH_Business\" />
+    <WCFMetadataStorage Include="Service References\WMS_Material\" />
+    <WCFMetadataStorage Include="Service References\WMS_SapConnector\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55258</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

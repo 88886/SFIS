@@ -1,0 +1,1542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetQueryWip">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ColumnName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQueryWipResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQueryWipResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWipTrackingList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WoId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWipTrackingListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWipTrackingListResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWipTrackingLineList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WoId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWipTrackingLineListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWipTrackingLineListResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPartNumberAndwoIdList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPartNumberAndwoIdListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPartNumberAndwoIdListResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWipCartonTrayPallet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PackType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ESN" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWipCartonTrayPalletResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateWipStockInNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ColumnName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StockNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWipStockInNumberResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetStockInPrint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StockIn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStockInPrintResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStockInPrintResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertWipUndo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wtt" type="tns:tWipTrackingTable" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="tWipTrackingTable">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ESN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="locstation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="wipstation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nextstation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="recdate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="errflag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="scrapflag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cartonnumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrayNO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="palletnumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MAC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mcartonnumbr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mpalletnumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="line" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="routgroupId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="storenumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertWipUndoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertWipUndoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateScrapWipTracking">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wtt" type="tns:tWipTrackingTable" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateScrapWipTrackingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateScrapWipTrackingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWipData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lsWoid" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetWipDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWipDataResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWipStation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="line" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mygroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="esn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="flag" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWipStationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateWipStationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWipStation_NEW">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="line" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mygroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="esn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="flag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="routeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="woid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWipStation_NEWResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateWipStation_NEWResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEsnDataInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sntype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="snval" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEsnDataInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEsnDataInfoResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StnRec">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lineId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mygroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="woId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="esn" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StnRecResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StnRecResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaxBoxNumberBywoId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="woId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lineId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaxBoxNumberBywoIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMaxBoxNumberBywoIdResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertCartonInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cartioninfo" type="tns:tCartonInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="tCartonInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="cartonId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="esn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lineId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="woId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mcartonnumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mac" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="computer" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="number" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertCartonInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertCartonInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWipAndRecCartonBox">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="wiptrack" type="tns:tWipTrackingTable" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWipAndRecCartonBoxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateWipAndRecCartonBoxResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCartonState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cartonId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCartonStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCartonStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCartonPrintContent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cartonId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Content" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCartonPrintContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCartonPrintContentResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertWipKeyParts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lsWipKeyPart" type="tns:ArrayOfTWipKeyPartTable" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTWipKeyPartTable">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="tWipKeyPartTable" nillable="true" type="tns:tWipKeyPartTable" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="tWipKeyPartTable">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="idx" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="esn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="woId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sntype" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="snval" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="recdate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertWipKeyPartsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertWipKeyPartsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertWipKeyPart">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WipKeyPart" type="tns:tWipKeyPartTable" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertWipKeyPartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertWipKeyPartResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNotCloseBoxInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lineId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNotCloseBoxInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNotCloseBoxInfoResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaxBoxNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="woId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lineId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="partnumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaxBoxNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMaxBoxNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSnInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSnInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSnInfoResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackCarton">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="woId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lineId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackCartonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPackCartonResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWoAllSerial">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="woId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="strHoue" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWoAllSerialResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWoAllSerialResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPwdColumns">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sntype" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPwdColumnsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPwdColumnsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCartonContent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cartonId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCartonContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCartonContentResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CROSSTAB_WIP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="woId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Part" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Flag" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CROSSTAB_WIPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CROSSTAB_WIPResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseCartonBox">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cartonId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseCartonBoxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CloseCartonBoxResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCartonSnList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CartonId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Flag" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCartonSnListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCartonSnListResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSnTestMachineInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="esn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSnTestMachineInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSnTestMachineInfoResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFirstCarton">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="newcartonn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFirstCartonResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateWipTrackingWeight">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="esn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="weight" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWipTrackingWeightResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateWipTrackingWeightResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetQueryWipSoapIn">
+    <wsdl:part name="parameters" element="tns:GetQueryWip" />
+  </wsdl:message>
+  <wsdl:message name="GetQueryWipSoapOut">
+    <wsdl:part name="parameters" element="tns:GetQueryWipResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWipTrackingListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWipTrackingList" />
+  </wsdl:message>
+  <wsdl:message name="GetWipTrackingListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWipTrackingListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWipTrackingLineListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWipTrackingLineList" />
+  </wsdl:message>
+  <wsdl:message name="GetWipTrackingLineListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWipTrackingLineListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPartNumberAndwoIdListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPartNumberAndwoIdList" />
+  </wsdl:message>
+  <wsdl:message name="GetPartNumberAndwoIdListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPartNumberAndwoIdListResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWipCartonTrayPalletSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateWipCartonTrayPallet" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWipCartonTrayPalletSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateWipCartonTrayPalletResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWipStockInNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateWipStockInNumber" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWipStockInNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateWipStockInNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStockInPrintSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStockInPrint" />
+  </wsdl:message>
+  <wsdl:message name="GetStockInPrintSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStockInPrintResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertWipUndoSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertWipUndo" />
+  </wsdl:message>
+  <wsdl:message name="InsertWipUndoSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertWipUndoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateScrapWipTrackingSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateScrapWipTracking" />
+  </wsdl:message>
+  <wsdl:message name="UpdateScrapWipTrackingSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateScrapWipTrackingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWipDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWipData" />
+  </wsdl:message>
+  <wsdl:message name="GetWipDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWipDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWipStationSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateWipStation" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWipStationSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateWipStationResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWipStation_NEWSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateWipStation_NEW" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWipStation_NEWSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateWipStation_NEWResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEsnDataInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEsnDataInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetEsnDataInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEsnDataInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="StnRecSoapIn">
+    <wsdl:part name="parameters" element="tns:StnRec" />
+  </wsdl:message>
+  <wsdl:message name="StnRecSoapOut">
+    <wsdl:part name="parameters" element="tns:StnRecResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMaxBoxNumberBywoIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMaxBoxNumberBywoId" />
+  </wsdl:message>
+  <wsdl:message name="GetMaxBoxNumberBywoIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMaxBoxNumberBywoIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertCartonInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertCartonInfo" />
+  </wsdl:message>
+  <wsdl:message name="InsertCartonInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertCartonInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWipAndRecCartonBoxSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateWipAndRecCartonBox" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWipAndRecCartonBoxSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateWipAndRecCartonBoxResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCartonStateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCartonState" />
+  </wsdl:message>
+  <wsdl:message name="GetCartonStateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCartonStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCartonPrintContentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCartonPrintContent" />
+  </wsdl:message>
+  <wsdl:message name="GetCartonPrintContentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCartonPrintContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertWipKeyPartsSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertWipKeyParts" />
+  </wsdl:message>
+  <wsdl:message name="InsertWipKeyPartsSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertWipKeyPartsResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertWipKeyPartSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertWipKeyPart" />
+  </wsdl:message>
+  <wsdl:message name="InsertWipKeyPartSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertWipKeyPartResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNotCloseBoxInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNotCloseBoxInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetNotCloseBoxInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNotCloseBoxInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMaxBoxNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMaxBoxNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetMaxBoxNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMaxBoxNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSnInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSnInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSnInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSnInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPackCartonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPackCarton" />
+  </wsdl:message>
+  <wsdl:message name="GetPackCartonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPackCartonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWoAllSerialSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWoAllSerial" />
+  </wsdl:message>
+  <wsdl:message name="GetWoAllSerialSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWoAllSerialResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPwdColumnsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPwdColumns" />
+  </wsdl:message>
+  <wsdl:message name="GetPwdColumnsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPwdColumnsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCartonContentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCartonContent" />
+  </wsdl:message>
+  <wsdl:message name="GetCartonContentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCartonContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="CROSSTAB_WIPSoapIn">
+    <wsdl:part name="parameters" element="tns:CROSSTAB_WIP" />
+  </wsdl:message>
+  <wsdl:message name="CROSSTAB_WIPSoapOut">
+    <wsdl:part name="parameters" element="tns:CROSSTAB_WIPResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseCartonBoxSoapIn">
+    <wsdl:part name="parameters" element="tns:CloseCartonBox" />
+  </wsdl:message>
+  <wsdl:message name="CloseCartonBoxSoapOut">
+    <wsdl:part name="parameters" element="tns:CloseCartonBoxResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCartonSnListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCartonSnList" />
+  </wsdl:message>
+  <wsdl:message name="GetCartonSnListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCartonSnListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSnTestMachineInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSnTestMachineInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSnTestMachineInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSnTestMachineInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFirstCartonSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateFirstCarton" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFirstCartonSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateFirstCartonResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWipTrackingWeightSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateWipTrackingWeight" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWipTrackingWeightSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateWipTrackingWeightResponse" />
+  </wsdl:message>
+  <wsdl:portType name="tWipTrackingSoap">
+    <wsdl:operation name="GetQueryWip">
+      <wsdl:input message="tns:GetQueryWipSoapIn" />
+      <wsdl:output message="tns:GetQueryWipSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWipTrackingList">
+      <wsdl:input message="tns:GetWipTrackingListSoapIn" />
+      <wsdl:output message="tns:GetWipTrackingListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWipTrackingLineList">
+      <wsdl:input message="tns:GetWipTrackingLineListSoapIn" />
+      <wsdl:output message="tns:GetWipTrackingLineListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPartNumberAndwoIdList">
+      <wsdl:input message="tns:GetPartNumberAndwoIdListSoapIn" />
+      <wsdl:output message="tns:GetPartNumberAndwoIdListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWipCartonTrayPallet">
+      <wsdl:input message="tns:UpdateWipCartonTrayPalletSoapIn" />
+      <wsdl:output message="tns:UpdateWipCartonTrayPalletSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWipStockInNumber">
+      <wsdl:input message="tns:UpdateWipStockInNumberSoapIn" />
+      <wsdl:output message="tns:UpdateWipStockInNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStockInPrint">
+      <wsdl:input message="tns:GetStockInPrintSoapIn" />
+      <wsdl:output message="tns:GetStockInPrintSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertWipUndo">
+      <wsdl:input message="tns:InsertWipUndoSoapIn" />
+      <wsdl:output message="tns:InsertWipUndoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateScrapWipTracking">
+      <wsdl:input message="tns:UpdateScrapWipTrackingSoapIn" />
+      <wsdl:output message="tns:UpdateScrapWipTrackingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWipData">
+      <wsdl:input message="tns:GetWipDataSoapIn" />
+      <wsdl:output message="tns:GetWipDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWipStation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">过站程序</wsdl:documentation>
+      <wsdl:input message="tns:UpdateWipStationSoapIn" />
+      <wsdl:output message="tns:UpdateWipStationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWipStation_NEW">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">过站程序_new</wsdl:documentation>
+      <wsdl:input message="tns:UpdateWipStation_NEWSoapIn" />
+      <wsdl:output message="tns:UpdateWipStation_NEWSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEsnDataInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据esn获取数据,输入的可以是除密码外类型任何序号类型</wsdl:documentation>
+      <wsdl:input message="tns:GetEsnDataInfoSoapIn" />
+      <wsdl:output message="tns:GetEsnDataInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StnRec">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">记录产能</wsdl:documentation>
+      <wsdl:input message="tns:StnRecSoapIn" />
+      <wsdl:output message="tns:StnRecSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxBoxNumberBywoId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取该工单或工单+线体的最大卡通箱号的内容</wsdl:documentation>
+      <wsdl:input message="tns:GetMaxBoxNumberBywoIdSoapIn" />
+      <wsdl:output message="tns:GetMaxBoxNumberBywoIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCartonInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">添加卡通箱信息,执行成功返回OK,否则返回错误信息</wsdl:documentation>
+      <wsdl:input message="tns:InsertCartonInfoSoapIn" />
+      <wsdl:output message="tns:InsertCartonInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWipAndRecCartonBox">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">添加卡通箱信息,执行过站功能,成功返回OK,否则返回错误信息</wsdl:documentation>
+      <wsdl:input message="tns:UpdateWipAndRecCartonBoxSoapIn" />
+      <wsdl:output message="tns:UpdateWipAndRecCartonBoxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询卡通箱的状态:0：在包装; 1：关闭(包装完成); 2：分解 3：合并</wsdl:documentation>
+      <wsdl:input message="tns:GetCartonStateSoapIn" />
+      <wsdl:output message="tns:GetCartonStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonPrintContent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取卡通箱需要打印的所有内容</wsdl:documentation>
+      <wsdl:input message="tns:GetCartonPrintContentSoapIn" />
+      <wsdl:output message="tns:GetCartonPrintContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertWipKeyParts">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">添加序列号绑定关系,包含有效性检查</wsdl:documentation>
+      <wsdl:input message="tns:InsertWipKeyPartsSoapIn" />
+      <wsdl:output message="tns:InsertWipKeyPartsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertWipKeyPart">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">添加序列号绑定关系,直接添加无检查功能</wsdl:documentation>
+      <wsdl:input message="tns:InsertWipKeyPartSoapIn" />
+      <wsdl:output message="tns:InsertWipKeyPartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNotCloseBoxInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取这条线没有包完的卡通箱列表</wsdl:documentation>
+      <wsdl:input message="tns:GetNotCloseBoxInfoSoapIn" />
+      <wsdl:output message="tns:GetNotCloseBoxInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxBoxNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取工单的最大的卡通箱编号</wsdl:documentation>
+      <wsdl:input message="tns:GetMaxBoxNumberSoapIn" />
+      <wsdl:output message="tns:GetMaxBoxNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSnInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定的序列号存在的内容</wsdl:documentation>
+      <wsdl:input message="tns:GetSnInfoSoapIn" />
+      <wsdl:output message="tns:GetSnInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackCarton">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取一个工单在一条产线上的包装信息</wsdl:documentation>
+      <wsdl:input message="tns:GetPackCartonSoapIn" />
+      <wsdl:output message="tns:GetPackCartonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWoAllSerial">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取整个工单的序列号对应关系</wsdl:documentation>
+      <wsdl:input message="tns:GetWoAllSerialSoapIn" />
+      <wsdl:output message="tns:GetWoAllSerialSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPwdColumns">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取属于密码的标签类型</wsdl:documentation>
+      <wsdl:input message="tns:GetPwdColumnsSoapIn" />
+      <wsdl:output message="tns:GetPwdColumnsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonContent">
+      <wsdl:input message="tns:GetCartonContentSoapIn" />
+      <wsdl:output message="tns:GetCartonContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CROSSTAB_WIP">
+      <wsdl:input message="tns:CROSSTAB_WIPSoapIn" />
+      <wsdl:output message="tns:CROSSTAB_WIPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseCartonBox">
+      <wsdl:input message="tns:CloseCartonBoxSoapIn" />
+      <wsdl:output message="tns:CloseCartonBoxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonSnList">
+      <wsdl:input message="tns:GetCartonSnListSoapIn" />
+      <wsdl:output message="tns:GetCartonSnListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSnTestMachineInfo">
+      <wsdl:input message="tns:GetSnTestMachineInfoSoapIn" />
+      <wsdl:output message="tns:GetSnTestMachineInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFirstCarton">
+      <wsdl:input message="tns:UpdateFirstCartonSoapIn" />
+      <wsdl:output message="tns:UpdateFirstCartonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWipTrackingWeight">
+      <wsdl:input message="tns:UpdateWipTrackingWeightSoapIn" />
+      <wsdl:output message="tns:UpdateWipTrackingWeightSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="tWipTrackingSoap" type="tns:tWipTrackingSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetQueryWip">
+      <soap:operation soapAction="http://tempuri.org/GetQueryWip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWipTrackingList">
+      <soap:operation soapAction="http://tempuri.org/GetWipTrackingList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWipTrackingLineList">
+      <soap:operation soapAction="http://tempuri.org/GetWipTrackingLineList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartNumberAndwoIdList">
+      <soap:operation soapAction="http://tempuri.org/GetPartNumberAndwoIdList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWipCartonTrayPallet">
+      <soap:operation soapAction="http://tempuri.org/UpdateWipCartonTrayPallet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWipStockInNumber">
+      <soap:operation soapAction="http://tempuri.org/UpdateWipStockInNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStockInPrint">
+      <soap:operation soapAction="http://tempuri.org/GetStockInPrint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertWipUndo">
+      <soap:operation soapAction="http://tempuri.org/InsertWipUndo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateScrapWipTracking">
+      <soap:operation soapAction="http://tempuri.org/UpdateScrapWipTracking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWipData">
+      <soap:operation soapAction="http://tempuri.org/GetWipData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWipStation">
+      <soap:operation soapAction="http://tempuri.org/UpdateWipStation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWipStation_NEW">
+      <soap:operation soapAction="http://tempuri.org/UpdateWipStation_NEW" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEsnDataInfo">
+      <soap:operation soapAction="http://tempuri.org/GetEsnDataInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StnRec">
+      <soap:operation soapAction="http://tempuri.org/StnRec" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxBoxNumberBywoId">
+      <soap:operation soapAction="http://tempuri.org/GetMaxBoxNumberBywoId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCartonInfo">
+      <soap:operation soapAction="http://tempuri.org/InsertCartonInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWipAndRecCartonBox">
+      <soap:operation soapAction="http://tempuri.org/UpdateWipAndRecCartonBox" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonState">
+      <soap:operation soapAction="http://tempuri.org/GetCartonState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonPrintContent">
+      <soap:operation soapAction="http://tempuri.org/GetCartonPrintContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertWipKeyParts">
+      <soap:operation soapAction="http://tempuri.org/InsertWipKeyParts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertWipKeyPart">
+      <soap:operation soapAction="http://tempuri.org/InsertWipKeyPart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotCloseBoxInfo">
+      <soap:operation soapAction="http://tempuri.org/GetNotCloseBoxInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxBoxNumber">
+      <soap:operation soapAction="http://tempuri.org/GetMaxBoxNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSnInfo">
+      <soap:operation soapAction="http://tempuri.org/GetSnInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackCarton">
+      <soap:operation soapAction="http://tempuri.org/GetPackCarton" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWoAllSerial">
+      <soap:operation soapAction="http://tempuri.org/GetWoAllSerial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPwdColumns">
+      <soap:operation soapAction="http://tempuri.org/GetPwdColumns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonContent">
+      <soap:operation soapAction="http://tempuri.org/GetCartonContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CROSSTAB_WIP">
+      <soap:operation soapAction="http://tempuri.org/CROSSTAB_WIP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseCartonBox">
+      <soap:operation soapAction="http://tempuri.org/CloseCartonBox" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonSnList">
+      <soap:operation soapAction="http://tempuri.org/GetCartonSnList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSnTestMachineInfo">
+      <soap:operation soapAction="http://tempuri.org/GetSnTestMachineInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFirstCarton">
+      <soap:operation soapAction="http://tempuri.org/UpdateFirstCarton" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWipTrackingWeight">
+      <soap:operation soapAction="http://tempuri.org/UpdateWipTrackingWeight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="tWipTrackingSoap12" type="tns:tWipTrackingSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetQueryWip">
+      <soap12:operation soapAction="http://tempuri.org/GetQueryWip" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWipTrackingList">
+      <soap12:operation soapAction="http://tempuri.org/GetWipTrackingList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWipTrackingLineList">
+      <soap12:operation soapAction="http://tempuri.org/GetWipTrackingLineList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartNumberAndwoIdList">
+      <soap12:operation soapAction="http://tempuri.org/GetPartNumberAndwoIdList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWipCartonTrayPallet">
+      <soap12:operation soapAction="http://tempuri.org/UpdateWipCartonTrayPallet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWipStockInNumber">
+      <soap12:operation soapAction="http://tempuri.org/UpdateWipStockInNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStockInPrint">
+      <soap12:operation soapAction="http://tempuri.org/GetStockInPrint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertWipUndo">
+      <soap12:operation soapAction="http://tempuri.org/InsertWipUndo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateScrapWipTracking">
+      <soap12:operation soapAction="http://tempuri.org/UpdateScrapWipTracking" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWipData">
+      <soap12:operation soapAction="http://tempuri.org/GetWipData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWipStation">
+      <soap12:operation soapAction="http://tempuri.org/UpdateWipStation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWipStation_NEW">
+      <soap12:operation soapAction="http://tempuri.org/UpdateWipStation_NEW" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEsnDataInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetEsnDataInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StnRec">
+      <soap12:operation soapAction="http://tempuri.org/StnRec" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxBoxNumberBywoId">
+      <soap12:operation soapAction="http://tempuri.org/GetMaxBoxNumberBywoId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCartonInfo">
+      <soap12:operation soapAction="http://tempuri.org/InsertCartonInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWipAndRecCartonBox">
+      <soap12:operation soapAction="http://tempuri.org/UpdateWipAndRecCartonBox" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonState">
+      <soap12:operation soapAction="http://tempuri.org/GetCartonState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonPrintContent">
+      <soap12:operation soapAction="http://tempuri.org/GetCartonPrintContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertWipKeyParts">
+      <soap12:operation soapAction="http://tempuri.org/InsertWipKeyParts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertWipKeyPart">
+      <soap12:operation soapAction="http://tempuri.org/InsertWipKeyPart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotCloseBoxInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetNotCloseBoxInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxBoxNumber">
+      <soap12:operation soapAction="http://tempuri.org/GetMaxBoxNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSnInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetSnInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackCarton">
+      <soap12:operation soapAction="http://tempuri.org/GetPackCarton" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWoAllSerial">
+      <soap12:operation soapAction="http://tempuri.org/GetWoAllSerial" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPwdColumns">
+      <soap12:operation soapAction="http://tempuri.org/GetPwdColumns" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonContent">
+      <soap12:operation soapAction="http://tempuri.org/GetCartonContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CROSSTAB_WIP">
+      <soap12:operation soapAction="http://tempuri.org/CROSSTAB_WIP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseCartonBox">
+      <soap12:operation soapAction="http://tempuri.org/CloseCartonBox" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonSnList">
+      <soap12:operation soapAction="http://tempuri.org/GetCartonSnList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSnTestMachineInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetSnTestMachineInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFirstCarton">
+      <soap12:operation soapAction="http://tempuri.org/UpdateFirstCarton" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWipTrackingWeight">
+      <soap12:operation soapAction="http://tempuri.org/UpdateWipTrackingWeight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="tWipTracking">
+    <wsdl:port name="tWipTrackingSoap" binding="tns:tWipTrackingSoap">
+      <soap:address location="http://172.16.174.177/sfis_webser/twiptracking.asmx" />
+    </wsdl:port>
+    <wsdl:port name="tWipTrackingSoap12" binding="tns:tWipTrackingSoap12">
+      <soap12:address location="http://172.16.174.177/sfis_webser/twiptracking.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

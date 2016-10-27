@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="测试用例.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="测试用例_reftUserInfo_tUserInfo" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://127.0.0.1/SFIS_WEBSER/tUserInfo.asmx</Value>
+    </Setting>
+    <Setting Name="测试用例_TestAte_tCheckDataTestAte" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://172.16.173.76/SFIS_TEST/tCheckDataTestAte.asmx</Value>
+    </Setting>
+    <Setting Name="测试用例_twipdata_tWipTracking" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://172.16.174.177/sfis_webser/twiptracking.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

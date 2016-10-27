@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Entity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Entity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfSHIPPING_DATA">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SHIPPING_DATA" nillable="true" type="tns:SHIPPING_DATA" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSHIPPING_DATA" nillable="true" type="tns:ArrayOfSHIPPING_DATA" />
+  <xs:complexType name="SHIPPING_DATA">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DATA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="locid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ship_qty" type="xs:int" />
+      <xs:element minOccurs="0" name="storehouseid" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SHIPPING_DATA" nillable="true" type="tns:SHIPPING_DATA" />
+  <xs:complexType name="ArrayOfProcedureKey">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProcedureKey" nillable="true" type="tns:ProcedureKey" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProcedureKey" nillable="true" type="tns:ArrayOfProcedureKey" />
+  <xs:complexType name="ProcedureKey">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Variable" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="intValue" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProcedureKey" nillable="true" type="tns:ProcedureKey" />
+  <xs:complexType name="tStorehouseLoctionInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="locId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="locdesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="loctotal" type="xs:int" />
+      <xs:element minOccurs="0" name="loctype" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="remark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="storehouseId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="uplocId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tStorehouseLoctionInfo" nillable="true" type="tns:tStorehouseLoctionInfo" />
+  <xs:complexType name="tRoleInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="rolecaption" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="roledesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rolelevel" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tRoleInfo" nillable="true" type="tns:tRoleInfo" />
+  <xs:complexType name="ArrayOfZ_WHS_SAP_BACKFLUSHTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Z_WHS_SAP_BACKFLUSHTable" nillable="true" type="tns:Z_WHS_SAP_BACKFLUSHTable" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfZ_WHS_SAP_BACKFLUSHTable" nillable="true" type="tns:ArrayOfZ_WHS_SAP_BACKFLUSHTable" />
+  <xs:complexType name="Z_WHS_SAP_BACKFLUSHTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LOTIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LOTIN_QTY" type="xs:int" />
+      <xs:element minOccurs="0" name="LOTOUT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LOTOUT_QTY" type="xs:int" />
+      <xs:element minOccurs="0" name="MOVE_TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PARTNUMBER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PLANT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PRODUCTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RECDATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UPLOAD_DATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UPLOAD_FLAG" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WOID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Z_WHS_SAP_BACKFLUSHTable" nillable="true" type="tns:Z_WHS_SAP_BACKFLUSHTable" />
+  <xs:complexType name="ArrayOftWipTrackingTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tWipTrackingTable" nillable="true" type="tns:tWipTrackingTable" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftWipTrackingTable" nillable="true" type="tns:ArrayOftWipTrackingTable" />
+  <xs:complexType name="tWipTrackingTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ATESTATIONNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BomNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ESN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IMEI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IN_LINE_TIME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QARESULT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QA_NO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SECTIONNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TRACKNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TrayNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VERSIONCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WEIGHTQTY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cartonnumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="errflag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="line" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="locstation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mcartonnumbr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mpalletnumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nextstation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="palletnumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="recdate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="routgroupId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="scrapflag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="stationname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="storenumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="wipstation" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tWipTrackingTable" nillable="true" type="tns:tWipTrackingTable" />
+  <xs:complexType name="ArrayOftWipKeyPartTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tWipKeyPartTable" nillable="true" type="tns:tWipKeyPartTable" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftWipKeyPartTable" nillable="true" type="tns:ArrayOftWipKeyPartTable" />
+  <xs:complexType name="tWipKeyPartTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KPNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="esn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="idx" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="recdate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sntype" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="snval" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="station" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="woId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tWipKeyPartTable" nillable="true" type="tns:tWipKeyPartTable" />
+  <xs:complexType name="tz_whs_loction_infoTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FLAG" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LOCID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LOTIN_DATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PALLETNUMBER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PARTNUMBER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PRODUCTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QTY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RECDATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="STOREHOUSE_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USERID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tz_whs_loction_infoTable" nillable="true" type="tns:tz_whs_loction_infoTable" />
+  <xs:complexType name="T_SYSTEM_LOG">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="action_desc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="action_type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="prg_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_SYSTEM_LOG" nillable="true" type="tns:T_SYSTEM_LOG" />
+  <xs:complexType name="tStorehouseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="remark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="storehouseId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="storehousedesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="storehouseman" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="storehousename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="storehousetype" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tStorehouseInfo" nillable="true" type="tns:tStorehouseInfo" />
+  <xs:complexType name="tWarehouseWipTrackingTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CartonNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateEnd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateStart" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Esn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PalletNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SapCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tray" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WoId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="locId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lotin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lotout" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mCartonNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mFlag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mPalletNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="recdate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="storehouseId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tWarehouseWipTrackingTable" nillable="true" type="tns:tWarehouseWipTrackingTable" />
+  <xs:complexType name="ArrayOftSapLodeInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tSapLodeInfo" nillable="true" type="tns:tSapLodeInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftSapLodeInfo" nillable="true" type="tns:ArrayOftSapLodeInfo" />
+  <xs:complexType name="tSapLodeInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactPerson" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Contractno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Customername2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Partnumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QTY" type="xs:int" />
+      <xs:element minOccurs="0" name="SAPCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SFCcode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SapWarehouse" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tSapLodeInfo" nillable="true" type="tns:tSapLodeInfo" />
+  <xs:complexType name="ArrayOftWarehouseWipTrackingTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tWarehouseWipTrackingTable" nillable="true" type="tns:tWarehouseWipTrackingTable" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftWarehouseWipTrackingTable" nillable="true" type="tns:ArrayOftWarehouseWipTrackingTable" />
+  <xs:complexType name="ArrayOfZ_WHS_SAP_SHIPNOTICE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Z_WHS_SAP_SHIPNOTICE" nillable="true" type="tns:Z_WHS_SAP_SHIPNOTICE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfZ_WHS_SAP_SHIPNOTICE" nillable="true" type="tns:ArrayOfZ_WHS_SAP_SHIPNOTICE" />
+  <xs:complexType name="Z_WHS_SAP_SHIPNOTICE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CONTRACT_NUMBER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CUSTOMERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CUSTOMER_ADDRESS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CUSTOMER_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOWNLOAD_DATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FLAG" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PARTNUMBER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SAP_LINE_ITEM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SAP_ORDERNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SAP_QTY" type="xs:int" />
+      <xs:element minOccurs="0" name="SAP_SHIPNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SAP_STOREHOUSEID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SFCLOTCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SHIPPING_DATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SHIP_QTY" type="xs:int" />
+      <xs:element minOccurs="0" name="USERID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Z_WHS_SAP_SHIPNOTICE" nillable="true" type="tns:Z_WHS_SAP_SHIPNOTICE" />
+  <xs:complexType name="tProgInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="progdesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="progid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="progname" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tProgInfo" nillable="true" type="tns:tProgInfo" />
+  <xs:complexType name="ArrayOftFunctionList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tFunctionList" nillable="true" type="tns:tFunctionList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftFunctionList" nillable="true" type="tns:ArrayOftFunctionList" />
+  <xs:complexType name="tFunctionList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="funId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fundesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="funname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="progid" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tFunctionList" nillable="true" type="tns:tFunctionList" />
+  <xs:complexType name="tUserInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="deptname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="facId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rolecaption" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userPopList" nillable="true">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="useremail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userphone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userstatus" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tUserInfo" nillable="true" type="tns:tUserInfo" />
+  <xs:complexType name="ArrayOftUserPopList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tUserPopList" nillable="true" type="tns:tUserPopList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftUserPopList" nillable="true" type="tns:ArrayOftUserPopList" />
+  <xs:complexType name="tUserPopList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="funid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="progid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tUserPopList" nillable="true" type="tns:tUserPopList" />
+  <xs:complexType name="tz_whs_move_storeTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IMMIGRATION_STORE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MOVE_STORE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MOVE_STORE_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PARTNUMBER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PLANT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PRODUCTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QTY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RECDATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="STATUS" type="xs:int" />
+      <xs:element minOccurs="0" name="USERID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tz_whs_move_storeTable" nillable="true" type="tns:tz_whs_move_storeTable" />
+</xs:schema>

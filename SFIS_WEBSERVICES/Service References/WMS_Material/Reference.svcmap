@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="339207cf-5767-40ee-87c1-47c3712cca63" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.16.171.232/SFC_MTR/MTR_Business.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MTR_Business6.xsd" MetadataType="Schema" ID="3e914867-da0e-4816-973a-27ea56b42269" SourceId="1" SourceUrl="http://172.16.171.232/SFC_MTR/MTR_Business.svc?xsd=xsd5" />
+    <MetadataFile FileName="MTR_Business1.wsdl" MetadataType="Wsdl" ID="2fb2362a-f6a7-4bcb-b2b1-db8a299b3aca" SourceId="1" SourceUrl="http://172.16.171.232/SFC_MTR/MTR_Business.svc?wsdl" />
+    <MetadataFile FileName="MTR_Business61.xsd" MetadataType="Schema" ID="bdb53885-b547-4f5b-ac0b-9dc72bb5669b" SourceId="1" SourceUrl="http://172.16.171.232/SFC_MTR/MTR_Business.svc?xsd=xsd4" />
+    <MetadataFile FileName="MTR_Business62.xsd" MetadataType="Schema" ID="0d27c118-08e6-45f7-a341-cfd7f3bac8cf" SourceId="1" SourceUrl="http://172.16.171.232/SFC_MTR/MTR_Business.svc?xsd=xsd2" />
+    <MetadataFile FileName="MTR_Business63.xsd" MetadataType="Schema" ID="e5dc5dfd-60e3-4edf-8784-497ec29b4748" SourceId="1" SourceUrl="http://172.16.171.232/SFC_MTR/MTR_Business.svc?xsd=xsd3" />
+    <MetadataFile FileName="MTR_Business64.xsd" MetadataType="Schema" ID="80e85b82-9a71-4667-afab-a4613d248c17" SourceId="1" SourceUrl="http://172.16.171.232/SFC_MTR/MTR_Business.svc?xsd=xsd0" />
+    <MetadataFile FileName="MTR_Business65.xsd" MetadataType="Schema" ID="1c96a60c-f1de-4c10-aa8a-1a35becc729e" SourceId="1" SourceUrl="http://172.16.171.232/SFC_MTR/MTR_Business.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

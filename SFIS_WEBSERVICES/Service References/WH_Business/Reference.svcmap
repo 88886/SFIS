@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a6f1f530-a4ba-4c0f-90e7-1f81220bfbb7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.16.173.235/SFIS_WMS/Warehouse_Business.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Warehouse_Business.xsd" MetadataType="Schema" ID="5dfe1e46-1100-4796-aa27-bf0704bd612d" SourceId="1" SourceUrl="http://172.16.173.235/SFIS_WMS/Warehouse_Business.svc?xsd=xsd4" />
+    <MetadataFile FileName="Warehouse_Business.wsdl" MetadataType="Wsdl" ID="8b481d4a-6c9b-4187-be9d-8ffa636eb46b" SourceId="1" SourceUrl="http://172.16.173.235/SFIS_WMS/Warehouse_Business.svc?wsdl" />
+    <MetadataFile FileName="Warehouse_Business1.xsd" MetadataType="Schema" ID="f830a139-f233-4d1b-afe1-98de847278b3" SourceId="1" SourceUrl="http://172.16.173.235/SFIS_WMS/Warehouse_Business.svc?xsd=xsd0" />
+    <MetadataFile FileName="Warehouse_Business2.xsd" MetadataType="Schema" ID="b1527f9c-9f27-4c49-8ad5-b297af4bfe6f" SourceId="1" SourceUrl="http://172.16.173.235/SFIS_WMS/Warehouse_Business.svc?xsd=xsd1" />
+    <MetadataFile FileName="Warehouse_Business3.xsd" MetadataType="Schema" ID="5a358d86-3ca5-4b04-b841-0b70520bf461" SourceId="1" SourceUrl="http://172.16.173.235/SFIS_WMS/Warehouse_Business.svc?xsd=xsd2" />
+    <MetadataFile FileName="Warehouse_Business4.xsd" MetadataType="Schema" ID="fddc6216-44b2-4a8e-a076-1fe51eea6c78" SourceId="1" SourceUrl="http://172.16.173.235/SFIS_WMS/Warehouse_Business.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

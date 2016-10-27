@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="gb2312"?>
+<AutoCreate>
+  <ServerIP IP="sfis.phicomm.com.cn" />
+  <ServerPath PATH="SFIS_WEBSER" />
+  <NewIP IP="sfis.phicomm.com.cn" />
+  <MsgServer IP="172.16.173.76" />
+  <MsgPort PORT="8885" />
+  <URLAddres URL="http://172.16.173.76/SFIS_WEBSER/" />
+  <FileList>
+    <FileName Name="AddProductInfo.asmx" />
+    <FileName Name="ExcelToDb.asmx" />
+    <FileName Name="ExecuteSqlCmd.asmx" />
+    <FileName Name="RecodeSystemLog.asmx" />
+    <FileName Name="tBomKeyPart.asmx" />
+    <FileName Name="tCraftInfo.asmx" />
+    <FileName Name="tDeptInfo.asmx" />
+    <FileName Name="tEerrorCode.asmx" />
+    <FileName Name="tFacInfo.asmx" />
+    <FileName Name="tGetServersTime.asmx" />
+    <FileName Name="tKeyPart.asmx" />
+    <FileName Name="tLineInfo.asmx" />
+    <FileName Name="tMachineInfo.asmx" />
+    <FileName Name="tMaterialPreparation.asmx" />
+    <FileName Name="tPackParameters.asmx" />
+    <FileName Name="tPartBlocked.asmx" />
+    <FileName Name="tPartKeyParts.asmx" />
+    <FileName Name="tPartMap.asmx" />
+    <FileName Name="tPartStorehousehad.asmx" />
+    <FileName Name="tProduct.asmx" />
+    <FileName Name="tReasonCode.asmx" />
+    <FileName Name="tRoleInfo.asmx" />
+    <FileName Name="tRouteInfo.asmx" />
+    <FileName Name="tSmtIO.asmx" />
+    <FileName Name="tSmtKpMaster.asmx" />
+    <FileName Name="tSmtKpMonitor.asmx" />
+    <FileName Name="tSmtKpNormalLog.asmx" />
+    <FileName Name="tStorehouseManage.asmx" />
+    <FileName Name="tUserInfo.asmx" />
+    <FileName Name="tVenderCode.asmx" />
+    <FileName Name="tVenderInfo.asmx" />
+    <FileName Name="tWoBomInfo.asmx" />
+    <FileName Name="tWoInfo.asmx" />
+    <FileName Name="tWsInfo.asmx" />
+    <FileName Name="tWipDetail.asmx" />
+    <FileName Name="tWipKeyPart.asmx" />
+    <FileName Name="tWipTracking.asmx" />
+    <FileName Name="tTargetPlan.asmx" />
+    <FileName Name="tPublicStoredproc.asmx" />
+    <FileName Name="tRepairInfo.asmx" />
+    <FileName Name="tPalletInfo.asmx" />
+    <FileName Name="tCheckDataTestAte.asmx" />
+    <FileName Name="tFixtureInfo.asmx" />
+    <FileName Name="tWarehouseWipTracking.asmx" />
+    <FileName Name="SapConnector.asmx" />
+    <FileName Name="tScrapInfo.asmx" />
+    <FileName Name="tStationrecount.asmx" />
+    <FileName Name="tCustomer.asmx" />
+    <FileName Name="tReworkDetailInfo.asmx" />
+    <FileName Name="tEditing.asmx" />
+    <FileName Name="tMaterialsReceive.asmx" />
+    <FileName Name="Per_Num.asmx" />
+    <FileName Name="Check_Version.asmx" />
+    <FileName Name="Web_FQC.asmx" />
+    <FileName Name="tB_SnRule_PartNumber.asmx" />
+    <FileName Name="tB_SnRule_WO.asmx" />
+    <FileName Name="tZ_Whs_SAP_BackFlush.asmx" />
+    <FileName Name="tz_whs_move_store.asmx" />
+    <FileName Name="T_DS_Out.asmx" />
+    <FileName Name="tR_Tr_Sn.asmx" />
+    <FileName Name="t_Check_Timeout.asmx" />
+  </FileList>
+  <AppPools>
+    <PoolName Name="SFIS_WEBSER" />
+    <PoolName Name="SFIS_WEBSER_STORE" />
+  </AppPools>
+  <PALLET>
+    <LINE Name="A060205" />
+    <LINECODE Name="S1" />
+    <CRFTNAME Name="PACK_PALLET" />
+    <CRFTID Name="PACK_PALLET" />
+  </PALLET>
+  <STOCKIN>
+    <LINE Name="A060205" />
+    <CRFTNAME Name="STOCK_IN" />
+    <CRFTID Name="B13032900000270" />
+  </STOCKIN>
+  <Plan_Report>
+    <CRAFTNAME Name="SMT_VI,DX_TEST,CIT_TEST,WIFI_TEST,MII_WORK,REST_TEST,STOCK_IN" />
+  </Plan_Report>
+  <FQC>
+    <LINE Name="A100103" />
+    <LINEUSER Name="K02356" />
+    <CRFTNAME Name="FQC" />
+    <CRFTID Name="FQC" />
+    <RDATE Name="150" />
+  </FQC>
+  <ClientSettings>
+    <CONN Name="MyConn" />
+    <ASHOST Name="172.16.100.51" />
+    <USER Name="rfc" />
+    <PASSWD Name="123456" />
+    <CLIENT Name="300" />
+    <LANG Name="ZH" />
+    <SYSNR Name="00" />
+    <POOL_SIZE Name="5" />
+    <TIMEOUT Name="500" />
+  </ClientSettings>
+  <PrintConfig>
+    <WOENTITY>
+      <WOID woid="7104692" />
+      <PARTNUMBER partnumber="901000803" />
+      <INPUTGROUP inputgroup="B13032900000252" />
+      <OUTPUTGROUP outputgroup="B13032900000270" />
+      <POID poid="1005007" />
+      <QTY qty="4000" />
+      <ROUTGROUPID routgroupid="FWR-701-A-T-P" />
+      <BOMNUMBER bomnumber="901000804" />
+      <BOMVER bomver="2" />
+      <WOSTATE wostate="0" />
+      <CPWD cpwd="PROG" />
+    </WOENTITY>
+    <LINEENTITY>
+      <LINEID lineid="A060205" />
+      <LINEDESC linedesc="6号楼2楼ATP5线" />
+      <WSID wsid="B13032600000227" />
+      <STARTIPADDRESS startipaddress="" />
+      <ENDIPADDRESS endipaddress="" />
+      <PLOTID plotid="" />
+    </LINEENTITY>
+    <CRAFTENTITY>
+      <CRAFTID craftid="B13042400000346" />
+      <CRAFTNAME craftname="A-MAC-PRINT" />
+    </CRAFTENTITY>
+    <LABCONFIG>
+      <LABPATH labdir="D" />
+    </LABCONFIG>
+  </PrintConfig>
+</AutoCreate>

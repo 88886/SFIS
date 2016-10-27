@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://testlogser/ESD_WcfService/Web_ESD_Info.svc?xsd=xsd0" filename="Web_ESD_Info.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://testlogser/ESD_WcfService/Web_ESD_Info.svc?wsdl" filename="Web_ESD_Info.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://testlogser/ESD_WcfService/Web_ESD_Info.svc?disco" filename="Web_ESD_Info.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://testlogser/ESD_WcfService/Web_ESD_Info.svc?xsd=xsd1" filename="Web_ESD_Info0.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

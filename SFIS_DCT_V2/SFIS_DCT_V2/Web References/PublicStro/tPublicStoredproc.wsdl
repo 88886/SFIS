@@ -1,0 +1,905 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SP_PublicStoredproc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Storedproc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SP_PublicStoredprocResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SP_PublicStoredprocResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListStationType">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListStationTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListStationTypeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStoredprocValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Pro" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStoredprocValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStoredprocValuesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemInputData">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSystemInputDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSystemInputDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShowMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StationId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShowMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShowMessageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLineList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLineListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLineListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllStation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="woId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllStationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllStationResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWoList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetWoListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWoListResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStockInNumber">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetStockInNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStockInNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemStoredproc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StationId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemStoredprocResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSystemStoredprocResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="SP_PublicStoredprocSoapIn">
+    <wsdl:part name="parameters" element="tns:SP_PublicStoredproc" />
+  </wsdl:message>
+  <wsdl:message name="SP_PublicStoredprocSoapOut">
+    <wsdl:part name="parameters" element="tns:SP_PublicStoredprocResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListStationTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListStationType" />
+  </wsdl:message>
+  <wsdl:message name="GetListStationTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListStationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStoredprocValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStoredprocValues" />
+  </wsdl:message>
+  <wsdl:message name="GetStoredprocValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStoredprocValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemInputDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSystemInputData" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemInputDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSystemInputDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShowMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShowMessage" />
+  </wsdl:message>
+  <wsdl:message name="GetShowMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShowMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLineListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLineList" />
+  </wsdl:message>
+  <wsdl:message name="GetLineListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLineListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllStationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllStation" />
+  </wsdl:message>
+  <wsdl:message name="GetAllStationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllStationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWoListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWoList" />
+  </wsdl:message>
+  <wsdl:message name="GetWoListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStockInNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStockInNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetStockInNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStockInNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemStoredprocSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSystemStoredproc" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemStoredprocSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSystemStoredprocResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetListStationTypeHttpGetIn" />
+  <wsdl:message name="GetListStationTypeHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetStoredprocValuesHttpGetIn">
+    <wsdl:part name="Pro" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStoredprocValuesHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemInputDataHttpGetIn" />
+  <wsdl:message name="GetSystemInputDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetShowMessageHttpGetIn">
+    <wsdl:part name="StationId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetShowMessageHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetLineListHttpGetIn" />
+  <wsdl:message name="GetLineListHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetAllStationHttpGetIn">
+    <wsdl:part name="woId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllStationHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetWoListHttpGetIn" />
+  <wsdl:message name="GetWoListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetStockInNumberHttpGetIn" />
+  <wsdl:message name="GetStockInNumberHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemStoredprocHttpGetIn">
+    <wsdl:part name="StationId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemStoredprocHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetListStationTypeHttpPostIn" />
+  <wsdl:message name="GetListStationTypeHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetStoredprocValuesHttpPostIn">
+    <wsdl:part name="Pro" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStoredprocValuesHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemInputDataHttpPostIn" />
+  <wsdl:message name="GetSystemInputDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetShowMessageHttpPostIn">
+    <wsdl:part name="StationId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetShowMessageHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetLineListHttpPostIn" />
+  <wsdl:message name="GetLineListHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetAllStationHttpPostIn">
+    <wsdl:part name="woId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllStationHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetWoListHttpPostIn" />
+  <wsdl:message name="GetWoListHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetStockInNumberHttpPostIn" />
+  <wsdl:message name="GetStockInNumberHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemStoredprocHttpPostIn">
+    <wsdl:part name="StationId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemStoredprocHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:portType name="tPublicStoredprocSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SP_PublicStoredproc">
+      <wsdl:input message="tns:SP_PublicStoredprocSoapIn" />
+      <wsdl:output message="tns:SP_PublicStoredprocSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListStationType">
+      <wsdl:input message="tns:GetListStationTypeSoapIn" />
+      <wsdl:output message="tns:GetListStationTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStoredprocValues">
+      <wsdl:input message="tns:GetStoredprocValuesSoapIn" />
+      <wsdl:output message="tns:GetStoredprocValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemInputData">
+      <wsdl:input message="tns:GetSystemInputDataSoapIn" />
+      <wsdl:output message="tns:GetSystemInputDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShowMessage">
+      <wsdl:input message="tns:GetShowMessageSoapIn" />
+      <wsdl:output message="tns:GetShowMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLineList">
+      <wsdl:input message="tns:GetLineListSoapIn" />
+      <wsdl:output message="tns:GetLineListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStation">
+      <wsdl:input message="tns:GetAllStationSoapIn" />
+      <wsdl:output message="tns:GetAllStationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWoList">
+      <wsdl:input message="tns:GetWoListSoapIn" />
+      <wsdl:output message="tns:GetWoListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStockInNumber">
+      <wsdl:input message="tns:GetStockInNumberSoapIn" />
+      <wsdl:output message="tns:GetStockInNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemStoredproc">
+      <wsdl:input message="tns:GetSystemStoredprocSoapIn" />
+      <wsdl:output message="tns:GetSystemStoredprocSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="tPublicStoredprocHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListStationType">
+      <wsdl:input message="tns:GetListStationTypeHttpGetIn" />
+      <wsdl:output message="tns:GetListStationTypeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStoredprocValues">
+      <wsdl:input message="tns:GetStoredprocValuesHttpGetIn" />
+      <wsdl:output message="tns:GetStoredprocValuesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemInputData">
+      <wsdl:input message="tns:GetSystemInputDataHttpGetIn" />
+      <wsdl:output message="tns:GetSystemInputDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShowMessage">
+      <wsdl:input message="tns:GetShowMessageHttpGetIn" />
+      <wsdl:output message="tns:GetShowMessageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLineList">
+      <wsdl:input message="tns:GetLineListHttpGetIn" />
+      <wsdl:output message="tns:GetLineListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStation">
+      <wsdl:input message="tns:GetAllStationHttpGetIn" />
+      <wsdl:output message="tns:GetAllStationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWoList">
+      <wsdl:input message="tns:GetWoListHttpGetIn" />
+      <wsdl:output message="tns:GetWoListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStockInNumber">
+      <wsdl:input message="tns:GetStockInNumberHttpGetIn" />
+      <wsdl:output message="tns:GetStockInNumberHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemStoredproc">
+      <wsdl:input message="tns:GetSystemStoredprocHttpGetIn" />
+      <wsdl:output message="tns:GetSystemStoredprocHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="tPublicStoredprocHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListStationType">
+      <wsdl:input message="tns:GetListStationTypeHttpPostIn" />
+      <wsdl:output message="tns:GetListStationTypeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStoredprocValues">
+      <wsdl:input message="tns:GetStoredprocValuesHttpPostIn" />
+      <wsdl:output message="tns:GetStoredprocValuesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemInputData">
+      <wsdl:input message="tns:GetSystemInputDataHttpPostIn" />
+      <wsdl:output message="tns:GetSystemInputDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShowMessage">
+      <wsdl:input message="tns:GetShowMessageHttpPostIn" />
+      <wsdl:output message="tns:GetShowMessageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLineList">
+      <wsdl:input message="tns:GetLineListHttpPostIn" />
+      <wsdl:output message="tns:GetLineListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStation">
+      <wsdl:input message="tns:GetAllStationHttpPostIn" />
+      <wsdl:output message="tns:GetAllStationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWoList">
+      <wsdl:input message="tns:GetWoListHttpPostIn" />
+      <wsdl:output message="tns:GetWoListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStockInNumber">
+      <wsdl:input message="tns:GetStockInNumberHttpPostIn" />
+      <wsdl:output message="tns:GetStockInNumberHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemStoredproc">
+      <wsdl:input message="tns:GetSystemStoredprocHttpPostIn" />
+      <wsdl:output message="tns:GetSystemStoredprocHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="tPublicStoredprocSoap" type="tns:tPublicStoredprocSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SP_PublicStoredproc">
+      <soap:operation soapAction="http://tempuri.org/SP_PublicStoredproc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListStationType">
+      <soap:operation soapAction="http://tempuri.org/GetListStationType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoredprocValues">
+      <soap:operation soapAction="http://tempuri.org/GetStoredprocValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemInputData">
+      <soap:operation soapAction="http://tempuri.org/GetSystemInputData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShowMessage">
+      <soap:operation soapAction="http://tempuri.org/GetShowMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLineList">
+      <soap:operation soapAction="http://tempuri.org/GetLineList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStation">
+      <soap:operation soapAction="http://tempuri.org/GetAllStation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWoList">
+      <soap:operation soapAction="http://tempuri.org/GetWoList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStockInNumber">
+      <soap:operation soapAction="http://tempuri.org/GetStockInNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemStoredproc">
+      <soap:operation soapAction="http://tempuri.org/GetSystemStoredproc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="tPublicStoredprocSoap12" type="tns:tPublicStoredprocSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SP_PublicStoredproc">
+      <soap12:operation soapAction="http://tempuri.org/SP_PublicStoredproc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListStationType">
+      <soap12:operation soapAction="http://tempuri.org/GetListStationType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoredprocValues">
+      <soap12:operation soapAction="http://tempuri.org/GetStoredprocValues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemInputData">
+      <soap12:operation soapAction="http://tempuri.org/GetSystemInputData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShowMessage">
+      <soap12:operation soapAction="http://tempuri.org/GetShowMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLineList">
+      <soap12:operation soapAction="http://tempuri.org/GetLineList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStation">
+      <soap12:operation soapAction="http://tempuri.org/GetAllStation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWoList">
+      <soap12:operation soapAction="http://tempuri.org/GetWoList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStockInNumber">
+      <soap12:operation soapAction="http://tempuri.org/GetStockInNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemStoredproc">
+      <soap12:operation soapAction="http://tempuri.org/GetSystemStoredproc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="tPublicStoredprocHttpGet" type="tns:tPublicStoredprocHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListStationType">
+      <http:operation location="/GetListStationType" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoredprocValues">
+      <http:operation location="/GetStoredprocValues" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemInputData">
+      <http:operation location="/GetSystemInputData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShowMessage">
+      <http:operation location="/GetShowMessage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLineList">
+      <http:operation location="/GetLineList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStation">
+      <http:operation location="/GetAllStation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWoList">
+      <http:operation location="/GetWoList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStockInNumber">
+      <http:operation location="/GetStockInNumber" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemStoredproc">
+      <http:operation location="/GetSystemStoredproc" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="tPublicStoredprocHttpPost" type="tns:tPublicStoredprocHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListStationType">
+      <http:operation location="/GetListStationType" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoredprocValues">
+      <http:operation location="/GetStoredprocValues" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemInputData">
+      <http:operation location="/GetSystemInputData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShowMessage">
+      <http:operation location="/GetShowMessage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLineList">
+      <http:operation location="/GetLineList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStation">
+      <http:operation location="/GetAllStation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWoList">
+      <http:operation location="/GetWoList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStockInNumber">
+      <http:operation location="/GetStockInNumber" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemStoredproc">
+      <http:operation location="/GetSystemStoredproc" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="tPublicStoredproc">
+    <wsdl:port name="tPublicStoredprocSoap" binding="tns:tPublicStoredprocSoap">
+      <soap:address location="http://172.16.173.248/SFIS_TEST/tPublicStoredproc.asmx" />
+    </wsdl:port>
+    <wsdl:port name="tPublicStoredprocSoap12" binding="tns:tPublicStoredprocSoap12">
+      <soap12:address location="http://172.16.173.248/SFIS_TEST/tPublicStoredproc.asmx" />
+    </wsdl:port>
+    <wsdl:port name="tPublicStoredprocHttpGet" binding="tns:tPublicStoredprocHttpGet">
+      <http:address location="http://172.16.173.248/SFIS_TEST/tPublicStoredproc.asmx" />
+    </wsdl:port>
+    <wsdl:port name="tPublicStoredprocHttpPost" binding="tns:tPublicStoredprocHttpPost">
+      <http:address location="http://172.16.173.248/SFIS_TEST/tPublicStoredproc.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

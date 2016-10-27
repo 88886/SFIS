@@ -1,0 +1,3065 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.16.173.235/SFIS_WMS/Warehouse_Business.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://172.16.173.235/SFIS_WMS/Warehouse_Business.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Entity" />
+  <xs:element name="GetProduct_bytype">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="index" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProduct_bytypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetProduct_bytypeResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="update_Product">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="dicList" nillable="true" type="q1:ArrayOfArrayOfKeyValueOfstringanyType" />
+        <xs:element minOccurs="0" name="usedate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="warningdate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="update_ProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="update_ProductResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_pn_overdue_info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pn" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_pn_overdue_infoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_pn_overdue_infoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_overdue_list">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OVERDUE" type="xs:boolean" />
+        <xs:element minOccurs="0" name="WARNING_QTY" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_overdue_listResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_overdue_listResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_WIP_TRACKING">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Colnum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sDATA" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_WIP_TRACKINGResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_Z_WIP_TRACKINGResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insert_product_info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pn" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insert_product_infoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insert_product_infoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insert_SAP_BackFlush">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="STOCK_NO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="WOID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PARTNUMBER" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PRODUCTNAME" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="QTY" type="xs:int" />
+        <xs:element minOccurs="0" name="Plant" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insert_SAP_BackFlushResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Insert_SAP_BackFlushResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_quality_record_list">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sap_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pn_sortname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pn_name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_quality_record_listResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_quality_record_listResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductSort">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductSortResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetProductSortResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_out_info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sap_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="flag" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_out_infoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_out_infoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_out_list">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sap_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_out_listResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_out_listResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WMS_CHECK_EMP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="USERID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="USERPWD" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WMS_CHECK_EMPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WMS_CHECK_EMPResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WMS_CHECK_CMD">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DATA" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WMS_CHECK_CMDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WMS_CHECK_CMDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SHIP_Z_WHS_WIPTRACKING">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Colnum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sDATA" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SHIP_Z_WHS_WIPTRACKINGResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SHIP_Z_WHS_WIPTRACKINGResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SHIP_Z_WHS_WIPTRACKING_OUT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Colnum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sDATA" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sFLAG" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SHIP_Z_WHS_WIPTRACKING_OUTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SHIP_Z_WHS_WIPTRACKING_OUTResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WHS_SHIPPING">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="LsShip" nillable="true" type="q2:ArrayOfSHIPPING_DATA" />
+        <xs:element minOccurs="0" name="sCMD" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SAP_SHIPNO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EMP" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sSHIP_QTY" type="xs:int" />
+        <xs:element minOccurs="0" name="SFCLOTNO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sPart" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WHS_SHIPPINGResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WHS_SHIPPINGResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_StockOut_tracking">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_StockOut_trackingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_StockOut_trackingResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_StockOut_tracking_info_bySapNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SAP_NO" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_StockOut_tracking_info_bySapNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_StockOut_tracking_info_bySapNoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WHS_SHIPPING_NEW">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SAP_SHIPNO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dgv" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="EMP" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WHS_SHIPPING_NEWResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WHS_SHIPPING_NEWResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WHS_SHIPPING_UPDATE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="LsShip" nillable="true" type="q3:ArrayOfSHIPPING_DATA" />
+        <xs:element minOccurs="0" name="sCMD" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SAP_SHIPNO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EMP" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sSHIP_QTY" type="xs:int" />
+        <xs:element minOccurs="0" name="SFCLOTNO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sPart" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WHS_SHIPPING_UPDATEResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WHS_SHIPPING_UPDATEResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_SFC_SHIPPINGNO">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_SFC_SHIPPINGNOResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_SFC_SHIPPINGNOResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="update_Z_WIP_TRACKING_bysap_no">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sap_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pn" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="update_Z_WIP_TRACKING_bysap_noResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="update_Z_WIP_TRACKING_bysap_noResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_StockOut_list">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SAP_NO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_StockOut_listResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_StockOut_listResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_StockOut_OQC">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SAP_NO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_StockOut_OQCResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_StockOut_OQCResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWoInfoByWo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sWO" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWoInfoByWoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetWoInfoByWoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Rework_Update">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="LsShip" nillable="true" type="q4:ArrayOfSHIPPING_DATA" />
+        <xs:element minOccurs="0" name="sCMD" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="woId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EMP" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Out_QTY" type="xs:int" />
+        <xs:element minOccurs="0" name="SFCLOTNO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sPart" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Rework_UpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Rework_UpdateResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_WHS_SAP_SHIPNOTICE_BYSTOREOUT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SHIPNO" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_WHS_SAP_SHIPNOTICE_BYSTOREOUTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_Z_WHS_SAP_SHIPNOTICE_BYSTOREOUTResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_Check_item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_Check_itemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_Check_itemResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertZ_WHS_OQC_ITEM">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sapno" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dt" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertZ_WHS_OQC_ITEMResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertZ_WHS_OQC_ITEMResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertZ_WHS_OQC_INFO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sapno" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="qc_result" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dt" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="ng_hanlde" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="remark" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertZ_WHS_OQC_INFOResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertZ_WHS_OQC_INFOResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_OQC_STOREOUT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SHIPNO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="STATUS" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_OQC_STOREOUTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_OQC_STOREOUTResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Updatez_whs_tracking_oqc_status">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Colnum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sDATA" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sap_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="moveid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pn" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Updatez_whs_tracking_oqc_statusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Updatez_whs_tracking_oqc_statusResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertZ_WHS_DETAIL_status">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MOVE_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sap_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pn" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertZ_WHS_DETAIL_statusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertZ_WHS_DETAIL_statusResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="update_Z_WHS_SAP_SHIPNOTICE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sap_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="qty" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="flag" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="update_Z_WHS_SAP_SHIPNOTICEResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="update_Z_WHS_SAP_SHIPNOTICEResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_DS_Out_Info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Colnum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sDATA" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_DS_Out_InfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_DS_Out_InfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="First_In_First_Out">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="STOREHOUSEID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PartNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="First_In_First_OutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="First_In_First_OutResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertTabelData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TableName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Colnum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Params" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="LsPdk" nillable="true" type="q5:ArrayOfProcedureKey" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertTabelDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertTabelDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_dgv_StockMove">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_dgv_StockMoveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_dgv_StockMoveResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_dgv_StockReceive">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_dgv_StockReceiveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_dgv_StockReceiveResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_dgv_StockReceiveMove">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_dgv_StockReceiveMoveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_dgv_StockReceiveMoveResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_dgv_StockOut">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_dgv_StockOutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_dgv_StockOutResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_dgv_StockOQC">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_dgv_StockOQCResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_dgv_StockOQCResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_dgv_StockShopex">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_dgv_StockShopexResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_dgv_StockShopexResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Odm_Storck_Receive">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sColnum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="InputStr" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="STOREID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="LocId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Odm_Storck_ReceiveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Odm_Storck_ReceiveResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Getstoreinfobypallet_oqc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Inputdate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Getstoreinfobypallet_oqcResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Getstoreinfobypallet_oqcResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_lotin_store_qty">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_lotin_store_qtyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_lotin_store_qtyResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Ds_Out_UserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="User_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Dt_Sta" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="Dt_End" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Ds_Out_UserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_Ds_Out_UserIdResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_zwhs_stock">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_zwhs_stockResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_zwhs_stockResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_zwhs_info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stock_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="loc_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="flag" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_zwhs_infoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_zwhs_infoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_stock_list">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stock_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="loc_id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_stock_listResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_stock_listResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_pn_date_list">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rec_Sta" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="rec_End" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_pn_date_listResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_pn_date_listResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryZ_WIP_TRACKING_ONLINE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Colnum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sDATA" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryZ_WIP_TRACKING_ONLINEResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="QueryZ_WIP_TRACKING_ONLINEResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getLianbi_bylianbysn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lianbisn" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getLianbi_bylianbysnResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getLianbi_bylianbysnResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getLianbi_bypn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pn" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getLianbi_bypnResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getLianbi_bypnResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="return_Lianbi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="return_LianbiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="return_LianbiResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_sel_info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cb_type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dt_start" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dt_end" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="sn" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_sel_infoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_sel_infoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="check_R_stock_info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stock_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="move_stock" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="check_R_stock_infoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="check_R_stock_infoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_lianbi_info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sn" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_lianbi_infoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_lianbi_infoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="update_Lianbi_info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="USERID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OLD_LBSN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NEW_LBSN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="update_Lianbi_infoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="update_Lianbi_infoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="update_change_Lianbi_info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="USERID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OLD_SN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NEW_SN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="update_change_Lianbi_infoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="update_change_Lianbi_infoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="delete_Lianbi_info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lian_sn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sale_am" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="delete_Lianbi_infoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="delete_Lianbi_infoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_reprot_info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dt_sta" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dt_end" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="sn_type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_reprot_infoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_reprot_infoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_quality_record_info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dt_sta" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dt_end" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="pn_sortname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pn_name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user_name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="get_quality_record_infoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="get_quality_record_infoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlltStorehouseLoctionInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlltStorehouseLoctionInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAlltStorehouseLoctionInfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlltStorehouseLoctionInfo_CE">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlltStorehouseLoctionInfo_CEResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAlltStorehouseLoctionInfo_CEResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GettStorehouseLoctionType">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GettStorehouseLoctionTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GettStorehouseLoctionTypeResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddStorehouseloction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="warehouseloc" nillable="true" type="q6:tStorehouseLoctionInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddStorehouseloctionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddStorehouseloctionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GettStorehouseLoctionInfoById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="locid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GettStorehouseLoctionInfoByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GettStorehouseLoctionInfoByIdResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStorehouseloction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="warehouseloc" nillable="true" type="q7:tStorehouseLoctionInfo" />
+        <xs:element minOccurs="0" name="locid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStorehouseloctionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChkStoreLocaltion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="store" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="locid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChkStoreLocaltionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ChkStoreLocaltionResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddStorehouselocType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loctype" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddStorehouselocTypeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteStorehouseloction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="locid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteStorehouseloctionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryRoleInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryRoleInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="QueryRoleInfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertRoleInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="roleinfo" nillable="true" type="q8:tRoleInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertRoleInfoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoleInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoleInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetRoleInfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeptInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDeptInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDeptInfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllWoInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllWoInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAllWoInfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWarehouseList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWarehouseListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetWarehouseListResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpload_whs_Sap_Info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MOVE_TYPE" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpload_whs_Sap_InfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUpload_whs_Sap_InfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Update_Z_Whs_SAP_BackFlush_Flag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sRowid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sFlag" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Update_Z_Whs_SAP_BackFlush_FlagResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Update_Z_Whs_SAP_BackFlush_FlagResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWarehouseListInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWarehouseListInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetWarehouseListInfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Warehouse_number_Info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lotin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Warehouse_number_InfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_Warehouse_number_InfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpload_whs_Sap_Info_No">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MOVE_TYPE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Colnum" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpload_whs_Sap_Info_NoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUpload_whs_Sap_Info_NoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Receiving_Storage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="Lszhsb" nillable="true" type="q9:ArrayOfZ_WHS_SAP_BACKFLUSHTable" />
+        <xs:element minOccurs="0" name="RecType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="storeId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="locId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RecCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Receiving_StorageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Receiving_StorageResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Inser_B_Product_PanDian">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Partnumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Inser_B_Product_PanDianResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Inser_B_Product_PanDianResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Sel_B_Product_PanDian">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Partnumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Sel_B_Product_PanDianResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Sel_B_Product_PanDianResult" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Sel_B_Product_PanDian_CE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Partnumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Sel_B_Product_PanDian_CEResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Sel_B_Product_PanDian_CEResult" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insert_Z_WHS_TRACKING">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="LsZwip" nillable="true" type="q10:ArrayOftWipTrackingTable" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="LsWkp" nillable="true" type="q11:ArrayOftWipKeyPartTable" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insert_Z_WHS_TRACKINGResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Insert_Z_WHS_TRACKINGResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertt_wip_key">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="esn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="woid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sntype" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="snval" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertt_wip_keyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertt_wip_keyResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="checkz_whs_loction_infobyLocIDSHID_CE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="storehouseid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="locid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="checkz_whs_loction_infobyLocIDSHID_CEResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="checkz_whs_loction_infobyLocIDSHID_CEResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertz_whs_loction_info_PANDIAN">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="insertmsi" nillable="true" type="q12:tz_whs_loction_infoTable" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertz_whs_loction_info_PANDIANResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertz_whs_loction_info_PANDIANResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertSystemLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="tsl" nillable="true" type="q13:T_SYSTEM_LOG" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertSystemLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="err" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_DS_Info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rec_Sta" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="rec_End" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_DS_InfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_DS_InfoResult" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Sel_Product_Info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SN_Type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Sel_Product_InfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Sel_Product_InfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Upd_SFC_Out">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ESN" nillable="true" type="q14:ArrayOfstring" />
+        <xs:element minOccurs="0" name="Lot_Code" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SNType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Upd_SFC_OutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Upd_SFC_OutResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GET_OutCode">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GET_OutCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GET_OutCodeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sel_Erp_Item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LOGI_NO" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sel_Erp_ItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sel_Erp_ItemResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Update_SHOPEXInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SFlag" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="InUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="log_No" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Update_SHOPEXInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Update_SHOPEXInfoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Sel_Erp_Info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Sta_Time" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="End_Time" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Sel_Erp_InfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Sel_Erp_InfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Save_Erp_Info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Dt_ERP" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="Dt_Erp_item" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Save_Erp_InfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Save_Erp_InfoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Save_Erp_Info_sigle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="shop_code" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="shop_name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="order_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="member_name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sale_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pay_method" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sale_time" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="order_create_time" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pay_time" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ship_time" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="order_check_op" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="order_check_time" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="goods_amount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="freight_amount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="additional_amount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="has_tax" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pmt_amount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sale_amount" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="logi_name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="logi_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="branch_name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="branch_bn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="delivery_no" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="consignee" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="consignee_area" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="consignee_addr" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="consignee_zip" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="consignee_tel" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="consignee_mobile" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="consignee_email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Save_Erp_Info_sigleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Save_Erp_Info_sigleResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GettPartBlockedByPartNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partno" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GettPartBlockedByPartNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GettPartBlockedByPartNoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Getstoreinfobycarton">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cartongID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetstoreinfobycartonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetstoreinfobycartonResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Getstorebypallet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="palletnumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetstorebypalletResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetstorebypalletResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatetWhWipInfobypallet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pallet" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="carton" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="esn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="storehouseId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="locId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="utype" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatetWhWipInfobypalletResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQueryWip">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ColumnName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQueryWipResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetQueryWipResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductByPartNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partnumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductByPartNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetProductByPartNumberResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="checkz_whs_loction_infobyLocIDSHID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="storehouseid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="locid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="checkz_whs_loction_infobyLocIDSHIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="checkz_whs_loction_infobyLocIDSHIDResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertz_whs_loction_info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="insertmsi" nillable="true" type="q15:tz_whs_loction_infoTable" />
+        <xs:element minOccurs="0" name="Colnum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sdata" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="moveid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertz_whs_loction_infoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertz_whs_loction_infoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatez_whs_loction_info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="palletnumber1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="palletnumber2" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="qty" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatez_whs_loction_infoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatez_whs_loction_infoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatez_whs_loction_infobypallet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="palletnumber1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="palletnumber2" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cartonnumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updatez_whs_loction_infobypalletResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updatez_whs_loction_infobypalletResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="checkLocIDbySHID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="storehouseid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="locid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="checkLocIDbySHIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="checkLocIDbySHIDResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlltStorehouseInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlltStorehouseInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAlltStorehouseInfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlltStorehouseInfo_CE">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlltStorehouseInfo_CEResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAlltStorehouseInfo_CEResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GettStorehouseType">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GettStorehouseTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GettStorehouseTypeResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddStorehouse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="warehouse" nillable="true" type="q16:tStorehouseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddStorehouseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddStorehouseResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GettStorehouseInfoById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="warehouseid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GettStorehouseInfoByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GettStorehouseInfoByIdResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStorehouse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="warehouse" nillable="true" type="q17:tStorehouseInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStorehouseResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GettStorehouseLoctionInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_selname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_value" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GettStorehouseLoctionInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GettStorehouseLoctionInfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductAllInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="flag" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductAllInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetProductAllInfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductNotLocId">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductNotLocIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetProductNotLocIdResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStoreLocId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rectype" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="reccode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="storehouseId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="locId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStoreLocIdResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductInfo_Tracking">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="wt" nillable="true" type="q18:tWarehouseWipTrackingTable" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductInfo_TrackingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetProductInfo_TrackingResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelSFClotcode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SAPCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="partnumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sfclotcode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelSFClotcodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CancelSFClotcodeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetdgvStockList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partnumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetdgvStockListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetdgvStockListResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckStockList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lotout" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="flag" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckStockListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckStockListResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DefaultDataPartition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cartonnumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newcarton" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="count" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DefaultDataPartitionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarinfoByCarton">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cartonnumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarinfoByCartonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCarinfoByCartonResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSAPInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="saplotcode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSAPInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSAPInfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertOutPutRecordList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="lssap" nillable="true" type="q19:ArrayOftSapLodeInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertOutPutRecordListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertOutPutRecordListResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductOutPick1">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="serialval" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="flag" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductOutPick1Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProductOutPick1Result" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="Err" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductOutPickInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="keyvalue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="flag" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductOutPickInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetProductOutPickInfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductInfoBySN">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="snval" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="snvalend" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="flag" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductInfoBySNResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetProductInfoBySNResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductOut_2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="wwip" nillable="true" type="q20:ArrayOftWarehouseWipTrackingTable" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductOut_2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProductOut_2Result" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountProductOutQTY">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sapcode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountProductOutQTYResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CountProductOutQTYResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatetOutputlotrecordNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sapcode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatetOutputlotrecordNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdatetOutputlotrecordNewResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryZ_WIP_TRACKING">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Colnum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sDATA" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryZ_WIP_TRACKINGResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="QueryZ_WIP_TRACKINGResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQtyByPartnumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partnumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="storehouseid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQtyByPartnumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetQtyByPartnumberResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSAP_DN">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Colnum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DATA" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSAP_DNResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSAP_DNResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Getstoreinfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InputData" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetstoreinfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetstoreinfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Updatez_whs_tracking_move_status">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Colnum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="storehouseid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="moveid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Updatez_whs_tracking_move_statusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Updatez_whs_tracking_move_statusResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="checkz_whs_trackingbyLocIDSHID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="storehouseid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="locid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="checkz_whs_trackingbyLocIDSHIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="checkz_whs_trackingbyLocIDSHIDResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Getstoreinfobypallet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Inputdate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="move_id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetstoreinfobypalletResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetstoreinfobypalletResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Updatez_whs_tracking_move_store">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Colnum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="storenumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="storehouseid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="locid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sstatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Updatez_whs_tracking_move_storeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Updatez_whs_tracking_move_storeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetALLWoInfoByWoinfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strWo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetALLWoInfoByWoinfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetALLWoInfoByWoinfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWipKeyPart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Serial" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWipKeyPartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetWipKeyPartResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertZ_Whs_SAP_BackFlush">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="zhsb" nillable="true" type="q21:Z_WHS_SAP_BACKFLUSHTable" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertZ_Whs_SAP_BackFlushResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertZ_Whs_SAP_BackFlushResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Sel_MOVEWH_ID">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Sel_MOVEWH_IDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Sel_MOVEWH_IDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Getmovestoreid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MOVE_STORE_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="state" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetmovestoreidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetmovestoreidResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Getmove_store_id_info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MOVE_STORE_ID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Getmove_store_id_infoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Getmove_store_id_infoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertz_whs_detail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="esn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lotcode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pn" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertz_whs_detailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertz_whs_detailResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="move_store_id_status">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="move_store_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="partnumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="move_store_id_statusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="move_store_id_statusResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Getmovestoreinfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MOVE_STORE_ID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetmovestoreinfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetmovestoreinfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Getstore_info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MOVE_STORE_ID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Getstore_infoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Getstore_infoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Getstorebymoveid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="move_store_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="immigration_store" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetstorebymoveidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetstorebymoveidResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Getmove_store_qty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MOVE_STORE_ID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Getmove_store_qtyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Getmove_store_qtyResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_WHS_MOVE_STORE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="movestoreno" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_WHS_MOVE_STOREResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_Z_WHS_MOVE_STOREResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Update_Z_WHS_MOVE_STORES">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Rowid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Update_Z_WHS_MOVE_STORESResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Update_Z_WHS_MOVE_STORESResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckDataInWH">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ESN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckDataInWHResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckDataInWHResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Getlotinfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="status" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetlotinfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetlotinfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetlotinfoList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lotin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetlotinfoListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetlotinfoListResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReturnList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RecType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RecCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReturnListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetReturnListResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockReceive">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RecType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RecStyle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lotcode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RecCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="storeId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="locId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockReceiveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StockReceiveResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockOut">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RecType" type="xs:int" />
+        <xs:element minOccurs="0" name="SAPCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="partnumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SAPQty" type="xs:int" />
+        <xs:element minOccurs="0" name="CustomerId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RecStyle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockOutResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockOutEnd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sapcode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RecType" type="xs:int" />
+        <xs:element minOccurs="0" name="Qtype" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockOutEndResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StockOutEndResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStockList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partnumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cartonnumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStockListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetStockListResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCartonList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cartonnumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCartonListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCartonListResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPalletList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="palletnumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPalletListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPalletListResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatetWhWipInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="esn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="reccode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="storehouseId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="locId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="utype" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatetWhWipInfoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockQuery">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sdt" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="edt" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="palletnumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="qtype" type="xs:int" />
+        <xs:element minOccurs="0" name="sumstate" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockQueryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StockQueryResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReworkWipQuery">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Colnum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReworkWipQueryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReworkWipQueryResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductAllSerial">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="flag" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductAllSerialResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetProductAllSerialResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCartonbysn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="snval" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCartonbysnResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCartonbysnResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetlotinfoByLotin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lotin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetlotinfoByLotinResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetlotinfoByLotinResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductInstockSerialInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="flag" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductInstockSerialInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetProductInstockSerialInfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertZ_WHS_SAP_SHIPNOTICE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="LsWss" nillable="true" type="q22:ArrayOfZ_WHS_SAP_SHIPNOTICE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertZ_WHS_SAP_SHIPNOTICEResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertZ_WHS_SAP_SHIPNOTICEResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateZ_WHS_SAP_SHIPNOTICE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="LsWss" nillable="true" type="q23:ArrayOfZ_WHS_SAP_SHIPNOTICE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateZ_WHS_SAP_SHIPNOTICEResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateZ_WHS_SAP_SHIPNOTICEResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_WHS_SAP_SHIPNOTICE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SHIPNO" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_WHS_SAP_SHIPNOTICEResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_Z_WHS_SAP_SHIPNOTICEResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserInfoByUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserInfoByUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserInfoByUserIdResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJurUserInfoByIdandpwd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJurUserInfoByIdandpwdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetJurUserInfoByIdandpwdResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddProgInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="proginfomodel" nillable="true" type="q24:tProgInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddProgInfoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFunctionList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="lsfunlist" nillable="true" type="q25:ArrayOftFunctionList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFunctionListResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserInfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertUserInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="userinfo" nillable="true" type="q26:tUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertUserInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Err" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditUserInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="userInfo" nillable="true" type="q27:tUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditUserInfoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="userinfo" nillable="true" type="q28:tUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserPasswordResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllProgFunctionInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllProgFunctionInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAllProgFunctionInfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJurUserInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJurUserInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetJurUserInfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserJurisdictionByUserId2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserJurisdictionByUserId2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserJurisdictionByUserId2Result" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJurUserInfoById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJurUserInfoByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetJurUserInfoByIdResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJurUserInfoByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJurUserInfoByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetJurUserInfoByNameResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUserJurisdiction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="ArrUserPopList" nillable="true" type="q29:ArrayOftUserPopList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUserJurisdictionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddUserJurisdictionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserInfoByUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserInfoByUserIdResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChkUserInfoIdAndPwd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChkUserInfoIdAndPwdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ChkUserInfoIdAndPwdResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServersTime">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServersTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetServersTimeResult" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserJurisdictionByUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserJurisdictionByUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserJurisdictionByUserIdResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletetEditingByUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletetEditingByUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeletetEditingByUserIdResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckPrgVsersion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Prg_Name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Prg_Ver" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Ap_Desc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Ap_Type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Ap_Path" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckPrgVsersionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckPrgVsersionResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Check_VerMsg">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Check_VerMsgResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Check_VerMsgResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DB_Config">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Prg_Name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DB_ConfigResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DB_ConfigResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductInfo">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetProductInfoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QUERYWIP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Colnum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QUERYWIPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="QUERYWIPResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertmove_store_id">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="insertmsi" nillable="true" type="q30:tz_whs_move_storeTable" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertmove_store_idResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Insertmove_store_idResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

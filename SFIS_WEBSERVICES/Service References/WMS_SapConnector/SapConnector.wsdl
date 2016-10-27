@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SapConnector" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://172.16.171.232/SFC_MTR/SapConnector.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://172.16.171.232/SFC_MTR/SapConnector.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://172.16.171.232/SFC_MTR/SapConnector.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://172.16.171.232/SFC_MTR/SapConnector.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Entity" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISapConnector_GetErrorMsg_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrorMsg" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_GetErrorMsg_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetErrorMsgResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_Z_RFC_ZMM011_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Z_RFC_ZMM011" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_Z_RFC_ZMM011_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Z_RFC_ZMM011Response" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_Z_RFC_ZMM011_WinCE_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Z_RFC_ZMM011_WinCE" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_Z_RFC_ZMM011_WinCE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Z_RFC_ZMM011_WinCEResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_Z_RFC_AFPO_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Z_RFC_AFPO" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_Z_RFC_AFPO_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Z_RFC_AFPOResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_Z_RFC_ZPP007_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Z_RFC_ZPP007" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_Z_RFC_ZPP007_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Z_RFC_ZPP007Response" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_Z_RFC_LIPS_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Z_RFC_LIPS" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_Z_RFC_LIPS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Z_RFC_LIPSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_Z_RFC_MSEG_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Z_RFC_MSEG" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_Z_RFC_MSEG_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Z_RFC_MSEGResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_Z_RFC_PO_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Z_RFC_PO" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_Z_RFC_PO_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Z_RFC_POResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_Z_RFC_GD_DELIVERY_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Z_RFC_GD_DELIVERY" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_Z_RFC_GD_DELIVERY_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Z_RFC_GD_DELIVERYResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_Z_RFC_ZWMSMM001_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Z_RFC_ZWMSMM001" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_Z_RFC_ZWMSMM001_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Z_RFC_ZWMSMM001Response" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_R_MSEG_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_R_MSEG" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_R_MSEG_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_R_MSEGResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_R_SAPPI_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_R_SAPPI" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_Get_R_SAPPI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_R_SAPPIResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_RFC_ZMM_GOODSMVT_CREATE_InputMessage">
+    <wsdl:part name="parameters" element="tns:RFC_ZMM_GOODSMVT_CREATE" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_RFC_ZMM_GOODSMVT_CREATE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RFC_ZMM_GOODSMVT_CREATEResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_RFC_ZMM_RESERVATION_GETDETAIL_InputMessage">
+    <wsdl:part name="parameters" element="tns:RFC_ZMM_RESERVATION_GETDETAIL" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_RFC_ZMM_RESERVATION_GETDETAIL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RFC_ZMM_RESERVATION_GETDETAILResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_RFC_ZMM_OUTBOUND_DELIVERY_GETLIST_InputMessage">
+    <wsdl:part name="parameters" element="tns:RFC_ZMM_OUTBOUND_DELIVERY_GETLIST" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_RFC_ZMM_OUTBOUND_DELIVERY_GETLIST_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RFC_ZMM_OUTBOUND_DELIVERY_GETLISTResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_RFC_ZMM_OUTBOUND_DELIVERY_POST_InputMessage">
+    <wsdl:part name="parameters" element="tns:RFC_ZMM_OUTBOUND_DELIVERY_POST" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_RFC_ZMM_OUTBOUND_DELIVERY_POST_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RFC_ZMM_OUTBOUND_DELIVERY_POSTResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_RFC_ZMM_GOODSMVT_CREATE_list_InputMessage">
+    <wsdl:part name="parameters" element="tns:RFC_ZMM_GOODSMVT_CREATE_list" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_RFC_ZMM_GOODSMVT_CREATE_list_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RFC_ZMM_GOODSMVT_CREATE_listResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_RFC_ZppUsage_OUT_InputMessage">
+    <wsdl:part name="parameters" element="tns:RFC_ZppUsage_OUT" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_RFC_ZppUsage_OUT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RFC_ZppUsage_OUTResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_RFC_ZMM_GOODSMVT_CREATE_JSON_InputMessage">
+    <wsdl:part name="parameters" element="tns:RFC_ZMM_GOODSMVT_CREATE_JSON" />
+  </wsdl:message>
+  <wsdl:message name="ISapConnector_RFC_ZMM_GOODSMVT_CREATE_JSON_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RFC_ZMM_GOODSMVT_CREATE_JSONResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISapConnector">
+    <wsdl:operation name="GetErrorMsg">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISapConnector/GetErrorMsg" message="tns:ISapConnector_GetErrorMsg_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISapConnector/GetErrorMsgResponse" message="tns:ISapConnector_GetErrorMsg_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Z_RFC_ZMM011">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISapConnector/Get_Z_RFC_ZMM011" message="tns:ISapConnector_Get_Z_RFC_ZMM011_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISapConnector/Get_Z_RFC_ZMM011Response" message="tns:ISapConnector_Get_Z_RFC_ZMM011_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Z_RFC_ZMM011_WinCE">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISapConnector/Get_Z_RFC_ZMM011_WinCE" message="tns:ISapConnector_Get_Z_RFC_ZMM011_WinCE_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISapConnector/Get_Z_RFC_ZMM011_WinCEResponse" message="tns:ISapConnector_Get_Z_RFC_ZMM011_WinCE_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Z_RFC_AFPO">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISapConnector/Get_Z_RFC_AFPO" message="tns:ISapConnector_Get_Z_RFC_AFPO_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISapConnector/Get_Z_RFC_AFPOResponse" message="tns:ISapConnector_Get_Z_RFC_AFPO_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Z_RFC_ZPP007">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISapConnector/Get_Z_RFC_ZPP007" message="tns:ISapConnector_Get_Z_RFC_ZPP007_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISapConnector/Get_Z_RFC_ZPP007Response" message="tns:ISapConnector_Get_Z_RFC_ZPP007_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Z_RFC_LIPS">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISapConnector/Get_Z_RFC_LIPS" message="tns:ISapConnector_Get_Z_RFC_LIPS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISapConnector/Get_Z_RFC_LIPSResponse" message="tns:ISapConnector_Get_Z_RFC_LIPS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Z_RFC_MSEG">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISapConnector/Get_Z_RFC_MSEG" message="tns:ISapConnector_Get_Z_RFC_MSEG_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISapConnector/Get_Z_RFC_MSEGResponse" message="tns:ISapConnector_Get_Z_RFC_MSEG_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Z_RFC_PO">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISapConnector/Get_Z_RFC_PO" message="tns:ISapConnector_Get_Z_RFC_PO_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISapConnector/Get_Z_RFC_POResponse" message="tns:ISapConnector_Get_Z_RFC_PO_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Z_RFC_GD_DELIVERY">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISapConnector/Get_Z_RFC_GD_DELIVERY" message="tns:ISapConnector_Get_Z_RFC_GD_DELIVERY_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISapConnector/Get_Z_RFC_GD_DELIVERYResponse" message="tns:ISapConnector_Get_Z_RFC_GD_DELIVERY_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Z_RFC_ZWMSMM001">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISapConnector/Get_Z_RFC_ZWMSMM001" message="tns:ISapConnector_Get_Z_RFC_ZWMSMM001_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISapConnector/Get_Z_RFC_ZWMSMM001Response" message="tns:ISapConnector_Get_Z_RFC_ZWMSMM001_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_R_MSEG">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISapConnector/Get_R_MSEG" message="tns:ISapConnector_Get_R_MSEG_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISapConnector/Get_R_MSEGResponse" message="tns:ISapConnector_Get_R_MSEG_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_R_SAPPI">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISapConnector/Get_R_SAPPI" message="tns:ISapConnector_Get_R_SAPPI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISapConnector/Get_R_SAPPIResponse" message="tns:ISapConnector_Get_R_SAPPI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RFC_ZMM_GOODSMVT_CREATE">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISapConnector/RFC_ZMM_GOODSMVT_CREATE" message="tns:ISapConnector_RFC_ZMM_GOODSMVT_CREATE_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISapConnector/RFC_ZMM_GOODSMVT_CREATEResponse" message="tns:ISapConnector_RFC_ZMM_GOODSMVT_CREATE_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RFC_ZMM_RESERVATION_GETDETAIL">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISapConnector/RFC_ZMM_RESERVATION_GETDETAIL" message="tns:ISapConnector_RFC_ZMM_RESERVATION_GETDETAIL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISapConnector/RFC_ZMM_RESERVATION_GETDETAILResponse" message="tns:ISapConnector_RFC_ZMM_RESERVATION_GETDETAIL_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RFC_ZMM_OUTBOUND_DELIVERY_GETLIST">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISapConnector/RFC_ZMM_OUTBOUND_DELIVERY_GETLIST" message="tns:ISapConnector_RFC_ZMM_OUTBOUND_DELIVERY_GETLIST_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISapConnector/RFC_ZMM_OUTBOUND_DELIVERY_GETLISTResponse" message="tns:ISapConnector_RFC_ZMM_OUTBOUND_DELIVERY_GETLIST_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RFC_ZMM_OUTBOUND_DELIVERY_POST">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISapConnector/RFC_ZMM_OUTBOUND_DELIVERY_POST" message="tns:ISapConnector_RFC_ZMM_OUTBOUND_DELIVERY_POST_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISapConnector/RFC_ZMM_OUTBOUND_DELIVERY_POSTResponse" message="tns:ISapConnector_RFC_ZMM_OUTBOUND_DELIVERY_POST_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RFC_ZMM_GOODSMVT_CREATE_list">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISapConnector/RFC_ZMM_GOODSMVT_CREATE_list" message="tns:ISapConnector_RFC_ZMM_GOODSMVT_CREATE_list_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISapConnector/RFC_ZMM_GOODSMVT_CREATE_listResponse" message="tns:ISapConnector_RFC_ZMM_GOODSMVT_CREATE_list_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RFC_ZppUsage_OUT">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISapConnector/RFC_ZppUsage_OUT" message="tns:ISapConnector_RFC_ZppUsage_OUT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISapConnector/RFC_ZppUsage_OUTResponse" message="tns:ISapConnector_RFC_ZppUsage_OUT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RFC_ZMM_GOODSMVT_CREATE_JSON">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISapConnector/RFC_ZMM_GOODSMVT_CREATE_JSON" message="tns:ISapConnector_RFC_ZMM_GOODSMVT_CREATE_JSON_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISapConnector/RFC_ZMM_GOODSMVT_CREATE_JSONResponse" message="tns:ISapConnector_RFC_ZMM_GOODSMVT_CREATE_JSON_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISapConnector" type="tns:ISapConnector">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetErrorMsg">
+      <soap:operation soapAction="http://tempuri.org/ISapConnector/GetErrorMsg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Z_RFC_ZMM011">
+      <soap:operation soapAction="http://tempuri.org/ISapConnector/Get_Z_RFC_ZMM011" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Z_RFC_ZMM011_WinCE">
+      <soap:operation soapAction="http://tempuri.org/ISapConnector/Get_Z_RFC_ZMM011_WinCE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Z_RFC_AFPO">
+      <soap:operation soapAction="http://tempuri.org/ISapConnector/Get_Z_RFC_AFPO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Z_RFC_ZPP007">
+      <soap:operation soapAction="http://tempuri.org/ISapConnector/Get_Z_RFC_ZPP007" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Z_RFC_LIPS">
+      <soap:operation soapAction="http://tempuri.org/ISapConnector/Get_Z_RFC_LIPS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Z_RFC_MSEG">
+      <soap:operation soapAction="http://tempuri.org/ISapConnector/Get_Z_RFC_MSEG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Z_RFC_PO">
+      <soap:operation soapAction="http://tempuri.org/ISapConnector/Get_Z_RFC_PO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Z_RFC_GD_DELIVERY">
+      <soap:operation soapAction="http://tempuri.org/ISapConnector/Get_Z_RFC_GD_DELIVERY" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Z_RFC_ZWMSMM001">
+      <soap:operation soapAction="http://tempuri.org/ISapConnector/Get_Z_RFC_ZWMSMM001" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_R_MSEG">
+      <soap:operation soapAction="http://tempuri.org/ISapConnector/Get_R_MSEG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_R_SAPPI">
+      <soap:operation soapAction="http://tempuri.org/ISapConnector/Get_R_SAPPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RFC_ZMM_GOODSMVT_CREATE">
+      <soap:operation soapAction="http://tempuri.org/ISapConnector/RFC_ZMM_GOODSMVT_CREATE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RFC_ZMM_RESERVATION_GETDETAIL">
+      <soap:operation soapAction="http://tempuri.org/ISapConnector/RFC_ZMM_RESERVATION_GETDETAIL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RFC_ZMM_OUTBOUND_DELIVERY_GETLIST">
+      <soap:operation soapAction="http://tempuri.org/ISapConnector/RFC_ZMM_OUTBOUND_DELIVERY_GETLIST" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RFC_ZMM_OUTBOUND_DELIVERY_POST">
+      <soap:operation soapAction="http://tempuri.org/ISapConnector/RFC_ZMM_OUTBOUND_DELIVERY_POST" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RFC_ZMM_GOODSMVT_CREATE_list">
+      <soap:operation soapAction="http://tempuri.org/ISapConnector/RFC_ZMM_GOODSMVT_CREATE_list" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RFC_ZppUsage_OUT">
+      <soap:operation soapAction="http://tempuri.org/ISapConnector/RFC_ZppUsage_OUT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RFC_ZMM_GOODSMVT_CREATE_JSON">
+      <soap:operation soapAction="http://tempuri.org/ISapConnector/RFC_ZMM_GOODSMVT_CREATE_JSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SapConnector">
+    <wsdl:port name="BasicHttpBinding_ISapConnector" binding="tns:BasicHttpBinding_ISapConnector">
+      <soap:address location="http://172.16.171.232/SFC_MTR/SapConnector.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DF80870E-3F74-46C9-8DC8-A35F2406D7D4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Entity</RootNamespace>
+    <AssemblyName>Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\RELEASE\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'xxx|AnyCPU' ">
+    <OutputPath>bin\xxx\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="B_SNRULE_PARTNUMBER_Table.cs" />
+    <Compile Include="B_SNRULE_WO_Table.cs" />
+    <Compile Include="PackInfoParameter.cs" />
+    <Compile Include="ProcedureKey.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SMT_KP_DETALTForWo.cs" />
+    <Compile Include="SMT_KP_DETALT.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SMT_KP_MASTER.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tBomKeyPartTable.cs" />
+    <Compile Include="tCheckTimeOut.cs" />
+    <Compile Include="tCustomer.cs" />
+    <Compile Include="tCustomerComplaint.cs" />
+    <Compile Include="tErrorCodeTable.cs" />
+    <Compile Include="tFixtureInfo.cs" />
+    <Compile Include="tFixtureRegist.cs" />
+    <Compile Include="tKeyPartTable.cs" />
+    <Compile Include="tMaterialsReceive.cs" />
+    <Compile Include="tOutputlotrecordTable.cs" />
+    <Compile Include="tPackParametersTable.cs" />
+    <Compile Include="tPalletInfoTable.cs" />
+    <Compile Include="tPartBlockedTable.cs" />
+    <Compile Include="tPartKeyPartsTable.cs" />
+    <Compile Include="tPartMap.cs" />
+    <Compile Include="tPartStorehousedta.cs" />
+    <Compile Include="tPartStorehousehad.cs" />
+    <Compile Include="tPartStorehousehadRecount.cs" />
+    <Compile Include="tPrivliegeTable.cs" />
+    <Compile Include="tPublicParamForSP.cs" />
+    <Compile Include="tReasonCodeTable.cs" />
+    <Compile Include="tRepairInfoTable.cs" />
+    <Compile Include="tReworkDetailTable.cs" />
+    <Compile Include="tRtrsn.cs" />
+    <Compile Include="tSapLodeInfo.cs" />
+    <Compile Include="tScrapInfoTable.cs" />
+    <Compile Include="tSerialTypes.cs" />
+    <Compile Include="tSmtIOTable.cs" />
+    <Compile Include="tSmtKPMasterTable.cs" />
+    <Compile Include="tStation_Rec.cs" />
+    <Compile Include="tStorehouseInfo.cs" />
+    <Compile Include="tStorehouseLoctionInfo.cs" />
+    <Compile Include="tStorehouseLoctionType.cs" />
+    <Compile Include="tTargetPlanTable.cs" />
+    <Compile Include="tT_TESTRESULT_INFO.cs" />
+    <Compile Include="tUserPopList.cs" />
+    <Compile Include="tWarehouseLotTotalInfoTable.cs" />
+    <Compile Include="tWarehouseWipDetailTable.cs" />
+    <Compile Include="tWarehouseWipKeyPartTable.cs" />
+    <Compile Include="tWarehouseWipTrackingTable.cs" />
+    <Compile Include="tWenderInfo.cs" />
+    <Compile Include="tWipDetailTable.cs" />
+    <Compile Include="tWipKeyPartTable.cs" />
+    <Compile Include="tWipTrackingTable.cs" />
+    <Compile Include="tWoBomInfoTable.cs" />
+    <Compile Include="tz_whs_move_storeTable.cs" />
+    <Compile Include="T_WO_BOM_INFO.cs" />
+    <Compile Include="T_WO_INFO.cs" />
+    <Compile Include="T_SYSTEM_LOG.cs" />
+    <Compile Include="tProductsort.cs" />
+    <Compile Include="tProduct.cs" />
+    <Compile Include="tPoltInfo.cs" />
+    <Compile Include="tPoInfo.cs" />
+    <Compile Include="tProductSerialInfo.cs" />
+    <Compile Include="tSerialLimitInfo.cs" />
+    <Compile Include="tMaterialPreparation.cs" />
+    <Compile Include="tUserInfo.cs" />
+    <Compile Include="tFacInfo.cs" />
+    <Compile Include="tRoleInfo.cs" />
+    <Compile Include="tDeptInfo.cs" />
+    <Compile Include="tWsInfo.cs" />
+    <Compile Include="tLineInfo.cs" />
+    <Compile Include="tStationNoInfo.cs" />
+    <Compile Include="tMachineInfo.cs" />
+    <Compile Include="tCraftInfo.cs" />
+    <Compile Include="tCraftItem.cs" />
+    <Compile Include="tSmtKpNormalLog.cs" />
+    <Compile Include="tSmtKpMonitor.cs" />
+    <Compile Include="tRouteInfo.cs" />
+    <Compile Include="tRoutCraftparameter.cs" />
+    <Compile Include="tFunctionList.cs" />
+    <Compile Include="tProgInfo.cs" />
+    <Compile Include="tRouteAtt.cs" />
+    <Compile Include="tSnRule.cs" />
+    <Compile Include="WoSnRule.cs" />
+    <Compile Include="tCartonInfo.cs" />
+    <Compile Include="tUsePwd.cs" />
+    <Compile Include="tEditing.cs" />
+    <Compile Include="tAteEmp.cs" />
+    <Compile Include="Z_RFC_AUFNR_MIGO.cs" />
+    <Compile Include="Z_WHS_SAP_BACKFLUSHTable.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DB\SFIS第二版数据库模型1.0.pdb">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Image\calendar.gif" />
+    <Content Include="Image\edit.gif" />
+    <Content Include="Image\ht08_03.gif" />
+    <Content Include="Image\ht11_03.gif" />
+    <Content Include="Image\ht15_06.gif" />
+    <Content Include="Image\ht22_03.gif" />
+    <Content Include="Image\ht23_03.gif" />
+    <Content Include="Image\ht32_05.gif" />
+    <Content Include="Image\ht43_06.gif" />
+    <Content Include="Image\ht53_03.gif" />
+    <Content Include="Image\ht57.gif" />
+    <Content Include="Image\ht63_03.gif" />
+    <Content Include="Image\ht70_13.gif" />
+    <Content Include="Image\ht70_19.gif" />
+    <Content Include="Image\ht71_06.gif" />
+    <Content Include="Image\icon11.png" />
+    <Content Include="Image\icon12.png" />
+    <Content Include="Image\icon27.png" />
+    <Content Include="Image\icon9.png" />
+    <Content Include="refDll\DataSetSurrogate.dll" />
+    <Content Include="refDll\DevComponents.DotNetBar2.dll" />
+    <Content Include="refDll\DllConfig.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="refDll\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="refDll\Interop.ADOX.dll" />
+    <Content Include="refDll\Interop.Excel.dll" />
+    <Content Include="refDll\Interop.Microsoft.Office.Core.dll" />
+    <Content Include="refDll\Interop.Office.dll" />
+    <Content Include="refDll\NPOI.DDF.dll" />
+    <Content Include="refDll\NPOI.dll" />
+    <Content Include="refDll\NPOI.HPSF.dll" />
+    <Content Include="refDll\NPOI.HSSF.dll" />
+    <Content Include="refDll\NPOI.POIFS.dll" />
+    <Content Include="refDll\NPOI.Util.dll" />
+    <Content Include="refDll\Paway.Windows.Forms.dll" />
+    <Content Include="refDll\Paway.Windows.Helper.dll" />
+    <Content Include="refDll\Paway.Windows.Resource.dll" />
+    <Content Include="refDll\Paway.Windows.Win32.dll" />
+    <Content Include="refDll\ZedGraph.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DB\SFIS 系统架构.oob" />
+    <None Include="DB\SFIS 系统架构.oom" />
+    <None Include="DB\SFIS第二版数据库模型1.0.pdm">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="other\Excel.reg" />
+    <None Include="refDll\3OF9.TTF" />
+    <None Include="refDll\Excel.reg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ICO\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

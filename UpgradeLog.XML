@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="SFIS_V3.2">
+</Property><Property Name="解决方案文件" Value="D:\freecomm\SFIS_V3.3\SFIS_V3.2.sln">
+</Property><Property Name="Date" Value="2013年9月26日">
+</Property><Property Name="Time" Value="10:35">
+</Property></Properties><Event ErrorLevel="1" Project="BLL" Source="BLL\BLL.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\BLL.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="BLL" Source="BLL\BLL.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="Entity" Source="Entity\Entity.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="Entity" Source="Entity\Entity.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="Entity" Source="Entity\Entity.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="DAL" Source="DAL\DAL.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="DAL" Source="DAL\DAL.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="DAL" Source="DAL\DAL.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="SFIS_V2_Form" Source="UI\WinForm\SFIS_V2_Form.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="SFIS_V2_Form" Source="UI\WinForm\SFIS_V2_Form.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="SFIS_V2_Form" Source="UI\WinForm\SFIS_V2_Form.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SFIS_WEBSERVICES" Source="SFIS_WEBSERVICES\SFIS_WEBSERVICES.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="SFIS_WEBSERVICES" Source="SFIS_WEBSERVICES\SFIS_WEBSERVICES.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SFIS_WINCE6" Source="SFIS_WINCE6\SFIS_WINCE6.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="SFIS_WINCE6" Source="SFIS_WINCE6\SFIS_WINCE6.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="CreateWebServicesDll" Source="refWebServices\CreateWebServicesDll.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="CreateWebServicesDll" Source="refWebServices\CreateWebServicesDll.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="CreateWebServicesDll" Source="refWebServices\CreateWebServicesDll.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="更新WebServices引用" Source="更新WebServices引用\更新WebServices引用.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="更新WebServices引用" Source="更新WebServices引用\更新WebServices引用.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="更新WebServices引用" Source="更新WebServices引用\更新WebServices引用.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SFIS_WINCE6HOUSE" Source="SFIS_WINCE6HOUSE\SFIS_WINCE6HOUSE.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="SFIS_WINCE6HOUSE" Source="SFIS_WINCE6HOUSE\SFIS_WINCE6HOUSE.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="测试用例" Source="测试用例\测试用例.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="测试用例" Source="测试用例\测试用例.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="测试用例" Source="测试用例\测试用例.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SFIS_DCT" Source="SFIS_DCT\SFIS_DCT\SFIS_DCT.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="SFIS_DCT" Source="SFIS_DCT\SFIS_DCT\SFIS_DCT.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SFIS_DCT_WinCe" Source="SFIS_DCTWinCe\SFIS_DCT_WinCe\SFIS_DCT_WinCe.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="SFIS_DCT_WinCe" Source="SFIS_DCTWinCe\SFIS_DCT_WinCe\SFIS_DCT_WinCe.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="SFIS_PRINT_SYSTEM" Source="SFIS_PRINT_SYSTEM\SFIS_PRINT_SYSTEM.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="SFIS_PRINT_SYSTEM" Source="SFIS_PRINT_SYSTEM\SFIS_PRINT_SYSTEM.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="SFIS_PRINT_SYSTEM" Source="SFIS_PRINT_SYSTEM\SFIS_PRINT_SYSTEM.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="SAPConnect" Source="SAPConnect\SAPConnect.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="SAPConnect" Source="SAPConnect\SAPConnect.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="SAPConnect" Source="SAPConnect\SAPConnect.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SocketClientWince" Source="SocketClientWince\SocketClientWince\SocketClientWince.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="SocketClientWince" Source="SocketClientWince\SocketClientWince\SocketClientWince.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="UserDictionary" Source="Dis\UserDictionary.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="UserDictionary" Source="Dis\UserDictionary.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="UserDictionary" Source="Dis\UserDictionary.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SFIS_DCT_WINCE_V2" Source="DCT_WINCE_V2\SFIS_DCT_WINCE_V2\SFIS_DCT_WINCE_V2.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="SFIS_DCT_WINCE_V2" Source="DCT_WINCE_V2\SFIS_DCT_WINCE_V2\SFIS_DCT_WINCE_V2.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SFIS_DCT_V2" Source="SFIS_DCT_V2\SFIS_DCT_V2\SFIS_DCT_V2.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="SFIS_DCT_V2" Source="SFIS_DCT_V2\SFIS_DCT_V2\SFIS_DCT_V2.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="Notice" Source="Notice\Notice.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="Notice" Source="Notice\Notice.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="Notice" Source="Notice\Notice.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="LogBackup" Source="LogBackup\LogBackup.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="LogBackup" Source="LogBackup\LogBackup.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="LogBackup" Source="LogBackup\LogBackup.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="Ram" Source="Ram\Ram.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="Ram" Source="Ram\Ram.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="Ram" Source="Ram\Ram.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="PubCsPrint" Source="CodeSoftPrint\PubCsPrint.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="PubCsPrint" Source="CodeSoftPrint\PubCsPrint.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="PubCsPrint" Source="CodeSoftPrint\PubCsPrint.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="SocketClient" Source="SocketClient\SocketClient.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="SocketClient" Source="SocketClient\SocketClient.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="SocketClient" Source="SocketClient\SocketClient.csproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="AutoSaveLog" Source="AutoSaveLog\AutoSaveLog.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="AutoSaveLog" Source="AutoSaveLog\AutoSaveLog.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="AutoSaveLog" Source="AutoSaveLog\AutoSaveLog.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SFIS_IQC_Wince" Source="SFIS_IQC_Wince\SFIS_IQC_Wince.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="SFIS_IQC_Wince" Source="SFIS_IQC_Wince\SFIS_IQC_Wince.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="测试用例1" Source="测试用例1\测试用例1.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="测试用例1" Source="测试用例1\测试用例1.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="PACK_CTN" Source="PACK_CTN\PACK_CTN\PACK_CTN.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="PACK_CTN" Source="PACK_CTN\PACK_CTN\PACK_CTN.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="STOCKIN" Source="STOCKIN\STOCKIN\STOCKIN.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="STOCKIN" Source="STOCKIN\STOCKIN\STOCKIN.csproj" Description="Converted">
+</Event><Event ErrorLevel="2" Project="SFIS_WINCE6" Source="SFIS_WINCE6\SFIS_WINCE6.csproj" Description="无法打开项目文件“D:\freecomm\SFIS_V3.3\SFIS_WINCE6\SFIS_WINCE6.csproj”。&#xA;&#xA;此安装不支持该项目类型。">
+</Event><Event ErrorLevel="2" Project="SFIS_WINCE6HOUSE" Source="SFIS_WINCE6HOUSE\SFIS_WINCE6HOUSE.csproj" Description="无法打开项目文件“D:\freecomm\SFIS_V3.3\SFIS_WINCE6HOUSE\SFIS_WINCE6HOUSE.csproj”。&#xA;&#xA;此安装不支持该项目类型。">
+</Event><Event ErrorLevel="2" Project="SFIS_DCT_WinCe" Source="SFIS_DCTWinCe\SFIS_DCT_WinCe\SFIS_DCT_WinCe.csproj" Description="无法打开项目文件“D:\freecomm\SFIS_V3.3\SFIS_DCTWinCe\SFIS_DCT_WinCe\SFIS_DCT_WinCe.csproj”。&#xA;&#xA;此安装不支持该项目类型。">
+</Event><Event ErrorLevel="2" Project="SocketClientWince" Source="SocketClientWince\SocketClientWince\SocketClientWince.csproj" Description="无法打开项目文件“D:\freecomm\SFIS_V3.3\SocketClientWince\SocketClientWince\SocketClientWince.csproj”。&#xA;&#xA;此安装不支持该项目类型。">
+</Event><Event ErrorLevel="2" Project="SFIS_DCT_WINCE_V2" Source="DCT_WINCE_V2\SFIS_DCT_WINCE_V2\SFIS_DCT_WINCE_V2.csproj" Description="无法打开项目文件“D:\freecomm\SFIS_V3.3\DCT_WINCE_V2\SFIS_DCT_WINCE_V2\SFIS_DCT_WINCE_V2.csproj”。&#xA;&#xA;此安装不支持该项目类型。">
+</Event><Event ErrorLevel="2" Project="SFIS_IQC_Wince" Source="SFIS_IQC_Wince\SFIS_IQC_Wince.csproj" Description="无法打开项目文件“D:\freecomm\SFIS_V3.3\SFIS_IQC_Wince\SFIS_IQC_Wince.csproj”。&#xA;&#xA;此安装不支持该项目类型。">
+</Event><Event ErrorLevel="0" Project="" Source="SFIS_V3.2.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="SFIS_V3.2.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\app.config" Description="文件已成功转换。所有的 &lt;supportedRuntime&gt; 和 &lt;requiredRuntime&gt; 标记都已移除，以使项目能够用 Visual Studio 2005 生成并运行。">
+</Event><Event ErrorLevel="3" Project="BLL" Source="BLL\app.config" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Entity" Source="Entity\app.config" Description="文件已成功转换。所有的 &lt;supportedRuntime&gt; 和 &lt;requiredRuntime&gt; 标记都已移除，以使项目能够用 Visual Studio 2005 生成并运行。">
+</Event><Event ErrorLevel="3" Project="Entity" Source="Entity\app.config" Description="Converted">
+</Event><Event ErrorLevel="0" Project="DAL" Source="DAL\app.config" Description="文件已成功转换。所有的 &lt;supportedRuntime&gt; 和 &lt;requiredRuntime&gt; 标记都已移除，以使项目能够用 Visual Studio 2005 生成并运行。">
+</Event><Event ErrorLevel="3" Project="DAL" Source="DAL\app.config" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SFIS_WEBSERVICES" Source="SFIS_WEBSERVICES\SFIS_WEBSERVICES.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="CreateWebServicesDll" Source="refWebServices\CreateWebServicesDll.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="SAPConnect" Source="SAPConnect\SAPConnect.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="SFIS_V2_Form" Source="UI\WinForm\SFIS_V2_Form.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="SFIS_DCT" Source="SFIS_DCT\SFIS_DCT\SFIS_DCT.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="SFIS_PRINT_SYSTEM" Source="SFIS_PRINT_SYSTEM\app.config" Description="文件已成功转换。所有的 &lt;supportedRuntime&gt; 和 &lt;requiredRuntime&gt; 标记都已移除，以使项目能够用 Visual Studio 2005 生成并运行。">
+</Event><Event ErrorLevel="3" Project="SFIS_PRINT_SYSTEM" Source="SFIS_PRINT_SYSTEM\app.config" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SFIS_DCT_V2" Source="SFIS_DCT_V2\SFIS_DCT_V2\SFIS_DCT_V2.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="LogBackup" Source="LogBackup\LogBackup.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="Ram" Source="Ram\app.config" Description="文件已成功转换。所有的 &lt;supportedRuntime&gt; 和 &lt;requiredRuntime&gt; 标记都已移除，以使项目能够用 Visual Studio 2005 生成并运行。">
+</Event><Event ErrorLevel="3" Project="Ram" Source="Ram\app.config" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AutoSaveLog" Source="AutoSaveLog\AutoSaveLog.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="PACK_CTN" Source="PACK_CTN\PACK_CTN\PACK_CTN.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="STOCKIN" Source="STOCKIN\STOCKIN\STOCKIN.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="SocketClient" Source="SocketClient\SocketClient.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="UserDictionary" Source="Dis\app.config" Description="文件已成功转换。所有的 &lt;supportedRuntime&gt; 和 &lt;requiredRuntime&gt; 标记都已移除，以使项目能够用 Visual Studio 2005 生成并运行。">
+</Event><Event ErrorLevel="3" Project="UserDictionary" Source="Dis\app.config" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Notice" Source="Notice\app.config" Description="文件已成功转换。所有的 &lt;supportedRuntime&gt; 和 &lt;requiredRuntime&gt; 标记都已移除，以使项目能够用 Visual Studio 2005 生成并运行。">
+</Event><Event ErrorLevel="3" Project="Notice" Source="Notice\app.config" Description="Converted">
+</Event><Event ErrorLevel="0" Project="PubCsPrint" Source="CodeSoftPrint\PubCsPrint.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="更新WebServices引用" Source="更新WebServices引用\更新WebServices引用.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="测试用例" Source="测试用例\测试用例.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="测试用例1" Source="测试用例1\测试用例1.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event></UpgradeLog>

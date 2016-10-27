@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.16.171.232/SFC_MTR/SapConnector.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://172.16.171.232/SFC_MTR/SapConnector.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Entity" />
+  <xs:element name="GetErrorMsg">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetErrorMsgResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetErrorMsgResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_RFC_ZMM011">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="woid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_RFC_ZMM011Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_Z_RFC_ZMM011Result" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_RFC_ZMM011_WinCE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="woid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_RFC_ZMM011_WinCEResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_Z_RFC_ZMM011_WinCEResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_RFC_AFPO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="woid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_RFC_AFPOResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_Z_RFC_AFPOResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_RFC_ZPP007">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="partNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="facCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strDate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_RFC_ZPP007Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_Z_RFC_ZPP007Result" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_RFC_LIPS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PVBELN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MJAHR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_RFC_LIPSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_Z_RFC_LIPSResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_RFC_MSEG">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IMBLNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MJAHR" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_RFC_MSEGResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_Z_RFC_MSEGResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_RFC_PO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EBELN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_RFC_POResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_Z_RFC_POResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_RFC_GD_DELIVERY">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="I_VBELN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_RFC_GD_DELIVERYResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Get_Z_RFC_GD_DELIVERYResult" nillable="true" type="q1:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_RFC_ZWMSMM001">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Z_RFC_ZWMSMM001Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_Z_RFC_ZWMSMM001Result" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_ErrStr" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_R_MSEG">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="QC_NO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="year" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_R_MSEGResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_R_MSEGResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_R_SAPPI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="QC_NO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="year" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_R_SAPPIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Get_R_SAPPIResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RFC_ZMM_GOODSMVT_CREATE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Entity" minOccurs="0" name="zgc" nillable="true" type="q2:ZMM_GOODSMVT_CREATE" />
+        <xs:element minOccurs="0" name="remark" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RFC_ZMM_GOODSMVT_CREATEResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFC_ZMM_GOODSMVT_CREATEResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RFC_ZMM_RESERVATION_GETDETAIL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="I_RESERVATION" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RFC_ZMM_RESERVATION_GETDETAILResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFC_ZMM_RESERVATION_GETDETAILResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RFC_ZMM_OUTBOUND_DELIVERY_GETLIST">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="I_VBELN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RFC_ZMM_OUTBOUND_DELIVERY_GETLISTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFC_ZMM_OUTBOUND_DELIVERY_GETLISTResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RFC_ZMM_OUTBOUND_DELIVERY_POST">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="dicList" nillable="true" type="q3:ArrayOfArrayOfKeyValueOfstringanyType" />
+        <xs:element minOccurs="0" name="I_VBELN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RFC_ZMM_OUTBOUND_DELIVERY_POSTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RFC_ZMM_OUTBOUND_DELIVERY_POSTResult" nillable="true" type="q4:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RFC_ZMM_GOODSMVT_CREATE_list">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="dicList" nillable="true" type="q5:ArrayOfArrayOfKeyValueOfstringanyType" />
+        <xs:element minOccurs="0" name="remark" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RFC_ZMM_GOODSMVT_CREATE_listResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFC_ZMM_GOODSMVT_CREATE_listResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RFC_ZppUsage_OUT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IQC_No" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="V_CODE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="V_CODEGRP" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="V_MENGE01" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="QLGO_VM01" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="V_MENGE04" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="QLGO_VM04" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="V_MENGE07" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RFC_ZppUsage_OUTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFC_ZppUsage_OUTResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RFC_ZMM_GOODSMVT_CREATE_JSON">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ListJsonStr" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="remark" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RFC_ZMM_GOODSMVT_CREATE_JSONResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFC_ZMM_GOODSMVT_CREATE_JSONResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

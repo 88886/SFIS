@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Entity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Entity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ZMM_GOODSMVT_CREATE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DELIV_ITEM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DELIV_NUMB" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOC_DATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ENTRY_QNT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ENTRY_UOM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ITEM_TEXT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="I_GOACTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="I_REFDOC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MATERIAL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MOVE_PLANT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MOVE_REAS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MOVE_STLOC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MOVE_TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MVT_IND" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NO_MORE_GR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ORDERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PLANT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PO_ITEM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PO_NUMBER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PSTNG_DATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RESERV_NO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RES_ITEM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SALES_ORD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SPEC_STOCK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STCK_TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STGE_LOC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="S_ORD_ITEM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UNLOAD_PT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VENDOR" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ZMM_GOODSMVT_CREATE" nillable="true" type="tns:ZMM_GOODSMVT_CREATE" />
+</xs:schema>

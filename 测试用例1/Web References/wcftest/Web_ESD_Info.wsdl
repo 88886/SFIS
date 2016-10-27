@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Web_ESD_Info" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://testlogser/ESD_WcfService/Web_ESD_Info.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://testlogser/ESD_WcfService/Web_ESD_Info.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWeb_ESD_Info_Inser_ESD_Info_InputMessage">
+    <wsdl:part name="parameters" element="tns:Inser_ESD_Info" />
+  </wsdl:message>
+  <wsdl:message name="IWeb_ESD_Info_Inser_ESD_Info_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Inser_ESD_InfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWeb_ESD_Info_Inser_ESD_Log_InputMessage">
+    <wsdl:part name="parameters" element="tns:Inser_ESD_Log" />
+  </wsdl:message>
+  <wsdl:message name="IWeb_ESD_Info_Inser_ESD_Log_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Inser_ESD_LogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWeb_ESD_Info_Sel_UserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:Sel_UserName" />
+  </wsdl:message>
+  <wsdl:message name="IWeb_ESD_Info_Sel_UserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Sel_UserNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWeb_ESD_Info">
+    <wsdl:operation name="Inser_ESD_Info">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWeb_ESD_Info/Inser_ESD_Info" message="tns:IWeb_ESD_Info_Inser_ESD_Info_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWeb_ESD_Info/Inser_ESD_InfoResponse" message="tns:IWeb_ESD_Info_Inser_ESD_Info_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Inser_ESD_Log">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWeb_ESD_Info/Inser_ESD_Log" message="tns:IWeb_ESD_Info_Inser_ESD_Log_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWeb_ESD_Info/Inser_ESD_LogResponse" message="tns:IWeb_ESD_Info_Inser_ESD_Log_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Sel_UserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWeb_ESD_Info/Sel_UserName" message="tns:IWeb_ESD_Info_Sel_UserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWeb_ESD_Info/Sel_UserNameResponse" message="tns:IWeb_ESD_Info_Sel_UserName_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IWeb_ESD_Info" type="tns:IWeb_ESD_Info">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Inser_ESD_Info">
+      <soap:operation soapAction="http://tempuri.org/IWeb_ESD_Info/Inser_ESD_Info" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Inser_ESD_Log">
+      <soap:operation soapAction="http://tempuri.org/IWeb_ESD_Info/Inser_ESD_Log" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sel_UserName">
+      <soap:operation soapAction="http://tempuri.org/IWeb_ESD_Info/Sel_UserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Web_ESD_Info">
+    <wsdl:port name="BasicHttpBinding_IWeb_ESD_Info" binding="tns:BasicHttpBinding_IWeb_ESD_Info">
+      <soap:address location="http://testlogser/ESD_WcfService/Web_ESD_Info.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
