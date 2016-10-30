@@ -41,7 +41,6 @@
             this.buttonItem2 = new DevComponents.DotNetBar.ButtonItem();
             this.imbtconfig = new DevComponents.DotNetBar.ButtonItem();
             this.btInputToUpper = new DevComponents.DotNetBar.ButtonItem();
-            this.imbt_CreateKeyFrom = new DevComponents.DotNetBar.ButtonItem();
             this.btenablesnrule = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem5 = new DevComponents.DotNetBar.ButtonItem();
             this.imbtRprint = new DevComponents.DotNetBar.ButtonItem();
@@ -75,6 +74,9 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tbcLable = new DevComponents.DotNetBar.TabControl();
+            this.tabcpOtherLable = new DevComponents.DotNetBar.TabControlPanel();
+            this.gpotherprint = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.tabItem1 = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabcpCartonLable = new DevComponents.DotNetBar.TabControlPanel();
             this.gpcartonprint = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.PSN_Printer = new System.Windows.Forms.CheckBox();
@@ -127,9 +129,6 @@
             this.EnableSnInputBox = new System.Windows.Forms.CheckBox();
             this.EnableMacInputBox = new System.Windows.Forms.CheckBox();
             this.tabItem2 = new DevComponents.DotNetBar.TabItem(this.components);
-            this.tabcpOtherLable = new DevComponents.DotNetBar.TabControlPanel();
-            this.gpotherprint = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.tabItem1 = new DevComponents.DotNetBar.TabItem(this.components);
             this.pnlibfileshow = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
@@ -179,9 +178,9 @@
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbcLable)).BeginInit();
             this.tbcLable.SuspendLayout();
+            this.tabcpOtherLable.SuspendLayout();
             this.tabcpCartonLable.SuspendLayout();
             this.gpcartonprint.SuspendLayout();
-            this.tabcpOtherLable.SuspendLayout();
             this.pnlibfileshow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -218,7 +217,7 @@
             this.labelItem4,
             this.lb_shownetworkstate});
             this.menubar.Location = new System.Drawing.Point(0, 0);
-            this.menubar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.menubar.Margin = new System.Windows.Forms.Padding(4);
             this.menubar.Name = "menubar";
             this.menubar.Size = new System.Drawing.Size(1565, 28);
             this.menubar.Stretch = true;
@@ -266,7 +265,6 @@
             this.buttonItem2.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.imbtconfig,
             this.btInputToUpper,
-            this.imbt_CreateKeyFrom,
             this.btenablesnrule});
             this.buttonItem2.Text = "设 置";
             // 
@@ -282,13 +280,6 @@
             this.btInputToUpper.Text = "强制输入大写 = 关闭";
             this.btInputToUpper.Visible = false;
             this.btInputToUpper.Click += new System.EventHandler(this.btInputToUpper_Click);
-            // 
-            // imbt_CreateKeyFrom
-            // 
-            this.imbt_CreateKeyFrom.Name = "imbt_CreateKeyFrom";
-            this.imbt_CreateKeyFrom.Text = "KEY来源于程序";
-            this.imbt_CreateKeyFrom.Visible = false;
-            this.imbt_CreateKeyFrom.Click += new System.EventHandler(this.imbt_CreateKeyFrom_Click);
             // 
             // btenablesnrule
             // 
@@ -366,7 +357,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.Color.Blue;
             this.panel1.Location = new System.Drawing.Point(0, 28);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1565, 51);
             this.panel1.TabIndex = 2;
@@ -380,7 +371,7 @@
             this.lblibfilename.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblibfilename.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblibfilename.Location = new System.Drawing.Point(0, 0);
-            this.lblibfilename.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lblibfilename.Margin = new System.Windows.Forms.Padding(4);
             this.lblibfilename.Name = "lblibfilename";
             this.lblibfilename.Size = new System.Drawing.Size(1565, 51);
             this.lblibfilename.TabIndex = 0;
@@ -392,7 +383,7 @@
             this.panel2.Controls.Add(this.groupPanel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 79);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1565, 69);
             this.panel2.TabIndex = 3;
@@ -419,7 +410,7 @@
             this.groupPanel1.DisabledBackColor = System.Drawing.Color.Empty;
             this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupPanel1.Location = new System.Drawing.Point(0, 0);
-            this.groupPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.groupPanel1.Name = "groupPanel1";
             this.groupPanel1.Size = new System.Drawing.Size(1565, 69);
             // 
@@ -469,7 +460,7 @@
             this.numPrintQty.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.numPrintQty.ForeColor = System.Drawing.Color.Green;
             this.numPrintQty.Location = new System.Drawing.Point(953, 24);
-            this.numPrintQty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numPrintQty.Margin = new System.Windows.Forms.Padding(4);
             this.numPrintQty.Maximum = new decimal(new int[] {
             20,
             0,
@@ -502,7 +493,7 @@
             this.nudPrintNum.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.nudPrintNum.ForeColor = System.Drawing.Color.Green;
             this.nudPrintNum.Location = new System.Drawing.Point(796, 25);
-            this.nudPrintNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nudPrintNum.Margin = new System.Windows.Forms.Padding(4);
             this.nudPrintNum.Maximum = new decimal(new int[] {
             20,
             0,
@@ -548,7 +539,7 @@
             this.btselectwo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btselectwo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btselectwo.Location = new System.Drawing.Point(229, 31);
-            this.btselectwo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btselectwo.Margin = new System.Windows.Forms.Padding(4);
             this.btselectwo.Name = "btselectwo";
             this.btselectwo.Size = new System.Drawing.Size(36, 28);
             this.btselectwo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -577,7 +568,7 @@
             this.cbstationId.FormattingEnabled = true;
             this.cbstationId.ItemHeight = 20;
             this.cbstationId.Location = new System.Drawing.Point(531, 25);
-            this.cbstationId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbstationId.Margin = new System.Windows.Forms.Padding(4);
             this.cbstationId.Name = "cbstationId";
             this.cbstationId.Size = new System.Drawing.Size(228, 26);
             this.cbstationId.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -595,7 +586,7 @@
             this.cblineId.FormattingEnabled = true;
             this.cblineId.ItemHeight = 20;
             this.cblineId.Location = new System.Drawing.Point(296, 26);
-            this.cblineId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cblineId.Margin = new System.Windows.Forms.Padding(4);
             this.cblineId.Name = "cblineId";
             this.cblineId.Size = new System.Drawing.Size(203, 26);
             this.cblineId.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -608,7 +599,7 @@
             // 
             this.tbwoid.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tbwoid.Location = new System.Drawing.Point(28, 26);
-            this.tbwoid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbwoid.Margin = new System.Windows.Forms.Padding(4);
             this.tbwoid.Name = "tbwoid";
             this.tbwoid.ReadOnly = true;
             this.tbwoid.Size = new System.Drawing.Size(192, 30);
@@ -670,7 +661,7 @@
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.Location = new System.Drawing.Point(0, 148);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -690,7 +681,7 @@
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel1
@@ -709,11 +700,11 @@
             // 
             this.tbcLable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
             this.tbcLable.CanReorderTabs = true;
-            this.tbcLable.Controls.Add(this.tabcpCartonLable);
             this.tbcLable.Controls.Add(this.tabcpOtherLable);
+            this.tbcLable.Controls.Add(this.tabcpCartonLable);
             this.tbcLable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbcLable.Location = new System.Drawing.Point(0, 0);
-            this.tbcLable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbcLable.Margin = new System.Windows.Forms.Padding(4);
             this.tbcLable.Name = "tbcLable";
             this.tbcLable.SelectedTabFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold);
             this.tbcLable.SelectedTabIndex = 0;
@@ -726,13 +717,78 @@
             this.tbcLable.Text = "tabControl1";
             this.tbcLable.SelectedTabChanged += new DevComponents.DotNetBar.TabStrip.SelectedTabChangedEventHandler(this.tbcLable_SelectedTabChanged);
             // 
+            // tabcpOtherLable
+            // 
+            this.tabcpOtherLable.Controls.Add(this.gpotherprint);
+            this.tabcpOtherLable.DisabledBackColor = System.Drawing.Color.Empty;
+            this.tabcpOtherLable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabcpOtherLable.Location = new System.Drawing.Point(28, 0);
+            this.tabcpOtherLable.Margin = new System.Windows.Forms.Padding(4);
+            this.tabcpOtherLable.Name = "tabcpOtherLable";
+            this.tabcpOtherLable.Padding = new System.Windows.Forms.Padding(1);
+            this.tabcpOtherLable.Size = new System.Drawing.Size(1033, 411);
+            this.tabcpOtherLable.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
+            this.tabcpOtherLable.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.tabcpOtherLable.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabcpOtherLable.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
+            this.tabcpOtherLable.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Right | DevComponents.DotNetBar.eBorderSide.Top) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+            this.tabcpOtherLable.TabIndex = 1;
+            this.tabcpOtherLable.TabItem = this.tabItem1;
+            // 
+            // gpotherprint
+            // 
+            this.gpotherprint.CanvasColor = System.Drawing.SystemColors.Control;
+            this.gpotherprint.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.gpotherprint.DisabledBackColor = System.Drawing.Color.Empty;
+            this.gpotherprint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpotherprint.Location = new System.Drawing.Point(1, 1);
+            this.gpotherprint.Margin = new System.Windows.Forms.Padding(4);
+            this.gpotherprint.Name = "gpotherprint";
+            this.gpotherprint.Size = new System.Drawing.Size(1031, 409);
+            // 
+            // 
+            // 
+            this.gpotherprint.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.gpotherprint.Style.BackColorGradientAngle = 90;
+            this.gpotherprint.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.gpotherprint.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.gpotherprint.Style.BorderBottomWidth = 1;
+            this.gpotherprint.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.gpotherprint.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.gpotherprint.Style.BorderLeftWidth = 1;
+            this.gpotherprint.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.gpotherprint.Style.BorderRightWidth = 1;
+            this.gpotherprint.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.gpotherprint.Style.BorderTopWidth = 1;
+            this.gpotherprint.Style.CornerDiameter = 4;
+            this.gpotherprint.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.gpotherprint.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.gpotherprint.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.gpotherprint.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.gpotherprint.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.gpotherprint.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.gpotherprint.TabIndex = 0;
+            // 
+            // tabItem1
+            // 
+            this.tabItem1.AttachedControl = this.tabcpOtherLable;
+            this.tabItem1.Name = "tabItem1";
+            this.tabItem1.Text = "其他标签";
+            // 
             // tabcpCartonLable
             // 
             this.tabcpCartonLable.Controls.Add(this.gpcartonprint);
             this.tabcpCartonLable.DisabledBackColor = System.Drawing.Color.Empty;
             this.tabcpCartonLable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabcpCartonLable.Location = new System.Drawing.Point(28, 0);
-            this.tabcpCartonLable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabcpCartonLable.Margin = new System.Windows.Forms.Padding(4);
             this.tabcpCartonLable.Name = "tabcpCartonLable";
             this.tabcpCartonLable.Padding = new System.Windows.Forms.Padding(1);
             this.tabcpCartonLable.Size = new System.Drawing.Size(1033, 411);
@@ -801,7 +857,7 @@
             this.gpcartonprint.DisabledBackColor = System.Drawing.Color.Empty;
             this.gpcartonprint.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gpcartonprint.Location = new System.Drawing.Point(1, 1);
-            this.gpcartonprint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpcartonprint.Margin = new System.Windows.Forms.Padding(4);
             this.gpcartonprint.Name = "gpcartonprint";
             this.gpcartonprint.Size = new System.Drawing.Size(1031, 409);
             // 
@@ -839,7 +895,7 @@
             this.PSN_Printer.AutoSize = true;
             this.PSN_Printer.BackColor = System.Drawing.Color.Transparent;
             this.PSN_Printer.Location = new System.Drawing.Point(525, 40);
-            this.PSN_Printer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PSN_Printer.Margin = new System.Windows.Forms.Padding(4);
             this.PSN_Printer.Name = "PSN_Printer";
             this.PSN_Printer.Size = new System.Drawing.Size(18, 17);
             this.PSN_Printer.TabIndex = 52;
@@ -861,7 +917,7 @@
             // 
             this.tb_psninput.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tb_psninput.Location = new System.Drawing.Point(139, 34);
-            this.tb_psninput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_psninput.Margin = new System.Windows.Forms.Padding(4);
             this.tb_psninput.Name = "tb_psninput";
             this.tb_psninput.Size = new System.Drawing.Size(377, 30);
             this.tb_psninput.TabIndex = 50;
@@ -876,7 +932,7 @@
             this.EnableKCODEInput.Checked = true;
             this.EnableKCODEInput.CheckState = System.Windows.Forms.CheckState.Checked;
             this.EnableKCODEInput.Location = new System.Drawing.Point(880, 6);
-            this.EnableKCODEInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EnableKCODEInput.Margin = new System.Windows.Forms.Padding(4);
             this.EnableKCODEInput.Name = "EnableKCODEInput";
             this.EnableKCODEInput.Size = new System.Drawing.Size(99, 19);
             this.EnableKCODEInput.TabIndex = 49;
@@ -891,7 +947,7 @@
             this.EnableESNInput.Checked = true;
             this.EnableESNInput.CheckState = System.Windows.Forms.CheckState.Checked;
             this.EnableESNInput.Location = new System.Drawing.Point(784, 6);
-            this.EnableESNInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EnableESNInput.Margin = new System.Windows.Forms.Padding(4);
             this.EnableESNInput.Name = "EnableESNInput";
             this.EnableESNInput.Size = new System.Drawing.Size(83, 19);
             this.EnableESNInput.TabIndex = 49;
@@ -906,7 +962,7 @@
             this.EnablePSNInput.Checked = true;
             this.EnablePSNInput.CheckState = System.Windows.Forms.CheckState.Checked;
             this.EnablePSNInput.Location = new System.Drawing.Point(696, 6);
-            this.EnablePSNInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EnablePSNInput.Margin = new System.Windows.Forms.Padding(4);
             this.EnablePSNInput.Name = "EnablePSNInput";
             this.EnablePSNInput.Size = new System.Drawing.Size(75, 19);
             this.EnablePSNInput.TabIndex = 49;
@@ -919,7 +975,7 @@
             this.chkShowdata.AutoSize = true;
             this.chkShowdata.BackColor = System.Drawing.Color.Transparent;
             this.chkShowdata.Location = new System.Drawing.Point(332, 461);
-            this.chkShowdata.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkShowdata.Margin = new System.Windows.Forms.Padding(4);
             this.chkShowdata.Name = "chkShowdata";
             this.chkShowdata.Size = new System.Drawing.Size(59, 19);
             this.chkShowdata.TabIndex = 48;
@@ -933,9 +989,9 @@
             this.bt_ok.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.bt_ok.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.bt_ok.Location = new System.Drawing.Point(-33, 182);
-            this.bt_ok.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_ok.Margin = new System.Windows.Forms.Padding(4);
             this.bt_ok.Name = "bt_ok";
-            this.bt_ok.Size = new System.Drawing.Size(24, 12);
+            this.bt_ok.Size = new System.Drawing.Size(71, 37);
             this.bt_ok.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.bt_ok.TabIndex = 5;
             this.bt_ok.Text = "Printer";
@@ -949,7 +1005,7 @@
             this.EnableDEKInput.Checked = true;
             this.EnableDEKInput.CheckState = System.Windows.Forms.CheckState.Checked;
             this.EnableDEKInput.Location = new System.Drawing.Point(600, 6);
-            this.EnableDEKInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EnableDEKInput.Margin = new System.Windows.Forms.Padding(4);
             this.EnableDEKInput.Name = "EnableDEKInput";
             this.EnableDEKInput.Size = new System.Drawing.Size(83, 19);
             this.EnableDEKInput.TabIndex = 47;
@@ -962,7 +1018,7 @@
             this.DEK_Printer.AutoSize = true;
             this.DEK_Printer.BackColor = System.Drawing.Color.Transparent;
             this.DEK_Printer.Location = new System.Drawing.Point(525, 396);
-            this.DEK_Printer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DEK_Printer.Margin = new System.Windows.Forms.Padding(4);
             this.DEK_Printer.Name = "DEK_Printer";
             this.DEK_Printer.Size = new System.Drawing.Size(18, 17);
             this.DEK_Printer.TabIndex = 46;
@@ -973,7 +1029,7 @@
             // 
             this.tb_dekinput.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tb_dekinput.Location = new System.Drawing.Point(139, 389);
-            this.tb_dekinput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_dekinput.Margin = new System.Windows.Forms.Padding(4);
             this.tb_dekinput.Name = "tb_dekinput";
             this.tb_dekinput.ReadOnly = true;
             this.tb_dekinput.Size = new System.Drawing.Size(377, 30);
@@ -987,7 +1043,7 @@
             this.SPMAC_Printer.AutoSize = true;
             this.SPMAC_Printer.BackColor = System.Drawing.Color.Transparent;
             this.SPMAC_Printer.Location = new System.Drawing.Point(525, 351);
-            this.SPMAC_Printer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SPMAC_Printer.Margin = new System.Windows.Forms.Padding(4);
             this.SPMAC_Printer.Name = "SPMAC_Printer";
             this.SPMAC_Printer.Size = new System.Drawing.Size(18, 17);
             this.SPMAC_Printer.TabIndex = 40;
@@ -999,7 +1055,7 @@
             this.PCBASN_Printer.AutoSize = true;
             this.PCBASN_Printer.BackColor = System.Drawing.Color.Transparent;
             this.PCBASN_Printer.Location = new System.Drawing.Point(525, 310);
-            this.PCBASN_Printer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PCBASN_Printer.Margin = new System.Windows.Forms.Padding(4);
             this.PCBASN_Printer.Name = "PCBASN_Printer";
             this.PCBASN_Printer.Size = new System.Drawing.Size(18, 17);
             this.PCBASN_Printer.TabIndex = 39;
@@ -1011,7 +1067,7 @@
             this.KT_Printer.AutoSize = true;
             this.KT_Printer.BackColor = System.Drawing.Color.Transparent;
             this.KT_Printer.Location = new System.Drawing.Point(525, 268);
-            this.KT_Printer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.KT_Printer.Margin = new System.Windows.Forms.Padding(4);
             this.KT_Printer.Name = "KT_Printer";
             this.KT_Printer.Size = new System.Drawing.Size(18, 17);
             this.KT_Printer.TabIndex = 41;
@@ -1023,7 +1079,7 @@
             this.SN_Printer.AutoSize = true;
             this.SN_Printer.BackColor = System.Drawing.Color.Transparent;
             this.SN_Printer.Location = new System.Drawing.Point(525, 224);
-            this.SN_Printer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SN_Printer.Margin = new System.Windows.Forms.Padding(4);
             this.SN_Printer.Name = "SN_Printer";
             this.SN_Printer.Size = new System.Drawing.Size(18, 17);
             this.SN_Printer.TabIndex = 43;
@@ -1035,7 +1091,7 @@
             this.KCODE_Printer.AutoSize = true;
             this.KCODE_Printer.BackColor = System.Drawing.Color.Transparent;
             this.KCODE_Printer.Location = new System.Drawing.Point(525, 131);
-            this.KCODE_Printer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.KCODE_Printer.Margin = new System.Windows.Forms.Padding(4);
             this.KCODE_Printer.Name = "KCODE_Printer";
             this.KCODE_Printer.Size = new System.Drawing.Size(18, 17);
             this.KCODE_Printer.TabIndex = 42;
@@ -1047,7 +1103,7 @@
             this.ESN_Printer.AutoSize = true;
             this.ESN_Printer.BackColor = System.Drawing.Color.Transparent;
             this.ESN_Printer.Location = new System.Drawing.Point(525, 88);
-            this.ESN_Printer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ESN_Printer.Margin = new System.Windows.Forms.Padding(4);
             this.ESN_Printer.Name = "ESN_Printer";
             this.ESN_Printer.Size = new System.Drawing.Size(18, 17);
             this.ESN_Printer.TabIndex = 42;
@@ -1059,7 +1115,7 @@
             this.MAC_Printer.AutoSize = true;
             this.MAC_Printer.BackColor = System.Drawing.Color.Transparent;
             this.MAC_Printer.Location = new System.Drawing.Point(525, 176);
-            this.MAC_Printer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MAC_Printer.Margin = new System.Windows.Forms.Padding(4);
             this.MAC_Printer.Name = "MAC_Printer";
             this.MAC_Printer.Size = new System.Drawing.Size(18, 17);
             this.MAC_Printer.TabIndex = 42;
@@ -1082,7 +1138,7 @@
             // tb_Boxcount
             // 
             this.tb_Boxcount.Location = new System.Drawing.Point(137, 456);
-            this.tb_Boxcount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_Boxcount.Margin = new System.Windows.Forms.Padding(4);
             this.tb_Boxcount.Name = "tb_Boxcount";
             this.tb_Boxcount.Size = new System.Drawing.Size(179, 25);
             this.tb_Boxcount.TabIndex = 35;
@@ -1307,7 +1363,7 @@
             this.tb_spmacinput.Enabled = false;
             this.tb_spmacinput.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tb_spmacinput.Location = new System.Drawing.Point(137, 345);
-            this.tb_spmacinput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_spmacinput.Margin = new System.Windows.Forms.Padding(4);
             this.tb_spmacinput.Name = "tb_spmacinput";
             this.tb_spmacinput.Size = new System.Drawing.Size(379, 30);
             this.tb_spmacinput.TabIndex = 31;
@@ -1320,7 +1376,7 @@
             this.tb_pcbasninput.Enabled = false;
             this.tb_pcbasninput.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tb_pcbasninput.Location = new System.Drawing.Point(139, 301);
-            this.tb_pcbasninput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_pcbasninput.Margin = new System.Windows.Forms.Padding(4);
             this.tb_pcbasninput.Name = "tb_pcbasninput";
             this.tb_pcbasninput.Size = new System.Drawing.Size(379, 30);
             this.tb_pcbasninput.TabIndex = 28;
@@ -1333,7 +1389,7 @@
             this.tb_ktinput.Enabled = false;
             this.tb_ktinput.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tb_ktinput.Location = new System.Drawing.Point(139, 258);
-            this.tb_ktinput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_ktinput.Margin = new System.Windows.Forms.Padding(4);
             this.tb_ktinput.Name = "tb_ktinput";
             this.tb_ktinput.Size = new System.Drawing.Size(379, 30);
             this.tb_ktinput.TabIndex = 29;
@@ -1345,7 +1401,7 @@
             // 
             this.tb_kcodeinput.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tb_kcodeinput.Location = new System.Drawing.Point(139, 125);
-            this.tb_kcodeinput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_kcodeinput.Margin = new System.Windows.Forms.Padding(4);
             this.tb_kcodeinput.Name = "tb_kcodeinput";
             this.tb_kcodeinput.Size = new System.Drawing.Size(377, 30);
             this.tb_kcodeinput.TabIndex = 22;
@@ -1357,7 +1413,7 @@
             // 
             this.tb_sninput.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tb_sninput.Location = new System.Drawing.Point(139, 214);
-            this.tb_sninput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_sninput.Margin = new System.Windows.Forms.Padding(4);
             this.tb_sninput.Name = "tb_sninput";
             this.tb_sninput.Size = new System.Drawing.Size(379, 30);
             this.tb_sninput.TabIndex = 23;
@@ -1369,7 +1425,7 @@
             // 
             this.tb_esninput.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tb_esninput.Location = new System.Drawing.Point(139, 81);
-            this.tb_esninput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_esninput.Margin = new System.Windows.Forms.Padding(4);
             this.tb_esninput.Name = "tb_esninput";
             this.tb_esninput.Size = new System.Drawing.Size(377, 30);
             this.tb_esninput.TabIndex = 22;
@@ -1381,7 +1437,7 @@
             // 
             this.tb_macinput.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tb_macinput.Location = new System.Drawing.Point(139, 170);
-            this.tb_macinput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_macinput.Margin = new System.Windows.Forms.Padding(4);
             this.tb_macinput.Name = "tb_macinput";
             this.tb_macinput.Size = new System.Drawing.Size(377, 30);
             this.tb_macinput.TabIndex = 22;
@@ -1396,7 +1452,7 @@
             this.EnableSPMACInput.Checked = true;
             this.EnableSPMACInput.CheckState = System.Windows.Forms.CheckState.Checked;
             this.EnableSPMACInput.Location = new System.Drawing.Point(491, 6);
-            this.EnableSPMACInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EnableSPMACInput.Margin = new System.Windows.Forms.Padding(4);
             this.EnableSPMACInput.Name = "EnableSPMACInput";
             this.EnableSPMACInput.Size = new System.Drawing.Size(99, 19);
             this.EnableSPMACInput.TabIndex = 19;
@@ -1411,7 +1467,7 @@
             this.EnablePCBASNInput.Checked = true;
             this.EnablePCBASNInput.CheckState = System.Windows.Forms.CheckState.Checked;
             this.EnablePCBASNInput.Location = new System.Drawing.Point(376, 6);
-            this.EnablePCBASNInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EnablePCBASNInput.Margin = new System.Windows.Forms.Padding(4);
             this.EnablePCBASNInput.Name = "EnablePCBASNInput";
             this.EnablePCBASNInput.Size = new System.Drawing.Size(107, 19);
             this.EnablePCBASNInput.TabIndex = 20;
@@ -1426,7 +1482,7 @@
             this.EnableKtInputBox.Checked = true;
             this.EnableKtInputBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.EnableKtInputBox.Location = new System.Drawing.Point(260, 6);
-            this.EnableKtInputBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EnableKtInputBox.Margin = new System.Windows.Forms.Padding(4);
             this.EnableKtInputBox.Name = "EnableKtInputBox";
             this.EnableKtInputBox.Size = new System.Drawing.Size(105, 19);
             this.EnableKtInputBox.TabIndex = 21;
@@ -1441,7 +1497,7 @@
             this.EnableSnInputBox.Checked = true;
             this.EnableSnInputBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.EnableSnInputBox.Location = new System.Drawing.Point(147, 6);
-            this.EnableSnInputBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EnableSnInputBox.Margin = new System.Windows.Forms.Padding(4);
             this.EnableSnInputBox.Name = "EnableSnInputBox";
             this.EnableSnInputBox.Size = new System.Drawing.Size(105, 19);
             this.EnableSnInputBox.TabIndex = 18;
@@ -1456,7 +1512,7 @@
             this.EnableMacInputBox.Checked = true;
             this.EnableMacInputBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.EnableMacInputBox.Location = new System.Drawing.Point(28, 6);
-            this.EnableMacInputBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EnableMacInputBox.Margin = new System.Windows.Forms.Padding(4);
             this.EnableMacInputBox.Name = "EnableMacInputBox";
             this.EnableMacInputBox.Size = new System.Drawing.Size(113, 19);
             this.EnableMacInputBox.TabIndex = 17;
@@ -1470,77 +1526,12 @@
             this.tabItem2.Name = "tabItem2";
             this.tabItem2.Text = "CHECK序号";
             // 
-            // tabcpOtherLable
-            // 
-            this.tabcpOtherLable.Controls.Add(this.gpotherprint);
-            this.tabcpOtherLable.DisabledBackColor = System.Drawing.Color.Empty;
-            this.tabcpOtherLable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabcpOtherLable.Location = new System.Drawing.Point(28, 0);
-            this.tabcpOtherLable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabcpOtherLable.Name = "tabcpOtherLable";
-            this.tabcpOtherLable.Padding = new System.Windows.Forms.Padding(1);
-            this.tabcpOtherLable.Size = new System.Drawing.Size(1033, 411);
-            this.tabcpOtherLable.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
-            this.tabcpOtherLable.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.tabcpOtherLable.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabcpOtherLable.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
-            this.tabcpOtherLable.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Right | DevComponents.DotNetBar.eBorderSide.Top) 
-            | DevComponents.DotNetBar.eBorderSide.Bottom)));
-            this.tabcpOtherLable.TabIndex = 1;
-            this.tabcpOtherLable.TabItem = this.tabItem1;
-            // 
-            // gpotherprint
-            // 
-            this.gpotherprint.CanvasColor = System.Drawing.SystemColors.Control;
-            this.gpotherprint.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.gpotherprint.DisabledBackColor = System.Drawing.Color.Empty;
-            this.gpotherprint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gpotherprint.Location = new System.Drawing.Point(1, 1);
-            this.gpotherprint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gpotherprint.Name = "gpotherprint";
-            this.gpotherprint.Size = new System.Drawing.Size(1031, 409);
-            // 
-            // 
-            // 
-            this.gpotherprint.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.gpotherprint.Style.BackColorGradientAngle = 90;
-            this.gpotherprint.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.gpotherprint.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.gpotherprint.Style.BorderBottomWidth = 1;
-            this.gpotherprint.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.gpotherprint.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.gpotherprint.Style.BorderLeftWidth = 1;
-            this.gpotherprint.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.gpotherprint.Style.BorderRightWidth = 1;
-            this.gpotherprint.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.gpotherprint.Style.BorderTopWidth = 1;
-            this.gpotherprint.Style.CornerDiameter = 4;
-            this.gpotherprint.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.gpotherprint.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.gpotherprint.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.gpotherprint.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            // 
-            // 
-            // 
-            this.gpotherprint.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.gpotherprint.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.gpotherprint.TabIndex = 0;
-            // 
-            // tabItem1
-            // 
-            this.tabItem1.AttachedControl = this.tabcpOtherLable;
-            this.tabItem1.Name = "tabItem1";
-            this.tabItem1.Text = "其他标签";
-            // 
             // pnlibfileshow
             // 
             this.pnlibfileshow.Controls.Add(this.pictureBox1);
             this.pnlibfileshow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlibfileshow.Location = new System.Drawing.Point(0, 0);
-            this.pnlibfileshow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlibfileshow.Margin = new System.Windows.Forms.Padding(4);
             this.pnlibfileshow.Name = "pnlibfileshow";
             this.pnlibfileshow.Size = new System.Drawing.Size(499, 411);
             this.pnlibfileshow.TabIndex = 0;
@@ -1549,7 +1540,7 @@
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(499, 411);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1560,7 +1551,7 @@
             // 
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer3.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer3.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer3.Name = "splitContainer3";
             // 
             // splitContainer3.Panel1
@@ -1583,7 +1574,7 @@
             this.tabControl1.Controls.Add(this.tabControlPanel2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedTabFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold);
             this.tabControl1.SelectedTabIndex = 0;
@@ -1601,7 +1592,7 @@
             this.tabControlPanel1.DisabledBackColor = System.Drawing.Color.Empty;
             this.tabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlPanel1.Location = new System.Drawing.Point(29, 0);
-            this.tabControlPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControlPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControlPanel1.Name = "tabControlPanel1";
             this.tabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
             this.tabControlPanel1.Size = new System.Drawing.Size(1036, 275);
@@ -1643,7 +1634,7 @@
             this.dgvdata.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvdata.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvdata.Location = new System.Drawing.Point(1, 1);
-            this.dgvdata.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvdata.Margin = new System.Windows.Forms.Padding(4);
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.ReadOnly = true;
             this.dgvdata.RowTemplate.Height = 23;
@@ -1703,7 +1694,7 @@
             this.tabControlPanel2.DisabledBackColor = System.Drawing.Color.Empty;
             this.tabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlPanel2.Location = new System.Drawing.Point(29, 0);
-            this.tabControlPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControlPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tabControlPanel2.Name = "tabControlPanel2";
             this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
             this.tabControlPanel2.Size = new System.Drawing.Size(1036, 275);
@@ -1729,7 +1720,7 @@
             this._flag});
             this.dgvNotCloseBoxNumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvNotCloseBoxNumber.Location = new System.Drawing.Point(1, 1);
-            this.dgvNotCloseBoxNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvNotCloseBoxNumber.Margin = new System.Windows.Forms.Padding(4);
             this.dgvNotCloseBoxNumber.Name = "dgvNotCloseBoxNumber";
             this.dgvNotCloseBoxNumber.ReadOnly = true;
             this.dgvNotCloseBoxNumber.RowTemplate.Height = 23;
@@ -1790,7 +1781,7 @@
             // 
             this.rtbmsg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbmsg.Location = new System.Drawing.Point(0, 0);
-            this.rtbmsg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtbmsg.Margin = new System.Windows.Forms.Padding(4);
             this.rtbmsg.Name = "rtbmsg";
             this.rtbmsg.Size = new System.Drawing.Size(495, 275);
             this.rtbmsg.TabIndex = 0;
@@ -1800,29 +1791,31 @@
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cbtOpenlibFile});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(169, 28);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 30);
             // 
             // cbtOpenlibFile
             // 
             this.cbtOpenlibFile.Name = "cbtOpenlibFile";
-            this.cbtOpenlibFile.Size = new System.Drawing.Size(168, 24);
+            this.cbtOpenlibFile.Size = new System.Drawing.Size(174, 26);
             this.cbtOpenlibFile.Text = "打开模板文件";
             this.cbtOpenlibFile.Click += new System.EventHandler(this.imbtopenlibfile_Click);
             // 
             // contextMenuStrip2
             // 
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btRepearCartonBox});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(184, 28);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(190, 30);
             // 
             // btRepearCartonBox
             // 
             this.btRepearCartonBox.Name = "btRepearCartonBox";
-            this.btRepearCartonBox.Size = new System.Drawing.Size(183, 24);
+            this.btRepearCartonBox.Size = new System.Drawing.Size(189, 26);
             this.btRepearCartonBox.Text = "重新打印卡通箱";
             this.btRepearCartonBox.Click += new System.EventHandler(this.btRepearCartonBox_Click);
             // 
@@ -1838,6 +1831,7 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.lb_showmfpath,
@@ -1860,7 +1854,7 @@
             // 
             this.lb_showmfpath.BackColor = System.Drawing.Color.Transparent;
             this.lb_showmfpath.Name = "lb_showmfpath";
-            this.lb_showmfpath.Size = new System.Drawing.Size(1173, 21);
+            this.lb_showmfpath.Size = new System.Drawing.Size(1134, 21);
             this.lb_showmfpath.Spring = true;
             this.lb_showmfpath.Text = " 123";
             this.lb_showmfpath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1895,7 +1889,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PrintMain";
             this.Text = "产品标签打印系统";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1916,10 +1910,10 @@
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tbcLable)).EndInit();
             this.tbcLable.ResumeLayout(false);
+            this.tabcpOtherLable.ResumeLayout(false);
             this.tabcpCartonLable.ResumeLayout(false);
             this.gpcartonprint.ResumeLayout(false);
             this.gpcartonprint.PerformLayout();
-            this.tabcpOtherLable.ResumeLayout(false);
             this.pnlibfileshow.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.splitContainer3.Panel1.ResumeLayout(false);
@@ -2022,7 +2016,6 @@
         private System.Windows.Forms.CheckBox EnableSnInputBox;
         private System.Windows.Forms.CheckBox EnableMacInputBox;
         private System.Windows.Forms.ToolStripProgressBar runprogbar;
-        private DevComponents.DotNetBar.ButtonItem imbt_CreateKeyFrom;
         private System.Windows.Forms.NumericUpDown nudPrintNum;
         private System.Windows.Forms.Label label10;
         private DevComponents.DotNetBar.ButtonItem btenablesnrule;

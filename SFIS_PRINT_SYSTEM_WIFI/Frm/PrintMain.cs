@@ -27,33 +27,25 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         //==========================================================================================
 
         #region 成员变量
-        /// <summary>
-        /// 是否提示的标志
-        /// </summary>
-        private bool bMask = true;
+
         /// <summary>
         /// 模板文件默认存放路径
         /// </summary>
         private string LabDir = string.Empty;
-        private readonly string DllConfig = System.Windows.Forms.Application.StartupPath + "\\DllConfig.xml";
 
-        Dictionary<string, object> dic = null;
+        private Dictionary<string, object> _dic;
         /// <summary>
         /// 使能输入强制转换为大写
         /// </summary>
-        private bool bInputUpper = false;
+        private bool bInputUpper;
         /// <summary>
         /// 表示是否已经显示了卡通箱内容
         /// </summary>
-        private bool IsShowCartonContent = false;
-        /// <summary>
-        /// 老流程ATE检查标志
-        /// </summary>
-        private bool atecheckflag = false;
+        private bool IsShowCartonContent;
         /// <summary>
         /// 是否显示其他标签打印的数据显示
         /// </summary>
-        private bool bShowData = false;
+        private bool bShowData;
         /// <summary>
         /// 记录当前选择的是哪个打印模块(其他标签还是卡通箱标签)
         /// </summary>
@@ -132,10 +124,6 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         private List<string> mAllKeys = new List<string>();
         private Dictionary<string, string> mdicAllKey = new Dictionary<string, string>();
         /// <summary>
-        /// 用来记录当前序列号组唯一号码
-        /// </summary>
-        private string msEsn = string.Empty;
-        /// <summary>
         /// 用来统计已经记录的几个序列号
         /// </summary>
         private int miReadCount = 0;
@@ -168,17 +156,13 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         /// </summary>
         public T_WO_INFO mWoInfo { get; set; }
         /// <summary>
-        /// 当前应用程序的名称
-        /// </summary>
-        private string mAppFileName = System.IO.Path.GetFileName(System.Windows.Forms.Application.ExecutablePath);
-        /// <summary>
         /// 提示消息类型
         /// </summary>
         public enum mLogMsgType { Incoming, Outgoing, Normal, Warning, Error }
         /// <summary>
         /// 提示消息文字颜色
         /// </summary>
-        private Color[] mLogMsgTypeColor = { Color.Green, Color.Blue, Color.Black, Color.Orange, Color.Red };
+        private readonly Color[] _mLogMsgTypeColor = { Color.Green, Color.Blue, Color.Black, Color.Orange, Color.Red };
         /// <summary>
         /// 标签模板文件路径和名称
         /// </summary>
@@ -223,25 +207,6 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         /// 记录卡通箱变量的数量
         /// </summary>
         private int miCatonBoxTotal = 0;
-
-        ///// <summary>
-        ///// 记录选择的功能区
-        ///// </summary>
-        //private enum tabpagecontrol
-        //{
-        //    /// <summary>
-        //    /// 其他标签
-        //    /// </summary>
-        //    OTHER = 0,
-        //    /// <summary>
-        //    /// 卡通箱标签
-        //    /// </summary>
-        //    CARTON
-        //}
-        ///// <summary>
-        ///// 记录选择的功能区
-        ///// </summary>
-        //private tabpagecontrol mtabpagestutes = tabpagecontrol.OTHER;
         /// <summary>
         /// 标示是否需要保存当前打开的模板文件
         /// </summary>
@@ -332,7 +297,6 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         /// 委托运行没有参数的方法
         /// </summary>
         private delegate void delegateRunNoParmet();
-
         private delegate void delegateShowCartonData(bool show);
         private delegate void delegateShowOtherData(string woid, bool show);
         /// <summary>
@@ -346,48 +310,14 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         /// <summary>
         /// 托管跟踪
         /// </summary>
-        private IAsyncResult miasyncresult;
-        private IAsyncResult iasyncresult;
-        private IAsyncResult iasyncresult1;
-        private IAsyncResult iasyncresult2;
-        private IAsyncResult ShowCartonIasyncresult;
+        private IAsyncResult _miasyncresult;
+        private IAsyncResult _iasyncresult;
+        private IAsyncResult _iasyncresult2;
+        private IAsyncResult _showCartonIasyncresult;
 
         //==========================================================================================
         //======================              公共函数                             =================
         //==========================================================================================
-        //#region 公共函数
-        //public string getATETestContent(string sn, string woId)
-        //{
-        //    string msg = string.Empty;
-        //    try
-        //    {
-        //        if (!atecheckflag)
-        //        {
-        //            DataTable dta = SFIS_PRINT_SYSTEM.BLL.ReleaseData.arrByteToDataTable(refWebtRouteInfo.Instance.GetATERoute(sn, woId));
-        //            if (dta.Rows.Count == 0)
-        //            {
-        //                msg = string.Format("序列号[{0}]没有找到任何测试记录..", sn);
-        //            }
-        //            else
-        //            {
-        //                int levelCount = 0;
-        //                if ((levelCount = dta.Select(string.Format("level like '{0}%'", dta.Rows[0]["level"].ToString().Substring(0, 2))).Length) != int.Parse(dta.Rows[0]["level"].ToString().Substring(0, 2)))
-        //                {
-        //                    msg = string.Format("序列号[{0}]应完成[{1}]站测试,实际只完成[{2}]站测试,无法进入包装..",
-        //                         sn, Convert.ToInt32(dta.Rows[0]["level"].ToString().Substring(0, 2)), levelCount);
-        //                }
-        //            }
-        //        }
-        //        if (string.IsNullOrEmpty(msg))
-        //            atecheckflag = true;
-        //        return msg;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        atecheckflag = false;
-        //        return ex.Message;
-        //    }
-        //}
 
         private void LoadSystemLine()
         {
@@ -400,27 +330,29 @@ namespace SFIS_PRINT_SYSTEM_WIFI
               }
               cblineId.SelectedIndex = 0;           
         }
+
         private void Load_All_Station()
         {
-            DataTable dt =BLL. ReleaseData.arrByteToDataTable(refWebtCraftInfo.Instance.GetAllCraftInfo());
+            DataTable dt = BLL.ReleaseData.arrByteToDataTable(refWebtCraftInfo.Instance.GetAllCraftInfo());
             DataTable temp = null;
             if (dt.Rows.Count > 0)
             {
-                temp =publicfunction.getNewTable(dt, string.Format("TESTFLAG<>'{0}' and TESTFLAG<>'{1}'", "1", "2"));
+                temp = publicfunction.getNewTable(dt, string.Format("TESTFLAG<>'{0}' and TESTFLAG<>'{1}'", "1", "2"));
             }
             DataTable dtLine = new DataTable();
-            dtLine.Columns.Add("SECTION", typeof(string));
-            dtLine.Columns.Add("GROUP", typeof(string));
-            dtLine.Columns.Add("STATION", typeof(string));
+            dtLine.Columns.Add("SECTION", typeof (string));
+            dtLine.Columns.Add("GROUP", typeof (string));
+            dtLine.Columns.Add("STATION", typeof (string));
             foreach (DataRow dr in temp.Rows)
             {
-                dtLine.Rows.Add(dr["BEWORKSEG"].ToString(), dr["CRAFTNAME"].ToString(), dr["CRAFTPARAMETERURL"].ToString());
+                dtLine.Rows.Add(dr["BEWORKSEG"].ToString(), dr["CRAFTNAME"].ToString(),
+                    dr["CRAFTPARAMETERURL"].ToString());
             }
-             DataTable dtSort= publicfunction.DataTableToSort(dtLine, "GROUP");
-             foreach (DataRow dr in dtSort.Rows)
-             {
-                 cbstationId.Items.Add(dr["GROUP"].ToString());
-             }
+            DataTable dtSort = publicfunction.DataTableToSort(dtLine, "GROUP");
+            foreach (DataRow dr in dtSort.Rows)
+            {
+                cbstationId.Items.Add(dr["GROUP"].ToString());
+            }
         }
 
 
@@ -430,27 +362,24 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         /// <param name="show">是否显示</param>
         private void ShowCartonData(bool show)
         {
-            this.dgvdata.Invoke(new EventHandler(delegate
+            dgvdata.Invoke(new EventHandler(delegate
             {
-                if (show)
-                {
-                    this.dgvdata.DataSource = BLL.ReleaseData.arrByteToDataTable(refWebtWipTracking.Instance.GetPackCarton(this.mWoInfo.woId, cblineId.Text));
-                    this.dgvdata.Refresh();
-                }
+                if (!show) return;
+                dgvdata.DataSource = BLL.ReleaseData.arrByteToDataTable(refWebtWipTracking.Instance.GetPackCarton(mWoInfo.woId, cblineId.Text));
+                dgvdata.Refresh();
             }));
         }
 
         private void ShowOtherData(string woId, bool show)
         {
-            this.dgvdata.Invoke(new EventHandler(delegate
+            dgvdata.Invoke(new EventHandler(delegate
             {
-                if (show)
-                {
-                    this.dgvdata.DataSource = BLL.ReleaseData.arrByteToDataTable(refWebtWipTracking.Instance.GetWoAllSerial(this.mWoInfo.woId, 4));
-                    this.dgvdata.Refresh();
-                }
+                if (!show) return;
+                dgvdata.DataSource = BLL.ReleaseData.arrByteToDataTable(refWebtWipTracking.Instance.GetWoAllSerial(mWoInfo.woId, 4));
+                dgvdata.Refresh();
             }));
         }
+
         /// <summary>
         /// 重新打印卡通箱标签
         /// </summary>
@@ -484,6 +413,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
             else
                 this.ShowMsg(mLogMsgType.Outgoing, "完成..");
         }
+
         /// <summary>
         /// SN号需要按递增规则
         /// </summary>
@@ -492,6 +422,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         /// <returns></returns>
         private bool CompareSnAreaHistory(string serial, string history)
         {
+            int _serial;
             try
             {
                 if (history.Length != serial.Length)
@@ -509,19 +440,19 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                     return false;
                 if (serial.Substring(0, flag - 1) != history.Substring(0, flag - 1))
                     return false;
-                int _histroy = int.Parse(history.Substring(flag - 1, history.Length - flag + 1));
-                int _serial = int.Parse(serial.Substring(flag - 1, history.Length - flag + 1));
-                if (_serial == _histroy + 1)
-                    return true;
-                else
-                    return false;
+
+                int histroy = int.Parse(history.Substring(flag - 1, history.Length - flag + 1));
+                _serial = int.Parse(serial.Substring(flag - 1, history.Length - flag + 1));
+
+                return _serial == histroy + 1;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 ShowMsg(mLogMsgType.Error, ex.Message + ": FrmMain 317");
                 return false;
             }
         }
+
         /// <summary>
         /// 填充自定义控件内容
         /// </summary>
@@ -535,6 +466,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 mb.Refresh();
             }));
         }
+
         /// <summary>
         /// 查询内容是否存在于数组
         /// </summary>
@@ -554,6 +486,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
             }
             return flag;
         }
+
         /// <summary>
         /// 查询内容是否存在于数组
         /// </summary>
@@ -563,6 +496,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         {
             return this.CompareArray(str, this.mPasswordName);
         }
+
         /// <summary>
         /// 检查当前输入的内容dicVarBuf中的esn是否合法,如果合法则返回esn和其对应的数据
         /// </summary>
@@ -1272,14 +1206,14 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                         if (!this.CompareSerialnumber(this.mWoInfo.woId, __InsertDtaTemp[item], item))
                             throw new Exception(string.Format("序列号{0}:{1}不在工单设置范围内,请检查..", item, __InsertDtaTemp[item]));
                     }
-                    dic = new Dictionary<string, object>();
-                    dic.Add("ESN", __strEsnTemp);
-                    dic.Add("SNTYPE", item);
-                    dic.Add("SNVAL", __InsertDtaTemp[item]);
-                    dic.Add("WOID", this.mWoInfo.woId);
-                    dic.Add("STATION", mCraftName);
-                    dic.Add("KPNO", "NA");
-                    LsDic.Add(dic);               
+                    _dic = new Dictionary<string, object>();
+                    _dic.Add("ESN", __strEsnTemp);
+                    _dic.Add("SNTYPE", item);
+                    _dic.Add("SNVAL", __InsertDtaTemp[item]);
+                    _dic.Add("WOID", this.mWoInfo.woId);
+                    _dic.Add("STATION", mCraftName);
+                    _dic.Add("KPNO", "NA");
+                    LsDic.Add(_dic);               
                 }
                 this.ShowMsg(mLogMsgType.Incoming, "数据记录完成");
 
@@ -1327,12 +1261,12 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 else
                 {
                     //记录重复打印记录
-                    dic = new Dictionary<string, object>();
-                    dic.Add("USERID", this.strEnaPwd.Split('-')[0]);
-                    dic.Add("PRG_NAME", "REPEATPRINT");
-                    dic.Add("ACTION_TYPE", "PRINT");
-                    dic.Add("ACTION_DESC", "PRINT: " + __strEsnTemp);
-                    refWebRecodeSystemLog.Instance.InsertSystemLog(MapListConverter.DictionaryToJson(dic));
+                    _dic = new Dictionary<string, object>();
+                    _dic.Add("USERID", this.strEnaPwd.Split('-')[0]);
+                    _dic.Add("PRG_NAME", "REPEATPRINT");
+                    _dic.Add("ACTION_TYPE", "PRINT");
+                    _dic.Add("ACTION_DESC", "PRINT: " + __strEsnTemp);
+                    refWebRecodeSystemLog.Instance.InsertSystemLog(MapListConverter.DictionaryToJson(_dic));
                     this.strEnaPwd = string.Empty;
                 }
                 #endregion
@@ -1453,29 +1387,37 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                     pc.Kill();
                 }
         }
+
         /// <summary>
         /// 杀死进程(目前写死为lppa.exe)
         /// </summary>
         private void KillAllProcess()
         {
-            Process cmd = new Process();
-            cmd.StartInfo.FileName = "cmd.exe";
-            cmd.StartInfo.Arguments = "/c taskkill /im lppa.exe /f";
-            cmd.StartInfo.CreateNoWindow = true;
-            cmd.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            Process cmd = new Process
+            {
+                StartInfo =
+                {
+                    FileName = "cmd.exe",
+                    Arguments = "/c taskkill /im lppa.exe /f",
+                    CreateNoWindow = true,
+                    WindowStyle = ProcessWindowStyle.Hidden
+                }
+            };
             cmd.Start();
             cmd.Close();
         }
+
         /// <summary>
         /// 获取当前软件版本
         /// </summary>
-        public string AssemblyVersion
+        private string AssemblyVersion
         {
             get
             {
                 return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             }
         }
+
         /// <summary>
         /// 自动运行指定的程序
         /// </summary>
@@ -1486,23 +1428,23 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         {
             try
             {
-                if (File.Exists(Path.Combine(dir, localFileName)))
+                if (!File.Exists(Path.Combine(dir, localFileName))) return;
+                Process myProcess = new Process();
+                ProcessStartInfo psi = new ProcessStartInfo
                 {
-                    Process myProcess = new Process();
-                    ProcessStartInfo psi = new ProcessStartInfo();
-                    psi.FileName = dir + localFileName;
-                    psi.WorkingDirectory = dir;
-                    psi.UseShellExecute = false;
-                    psi.Arguments = thisappname;
-                    psi.RedirectStandardError = true;
-                    psi.CreateNoWindow = true;
-                    // psi.RedirectStandardOutput = true;
-                    psi.WindowStyle = ProcessWindowStyle.Normal;
-                    myProcess.StartInfo = psi;
-                    myProcess.Start();
-                    myProcess.WaitForExit(20);
-                    myProcess.Close();
-                }
+                    FileName = dir + localFileName,
+                    WorkingDirectory = dir,
+                    UseShellExecute = false,
+                    Arguments = thisappname,
+                    RedirectStandardError = true,
+                    CreateNoWindow = true,
+                    WindowStyle = ProcessWindowStyle.Normal
+                };
+                // psi.RedirectStandardOutput = true;
+                myProcess.StartInfo = psi;
+                myProcess.Start();
+                myProcess.WaitForExit(20);
+                myProcess.Close();
             }
             catch (Exception ex)
             {
@@ -1523,11 +1465,11 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                     rtbmsg.TabStop = false;
                     rtbmsg.SelectedText = string.Empty;
                     rtbmsg.SelectionFont = new Font(rtbmsg.SelectionFont, FontStyle.Bold);
-                    rtbmsg.SelectionColor = mLogMsgTypeColor[(int)msgtype];
+                    rtbmsg.SelectionColor = _mLogMsgTypeColor[(int)msgtype];
                     rtbmsg.AppendText(msg + "\n");
                     rtbmsg.ScrollToCaret();
 
-                    if (mLogMsgTypeColor[(int)msgtype]==Color.Red)
+                    if (_mLogMsgTypeColor[(int)msgtype]==Color.Red)
                     {
                         SendBuzz();
                     }
@@ -1577,6 +1519,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 }
             }));
         }
+
         /// <summary>
         /// 将打开的模板变量信息记录到内存中
         /// </summary>
@@ -1588,18 +1531,15 @@ namespace SFIS_PRINT_SYSTEM_WIFI
             List<string> vname = new List<string>();
             List<string> vallname = new List<string>();
             List<string[]> arrname = new List<string[]>();
-            this.lsAllVarName.Clear();
-            this.MyVar.DicVarLen.Clear();
+            lsAllVarName.Clear();
+            MyVar.DicVarLen.Clear();
             string vtemp = string.Empty;
             try
             {
                 this.mLibdoc = this.mlppx.Documents.Open(_FileName, false);
-
                 this.mLibdoc.ViewMode = enumViewMode.lppxViewModeSize;
 
-                int _formvariablecount = mLibdoc.Variables.FormVariables.Count;
-
-                int _formmulascount = mLibdoc.Variables.Formulas.Count;
+                int formvariablecount = mLibdoc.Variables.FormVariables.Count;
 
                 #region xxx【_formvariablecount】
                 for (int cu = 1; cu <= mLibdoc.Variables.FormVariables.Count; cu++)//读取的是填充器下的变量
@@ -1630,8 +1570,8 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 this.miCatonBoxTotal = arrname[0].Length;
                 #endregion
 
-                MyVar.arrVariable = new string[_formvariablecount];
-                MyVar.arrVariableCount = new int[_formvariablecount];
+                MyVar.arrVariable = new string[formvariablecount];
+                MyVar.arrVariableCount = new int[formvariablecount];
 
                 MyVar.arrAutoSerialVariableName = new string[mLibdoc.Variables.Formulas.Count];//读取的是公式下的变量
                 MyVar.arrAutoSerialVariableValue = new string[mLibdoc.Variables.Formulas.Count];
@@ -1649,61 +1589,9 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                     MyVar.arrAutoSerialVariableValue[x] = mLibdoc.Variables.Formulas.Item(x + 1).Value;
                 }
 
-                //arrVariableBuffer = new string[MyVar.arrVariable.Length];
                 this.dicVarBuf.Clear();
                 mLibdoc.CopyToClipboard();
                 this.ShowPicture(Clipboard.GetImage());
-
-                #region 添加智能选择功能区 2013-10-24
-                //string strTemp = string.Empty;
-                //bool bflag = false;
-                //for (int x = 1; x < mLibdoc.Variables.FormVariables.Count; x++)
-                //{
-                //    string str = mLibdoc.Variables.FormVariables.Item(x).Name;//遍历填充器下的每个变量名称
-                //    int flag = 0;
-                //    string s = string.Empty;
-                //    for (int i = 0; i < str.Trim().Length; i++)
-                //    {
-                //        flag = i;
-                //        if (isNumberic(s = str.Substring(i, 1)))
-                //        {
-                //            flag = i;
-                //            break;
-                //        }
-
-                //    }
-                //    if (flag < 1)
-                //        throw new Exception("变量名称第一位不能是数字");
-                //    if (string.IsNullOrEmpty(strTemp))
-                //    {
-                //        strTemp = str.Substring(0, flag);
-                //    }
-                //    else
-                //    {
-                //        if (strTemp.ToUpper() == str.Substring(0, flag).ToUpper())
-                //        {
-                //            bflag = true;
-                //            break;
-                //        }
-                //    }
-
-                //}
-
-                ////添加智能选择功能区
-                //this.bMask = false;
-                //if (bflag)//_formvariablecount >= 5
-                //{
-                //    //选择卡通箱标签打印区
-
-                //    this.tbcLable.SelectedTabIndex = 1;
-                //}
-                //else
-                //{
-                //    //选择其他标签打印区
-                //    this.tbcLable.SelectedTabIndex = 0;
-                //}
-                #endregion
-                // this.pictureBox1.Image = Clipboard.GetImage();
             }
             catch (Exception ex)
             {
@@ -1711,6 +1599,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 ShowMsg(mLogMsgType.Error, "控件及变量初始化失败\n" + ex.Message);
             }
         }
+
         private void ShowPicture(System.Drawing.Image img)
         {
             this.pictureBox1.Invoke(new EventHandler(delegate
@@ -1719,55 +1608,40 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 this.pictureBox1.Refresh();
             }));
         }
-        /// <summary>
-        /// 清空剪切板
-        /// </summary>
-        private void ClipboardImageClear()
-        {
-            Clipboard.Clear();
-        }
+
         /// <summary>
         /// 加载工单所有的序列号区间到本地数据库以减轻服务器的压力
         /// </summary>
         private void DownloadWoSnRule()
         {
-            this.ShowMsg(mLogMsgType.Warning, "正在加载工单序列号区间..");
+            ShowMsg(mLogMsgType.Warning, "正在加载工单序列号区间..");
             BLL.cdbAccess ass = new BLL.cdbAccess();
             ass.ExecuteSqlCommand("delete from wosnrule");
-            DataTable DtwoSnrule = BLL.ReleaseData.arrByteToDataTable(refWebtWoInfo.Instance.GetWoSnRule(this.mWoInfo.woId, string.Empty));
-            this.SetProgressbarMaxValue(DtwoSnrule.Rows.Count);
+            DataTable dtwoSnrule = BLL.ReleaseData.arrByteToDataTable(refWebtWoInfo.Instance.GetWoSnRule(this.mWoInfo.woId, string.Empty));
+            SetProgressbarMaxValue(dtwoSnrule.Rows.Count);
             int i = 0;
-            foreach (DataRow dr in DtwoSnrule.Rows)
+            foreach (DataRow dr in dtwoSnrule.Rows)
             {
                 i++;
-                string sql = string.Format("insert into wosnrule(poid,woId,sntype,snstart,snend,snprefix,snpostfix,ver,reve,usenum) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')",
-                    "NA",
-                    dr["woId"].ToString(),
-                    dr["sntype"].ToString(),
-                    dr["snstart"].ToString(),
-                    dr["snend"].ToString(),
-                    dr["snprefix"].ToString(),
-                    dr["snpostfix"].ToString(),
-                    dr["ver"].ToString(),
-                    dr["reve"].ToString(),
-                    dr["usenum"].ToString());
+                string sql =
+                    $"insert into wosnrule(poid,woId,sntype,snstart,snend,snprefix,snpostfix,ver,reve,usenum) values('{"NA"}','{dr["woId"]}','{dr["sntype"]}','{dr["snstart"]}','{dr["snend"]}','{dr["snprefix"]}','{dr["snpostfix"]}','{dr["ver"]}','{dr["reve"]}','{dr["usenum"]}')";
                 ass.ExecuteSqlCommand(sql);
-                this.ShowProgressbar(i);
+                ShowProgressbar(i);
             }
-            this.ShowMsg(mLogMsgType.Warning, "工单序列号区间加载完成.");
+            ShowMsg(mLogMsgType.Warning, "工单序列号区间加载完成.");
         }
 
         /// <summary>
         /// 显示统计信息
         /// </summary>
-        /// <param name="CurrentValue">当前的值</param>
-        /// <param name="Total">总数</param>
-        private void ShowStation(string CurrentValue, string Total)
+        /// <param name="currentValue">当前的值</param>
+        /// <param name="total">总数</param>
+        private void ShowStation(string currentValue, string total)
         {
-            this.lbcurentstation.Invoke(new EventHandler(delegate
+            lbcurentstation.Invoke(new EventHandler(delegate
             {
-                this.lbcurentstation.Text = string.Format("{0}/{1}", CurrentValue, Total);
-                this.lbcurentstation.Refresh();
+                lbcurentstation.Text = string.Format("{0}/{1}", currentValue, total);
+                lbcurentstation.Refresh();
             }));
         }
 
@@ -1777,130 +1651,117 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         /// <param name="currentValue"></param>
         private void ShowCartonStation(string currentValue)
         {
-            this.lb_cartoncount.Invoke(new EventHandler(delegate
+            lb_cartoncount.Invoke(new EventHandler(delegate
             {
-                this.lb_cartoncount.Text = string.Format("{0}/{1}", currentValue, this.miCatonBoxTotal);
-                this.lb_cartoncount.Refresh();
-            }));
-        }
-        /// <summary>
-        /// 设置卡通箱号
-        /// </summary>
-        /// <param name="cartonId"></param>
-        private void SetCartonID(string cartonId)
-        {
-            this.tb_Boxcount.Invoke(new EventHandler(delegate
-            {
-                this.tb_Boxcount.Text = cartonId;
-                this.tb_Boxcount.Refresh();
+                lb_cartoncount.Text = string.Format("{0}/{1}", currentValue, this.miCatonBoxTotal);
+                lb_cartoncount.Refresh();
             }));
         }
 
         /// <summary>
         /// 根据模板内容显示对应的控件
         /// </summary>
-        /// <param name="MyVar"></param>
-        private void ShowControl(MyVariable MyVar)
+        /// <param name="myVar"></param>
+        private void ShowControl(MyVariable myVar)
         {
-            this.gpcartonprint.Invoke(new EventHandler(delegate
+            gpcartonprint.Invoke(new EventHandler(delegate
             {
-                this.gpotherprint.Controls.Clear();
-                #region xxxxx
-                arrTextbox = new MyTextBox[MyVar.arrVariable.Length];
-                arrLabel = new Label[MyVar.arrVariableCount.Length];
+                gpotherprint.Controls.Clear();
 
-                arrTextboxReadOnly = new MyTextBox[MyVar.arrAutoSerialVariableName.Length];
-                arrLabelReadOnly = new Label[MyVar.arrAutoSerialVariableValue.Length];
+                #region Add controls to panel
 
-                int RowHeight = 37;
+                arrTextbox = new MyTextBox[myVar.arrVariable.Length];
+                arrLabel = new Label[myVar.arrVariableCount.Length];
 
-                Point TextBoxPoint = new Point(220, 24);
-                Point LabelPoint = new Point(80, 30);
+                arrTextboxReadOnly = new MyTextBox[myVar.arrAutoSerialVariableName.Length];
+                arrLabelReadOnly = new Label[myVar.arrAutoSerialVariableValue.Length];
 
-                Size TextBoxLocation = new Size(100, 20);
-                Size LabelLocation = new Size(5, 20);
+                const int rowHeight = 37;
 
-                Point ReadOnlyTextBoxPoint = new Point(220, 24);
-                Point ReadOnlyLabelPoint = new Point(80, 30);
+                Point textBoxPoint = new Point(220, 24);
+                Point labelPoint = new Point(80, 30);
 
-                Size ReadOnlyTextBoxLocation = new Size(100, (this.gpotherprint.Height - 45));
-                Size ReadOnlyLabelLocation = new Size(5, (this.gpotherprint.Height - 45));
+                Size textBoxLocation = new Size(100, 20);
+                Size labelLocation = new Size(5, 20);
 
-                Point CheckBoxPoint = new Point(80, 25);
-                Size CheckBoxLoction = new Size(430, 250);
-                ShowDataChk = new CheckBox();
-                ShowDataChk.BackColor = Color.Transparent;
-                ShowDataChk.Location = new System.Drawing.Point(CheckBoxLoction);
-                ShowDataChk.Size = new System.Drawing.Size(CheckBoxPoint);
-                ShowDataChk.Text = "显示数据";
-                ShowDataChk.CheckedChanged += new EventHandler(ShowDataChk_CheckedChanged);
+                Point readOnlyTextBoxPoint = new Point(220, 24);
+                Point readOnlyLabelPoint = new Point(80, 30);
+
+                Size readOnlyTextBoxLocation = new Size(100, gpotherprint.Height - 45);
+                Size readOnlyLabelLocation = new Size(5, gpotherprint.Height - 45);
+
+                Point checkBoxPoint = new Point(80, 25);
+                Size checkBoxLoction = new Size(430, 250);
+                ShowDataChk = new CheckBox
+                {
+                    BackColor = Color.Transparent,
+                    Location = new Point(checkBoxLoction),
+                    Size = new Size(checkBoxPoint),
+                    Text = "显示数据"
+                };
+                ShowDataChk.CheckedChanged += ShowDataChk_CheckedChanged;
+
                 #endregion
+
                 try
                 {
                     #region xxxxx
-                    for (int x = 0; x < MyVar.arrVariable.Length; x++)
+
+                    for (int x = 0; x < myVar.arrVariable.Length; x++)
                     {
                         arrTextbox[x] = new MyTextBox();
-                        arrLabel[x] = new Label();
-                        arrLabel[x].BackColor = Color.Transparent;
-                        arrTextbox[x].Location = new System.Drawing.Point(TextBoxLocation);
-                        arrTextbox[x].Font = new System.Drawing.Font("宋体", 15);
-                        arrLabel[x].Location = new System.Drawing.Point(LabelLocation);
-                        arrLabel[x].Font = new System.Drawing.Font("宋体", 13, FontStyle.Bold);
-                        arrTextbox[x].Size = new System.Drawing.Size(TextBoxPoint);
-                        arrLabel[x].Size = new System.Drawing.Size(LabelPoint);
+                        arrLabel[x] = new Label {BackColor = Color.Transparent};
+                        arrTextbox[x].Location = new Point(textBoxLocation);
+                        arrTextbox[x].Font = new Font("宋体", 15);
+                        arrLabel[x].Location = new Point(labelLocation);
+                        arrLabel[x].Font = new Font("宋体", 13, FontStyle.Bold);
+                        arrTextbox[x].Size = new Size(textBoxPoint);
+                        arrLabel[x].Size = new Size(labelPoint);
                         arrTextbox[x].TabIndex = x + 5;
-                        arrTextbox[x].KeyDown += new KeyEventHandler(textbox_KeyDown);
-                        arrTextbox[x].Leave += new EventHandler(textbox_Leave);
-                        if ((arrTextbox[x].Name = MyVar.arrVariable[x]) == "MAC")
-                        {
-                            //getMacAddressChk = new CheckBox();
-                            //getMacAddressChk.Text = "自动获取MAC地址";
-                            //getMacAddressChk.Location = new System.Drawing.Point(TextBoxPoint.X + 150, TextBoxPoint.Y + 2);
-                            //getMacAddressChk.CheckedChanged += new EventHandler(getMacAddressChk_CheckedChanged);
-                        }
-
-                        arrLabel[x].Text = MyVar.arrVariable[x] + ":";
-                        arrLabel[x].TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-                        TextBoxLocation.Height += RowHeight;
-                        LabelLocation.Height += RowHeight;
+                        arrTextbox[x].KeyDown += textbox_KeyDown;
+                        arrLabel[x].Text = myVar.arrVariable[x] + ":";
+                        arrLabel[x].TextAlign = ContentAlignment.MiddleRight;
+                        textBoxLocation.Height += rowHeight;
+                        labelLocation.Height += rowHeight;
                     }
-                    this.gpotherprint.Controls.Add(ShowDataChk);
-                    this.gpotherprint.Controls.AddRange(arrTextbox);
-                    this.gpotherprint.Controls.AddRange(arrLabel);
-                    //  this.ControlBox.Controls.Add(getMacAddressChk);
+                    gpotherprint.Controls.Add(ShowDataChk);
+                    gpotherprint.Controls.AddRange(arrTextbox);
+                    gpotherprint.Controls.AddRange(arrLabel);
                     arrTextbox[0].Focus();
+
                     #endregion
 
                     #region xxxxxx
-                    for (int i = 0; i < MyVar.arrAutoSerialVariableName.Length; i++)
+
+                    for (int i = 0; i < myVar.arrAutoSerialVariableName.Length; i++)
                     {
-                        arrTextboxReadOnly[i] = new MyTextBox();
+                        arrTextboxReadOnly[i] = new MyTextBox
+                        {
+                            Location = new Point(readOnlyTextBoxLocation),
+                            Font = new Font("宋体", 15),
+                            Size = new Size(readOnlyTextBoxPoint),
+                            Name = myVar.arrAutoSerialVariableName[i],
+                            Text = myVar.arrAutoSerialVariableValue[i],
+                            ReadOnly = true
+                        };
+                        readOnlyTextBoxLocation.Height += -35;
 
-                        arrTextboxReadOnly[i].Location = new System.Drawing.Point(ReadOnlyTextBoxLocation);
-                        arrTextboxReadOnly[i].Font = new System.Drawing.Font("宋体", 15);
-                        arrTextboxReadOnly[i].Size = new System.Drawing.Size(ReadOnlyTextBoxPoint);
-                        arrTextboxReadOnly[i].Name = MyVar.arrAutoSerialVariableName[i];
-                        arrTextboxReadOnly[i].Text = MyVar.arrAutoSerialVariableValue[i];
-                        arrTextboxReadOnly[i].ReadOnly = true;
-                        ReadOnlyTextBoxLocation.Height += -35;
-
-                        arrLabelReadOnly[i] = new Label();
-                        arrLabelReadOnly[i].BackColor = Color.Transparent;
-                        arrLabelReadOnly[i].Location = new System.Drawing.Point(ReadOnlyLabelLocation);
-                        arrLabelReadOnly[i].Font = new System.Drawing.Font("宋体", 13, FontStyle.Bold);
-                        arrLabelReadOnly[i].Size = new System.Drawing.Size(ReadOnlyLabelPoint);
-                        arrLabelReadOnly[i].Text = MyVar.arrAutoSerialVariableName[i] + ":";
-                        arrLabelReadOnly[i].TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-                        ReadOnlyLabelLocation.Height += -35;
-
-                        //arrLabelReadOnly[i] = new Label();
+                        arrLabelReadOnly[i] = new Label
+                        {
+                            BackColor = Color.Transparent,
+                            Location = new Point(readOnlyLabelLocation),
+                            Font = new Font("宋体", 13, FontStyle.Bold),
+                            Size = new Size(readOnlyLabelPoint),
+                            Text = myVar.arrAutoSerialVariableName[i] + ":",
+                            TextAlign = ContentAlignment.MiddleRight
+                        };
+                        readOnlyLabelLocation.Height += -35;
                     }
+
                     #endregion
 
-                    this.gpotherprint.Controls.AddRange(arrTextboxReadOnly);
-                    this.gpotherprint.Controls.AddRange(arrLabelReadOnly);
-
+                    gpotherprint.Controls.AddRange(arrTextboxReadOnly);
+                    gpotherprint.Controls.AddRange(arrLabelReadOnly);
                 }
                 catch (Exception ex)
                 {
@@ -1909,198 +1770,105 @@ namespace SFIS_PRINT_SYSTEM_WIFI
             }));
         }
 
-        void ShowDataChk_CheckedChanged(object sender, EventArgs e)
+        private void ShowDataChk_CheckedChanged(object sender, EventArgs e)
         {
             if (ShowDataChk.Checked)
             {
-                this.bShowData = true;
-                this.ShowOtherData(this.mWoInfo.woId, this.bShowData);
+                bShowData = true;
+                ShowOtherData(mWoInfo.woId, bShowData);
             }
             else
-                this.bShowData = false;
+                bShowData = false;
         }
 
         /// <summary>
         /// 显示模板文件路径
         /// </summary>
+        /// <param name="filename"></param>
         /// <param name="path"></param>
         private void ShowLibFilePath(string filename, string path)
         {
-            this.lblibfilename.Invoke(new EventHandler(delegate
+            lblibfilename.Invoke(new EventHandler(delegate
             {
-                this.lblibfilename.Text = filename;
-                this.lb_showmfpath.Text = path;
-                this.lblibfilename.Refresh();
+                lblibfilename.Text = filename;
+                lb_showmfpath.Text = path;
+                lblibfilename.Refresh();
             }));
         }
+
         /// <summary>
         /// 存放最小箱号，根据工单
         /// </summary>
-        string minCarton = string.Empty;
+        private readonly string _minCarton = string.Empty;
+
         /// <summary>
         /// 打开模板文件
         /// </summary>
         /// <returns></returns>
         private void OpenLabFile(string filepath)
         {
-            if (miasyncresult != null && !miasyncresult.IsCompleted)
+            if (_miasyncresult != null && !_miasyncresult.IsCompleted)
             {
                 ShowMsg(mLogMsgType.Warning, "程序正在初始化,请稍候...");
                 return;
             }
+
             try
             {
-                this.InitCtlPannel();
-                if (this.mLibdoc != null)
+                InitCtlPannel();
+                if (mLibdoc != null)
                 {
-                    this.mLibdoc.Close(this.mbIsSaveLabFile);
-                    this.mlppx.Documents.CloseAll(this.mbIsSaveLabFile);
-                    this.mlppx.Quit();
-                    this.mLibdoc = null;
+                    mLibdoc.Close(mbIsSaveLabFile);
+                    mlppx.Documents.CloseAll(mbIsSaveLabFile);
+                    mlppx.Quit();
+                    mLibdoc = null;
                 }
-                if (this.mlppx != null)
+                if (mlppx != null)
                 {
                     try
                     {
-                        this.mlppx.Quit();
+                        mlppx.Quit();
                     }
                     catch
                     {
+                        // ignored
                     }
                 }
                 OpenFileDialog ofd = new OpenFileDialog();
                 ofd.Title = "选择模板文件";
                 ofd.Filter = "(*.lab)|*.lab";
                 ofd.InitialDirectory = System.Windows.Forms.Application.StartupPath;
-                if (!string.IsNullOrEmpty(filepath) || ofd.ShowDialog() == DialogResult.OK)
+                if (string.IsNullOrEmpty(filepath) && ofd.ShowDialog() != DialogResult.OK) return;
+
+                this.mPrintFileName = !string.IsNullOrEmpty(filepath) ? filepath : ofd.FileName;
+                this.msProductText = Path.GetFileNameWithoutExtension(mPrintFileName);
+                ShowLibFilePath(string.Format("[{0}] 标签打印", this.msProductText), this.mPrintFileName);
+                mlppx = new ApplicationClass();
+
+                InitLab(mPrintFileName);
+                switch (mTabItem.Name)
                 {
-                    this.mPrintFileName = !string.IsNullOrEmpty(filepath) ? filepath : ofd.FileName;//this.lb_showmfpath.Text =
-                    this.msProductText = Path.GetFileNameWithoutExtension(mPrintFileName); //ofd.SafeFileName.Remove(ofd.SafeFileName.IndexOf("." + ofd.SafeFileName.Split('.')[ofd.SafeFileName.Split('.').Length - 1]));
+                    case "tabItem1":
+                        dgvdata.ContextMenuStrip = null;
+                        mSaveLibFileFlag = true;
+                        ShowControl(MyVar);
+                        ShowStation("0", mWoInfo.qty.ToString());
+                        break;
 
-                    ShowLibFilePath(string.Format("[{0}] 标签打印", this.msProductText), this.mPrintFileName);
-                    mlppx = new LabelManager2.ApplicationClass();
+                    case "tabItem2":
+                        dgvdata.ContextMenuStrip = contextMenuStrip2;
+                        SetBtOkState(true);
+                        bt_ok.Enabled = true;
+                        mSaveLibFileFlag = false;
+                        break;
 
-                    InitLab(mPrintFileName);
-                    switch (this.mTabItem.Name)
-                    {
-                        case "tabItem1":
-                            this.dgvdata.ContextMenuStrip = null;
-                            this.mSaveLibFileFlag = true;
-                            ShowControl(MyVar);
-                            this.ShowStation("0", this.mWoInfo.qty.ToString());
-                            break;
-                        case "tabItem2":
-                            this.dgvdata.ContextMenuStrip = this.contextMenuStrip2;
-                            this.SetBtOkState(true);
-                            this.bt_ok.Enabled = true;
-                            this.mSaveLibFileFlag = false;
-
-                            #region 产生箱号 2013-10-24
-                            //if (this.miCatonBoxTotal < 1)
-                            //    throw new Exception("每箱总数不能为零,请确认模板是否选择!!");
-                            ////获取没有包装完成的箱号列表
-                            //DataTable mdt = new DataTable();
-                            //bool flag = false;
-                            //mdt = SFIS_PRINT_SYSTEM.BLL.ReleaseData.arrByteToDataTable(refWebtWipTracking.Instance.GetNotCloseBoxInfo(this.mLineInfo.lineId));
-                            //if (mdt != null && mdt.Rows.Count > 0)
-                            //{
-                            //    this.dgvNotCloseBoxNumber.DataSource = mdt.DefaultView;
-                            //    if (MessageBoxEx.Show(string.Format("当前产线[{0}]还有没有包装完成的箱号,是否继续包装未完成的箱号?\n继续包装未完成的箱号 请选择[Yes] \n包装新的一箱,请选择[No]",
-                            //         this.mLineInfo.linedesc),
-                            //         "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) != DialogResult.No)
-                            //    {
-                            //        SFIS_PRINT_SYSTEM.Frm.ShowCartonData SCD = new SFIS_PRINT_SYSTEM.Frm.ShowCartonData(this, mdt);
-                            //        if (SCD.ShowDialog() != DialogResult.Yes)
-                            //            throw new Exception("错误:卡通箱信息加载失败...");
-                            //        else
-                            //            flag = true;
-                            //    }
-                            //    else
-                            //    {
-                            //        if (MessageBoxEx.Show("使用该功能将产生一个新的箱号\n工单不是第一次生产请谨慎使用\n请做好记录防止致箱号混乱\n是否继续?",
-                            //            "警告", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2) == DialogResult.No)
-                            //        {
-                            //            return;
-                            //        }
-                            //    }
-                            //}
-                            ////获取当前要包装的卡通号,如果没有则找到当前工单的最大箱号+1
-                            //if (flag)
-                            //    this.mCartonId = this.gCartonInfo.cartonId;
-                            //else
-                            //{
-                            //    DataTable dtmincarton =ReleaseData.arrByteToDataTable( 
-                            //        refWebtWipTracking.Instance.GetMinCartonByWoid(this.mWoInfo.woId));
-                            //    //不是首次生产，跳箱需要权限
-                            //    if (!string.IsNullOrEmpty(dtmincarton.Rows[0]["mincarton"].ToString()))
-                            //    {
-                            //        #region 添加密码输入
-                            //        EnaPwd ed = new EnaPwd(this);
-                            //        if (ed.ShowDialog() == DialogResult.OK)
-                            //        {
-                            //            if (strEnaPwd != "checkboxnum2013")
-                            //            {
-                            //                MessageBoxEx.Show("密码错误!!");
-                            //                return;
-                            //            }
-                            //        }
-                            //        else
-                            //        {
-                            //            return;
-                            //        }
-                            //        #endregion
-                            //    }
-                            //    string err = refWebtWipTracking.Instance.GetMaxBoxNumber(this.mWoInfo.woId,
-                            //        this.mLineInfo.lineId, this.mWoInfo.partnumber);
-                            //    if (err.ToUpper() == "ERR")
-                            //    {
-                            //        throw new Exception("箱号获取失败,请检查!!");
-                            //    }
-
-                            //    if (err.ToUpper() == tbwoid.Text.Trim() + "C0001")
-                            //    {
-                            //        //首次生产，针对CNS项目提供首箱输入功能
-                            //        if (CNSFlag.ToUpper() == "CNS")
-                            //        {
-                            //            BoxNum bn = new BoxNum(this);
-                            //            if (bn.ShowDialog() == DialogResult.OK)
-                            //            {
-                            //                if (!string.IsNullOrEmpty(strBoxNumber))
-                            //                {
-                            //                    err = tbwoid.Text.Trim() + "C" + strBoxNumber.Trim().PadLeft(4, '0');
-                            //                    refWebtWipTracking.Instance.UpdateFirstCarton(err);
-                            //                }
-                            //            }
-                            //        }
-                            //    }
-
-                            //    this.mCartonId = err;
-                            //}
-
-                            //DataTable dtmin = ReleaseData.arrByteToDataTable(
-                            //        refWebtWipTracking.Instance.GetMinCartonByWoid(this.mWoInfo.woId));
-                            //minCarton = dtmin.Rows[0]["mincarton"].ToString();
-                            //minCarton = string.IsNullOrEmpty(minCarton) ? "0" : minCarton;
-
-                            //this.ShowCartonStation(this.gCartonInfo.number.ToString());
-                            //this.SetCartonID(this.mCartonId);
-                            #endregion
-                            break;
-                        default:
-                            throw new Exception("警告:不明选项..");
-                            break;
-                    }
+                    default:
+                        throw new Exception("警告:不明选项..");
                 }
-                else
-                {
-                    return;
-                }
-                return;
             }
             catch (Exception ex)
             {
                 ShowMsg(mLogMsgType.Error, ex.Message + ": FrmMain 2233");
-                return;
             }
         }
 
@@ -2108,41 +1876,40 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         /// 打开模板前判断生产信息是否填写完成
         /// </summary>
         /// <returns></returns>
-        private bool CheckSelectIsOK()
+        private bool CheckSelectIsOk()
         {
             #region 判定是否选择
-            if (string.IsNullOrEmpty(this.tbwoid.Text))
+            if (string.IsNullOrEmpty(tbwoid.Text))
             {
-                this.tbwoid.Focus();
+                tbwoid.Focus();
                 ShowMsg(mLogMsgType.Warning, "请设定生产信息");
                 return false;
             }
-            if (string.IsNullOrEmpty(this.cbstationId.Text))
+            if (string.IsNullOrEmpty(cbstationId.Text))
             {
                 this.cbstationId.Focus();
                 ShowMsg(mLogMsgType.Warning, "请设定生产信息");
                 return false;
             }
-            if (string.IsNullOrEmpty(this.cblineId.Text))
+            if (string.IsNullOrEmpty(cblineId.Text))
             {
-                this.cblineId.Focus();
+                cblineId.Focus();
                 ShowMsg(mLogMsgType.Warning, "请设定生产信息");
                 return false;
             }
-            if (string.IsNullOrEmpty(this.mWoInfo.woId))
+            if (string.IsNullOrEmpty(mWoInfo.woId))
             {
                 ShowMsg(mLogMsgType.Warning, "没有找到工单号");
                 return false;
             }
-            if (string.IsNullOrEmpty(this.mWoInfo.routgroupId))
-            {
-                ShowMsg(mLogMsgType.Warning, "没有发现工单的流程编号,请重新设置");
-                return false;
-            }
+            if (!string.IsNullOrEmpty(mWoInfo.routgroupId)) return true;
+
+            ShowMsg(mLogMsgType.Warning, "没有发现工单的流程编号,请重新设置");
+            return false;
 
             #endregion
-            return true;
         }
+
         /// <summary>
         /// 保存当前配置
         /// </summary>
@@ -2150,64 +1917,44 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         {
             try
             {
-                if (this.mWoInfo == null)
+                if (mWoInfo == null)
                     return;
-                //XmlDocument doc = new XmlDocument();
-                //doc.Load(System.Windows.Forms.Application.StartupPath + "\\DllConfig.xml");
+
                 #region WOENTITY
-                //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("WOID")).SetAttribute("woid", this.mWoInfo.woId);
-                //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("PARTNUMBER")).SetAttribute("partnumber", this.mWoInfo.partnumber);
-                //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("INPUTGROUP")).SetAttribute("inputgroup", this.mWoInfo.inputgroup);
-                //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("OUTPUTGROUP")).SetAttribute("outputgroup", this.mWoInfo.outputgroup);
-                //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("POID")).SetAttribute("poid", this.mWoInfo.poId);
-                //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("QTY")).SetAttribute("qty", this.mWoInfo.qty.ToString());
-                //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("ROUTGROUPID")).SetAttribute("routgroupid", this.mWoInfo.routgroupId);
-                //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("BOMNUMBER")).SetAttribute("bomnumber", this.mWoInfo.bomnumber);
-                //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("BOMVER")).SetAttribute("bomver", this.mWoInfo.bomver);
-                //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("WOSTATE")).SetAttribute("wostate", this.mWoInfo.wostate.ToString());
-                //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("CPWD")).SetAttribute("cpwd", this.mWoInfo.cpwd.ToString());
-                //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("WOTYPE")).SetAttribute("wotype", this.mWoInfo.wotype);
+
                 ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "WOID", this.mWoInfo.woId, SFIS_IniFilePath);
-                ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "PARTNUMBER", this.mWoInfo.partnumber, SFIS_IniFilePath);
-                ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "INPUTGROUP", this.mWoInfo.inputgroup, SFIS_IniFilePath);
-                ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "OUTPUTGROUP", this.mWoInfo.outputgroup, SFIS_IniFilePath);
+                ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "PARTNUMBER", this.mWoInfo.partnumber,
+                    SFIS_IniFilePath);
+                ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "INPUTGROUP", this.mWoInfo.inputgroup,
+                    SFIS_IniFilePath);
+                ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "OUTPUTGROUP", this.mWoInfo.outputgroup,
+                    SFIS_IniFilePath);
                 ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "POID", this.mWoInfo.poId, SFIS_IniFilePath);
                 ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "QTY", this.mWoInfo.qty.ToString(), SFIS_IniFilePath);
-                ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "ROUTGROUPID", this.mWoInfo.routgroupId, SFIS_IniFilePath);
-                ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "BOMNUMBER", this.mWoInfo.bomnumber, SFIS_IniFilePath);
+                ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "ROUTGROUPID", this.mWoInfo.routgroupId,
+                    SFIS_IniFilePath);
+                ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "BOMNUMBER", this.mWoInfo.bomnumber,
+                    SFIS_IniFilePath);
                 ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "BOMVER", this.mWoInfo.bomver, SFIS_IniFilePath);
-                ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "WOSTATE", this.mWoInfo.wostate.ToString(), SFIS_IniFilePath);
-                ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "CPWD", this.mWoInfo.cpwd.ToString(), SFIS_IniFilePath);
+                ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "WOSTATE", this.mWoInfo.wostate.ToString(),
+                    SFIS_IniFilePath);
+                ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "CPWD", this.mWoInfo.cpwd.ToString(),
+                    SFIS_IniFilePath);
                 ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "WOTYPE", this.mWoInfo.wotype, SFIS_IniFilePath);
- 
-
 
                 #endregion
-                #region LINEENTITY
-                //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("LINEENTITY").SelectSingleNode("LINEID")).SetAttribute("lineid", this.mLineInfo.lineId);
+
                 ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "LINE", cblineId.Text, SFIS_IniFilePath);
-               // ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "LINEDESC", this.mLineInfo.linedesc, SFIS_IniFilePath);
-             //   ((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("LINEENTITY").SelectSingleNode("LINEDESC")).SetAttribute("linedesc", this.mLineInfo.linedesc);
-                //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("LINEENTITY").SelectSingleNode("STARTIPADDRESS")).SetAttribute("startipaddress", this.mLineInfo.startIpAddress);
-                //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("LINEENTITY").SelectSingleNode("ENDIPADDRESS")).SetAttribute("endipaddress", this.mLineInfo.endIpAddress);
-                //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("LINEENTITY").SelectSingleNode("PLOTID")).SetAttribute("plotid", this.mLineInfo.plotId);
-                //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("LINEENTITY").SelectSingleNode("WSID")).SetAttribute("wsid", this.mLineInfo.wsId);
-                #endregion
-                #region CRAFTENTITY
-                //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("CRAFTENTITY").SelectSingleNode("CRAFTNAME")).SetAttribute("craftname", this.lbstationname.Text);
-                //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("CRAFTENTITY").SelectSingleNode("CRAFTID")).SetAttribute("craftid", this.mCraftName);
-                ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "CRAFTNAME", this.lbstationname.Text, SFIS_IniFilePath);
+                ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "CRAFTNAME", this.lbstationname.Text,
+                    SFIS_IniFilePath);
                 ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "CRAFTID", this.mCraftName, SFIS_IniFilePath);
-                #endregion
-
-                ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "PrintQTY", this.numPrintQty.Value.ToString(), SFIS_IniFilePath);
-              //  doc.Save(System.Windows.Forms.Application.StartupPath + "\\DllConfig.xml");
+                ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "PrintQTY", numPrintQty.Value.ToString(),
+                    SFIS_IniFilePath);
             }
             catch (Exception ex)
             {
                 throw new Exception("配置文件保存失败" + ex.Message + ",请检查!!");
             }
-
         }
 
         /// <summary>
@@ -2217,76 +1964,61 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         {
             try
             {
-                //XmlDocument doc = new XmlDocument();
-                //doc.Load(System.Windows.Forms.Application.StartupPath + "\\DllConfig.xml");
                 #region WOENTITY
-                this.mWoInfo = new T_WO_INFO()
+
+                mWoInfo = new T_WO_INFO
                 {
-                    woId = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "WOID", SFIS_IniFilePath), //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("WOID")).GetAttribute("woid"),
+                    woId = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "WOID", SFIS_IniFilePath),
                     partnumber = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "PARTNUMBER", SFIS_IniFilePath),
-                    //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("PARTNUMBER")).GetAttribute("partnumber"),
                     inputgroup = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "INPUTGROUP", SFIS_IniFilePath),
-                    //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("INPUTGROUP")).GetAttribute("inputgroup"),
                     outputgroup = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "OUTPUTGROUP", SFIS_IniFilePath),
-                    //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("OUTPUTGROUP")).GetAttribute("outputgroup"),
                     poId = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "POID", SFIS_IniFilePath),
-                    //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("POID")).GetAttribute("poid"),
-                    qty = int.Parse(string.IsNullOrEmpty(ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "QTY", SFIS_IniFilePath)) ? "0" : ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "QTY", SFIS_IniFilePath)),
-                    //int.Parse(((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("QTY")).GetAttribute("qty")),
+                    qty =
+                        int.Parse(
+                            string.IsNullOrEmpty(ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "QTY",
+                                SFIS_IniFilePath))
+                                ? "0"
+                                : ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "QTY", SFIS_IniFilePath)),
                     routgroupId = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "ROUTGROUPID", SFIS_IniFilePath),
-                    //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("ROUTGROUPID")).GetAttribute("routgroupid"),
                     bomnumber = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "BOMNUMBER", SFIS_IniFilePath),
-                    //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("BOMNUMBER")).GetAttribute("bomnumber"),
                     bomver = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "BOMVER", SFIS_IniFilePath),
-                    //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("BOMVER")).GetAttribute("bomver"),
-                    wostate = int.Parse(string.IsNullOrEmpty(ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "WOSTATE", SFIS_IniFilePath)) ? "0" : ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "WOSTATE", SFIS_IniFilePath)),
-                    //int.Parse(((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("WOSTATE")).GetAttribute("wostate")),
-                    cpwd =this.Getcpwd( ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "CPWD", SFIS_IniFilePath)),
-                    //this.Getcpwd(((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("CPWD")).GetAttribute("cpwd")),
+                    wostate =
+                        int.Parse(
+                            string.IsNullOrEmpty(ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "WOSTATE",
+                                SFIS_IniFilePath))
+                                ? "0"
+                                : ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "WOSTATE", SFIS_IniFilePath)),
+                    cpwd = this.Getcpwd(ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "CPWD", SFIS_IniFilePath)),
                     wotype = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "WOTYPE", SFIS_IniFilePath),
-                    //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("WOENTITY").SelectSingleNode("WOTYPE")).GetAttribute("wotype")
                 };
-                #endregion
-                #region LINEENTITY
-                //this.mLineInfo = new  tLineInfo()
-               // {
-                   // lineId = ((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("LINEENTITY").SelectSingleNode("LINEID")).GetAttribute("lineid"),
-                   // lineId = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "LINE",SFIS_IniFilePath),
 
-                   // linedesc = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "LINEDESC", SFIS_IniFilePath),
-                    //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("LINEENTITY").SelectSingleNode("LINEDESC")).GetAttribute("linedesc"),
-                  //  startIpAddress = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "STARTIPADDRESS", SFIS_IniFilePath),
-                    //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("LINEENTITY").SelectSingleNode("STARTIPADDRESS")).GetAttribute("startipaddress"),
-                  //  endIpAddress = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "LINE", SFIS_IniFilePath),
-                    //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("LINEENTITY").SelectSingleNode("ENDIPADDRESS")).GetAttribute("endipaddress"),
-                   // plotId = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "LINE", SFIS_IniFilePath),
-                    //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("LINEENTITY").SelectSingleNode("PLOTID")).GetAttribute("plotid"),
-                  //  wsId = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "LINE", SFIS_IniFilePath),
-                    //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("LINEENTITY").SelectSingleNode("WSID")).GetAttribute("wsid")
-               // };
                 #endregion
-                #region CRAFTENTITY
-                this.mCraftName = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "CRAFTNAME", SFIS_IniFilePath); //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("CRAFTENTITY").SelectSingleNode("CRAFTNAME")).GetAttribute("craftname");
-                #endregion
-               cblineId.SelectedIndex=cblineId.Items.IndexOf(  ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "LINE", SFIS_IniFilePath));
 
-
-               numPrintQty.Value = Convert.ToDecimal(string.IsNullOrEmpty(ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "PrintQTY", SFIS_IniFilePath)) ? "0" : ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "PrintQTY", SFIS_IniFilePath));
+                this.mCraftName = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "CRAFTNAME", SFIS_IniFilePath);
+                cblineId.SelectedIndex =
+                    cblineId.Items.IndexOf(ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "LINE", SFIS_IniFilePath));
+                numPrintQty.Value =
+                    Convert.ToDecimal(
+                        string.IsNullOrEmpty(ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "PrintQTY",
+                            SFIS_IniFilePath))
+                            ? "0"
+                            : ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "PrintQTY", SFIS_IniFilePath));
 
                 #region LabConfig
+
                 try
                 {
-                    LabDir = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "LABPATH", SFIS_IniFilePath);// ((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("PrintConfig").SelectSingleNode("LABCONFIG").SelectSingleNode("LABPATH")).GetAttribute("labdir");
+                    LabDir = ReadIniFile.IniReadValue("SFIS_PRINT_SYSTEM_WIFI", "LABPATH", SFIS_IniFilePath);
                     if (string.IsNullOrEmpty(LabDir))
                         LabDir = "D";
                 }
                 catch
                 {
-                    ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "LABPATH", "D",SFIS_IniFilePath);
+                    ReadIniFile.IniWriteValue("SFIS_PRINT_SYSTEM_WIFI", "LABPATH", "D", SFIS_IniFilePath);
                     LabDir = "D";
                 }
-                #endregion
 
+                #endregion
             }
             catch
             {
@@ -2314,22 +2046,15 @@ namespace SFIS_PRINT_SYSTEM_WIFI
             }
             return _cpwd;
         }
+
         /// <summary>
         /// 使用上次退出时的配置信息填写控件
         /// </summary>
         private void FillConfig()
         {
-            this.tbwoid.Text = this.mWoInfo.woId;
-            //this.cblineId.Items.Clear();
-           // this.cblineId.Items.Add(this.mLineInfo.lineId);
-          //  this.cblineId.SelectedIndex = cblineId.Items.IndexOf(this.mLineInfo.lineId);
-          //  this.cblineId.SelectedIndex = 0;
-          //  this.lbLinename.Text = this.mLineInfo.linedesc;
-
-            //this.cbstationId.Items.Add(this.mCraftId);
-            this.cbstationId.SelectedItem = this.mCraftName;
-            //this.cbstationId.Text = this.mCraftId;
-            this.lbstationname.Text = this.mCraftName;
+            tbwoid.Text = mWoInfo.woId;
+            cbstationId.SelectedItem = mCraftName;
+            lbstationname.Text = mCraftName;
         }
 
         /// <summary>
@@ -2348,62 +2073,51 @@ namespace SFIS_PRINT_SYSTEM_WIFI
             }
             else
             {
-
                 BLL.cdbAccess ass = new BLL.cdbAccess();
-                string _sql = string.Empty;
+                string sql;
                 if (sntype.ToUpper() == "IMEI" || sntype.ToUpper() == "MEID")
                 {
-                    _sql = string.Format("SELECT * FROM wosnrule where woid='{1}' and sntype='{2}' and '{0}' between snstart and snend",
+                    sql = string.Format("SELECT * FROM wosnrule where woid='{1}' and sntype='{2}' and '{0}' between snstart and snend",
                         serial.Length > 14 ? serial.Substring(0, 14) : serial, woid, sntype);
                 }
                 else
                 {
-                    _sql = string.Format("SELECT * FROM wosnrule where woid='{1}' and sntype='{2}' and ('{0}' between snstart and snend) and len(snstart)=len('{0}')",
+                    sql = string.Format("SELECT * FROM wosnrule where woid='{1}' and sntype='{2}' and ('{0}' between snstart and snend) and len(snstart)=len('{0}')",
                         serial, woid, sntype);
                 }
-                DataTable dt = ass.GetDatatable(_sql);
+
+                DataTable dt = ass.GetDatatable(sql);
                 dt.DefaultView.Sort = "snstart asc";
                 dt = dt.DefaultView.ToTable();
-                if (dt == null || dt.Rows.Count < 1)
+                if (dt.Rows.Count < 1)
                 {
-                    if (sntype == "SN" && (this.mWoInfo.wotype == "Rework" || this.mWoInfo.wotype == "RMA"))  //重工工单没有区间就不检查20150908
-                    {
-                        _sql = string.Format("SELECT * FROM wosnrule where woid='{1}' and sntype='{2}' ",
+                    if (sntype != "SN" || (mWoInfo.wotype != "Rework" && mWoInfo.wotype != "RMA"))
+                        return falg;
+
+                    sql = string.Format("SELECT * FROM wosnrule where woid='{1}' and sntype='{2}' ",
                         serial, woid, sntype);
-                        DataTable dtsn = ass.GetDatatable(_sql);
-                        dtsn.DefaultView.Sort = "snstart asc";
-                        dtsn = dtsn.DefaultView.ToTable();
-                        if (dt == null || dtsn.Rows.Count < 1)
-                        {
-                            falg = true;
-                            return falg;
-                        }
-                    }
-                    falg = false;
+                    DataTable dtsn = ass.GetDatatable(sql);
+                    dtsn.DefaultView.Sort = "snstart asc";
+                    dtsn = dtsn.DefaultView.ToTable();
+                    if (dtsn.Rows.Count >= 1) return falg;
+
+                    falg = true;
                     return falg;
                 }
-                else
-                {
-                    falg = true;
-                }
+
+                falg = true;
                 //添加检查MAC和SPMAC递增规则检查  2013-04-22
                 switch (sntype.ToUpper())
                 {
                     case "MAC":
-                        //if (!this.bIsChkMac)
                         return true;
-                        //if (!ChkSerial(dt.Rows[0]["snstart"].ToString().ToUpper(),
-                        //     serial.ToUpper(), int.Parse(dt.Rows[0]["usenum"].ToString())))
-                        //    return false;
-                        break;
+
                     case "SPMAC":
-                        if (!this.bIsChkSpmac)
+                        if (!bIsChkSpmac)
                             return true;
                         if (!ChkSerial(dt.Rows[0]["snstart"].ToString().ToUpper(),
                             serial.ToUpper(), int.Parse(dt.Rows[0]["usenum"].ToString())))
                             return false;
-                        break;
-                    default:
                         break;
                 }
             }
@@ -2414,22 +2128,21 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         /// <summary>
         /// 检查K码规则
         /// </summary>
-        /// <param name="K_Code"></param>
+        /// <param name="kCode"></param>
         /// <returns></returns>
-        private bool CheckKCode(string K_Code)
+        private bool CheckKCode(string kCode)
         {
-            if (K_Code.Length != 10)
+            if (kCode.Length != 10)
             {
-                ShowMsg(mLogMsgType.Error, string.Format("序列号[{1}]:[{0}]长度不符,请检查..", K_Code, "KCODE"));      
+                ShowMsg(mLogMsgType.Error, string.Format("序列号[{1}]:[{0}]长度不符,请检查..", kCode, "KCODE"));      
                 return false;
             }
-            if (!System.Text.RegularExpressions.Regex.IsMatch(K_Code, @"^[a-zA-Z0-9]+$"))
-            {
-                ShowMsg(mLogMsgType.Error, string.Format("序列号[{1}]:[{0}]规则不符,请检查..", K_Code, "KCODE"));         
-                return false;
-            }
-            return true;
+
+            if (Regex.IsMatch(kCode, @"^[a-zA-Z0-9]+$")) return true;
+            ShowMsg(mLogMsgType.Error, string.Format("序列号[{1}]:[{0}]规则不符,请检查..", kCode, "KCODE"));         
+            return false;
         }
+
         /// <summary>
         /// 检查流程
         /// </summary>
@@ -2438,12 +2151,12 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         /// <returns>返回提示信息 非OK均为不良</returns>
         private string ChkRoute(string esndata, string currentRoute)
         {
-            if (this.mRprint)
-                return "OK";      
-            dic = new Dictionary<string, object>();
-            dic.Add("DATA", esndata);
-            dic.Add("MYGROUP", currentRoute);
-            return refWebProPublicStoredproc.Instance.ExecuteProcedure("PRO_CHECKROUTE",MapListConverter.DictionaryToJson(dic));
+            if (mRprint)
+                return "OK";
+
+            _dic = new Dictionary<string, object> {{"DATA", esndata}, {"MYGROUP", currentRoute}};
+            return refWebProPublicStoredproc.Instance.ExecuteProcedure("PRO_CHECKROUTE",
+                MapListConverter.DictionaryToJson(_dic));
         }
 
         /// <summary>
@@ -2451,83 +2164,82 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         /// </summary>
         private void InitMyControl()
         {
-            this.gpotherprint.Invoke(new EventHandler(delegate
+            gpotherprint.Invoke(new EventHandler(delegate
             {
-                for (int i = 0; i < this.MyVar.arrVariable.Length; i++)
+                for (int i = 0; i < MyVar.arrVariable.Length; i++)
                 {
                     arrTextbox[i].Text = string.Empty;
                     arrTextbox[i].NotErr = false;
                 }
-                this.mCurrentEsn = string.Empty;
+                mCurrentEsn = string.Empty;
                 arrTextbox[0].Focus();
             }));
         }
+
         /// <summary>
         /// 卡通箱标签打印时定位光标用
         /// </summary>
-        /// <param name="TextName"></param>
-        private void SetTextBoxFocus(string TextName)
+        /// <param name="textName"></param>
+        private void SetTextBoxFocus(string textName)
         {
             SetBtOkState(true);
-            switch (TextName)
+            switch (textName)
             {
-                case "tb_psninput"://2013-10-24
-                    if (this.tb_esninput.Enabled)
+                case "tb_psninput": //2013-10-24
+                    if (tb_esninput.Enabled)
                     {
-                        this.tb_esninput.Text = "";
-                        this.tb_esninput.Focus();
+                        tb_esninput.Text = "";
+                        tb_esninput.Focus();
                     }
                     else
                     {
-                        if (this.tb_esninput.Enabled)
+                        if (tb_esninput.Enabled)
                         {
-                            this.tb_esninput.Focus();
+                            tb_esninput.Focus();
                         }
                         else
                         {
-                            if (this.tb_kcodeinput.Enabled)
+                            if (tb_kcodeinput.Enabled)
                             {
-                                this.tb_kcodeinput.Focus();
+                                tb_kcodeinput.Focus();
+                            }
+                            else if (tb_macinput.Enabled)
+                            {
+                                tb_macinput.Focus();
+                            }
+                            else if (tb_sninput.Enabled)
+                            {
+                                tb_sninput.Focus();
                             }
                             else
-                                if (this.tb_macinput.Enabled)
+                            {
+                                if (tb_ktinput.Enabled)
                                 {
-                                    this.tb_macinput.Focus();
+                                    tb_ktinput.Focus();
                                 }
                                 else
-                                    if (this.tb_sninput.Enabled)
+                                {
+                                    if (tb_pcbasninput.Enabled)
                                     {
-                                        this.tb_sninput.Focus();
+                                        tb_pcbasninput.Focus();
                                     }
                                     else
                                     {
-                                        if (this.tb_ktinput.Enabled)
+                                        if (tb_spmacinput.Enabled)
                                         {
-                                            this.tb_ktinput.Focus();
+                                            tb_spmacinput.Focus();
                                         }
                                         else
                                         {
-                                            if (this.tb_pcbasninput.Enabled)
-                                            {
-                                                this.tb_pcbasninput.Focus();
-                                            }
-                                            else
-                                            {
-                                                if (this.tb_spmacinput.Enabled)
-                                                {
-                                                    this.tb_spmacinput.Focus();
-                                                }
-                                                else
-                                                {
-                                                    this.bt_ok.Focus();
-                                                }
-                                            }
+                                            bt_ok.Focus();
                                         }
                                     }
+                                }
+                            }
                         }
                     }
                     break;
-                case "tb_esninput"://2013-10-24
+                case "tb_esninput": //2013-10-24
 
                     if (this.tb_kcodeinput.Enabled)
                     {
@@ -2711,57 +2423,55 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                     {
                         this.tb_psninput.Focus();
                     }
+                    else if (this.tb_esninput.Enabled)
+                    {
+                        this.tb_esninput.Focus();
+                    }
+                    else if (this.tb_kcodeinput.Enabled)
+                    {
+                        this.tb_kcodeinput.Focus();
+                    }
+                    else if (this.tb_macinput.Enabled)
+                    {
+                        this.tb_macinput.Focus();
+                    }
                     else
-                        if (this.tb_esninput.Enabled)
+                    {
+                        if (this.tb_sninput.Enabled)
                         {
-                            this.tb_esninput.Focus();
+                            this.tb_sninput.Focus();
                         }
                         else
-                            if (this.tb_kcodeinput.Enabled)
+                        {
+                            if (this.tb_ktinput.Enabled)
                             {
-                                this.tb_kcodeinput.Focus();
+                                this.tb_ktinput.Focus();
                             }
                             else
-                                if (this.tb_macinput.Enabled)
+                            {
+                                if (this.tb_pcbasninput.Enabled)
                                 {
-                                    this.tb_macinput.Focus();
+                                    this.tb_pcbasninput.Focus();
                                 }
                                 else
                                 {
-                                    if (this.tb_sninput.Enabled)
+                                    if (this.tb_spmacinput.Enabled)
                                     {
-                                        this.tb_sninput.Focus();
+                                        this.tb_spmacinput.Focus();
                                     }
                                     else
                                     {
-                                        if (this.tb_ktinput.Enabled)
-                                        {
-                                            this.tb_ktinput.Focus();
-                                        }
-                                        else
-                                        {
-                                            if (this.tb_pcbasninput.Enabled)
-                                            {
-                                                this.tb_pcbasninput.Focus();
-                                            }
-                                            else
-                                            {
-                                                if (this.tb_spmacinput.Enabled)
-                                                {
-                                                    this.tb_spmacinput.Focus();
-                                                }
-                                                else
-                                                {
-                                                    this.bt_ok.Focus();
-                                                }
-                                            }
-                                        }
+                                        this.bt_ok.Focus();
                                     }
                                 }
+                            }
+                        }
+                    }
                     break;
             }
         }
-     //   #endregion
+
+        //   #endregion
 
         //==========================================================================================
         //======================              控件事件                             =================
@@ -2794,7 +2504,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 }
             }          
 
-            if (!refWebCheck_Version.Instance.CheckPrgVsersion("SFIS_PRINT_SYSTEM_2", System.Windows.Forms.Application.ProductVersion, null, null, null))
+            /*if (!refWebCheck_Version.Instance.CheckPrgVsersion("SFIS_PRINT_SYSTEM_2", System.Windows.Forms.Application.ProductVersion, null, null, null))
             {
 
                 RunFile(System.Windows.Forms.Application.StartupPath + @"\", "AutoUpdate.exe", mAppFileName);
@@ -2807,13 +2517,13 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                         pc.Kill();
                     }
                 return;
-            }
+            }*/
 
 
-            SFIS_PRINT_SYSTEM_WIFI.UserLogin ul = new SFIS_PRINT_SYSTEM_WIFI.UserLogin(this);
+            /*SFIS_PRINT_SYSTEM_WIFI.UserLogin ul = new SFIS_PRINT_SYSTEM_WIFI.UserLogin(this);
             while (ul.ShowDialog() == DialogResult.No) ;
 
-            if (this.loginOk)
+            if (this.loginOk)*/
             {
                 if (this.mUserInfo != null)
                     this.lbusername.Text = this.mUserInfo.username;
@@ -2824,20 +2534,6 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 ReadConfig();
                 FillConfig();
                 this.btInputToUpper_Click(null, null);
-                #region 添加应用程序
-                //if (this.gUserInfo.rolecaption == "系统开发员")
-                //{
-                //    List<WebServices.tUserInfo.tFunctionList> lsfunls = new List<WebServices.tUserInfo.tFunctionList>();
-                //    SFIS_PRINT_SYSTEM.BLL.publicfunction.GetFromCtls(this, ref lsfunls);
-                //    SFIS_PRINT_SYSTEM.BLL.publicfunction.AddProgInfo(new WebServices.tUserInfo.tProgInfo()
-                //    {
-                //        progid = this.Name,
-                //        progname = this.Text,
-                //        progdesc = this.Text
-
-                //    }, lsfunls);
-                //}
-                #endregion
             }
             string C_RES = string.Empty;
             try
@@ -2854,8 +2550,8 @@ namespace SFIS_PRINT_SYSTEM_WIFI
             }
 
             btInputToUpper_Click(null, null);
-            /*cblineId.Enabled = true;
-            cbstationId.Enabled = true;*/
+            cblineId.Enabled = true;
+            cbstationId.Enabled = true;
         }
 
         public void PrintMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -2912,21 +2608,20 @@ namespace SFIS_PRINT_SYSTEM_WIFI
             this.mPrintFileName = this.lb_showmfpath.Text = "";         
 
             //获取自定义的密码
-            if (this.mWoInfo.cpwd == T_WO_INFO.ecpwd.USERDEF)
+            if (mWoInfo.cpwd == T_WO_INFO.ecpwd.USERDEF)
             {
-                Thread thread = new Thread(new ThreadStart(this.LoadWoPwd));
+                Thread thread = new Thread(LoadWoPwd);
                 thread.Start();
             }
 
             KCode_Flag = false;
-            List<string> LsSerial = new List<string>(refWebtProduct.Instance.GetProductLableNames(this.mWoInfo.partnumber));
-            if (LsSerial.Contains("KCODE"))
+            List<string> lsSerial = new List<string>(refWebtProduct.Instance.GetProductLableNames(mWoInfo.partnumber));
+            if (lsSerial.Contains("KCODE"))
                 KCode_Flag = true;
-              
 
             //加载工单序列号区间
-            this.EventRunNoparamet = new delegateRunNoParmet(this.DownloadWoSnRule);
-            this.iasyncresult = this.EventRunNoparamet.BeginInvoke(null, null);
+            EventRunNoparamet = DownloadWoSnRule;
+            _iasyncresult = EventRunNoparamet.BeginInvoke(null, null);
 
             //获取机型SN
             DataTable dtproduct = BLL.ReleaseData.arrByteToDataTable(refWebtProduct.Instance.GetProductInfoByWoId(this.tbwoid.Text));
@@ -2939,6 +2634,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
             CNSFlag = dtproduct.Rows[0]["other"].ToString();
             strProductSN = dtproduct.Rows[0]["productsn"].ToString();
         }
+
         private void LoadWoPwd()
         {
             //获取自定义的密码
@@ -3110,32 +2806,15 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 return;
             }
             #endregion
-            this.OpenLabAndDowloadSnRule(string.Empty);
+
+            OpenLabAndDowloadSnRule(string.Empty);
         }
 
         private void OpenLabAndDowloadSnRule(string filepath)
         {
-            if (!this.CheckSelectIsOK())
+            if (!this.CheckSelectIsOk())
                 return;
-            //XmlDocument doc = new XmlDocument();
-            //string XmlName = "DllConfig.xml";
-            //doc.Load(XmlName);
-            //if (!string.IsNullOrEmpty(mIpaddress))
-            //    refWebtUserInfo.Instance.DeleteLogin(this.gUserInfo.userId, this.mIpaddress);
 
-            //string ipadd = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName()).AddressList[0].ToString(); //((XmlElement)doc.SelectSingleNode("AutoCreate").SelectSingleNode("ServerIP")).GetAttribute("IP").ToString();
-
-            //ShowMsg(mLogMsgType.Incoming, "IP:"+ipadd);
-            //mIpaddress = ipadd;// publicfunction.ChkIpIsInLocal(ipadd.Substring(0, 4));
-            //string msg = refWebtUserInfo.Instance.CheckEmp_NEW(string.Format("{0}-{1}", this.gUserInfo.userId, this.gUserInfo.pwd), mIpaddress, cComputerMsg.GetCPUID, this.mCraftName);
-           
-            //if (msg != "OK")
-            //{
-            //    ShowMsg(mLogMsgType.Error, msg);
-            //    return;
-            //}
-            //this.EventRunNoparamet = new delegateRunNoParmet(this.DownloadWoSnRule);
-            //this.iasyncresult = this.EventRunNoparamet.BeginInvoke(null, null);
             this.OpenLabFile(filepath);
             this.SaveConfig();
             this.mPrintNumber = int.Parse(this.numPrintQty.Value.ToString());
@@ -3144,244 +2823,132 @@ namespace SFIS_PRINT_SYSTEM_WIFI
 
         private void textbox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyValue == 13)
+            if (e.KeyValue != 13) return;
+
+            cblineId.Enabled = false;
+            cbstationId.Enabled = false;
+            #region 判断准备条件
+            if (string.IsNullOrEmpty(this.mPrintFileName))
             {
-                this.cblineId.Enabled = false;
-                this.cbstationId.Enabled = false;
-                #region 判断准备条件
-                if (string.IsNullOrEmpty(this.mPrintFileName))
+                ShowMsg(mLogMsgType.Warning, "没有选择模板文件..");
+                return;
+            }
+            if (_iasyncresult != null && !_iasyncresult.IsCompleted)
+            {
+                ShowMsg(mLogMsgType.Warning, "工单序列号区间还在加载中,请稍候..");
+                return;
+            }
+            if (_miasyncresult != null && !_miasyncresult.IsCompleted)
+            {
+                ShowMsg(mLogMsgType.Warning, "上一个动作还在进行中,请稍候..");
+                ((MyTextBox)sender).SelectAll();
+                ((MyTextBox)sender).Focus();
+                return;
+            }
+            #endregion
+
+            try
+            {
+                FlagLeave = false;
+
+                //判断基本的长度是否符合
+                if (((MyTextBox)sender).Text.Trim().Length != MyVar.DicVarLen[((MyTextBox)sender).Name])
                 {
-                    ShowMsg(mLogMsgType.Warning, "没有选择模板文件..");
-                    return;
-                }
-                if (iasyncresult != null && !iasyncresult.IsCompleted)
-                {
-                    ShowMsg(mLogMsgType.Warning, "工单序列号区间还在加载中,请稍候..");
-                    return;
-                }
-                if (miasyncresult != null && !miasyncresult.IsCompleted)
-                {
-                    ShowMsg(mLogMsgType.Warning, "上一个动作还在进行中,请稍候..");
+                    ShowMsg(mLogMsgType.Warning, ((MyTextBox)sender).Name + "长度不符");
+                    ((MyTextBox)sender).NotErr = true;
                     ((MyTextBox)sender).SelectAll();
-                    ((MyTextBox)sender).Focus();
                     return;
+                }
+
+                //判断序列号是否在工单区间范围内
+                if (!CompareSerialnumber(mWoInfo.woId, ((MyTextBox)sender).Text.Trim(), ((MyTextBox)sender).Name)
+                    && ((MyTextBox)sender).Name.ToUpper() != "ESN") //????
+                {
+                    ((MyTextBox)sender).NotErr = true;
+                    ShowMsg(mLogMsgType.Error, string.Format("序列号[{1}]:[{0}]不在工单设置范围内,请检查..",
+                        ((MyTextBox)sender).Text, ((MyTextBox)sender).Name));
+                    ((MyTextBox)sender).NotErr = true;
+                    ((MyTextBox)sender).SelectAll();
+                    return;
+                }
+
+                ((MyTextBox)sender).NotErr = false;
+
+                #region 检查刷入的是什么序列号
+                switch (((MyTextBox)sender).Name.ToUpper())
+                {
+                    case "ESN"://如果是esn则判断是否存在(即有没有跟PCBA esn绑定) + 根据esn判断流程
+                        break;
+
+                    case "MAC":  //计算出MAC号对应的所有密码
+                        switch (mWoInfo.cpwd)
+                        {
+                            case T_WO_INFO.ecpwd.PROG:
+                                mAllKeys = BLL.macPassword.getMacAllPassword(((MyTextBox)sender).Text.Trim());
+                                break;
+                            case T_WO_INFO.ecpwd.USERDEF:
+                                mdicAllKey = publicfunction.GetMacPwdByUse(mWoInfo.woId, ((MyTextBox)sender).Text.Trim());
+                                break;
+                        }
+                        break;
                 }
                 #endregion
-                try
+
+                #region 判断是否在同一个输入控件填写
+                bool bTemp = false;
+                foreach (string str in dicVarBuf.Keys)
                 {
-                    FlagLeave = false;
+                    if (!String.Equals(str, ((MyTextBox) sender).Name, StringComparison.CurrentCultureIgnoreCase))
+                        continue;
 
-                    //判断基本的长度是否符合
-                    if (((MyTextBox)sender).Text.Trim().Length != this.MyVar.DicVarLen[((MyTextBox)sender).Name])
-                    {
-                        ShowMsg(mLogMsgType.Warning, ((MyTextBox)sender).Name + "长度不符");
-                        ((MyTextBox)sender).NotErr = true;
-                        ((MyTextBox)sender).SelectAll();
-                        return;
-                    }
-                    //判断序列号是否在工单区间范围内
-                    if (!this.CompareSerialnumber(this.mWoInfo.woId, ((MyTextBox)sender).Text.Trim(), ((MyTextBox)sender).Name)
-                        && ((MyTextBox)sender).Name.ToUpper() != "ESN") //????
-                    {
-                        ((MyTextBox)sender).NotErr = true;
-                        ShowMsg(mLogMsgType.Error, string.Format("序列号[{1}]:[{0}]不在工单设置范围内,请检查..",
-                            ((MyTextBox)sender).Text, ((MyTextBox)sender).Name));
-                        ((MyTextBox)sender).NotErr = true;
-                        ((MyTextBox)sender).SelectAll();
-                        return;
-                    }
-                    else
-                    {
-                        ((MyTextBox)sender).NotErr = false;
-                    }
-                    ////判断当前序列号是否被使用过
-                    //DataTable esnTemp = BLL.ReleaseData.arrByteToDataTable(refWebtWipKeyPart.Instance.ChkKeyParts(((MyTextBox)sender).Text.Trim(),
-                    //    string.Empty, this.mWoInfo.woId));
-
-                    #region 检查刷入的是什么序列号
-                    switch (((MyTextBox)sender).Name.ToUpper())
-                    {
-                        //???如果当前输入的esn号能够带出当前模板的变量的所有内容 该如何处理
-                        //???如果当前输入的esn号能够带出当前模板的变量的部分内容 该如何处理
-
-                        case "ESN"://如果是esn则判断是否存在(即有没有跟PCBA esn绑定) + 根据esn判断流程
-                            #region ESN判断
-                            //DataTable esnInfo = BLL.ReleaseData.arrByteToDataTable(refWebtWipKeyPart.Instance.GetWipKeyParts(((MyTextBox)sender).Text.Trim()));
-                            //if (esnInfo == null || esnInfo.Rows.Count < 1)
-                            //{
-                            //    ShowMsg(mLogMsgType.Error, string.Format("流程错误,当前序列号[{0}]不存在,请确认是否经过投板站..", ((MyTextBox)sender).Text.Trim()));
-                            //    ((MyTextBox)sender).NotErr = true;
-                            //    ((MyTextBox)sender).SelectAll();
-                            //    this.mCurrentEsn = string.Empty;
-                            //    return;
-                            //}
-                            ////判断esn是否是当前工单的
-                            //if (esnInfo.Rows[0]["工单"].ToString() != this.mWoInfo.woId)
-                            //{
-                            //    ShowMsg(mLogMsgType.Error, string.Format("输入的序列号[{0}]不属于当前工单[{1}] ≠ [{2}],请检查..",
-                            //        ((MyTextBox)sender).Text.Trim(),
-                            //        this.mWoInfo.woId,
-                            //        esnInfo.Rows[0]["工单"].ToString()));
-                            //    ((MyTextBox)sender).NotErr = true;
-                            //    ((MyTextBox)sender).SelectAll();
-                            //    this.mCurrentEsn = string.Empty;
-                            //    return;
-                            //}
-                            ////判断esn流程
-                            //string strErr;
-                            //if ((strErr = this.ChkRoute(((MyTextBox)sender).Text.Trim(), this.mCraftId).ToUpper()) != "OK")
-                            //{
-                            //    ShowMsg(mLogMsgType.Error, string.Format("输入的序列号[{0}]流程错误\n{1},请检查..",
-                            //         ((MyTextBox)sender).Text.Trim(),
-                            //         strErr));
-                            //    ((MyTextBox)sender).NotErr = true;
-                            //    ((MyTextBox)sender).SelectAll();
-                            //    this.mCurrentEsn = string.Empty;
-                            //    return;
-                            //}
-                            //this.mCurrentEsn = ((MyTextBox)sender).Text.Trim();
-                            #endregion
-                            break;
-                        case "MAC":  //计算出MAC号对应的所有密码
-                            switch (this.mWoInfo.cpwd)
-                            {
-                                case T_WO_INFO.ecpwd.PROG:
-                                    this.mAllKeys = BLL.macPassword.getMacAllPassword(((MyTextBox)sender).Text.Trim());
-                                    break;
-                                case T_WO_INFO.ecpwd.USERDEF:
-                                    this.mdicAllKey = publicfunction.GetMacPwdByUse(this.mWoInfo.woId, ((MyTextBox)sender).Text.Trim());
-                                    break;
-                                default:
-                                    break;
-                            }
-                            goto default;
-                            break;
-                        default:
-                            //if (esnTemp != null || esnTemp.Rows.Count > 0)
-                            //{
-                            //    ShowMsg(mLogMsgType.Error, string.Format("序列号[{0}]已经被使用过了", ((MyTextBox)sender).Text.Trim()));
-                            //    ((MyTextBox)sender).NotErr = true;
-                            //    ((MyTextBox)sender).SelectAll();
-                            //    return;
-                            //}
-                            break;
-                    }
-                    #endregion
-                    #region 判断是否在同一个输入控件填写
-                    bool bTemp = false;
-                    foreach (string str in dicVarBuf.Keys)
-                    {
-                        if (str.ToUpper() == ((MyTextBox)sender).Name.ToUpper())
-                        {
-                            bTemp = true;
-                            this.dicVarBuf.Remove(((MyTextBox)sender).Name.ToUpper());
-                            break;
-                        }
-                    }
-                    #endregion
-                    this.dicVarBuf.Add(((MyTextBox)sender).Name.Trim(),
-                        this.bInputUpper ? ((MyTextBox)sender).Text.Trim().ToUpper() : ((MyTextBox)sender).Text.Trim());
-                    if (!bTemp)
-                        this.miReadCount++;
-                    #region  判断是否所有的序列号都已经记录完成
-                    if (this.miReadCount >= MyVar.arrVariable.Length)
-                    {
-                        //#region 检查旧版本的ATE流程(临时使用)
-                        //if (this.AteCheck)
-                        //{
-                        //    string errmsg = string.Empty;
-                        //    string errmsgTemp = string.Empty;
-                        //    foreach (string str in this.dicVarBuf.Keys)
-                        //    {
-                        //        errmsgTemp = this.getATETestContent(dicVarBuf[str], this.mWoInfo.woId);
-                        //        if (string.IsNullOrEmpty(errmsgTemp))
-                        //        {
-                        //            errmsg = string.Empty;
-                        //            break;
-                        //        }
-                        //        else
-                        //        {
-                        //            errmsg += errmsgTemp + "\n";
-                        //        }
-                        //    }
-                        //    this.atecheckflag = false;
-                        //    if (!string.IsNullOrEmpty(errmsg))
-                        //        throw new Exception(errmsg);
-                        //}
-                        //#endregion
-                        #region  判断是否有刷esn序列号
-                        //if (string.IsNullOrEmpty(this.mCurrentEsn))
-                        //{
-                        //    ShowMsg(mLogMsgType.Warning, "刷入的序列号中不包含esn,请确认..");
-                        //    return;
-                        //}
-                        #endregion
-                        #region  判断所有的输入内容是否都是正确的
-                        bool isErr = false;
-                        for (int i = 0; i < this.MyVar.arrVariable.Length; i++)
-                        {
-                            if (arrTextbox[i].NotErr)
-                            {
-                                isErr = true;
-                                ShowMsg(mLogMsgType.Error, string.Format("输入存在错误:{0}", arrTextbox[i].Text));
-                                arrTextbox[i].SelectAll();
-                                arrTextbox[i].Focus();
-                                return;
-                            }
-                            isErr = false;
-                        }
-                        #endregion
-                        if (!isErr)
-                        {//如果所有的输入都没有错误 则开始打印
-
-                            this.enaothergroup(false);
-                            eventRunFunction = new delegateRunNoParmet(this.mPrinterLable);
-                            miasyncresult = eventRunFunction.BeginInvoke(null, null);
-                            #region 添加到委托线程
-                            //if (this.mPrintLable())
-                            //{
-                            //    this.miReadCount = 0;
-                            //    this.FlagLeave = false;
-                            //    this.dicVarBuf.Clear();
-                            //    this.InitMyControl();
-                            //    //显示数据
-                            //    if (iasyncresult2 == null || iasyncresult2.IsCompleted)
-                            //    {
-                            //        this.eventshowotherdata = new delegateShowOtherData(this.ShowOtherData);
-                            //        this.iasyncresult2 = this.eventshowotherdata.BeginInvoke(this.mWoInfo.woId, bShowData, null, null);
-                            //    }
-                            //}
-                            //else
-                            //{
-                            //    throw new Exception("标签打印失败,请检查....");
-                            //}
-                            #endregion
-                            //判断当前序列号组合得到的esn的流程是否和当前流程相符
-                            //m_sqllib.ConnectDataBase();
-                            //dp = new delegatePrinter(Printer);
-                            //miasyncresult = dp.BeginInvoke(arrVariableBuffer, MyVar.arrVariable,
-                            //    prtFilename, m_sqllib, this.check_rp.Checked, this._repeat, null, null);
-                        }
-                        this.miReadCount = 0;
-                        //FlagLeave = false;
-                        //this.dicVarBuf.Clear();
-                        ////arrVariableBuffer = new string[MyVar.arrVariable.Length];
-                        //arrTextbox[this.miReadCount].Focus();
-                    }
-                    #endregion
-                    //焦点移到下一个控件
-                    arrTextbox[this.miReadCount].Focus();
+                    bTemp = true;
+                    dicVarBuf.Remove(((MyTextBox)sender).Name.ToUpper());
+                    break;
                 }
-                catch (System.Exception ex)
+                #endregion
+
+                dicVarBuf.Add(((MyTextBox)sender).Name.Trim(),
+                    bInputUpper ? ((MyTextBox)sender).Text.Trim().ToUpper() : ((MyTextBox)sender).Text.Trim());
+                if (!bTemp)
+                    miReadCount++;
+
+                #region  判断是否所有的序列号都已经记录完成
+                if (miReadCount >= MyVar.arrVariable.Length)
                 {
+                    #region  判断所有的输入内容是否都是正确的
+
+                    for (int i = 0; i < MyVar.arrVariable.Length; i++)
+                    {
+                        if (!arrTextbox[i].NotErr) continue;
+
+                        ShowMsg(mLogMsgType.Error, string.Format("输入存在错误:{0}", arrTextbox[i].Text));
+                        arrTextbox[i].SelectAll();
+                        arrTextbox[i].Focus();
+                        return;
+                    }
+                    #endregion
+
+                    //如果所有的输入都没有错误 则开始打印
+                    enaothergroup(false);
+                    eventRunFunction = mPrinterLable;
+                    _miasyncresult = eventRunFunction.BeginInvoke(null, null);
                     miReadCount = 0;
-                    FlagLeave = false;
-                    this.dicVarBuf.Clear();
-                    this.InitMyControl();
-                    ShowMsg(mLogMsgType.Error, ex.Message);
                 }
+                #endregion
+
+                //焦点移到下一个控件
+                arrTextbox[miReadCount].Focus();
+            }
+            catch (Exception ex)
+            {
+                miReadCount = 0;
+                FlagLeave = false;
+                dicVarBuf.Clear();
+                InitMyControl();
+                ShowMsg(mLogMsgType.Error, ex.Message);
             }
         }
+
         private void enaothergroup(bool isena)
         {
             this.gpotherprint.Invoke(new EventHandler(delegate
@@ -3389,15 +2956,16 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 this.gpotherprint.Enabled = isena;
             }));
         }
+
         private void mPrinterLable()
         {
             if (this.mPrintLable())
             {
                 //显示数据
-                if (iasyncresult2 == null || iasyncresult2.IsCompleted)
+                if (_iasyncresult2 == null || _iasyncresult2.IsCompleted)
                 {
                     this.eventshowotherdata = new delegateShowOtherData(this.ShowOtherData);
-                    this.iasyncresult2 = this.eventshowotherdata.BeginInvoke(this.mWoInfo.woId, bShowData, null, null);
+                    this._iasyncresult2 = this.eventshowotherdata.BeginInvoke(this.mWoInfo.woId, bShowData, null, null);
                 }
             }
             else
@@ -3409,47 +2977,12 @@ namespace SFIS_PRINT_SYSTEM_WIFI
             this.dicVarBuf.Clear();
             this.enaothergroup(true);
             this.InitMyControl();
-
-        }
-        private void textbox_Leave(object sender, EventArgs e)
-        {
-            if (!bdebug)
-            {
-                if (!FlagLeave)
-                {
-                    //  textbox_KeyDown(sender, new KeyEventArgs(Keys.Enter));
-                }
-            }
         }
 
-        private void imbt_CreateKeyFrom_Click(object sender, EventArgs e)
-        {
-            //if (MessageBoxEx.Show("继续将改变产品KEY的值\n\n是否继续?", "警告",
-            //    MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.No)
-            //    return;
-            //else
-            //{
-            //    this.mCreateKeyFromProg = !mCreateKeyFromProg;
-            //    if (mCreateKeyFromProg)
-            //    {
-            //        this.imbt_CreateKeyFrom.Text = "KEY由模板产生";
-            //        ShowMsg(mLogMsgType.Warning, "改变KEY的来源:由模板产生");
-            //    }
-            //    else
-            //    {
-            //        this.imbt_CreateKeyFrom.Text = "KEY由程序产生";
-            //        ShowMsg(mLogMsgType.Outgoing, "改变KEY的来源:由程序产生");
-            //    }
-            //}
-        }
         public string strEnaPwd = string.Empty;
+
         private void imbtRprint_Click(object sender, EventArgs e)
         {
-            //if (this.mTabItem.Name.Trim().ToUpper() == "TABITEM2")
-            //{
-            //    this.ShowMsg(mLogMsgType.Warning, "当前正在使用打印卡通箱功能,不能使用该功能");
-            //    return;
-            //}
             #region 添加密码输入
             EnaPwd ed = new EnaPwd(this);
             if (ed.ShowDialog() == DialogResult.OK)
@@ -3465,6 +2998,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 return;
             }
             #endregion
+
             this.ShowMsg(mLogMsgType.Outgoing, "开启重复打印");
             this.mRprint = true;
         }
@@ -3487,7 +3021,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         #region 卡通箱部分
         private void MAC_Printer_CheckedChanged(object sender, EventArgs e)
         {
-            if (miasyncresult != null && !miasyncresult.IsCompleted)
+            if (_miasyncresult != null && !_miasyncresult.IsCompleted)
             {
                 ShowMsg(mLogMsgType.Warning, "程序正在初始化,请稍候...");
                 return;
@@ -3510,7 +3044,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         /// <param name="e"></param>
         private void SN_Check_CheckedChanged(object sender, EventArgs e)
         {
-            if (miasyncresult != null && !miasyncresult.IsCompleted)
+            if (_miasyncresult != null && !_miasyncresult.IsCompleted)
             {
                 ShowMsg(mLogMsgType.Warning, "程序正在初始化,请稍候...");
                 return;
@@ -3528,7 +3062,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         }
         private void EnableMacInputBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (miasyncresult != null && !miasyncresult.IsCompleted)
+            if (_miasyncresult != null && !_miasyncresult.IsCompleted)
             {
                 ShowMsg(mLogMsgType.Warning, "程序正在初始化,请稍候...");
                 ((CheckBox)sender).Checked = false;
@@ -3554,7 +3088,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         }
         private void EnableSnInputBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (miasyncresult != null && !miasyncresult.IsCompleted)
+            if (_miasyncresult != null && !_miasyncresult.IsCompleted)
             {
                 ShowMsg(mLogMsgType.Warning, "程序正在初始化,请稍候...");
                 ((CheckBox)sender).Checked = false;
@@ -3580,7 +3114,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         }
         private void EnableKtInputBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (miasyncresult != null && !miasyncresult.IsCompleted)
+            if (_miasyncresult != null && !_miasyncresult.IsCompleted)
             {
                 ShowMsg(mLogMsgType.Warning, "程序正在初始化,请稍候...");
                 ((CheckBox)sender).Checked = false;
@@ -3606,7 +3140,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         }
         private void EnablePCBASNInput_CheckedChanged(object sender, EventArgs e)
         {
-            if (miasyncresult != null && !miasyncresult.IsCompleted)
+            if (_miasyncresult != null && !_miasyncresult.IsCompleted)
             {
                 ShowMsg(mLogMsgType.Warning, "程序正在初始化,请稍候...");
                 ((CheckBox)sender).Checked = false;
@@ -3632,7 +3166,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         }
         private void EnableSPMACInput_CheckedChanged(object sender, EventArgs e)
         {
-            if (miasyncresult != null && !miasyncresult.IsCompleted)
+            if (_miasyncresult != null && !_miasyncresult.IsCompleted)
             {
                 ShowMsg(mLogMsgType.Warning, "程序正在初始化,请稍候...");
                 ((CheckBox)sender).Checked = false;
@@ -3658,7 +3192,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         }
         private void EnableDEKInput_CheckedChanged(object sender, EventArgs e)
         {
-            if (miasyncresult != null && !miasyncresult.IsCompleted)
+            if (_miasyncresult != null && !_miasyncresult.IsCompleted)
             {
                 ShowMsg(mLogMsgType.Warning, "程序正在初始化,请稍候...");
                 ((CheckBox)sender).Checked = false;
@@ -3685,7 +3219,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         //2013-10-24
         private void EnablePSNInput_CheckedChanged(object sender, EventArgs e)
         {
-            if (miasyncresult != null && !miasyncresult.IsCompleted)
+            if (_miasyncresult != null && !_miasyncresult.IsCompleted)
             {
                 ShowMsg(mLogMsgType.Warning, "程序正在初始化,请稍候...");
                 ((CheckBox)sender).Checked = false;
@@ -3714,35 +3248,29 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         int m = 1;
         string recSerial = string.Empty;
         string InputTxt = string.Empty;
+
         private void CompareProductSN(string txtName)
-        {          
+        {
 
             switch (txtName)
             {
                 case "tb_psninput":
                     if (strProductSN != this.tb_psninput.Text.Trim())
                     {
-                        ShowMsg(mLogMsgType.Error, string.Format("机型SN::【{0}】与系统【{1}】不匹配", this.tb_psninput.Text, strProductSN));
+                        ShowMsg(mLogMsgType.Error,
+                            string.Format("机型SN::【{0}】与系统【{1}】不匹配", this.tb_psninput.Text, strProductSN));
                         this.tb_psninput.Text = "";
-                        this.tb_psninput.Focus();                      
+                        this.tb_psninput.Focus();
                         return;
                     }
                     m = 1;
 
                     break;
                 case "tb_esninput":
-                    //if (strProductSN != this.tb_psninput.Text.Trim())
-                    //{
-                    //    ShowMsg(mLogMsgType.Error, string.Format("机型SN::【{0}】与系统【{1}】不匹配", this.tb_psninput.Text, strProductSN));
-                    //    this.tb_psninput.Text = "";
-                    //    this.tb_psninput.Focus();
-                    //    return;
-                    //}
                     m = 1;
-
                     break;
                 case "tb_kcodeinput":
-                    if (this.KCODE_Printer.Checked)
+                    if (KCODE_Printer.Checked)
                     {
                         #region KCODE
 
@@ -3755,8 +3283,8 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                             }
 
                             recSerial = InputTxt;
-                            this.tb_kcodeinput.Text = "";
-                            this.KCODE_count.Text = m.ToString() + "/" + nudPrintNum.Value.ToString();
+                            tb_kcodeinput.Text = "";
+                            KCODE_count.Text = m + "/" + nudPrintNum.Value;
                             m++;
                             return;
                         }
@@ -3765,16 +3293,14 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                             if (recSerial == InputTxt)
                             {
                                 this.tb_kcodeinput.Text = "";
-                                this.KCODE_count.Text = m.ToString() + "/" + nudPrintNum.Value.ToString();
+                                this.KCODE_count.Text = m + "/" + nudPrintNum.Value;
                                 m++;
                                 return;
                             }
-                            else
-                            {
-                                this.tb_kcodeinput.Text = "";
-                                ShowMsg(mLogMsgType.Error, string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
-                                return;
-                            }
+                            tb_kcodeinput.Text = "";
+                            ShowMsg(mLogMsgType.Error,
+                                string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
+                            return;
                         }
                         if (m == nudPrintNum.Value)
                         {
@@ -3787,10 +3313,10 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                             else
                             {
                                 this.tb_kcodeinput.Text = "";
-                                ShowMsg(mLogMsgType.Error, string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
+                                ShowMsg(mLogMsgType.Error,
+                                    string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
                                 m = 1;
                                 this.KCODE_count.Text = "0/" + nudPrintNum.Value.ToString();
-                                return;
                             }
                         }
 
@@ -3822,7 +3348,8 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                             else
                             {
                                 this.tb_macinput.Text = "";
-                                ShowMsg(mLogMsgType.Error, string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
+                                ShowMsg(mLogMsgType.Error,
+                                    string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
                                 return;
                             }
                         }
@@ -3837,7 +3364,8 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                             else
                             {
                                 this.tb_macinput.Text = "";
-                                ShowMsg(mLogMsgType.Error, string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
+                                ShowMsg(mLogMsgType.Error,
+                                    string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
                                 return;
                             }
                         }
@@ -3849,10 +3377,10 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                     if (this.SN_Printer.Checked)
                     {
                         #region SN
-                                               
+
                         if (m == 1)
                         {
-                            if (!this.CompareSerialnumber(this.mWoInfo.woId, this.tb_sninput.Text.Trim() , "SN"))
+                            if (!this.CompareSerialnumber(this.mWoInfo.woId, this.tb_sninput.Text.Trim(), "SN"))
                             {
                                 ShowMsg(mLogMsgType.Error, string.Format("序列号[{1}]:[{0}]不在工单设置范围内,请检查..",
                                     tb_sninput.Text, "SN"));
@@ -3877,8 +3405,9 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                             }
                             else
                             {
-                               this.tb_sninput.Text = "";
-                                ShowMsg(mLogMsgType.Error, string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
+                                this.tb_sninput.Text = "";
+                                ShowMsg(mLogMsgType.Error,
+                                    string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
                                 return;
                             }
                         }
@@ -3893,9 +3422,10 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                             else
                             {
                                 this.tb_sninput.Text = "";
-                                ShowMsg(mLogMsgType.Error, string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
+                                ShowMsg(mLogMsgType.Error,
+                                    string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
                                 m = 1;
-                                this.SN_count.Text =  "0/" + nudPrintNum.Value.ToString();
+                                this.SN_count.Text = "0/" + nudPrintNum.Value.ToString();
                                 return;
                             }
                         }
@@ -3907,6 +3437,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                     if (this.KT_Printer.Checked)
                     {
                         #region KT
+
                         if (nudPrintNum.Value > 1)
                         {
                             if (m == 1)
@@ -3929,7 +3460,8 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                                 else
                                 {
                                     this.tb_ktinput.Text = "";
-                                    ShowMsg(mLogMsgType.Error, string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
+                                    ShowMsg(mLogMsgType.Error,
+                                        string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
                                     return;
                                 }
                             }
@@ -3944,11 +3476,13 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                                 else
                                 {
                                     this.tb_ktinput.Text = "";
-                                    ShowMsg(mLogMsgType.Error, string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
+                                    ShowMsg(mLogMsgType.Error,
+                                        string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
                                     return;
                                 }
                             }
                         }
+
                         #endregion
                     }
                     break;
@@ -3977,7 +3511,8 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                             else
                             {
                                 this.tb_pcbasninput.Text = "";
-                                ShowMsg(mLogMsgType.Error, string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
+                                ShowMsg(mLogMsgType.Error,
+                                    string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
                                 return;
                             }
                         }
@@ -3992,7 +3527,8 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                             else
                             {
                                 this.tb_pcbasninput.Text = "";
-                                ShowMsg(mLogMsgType.Error, string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
+                                ShowMsg(mLogMsgType.Error,
+                                    string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
                                 return;
                             }
                         }
@@ -4025,7 +3561,8 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                             else
                             {
                                 this.tb_spmacinput.Text = "";
-                                ShowMsg(mLogMsgType.Error, string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
+                                ShowMsg(mLogMsgType.Error,
+                                    string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
                                 return;
                             }
                         }
@@ -4040,7 +3577,8 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                             else
                             {
                                 this.tb_spmacinput.Text = "";
-                                ShowMsg(mLogMsgType.Error, string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
+                                ShowMsg(mLogMsgType.Error,
+                                    string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
                                 return;
                             }
                         }
@@ -4073,7 +3611,8 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                             else
                             {
                                 this.tb_dekinput.Text = "";
-                                ShowMsg(mLogMsgType.Error, string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
+                                ShowMsg(mLogMsgType.Error,
+                                    string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
                                 return;
                             }
                         }
@@ -4088,7 +3627,8 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                             else
                             {
                                 this.tb_dekinput.Text = "";
-                                ShowMsg(mLogMsgType.Error, string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
+                                ShowMsg(mLogMsgType.Error,
+                                    string.Format("【{0}】与最初的【{1}】不一致,请确认...", InputTxt, recSerial));
                                 return;
                             }
                         }
@@ -4096,43 +3636,24 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                         #endregion
                     }
                     break;
-            
             }
         }
 
         private void tbInputText_KeyDown(object sender, KeyEventArgs e)
         {
-            
             InputTxt = ((TextBox)sender).Text.Trim();
-            if (!string.IsNullOrEmpty(InputTxt) && e.KeyValue == 13)
-            {
-               
-                //if (string.IsNullOrEmpty(this.mPrintFileName))
-                //{
-                //    ShowMsg(mLogMsgType.Warning, "请先选择模板文件..");
-                //    ((TextBox)sender).SelectAll();
-                //    return;
-                //}//2013-10-24
-                #region 产品数据与彩盒数据比对 2013-10-28
-                if (nudPrintNum.Value > 1)
-                {
-                    //if (InputTxt == "UNDO")
-                    //{
-                    //    ShowMsg(mLogMsgType.Incoming, string.Format("UNDO OK,请重刷"));
-                    //    m = 1;
-                    //    ((TextBox)sender).Text = "";
-                    //    return;
-                    //}
-                    CompareProductSN(((TextBox)sender).Name);
-                }
-                #endregion
+            if (string.IsNullOrEmpty(InputTxt) || e.KeyValue != 13) return;
 
-                if (!string.IsNullOrEmpty(((TextBox)sender).Text))
-                {
-                    SetTextBoxFocus(((TextBox)sender).Name);
-                }
-              
-             //  ShowMsg(mLogMsgType.Incoming,
+            #region 产品数据与彩盒数据比对 2013-10-28
+            if (nudPrintNum.Value > 1)
+            {
+                CompareProductSN(((TextBox)sender).Name);
+            }
+            #endregion
+
+            if (!string.IsNullOrEmpty(((TextBox)sender).Text))
+            {
+                SetTextBoxFocus(((TextBox)sender).Name);
             }
         }
     
@@ -4379,6 +3900,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         {
             this.bt_ok_Click(sender, e);
         }
+
         private void InputEvent()
         {
             try
@@ -4388,7 +3910,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 //    ShowMsg(mLogMsgType.Warning, "没有选择模板文件..");
                 //    return;
                 //}//2013-10-30
-                if (iasyncresult != null && !iasyncresult.IsCompleted)
+                if (_iasyncresult != null && !_iasyncresult.IsCompleted)
                 {
                     ShowMsg(mLogMsgType.Warning, "工单序列号区间还在加载中,请稍候..");
                     return;
@@ -4397,12 +3919,14 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 this.cbstationId.Enabled = false;
                 this.cblineId.Enabled = false;
                 this.numPrintQty.Enabled = false;
+
                 #region MAC
+
                 if (this.tb_macinput.Enabled)
                 {
                     if (!string.IsNullOrEmpty(this.tb_macinput.Text.Trim()))
                     {
-                       // 判断序列号是否在工单区间范围内 ---取消本地判定工单 20131125 michael
+                        // 判断序列号是否在工单区间范围内 ---取消本地判定工单 20131125 michael
                         if (!this.CompareSerialnumber(this.mWoInfo.woId, this.tb_macinput.Text.Trim()
                             , "MAC"))
                         {
@@ -4419,8 +3943,11 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                         return;
                     }
                 }
+
                 #endregion
+
                 #region SN
+
                 if (this.tb_sninput.Enabled)
                 {
                     if (!string.IsNullOrEmpty(this.tb_sninput.Text.Trim()))
@@ -4442,8 +3969,11 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                         return;
                     }
                 }
+
                 #endregion
+
                 #region xxx-KT(2013-09-11)
+
                 if (this.tb_ktinput.Enabled)
                 {
                     if (!string.IsNullOrEmpty(this.tb_ktinput.Text.Trim()))
@@ -4458,17 +3988,6 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                             this.tb_ktinput.Focus();
                             return;
                         }
-                        #region 判断KT-箱号绑定 2013-10-24
-                        //判断序列号是否在规定箱号内
-                        //string ckBoxMsgErr = CheckBoxNum(this.tb_ktinput.Text.Trim());
-                        //if (!string.IsNullOrEmpty(ckBoxMsgErr))
-                        //{
-                        //    ShowMsg(mLogMsgType.Error, ckBoxMsgErr);
-                        //    this.tb_ktinput.SelectAll();
-                        //    this.tb_ktinput.Focus();
-                        //    return;
-                        //}
-                        #endregion
                     }
                     else
                     {
@@ -4476,8 +3995,11 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                         return;
                     }
                 }
+
                 #endregion
+
                 #region PCBASN
+
                 if (this.tb_pcbasninput.Enabled)
                 {
                     if (!string.IsNullOrEmpty(this.tb_pcbasninput.Text.Trim()))
@@ -4499,8 +4021,11 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                         return;
                     }
                 }
+
                 #endregion
+
                 #region SPMAC
+
                 if (this.tb_spmacinput.Enabled)
                 {
                     if (!string.IsNullOrEmpty(this.tb_spmacinput.Text.Trim()))
@@ -4521,9 +4046,11 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                         return;
                     }
                 }
+
                 #endregion
 
                 #region KCODE
+
                 if (this.tb_kcodeinput.Enabled)
                 {
                     if (!string.IsNullOrEmpty(this.tb_kcodeinput.Text.Trim()))
@@ -4533,7 +4060,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                             this.tb_kcodeinput.SelectAll();
                             this.tb_kcodeinput.Focus();
                             return;
-                        }                       
+                        }
 
                     }
                     else
@@ -4542,11 +4069,11 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                         return;
                     }
                 }
-               #endregion
 
+                #endregion
 
-                #region  xxxx
                 #region 清空控件内容，重新设定空间焦点
+
                 this.tb_psninput.Clear();
                 this.tb_esninput.Clear();
                 this.tb_macinput.Clear();
@@ -4559,20 +4086,24 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 this.SN_count.Text = "0";
                 this.KT_count.Text = "0";
                 this.PCBASN_count.Text = "0";
-                this.SPMAC_count.Text = "0";               
+                this.SPMAC_count.Text = "0";
                 this.DEK_count.Text = "0";
                 this.KCODE_count.Text = "0";
                 SetTextBoxFocus("");
+
                 #endregion
+
                 #region 当前刷入的内容和内容类型
+
                 //记录当前卡通箱包装刷入了哪些序列号的值
-            
+
                 string[] arrV = null;
-                string strV = string.Format("{0},{1},{2},{3},{4},{5}", MACVALUE, SNVALUE, KTVALUE, PCBASNVALUE, SPMACVALUE, KCODEVALUE);
-            
+                string strV = string.Format("{0},{1},{2},{3},{4},{5}", MACVALUE, SNVALUE, KTVALUE, PCBASNVALUE,
+                    SPMACVALUE, KCODEVALUE);
+
                 //记录当前卡通箱包装刷如了哪些序列号类型
                 string[] arrN = null;
-                string strN = string.Format("{0},{1},{2},{3},{4},{5}", MAC, SN, KT, PCBASN, SPMAC,KCODE);
+                string strN = string.Format("{0},{1},{2},{3},{4},{5}", MAC, SN, KT, PCBASN, SPMAC, KCODE);
 
                 if ((arrV = strV.Trim().Split(',')).Length != (arrN = strN.Trim().Split(',')).Length)
                     throw new Exception("错误:序列号类型个数和序列号值的个数不一致,请检查..");
@@ -4597,11 +4128,13 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 arrN = ls.ToArray();
                 ls.Clear();
 
-           //if ( KCode_Flag && !((System.Collections.IList)arrN).Contains("KCODE"))
-           //    throw new Exception("错误:没有发现条码类型[KCODE],请检查..");
+                //if ( KCode_Flag && !((System.Collections.IList)arrN).Contains("KCODE"))
+                //    throw new Exception("错误:没有发现条码类型[KCODE],请检查..");
 
                 #endregion
+
                 #region 临时的内部变量
+
                 int i = 0;
                 string __err = string.Empty;
                 string __strEsnTemp = string.Empty;
@@ -4610,6 +4143,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 //用来记录需要新绑定的序列号
                 Dictionary<string, string> __dicInsertTemp = new Dictionary<string, string>();
                 List<string> __lsstrV = new List<string>();
+
                 #endregion
 
                 //if (string.IsNullOrEmpty(mWoInfo.ProductLine))
@@ -4618,7 +4152,10 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 if (!mRprint)
                 {
                     #region 判断流程与工单 20131125 michael
-                    DataTable dtwip = BLL.ReleaseData.arrByteToDataTable(refWebtWipTracking.Instance.GetQueryWipAllInfo("ESN", ESNVALUE));
+
+                    DataTable dtwip =
+                        BLL.ReleaseData.arrByteToDataTable(refWebtWipTracking.Instance.GetQueryWipAllInfo("ESN",
+                            ESNVALUE));
                     if (dtwip == null || dtwip.Rows.Count < 1)
                         throw new Exception("WIP No Data,请检查..");
                     if (dtwip.Rows[0][1].ToString() != tbwoid.Text.Trim())
@@ -4633,215 +4170,193 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                     if (__err.ToUpper() != "OK")
                         throw new Exception("流程错误:当前esn:" + __strEsnTemp + ":" + __err);
                     this.ShowMsg(mLogMsgType.Outgoing, "流程检测通过");
+
                     #endregion
 
                     //判断卡通箱刷入的每个序列号返回的esn是否是指向相同的一个
+
                     #region 处理刷入的内容
+
                     foreach (string item in arrV)
                     {
-                        if (!string.IsNullOrEmpty(item))
-                        {
-                            __mdt = BLL.ReleaseData.arrByteToDataTable(refWebtWipTracking.Instance.GetSnInfo(/*arrN[i]*/ item));
-                            //判断是否存在  做到在卡通箱包装可以绑定序列号
-                            if (__mdt == null || __mdt.Rows.Count < 1)
-                            {
-                                __lsstrV.Add(item);
-                                __dicInsertTemp.Add(arrN[i], item);
-                                i++;
-                                continue;
-                            }
-                            if (__mdt != null && __mdt.Rows.Count > 1)
-                                throw new Exception("严重错误:同一个序列号[" + item + "]系统中存在多笔,请检查..");
-                            else
-                            {
+                        if (string.IsNullOrEmpty(item)) continue;
 
-                                #region 判断是否是同一个工单 取消20151112 michael
-                                //if (this.mWoInfo.woId.Trim().ToUpper() != __mdt.Rows[0]["woId"].ToString().Trim().ToUpper())
-                                //    throw new Exception(string.Format("序列号{0}在其他工单[{1}]中存在,请检查..", item, __mdt.Rows[0]["woId"].ToString()));
-                                //__strEsnTemp = __mdt.Rows[0]["esn"].ToString().Trim();
-                                #endregion
-                                //通过esn找到该esn所对应的所有数据和当前的输入值进行比对看看是否是一致的
-                                /********如果当前输入的值在esn找到的数据中不存在，
+                        __mdt =
+                            BLL.ReleaseData.arrByteToDataTable(
+                                refWebtWipTracking.Instance.GetSnInfo( /*arrN[i]*/ item));
+                        //判断是否存在  做到在卡通箱包装可以绑定序列号
+                        if (__mdt == null || __mdt.Rows.Count < 1)
+                        {
+                            __lsstrV.Add(item);
+                            __dicInsertTemp.Add(arrN[i], item);
+                            i++;
+                            continue;
+                        }
+                        if (__mdt != null && __mdt.Rows.Count > 1)
+                            throw new Exception("严重错误:同一个序列号[" + item + "]系统中存在多笔,请检查..");
+                        //通过esn找到该esn所对应的所有数据和当前的输入值进行比对看看是否是一致的
+                        /********如果当前输入的值在esn找到的数据中不存在，
                                 *********那么需要拿这个值到系统中查找看看是否已经使用过了，
                                 *********如果没有使用过则绑定到当前数据 ，如果使用过了则直接报错*/
-                                #region 取消判定ESN 20151112 michael
-                                __mdt = BLL.ReleaseData.arrByteToDataTable(refWebtWipTracking.Instance.GetEsnDataInfo("esn", __strEsnTemp));
-                                //if (__mdt == null || __mdt.Rows.Count < 1)
-                                //    throw new Exception("严重错误:esn:" + __strEsnTemp + "找不到数据,请检查..");
-                                //if (__mdt == null || __mdt.Rows.Count < 1)
-                                //continue;
 
-                                #endregion
-                                #region 利用通过esn找到的数据和当前输入的数据进行比对
-                                for (int x = 0; x < arrV.Length; x++)
-                                {
-                                    if (!string.IsNullOrEmpty(arrV[x]))
-                                    {
-                                        __arrDr = __mdt.Select(string.Format("woId='{0}' and sntype='{1}' and snval='{2}'",
-                                            this.mWoInfo.woId, arrN[x], arrV[x]));
-                                        __arrDr = __mdt.Select(string.Format("woId='{0}' and sntype='{1}'",
-                                            this.mWoInfo.woId, arrN[x]));
-                                        //如果序列号类型找到了但是值不相等 怎么办
-                                        if (__arrDr != null && __arrDr.Length > 1)
-                                            throw new Exception("严重错误:序列号类型:" + arrN[x] + "存在多个,请检查...");
-                                        if (__arrDr != null && __arrDr.Length == 1)
-                                        {
-                                            if (__arrDr[0]["snval"].ToString().ToUpper() != arrV[x].ToUpper())
-                                                throw new Exception(string.Format("序列号类型:[{0}]当前输入的值:[{1}],和历史记录数据[{2}]不相等.记录失败!!!",
-                                                    arrN[x], arrV[x], __arrDr[0]["snval"].ToString()));
-                                        }
-                                        if (__arrDr == null || __arrDr.Length < 1)//只有类型都找不到的情况下才可以进行判断是否需要添加
-                                        {
-                                            //需要查看一下这个号是否存在与__dicInsertTemp中,以避免多次查询
-                                            if (!this.CompareArray(arrV[x], __lsstrV.ToArray()))
-                                            {
-                                                //再到数据库中查找一下看看是否有且工单和esn是一致的
-                                                DataTable _dt = BLL.ReleaseData.arrByteToDataTable(refWebtWipTracking.Instance.GetEsnDataInfo(/*arrN[x]*/string.Empty, arrV[x]));
-                                                if (_dt == null || _dt.Rows.Count < 1)
-                                                {
-                                                    __lsstrV.Add(arrV[x]);
-                                                    __dicInsertTemp.Add(arrN[x], arrV[x]);
-                                                    continue;
-                                                }
-                                                if (_dt != null && _dt.Rows.Count > 1)
-                                                    throw new Exception("严重错误:同一个序列号[" + arrV[x] + "]系统中存在多笔,请检查..");
-                                                else
-                                                {
-                                                    if (_dt.Rows[0]["woId"].ToString().Trim() != this.mWoInfo.woId.Trim())
-                                                        throw new Exception("序列号在另一个工单[" + _dt.Rows[0]["woId"].ToString() + "]中使用过了,请检查....");
-                                                    if (_dt.Rows[0]["esn"].ToString().Trim() != __strEsnTemp)
-                                                        throw new Exception(string.Format("序列号{0}已经在其他的产品上使用过了esn:{1}", arrV[x], _dt.Rows[0]["esn"].ToString()));
-                                                    if (_dt.Rows[0]["sntype"].ToString().Trim() != arrN[x])
-                                                        throw new Exception(string.Format("序列号对应的序列号类型不一致{0}≠{1}", _dt.Rows[0]["sntype"].ToString().Trim(), arrN[x]));
-                                                    {
-                                                        throw new Exception("不明错误,请联系系统管理员,谢谢");
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                #endregion
-                                break;
+                        #region 取消判定ESN 20151112 michael
+
+                        __mdt =
+                            BLL.ReleaseData.arrByteToDataTable(refWebtWipTracking.Instance.GetEsnDataInfo(
+                                "esn", __strEsnTemp));
+
+                        #endregion
+
+                        #region 利用通过esn找到的数据和当前输入的数据进行比对
+
+                        for (int x = 0; x < arrV.Length; x++)
+                        {
+                            if (string.IsNullOrEmpty(arrV[x])) continue;
+
+                            __mdt.Select(string.Format("woId='{0}' and sntype='{1}' and snval='{2}'",
+                                this.mWoInfo.woId, arrN[x], arrV[x]));
+                            __arrDr = __mdt.Select(string.Format("woId='{0}' and sntype='{1}'",
+                                this.mWoInfo.woId, arrN[x]));
+
+                            //如果序列号类型找到了但是值不相等 怎么办
+                            if (__arrDr.Length > 1)
+                                throw new Exception("严重错误:序列号类型:" + arrN[x] + "存在多个,请检查...");
+                            if (__arrDr.Length == 1)
+                            {
+                                if (__arrDr[0]["snval"].ToString().ToUpper() != arrV[x].ToUpper())
+                                    throw new Exception(
+                                        string.Format("序列号类型:[{0}]当前输入的值:[{1}],和历史记录数据[{2}]不相等.记录失败!!!",
+                                            arrN[x], arrV[x], __arrDr[0]["snval"].ToString()));
+                            }
+                            if (__arrDr.Length >= 1) continue;
+
+                            //需要查看一下这个号是否存在与__dicInsertTemp中,以避免多次查询
+                            if (this.CompareArray(arrV[x], __lsstrV.ToArray())) continue;
+                            //再到数据库中查找一下看看是否有且工单和esn是一致的
+                            DataTable dt =
+                                BLL.ReleaseData.arrByteToDataTable(
+                                    refWebtWipTracking.Instance.GetEsnDataInfo( /*arrN[x]*/
+                                        string.Empty, arrV[x]));
+                            if (dt == null || dt.Rows.Count < 1)
+                            {
+                                __lsstrV.Add(arrV[x]);
+                                __dicInsertTemp.Add(arrN[x], arrV[x]);
+                                continue;
+                            }
+                            if (dt.Rows.Count > 1)
+                                throw new Exception("严重错误:同一个序列号[" + arrV[x] + "]系统中存在多笔,请检查..");
+
+                            if (dt.Rows[0]["woId"].ToString().Trim() !=
+                                this.mWoInfo.woId.Trim())
+                                throw new Exception("序列号在另一个工单[" +
+                                                    dt.Rows[0]["woId"].ToString() +
+                                                    "]中使用过了,请检查....");
+                            if (dt.Rows[0]["esn"].ToString().Trim() != __strEsnTemp)
+                                throw new Exception(string.Format("序列号{0}已经在其他的产品上使用过了esn:{1}",
+                                    arrV[x], dt.Rows[0]["esn"].ToString()));
+                            if (dt.Rows[0]["sntype"].ToString().Trim() != arrN[x])
+                                throw new Exception(string.Format("序列号对应的序列号类型不一致{0}≠{1}",
+                                    dt.Rows[0]["sntype"].ToString().Trim(), arrN[x]));
+                            {
+                                throw new Exception("不明错误,请联系系统管理员,谢谢");
                             }
                         }
+
+                        #endregion
+
+                        break;
                     }
+
                     #endregion
-
-                    #region 判断数据有效性  取消判定esn的区间 20151112 michael
-                    //卡通箱包装有没有ESN刷入??????
-
-                    //if (string.IsNullOrEmpty(__strEsnTemp))
-                    //{
-                    //    DataTable mdt = BLL.ReleaseData.arrByteToDataTable(refWebtWoInfo.Instance.GetEsnInfoByWoId(this.mWoInfo.woId));
-                    //    bool bl = false;
-                    //    foreach (DataRow dr in mdt.Rows)
-                    //    {
-                    //        foreach (string str in __dicInsertTemp.Values)
-                    //        {
-                    //            if (mdt == null || mdt.Rows.Count < 1)
-                    //            {
-                    //                bl = false;
-                    //                break;
-                    //            }
-                    //            if (string.Compare(str, dr["snstart"].ToString()) > -1 &&
-                    //                string.Compare(str, dr["snend"].ToString()) < 1)
-                    //            {
-                    //                bl = true;
-                    //                __strEsnTemp = str;
-                    //                break;
-                    //            }
-                    //        }
-                    //    }
-
-                    //    if (!bl)
-                    //        throw new Exception("错误:输入的序列号没有找到Esn,请确认该产品是否有投线..");
-                    //}
-                    //this.ShowMsg(mLogMsgType.Outgoing, "找到Esn:" + __strEsnTemp);
-                    #endregion
-
-
 
                     #region  记录新绑定的内容
-                    IList<IDictionary<string, object>> _dicKps = new List<IDictionary<string, object>>();
-                     foreach (string str in __dicInsertTemp.Keys)
+
+                    IList<IDictionary<string, object>> dicKps = new List<IDictionary<string, object>>();
+                    foreach (string str in __dicInsertTemp.Keys)
                     {
-                        dic = new Dictionary<string, object>();
-                        dic.Add("ESN", __strEsnTemp);
-                        dic.Add("SNTYPE", str);
-                        dic.Add("SNVAL", __dicInsertTemp[str]);
-                        dic.Add("WOID", this.mWoInfo.woId);
-                        dic.Add("STATION", mCraftName);
-                        dic.Add("KPNO", "NA");
-                        _dicKps.Add(dic);
+                        _dic = new Dictionary<string, object>
+                        {
+                            {"ESN", __strEsnTemp},
+                            {"SNTYPE", str},
+                            {"SNVAL", __dicInsertTemp[str]},
+                            {"WOID", this.mWoInfo.woId},
+                            {"STATION", mCraftName},
+                            {"KPNO", "NA"}
+                        };
+                        dicKps.Add(_dic);
                     }
-                     if (_dicKps.Count > 0)
-                     {
-                         string _strErr = refWebtWipTracking.Instance.InsertWipKeyParts(MapListConverter.ListDictionaryToJson(_dicKps));
-                         _strErr = string.IsNullOrEmpty(_strErr) ? "OK" : _strErr;
-                         if (_strErr != "OK")
-                         {
-                             throw new Exception("错误:记录KeyPart失败 " + _strErr + "\n请联系管理员检查..");
-                         }
-                     }
+                    if (dicKps.Count > 0)
+                    {
+                        string strErr =
+                            refWebtWipTracking.Instance.InsertWipKeyParts(MapListConverter.ListDictionaryToJson(dicKps));
+                        strErr = string.IsNullOrEmpty(strErr) ? "OK" : strErr;
+                        if (strErr != "OK")
+                        {
+                            throw new Exception("错误:记录KeyPart失败 " + strErr + "\n请联系管理员检查..");
+                        }
+                    }
 
                     #endregion
 
                     #region 使用箱号编码原则填充箱号包含(过站,记录产能）2013-10-24
-                    this.ShowMsg(mLogMsgType.Warning, "正在进行过站记录..");
-                    dic = new Dictionary<string, object>();
-                    dic.Add("DATA", __strEsnTemp);
-                    dic.Add("MYGROUP", this.mCraftName);
-                    dic.Add("SECTION_NAME", "NA");
-                    dic.Add("STATION_NAME", this.mCraftName+"1");
-                    dic.Add("EMP", this.mUserInfo.userId + "-" + this.mUserInfo.pwd);
-                    dic.Add("EC", "NA");
-                    dic.Add("LINE", LineName);
-                    __err = refWebProcedure.Instance.ExecuteProcedure("PRO_TEST_MAIN_ONLY", MapListConverter.DictionaryToJson(dic));
 
-                  //  __err = refWebtPublicStoredproc.Instance.SP_TEST_MAIN_ONLY( __strEsnTemp, this.mCraftName, this.mUserInfo.userId + "-" + this.mUserInfo.pwd, "NA", cblineId.Text);
+                    this.ShowMsg(mLogMsgType.Warning, "正在进行过站记录..");
+                    _dic = new Dictionary<string, object>
+                    {
+                        {"DATA", __strEsnTemp},
+                        {"MYGROUP", this.mCraftName},
+                        {"SECTION_NAME", "NA"},
+                        {"STATION_NAME", this.mCraftName + "1"},
+                        {"EMP", this.mUserInfo.userId + "-" + this.mUserInfo.pwd},
+                        {"EC", "NA"},
+                        {"LINE", LineName}
+                    };
+                    __err = refWebProcedure.Instance.ExecuteProcedure("PRO_TEST_MAIN_ONLY",
+                        MapListConverter.DictionaryToJson(_dic));
+
                     #endregion
+
                     #region 判断返回的信息 2013-10-24
+
                     if (__err.ToUpper().IndexOf("OK") == -1)
                     {
                         throw new Exception("错误:过站失败!!,错误信息:\n" + __err + "\n请联系管理员检查..");
                     }
 
                     Fill_DatagridView(__strEsnTemp,
-                             __dicInsertTemp.ContainsKey("SN") ? __dicInsertTemp["SN"] : "NA",
-                             __dicInsertTemp.ContainsKey("KT") ? __dicInsertTemp["KT"] : "NA",
-                             __dicInsertTemp.ContainsKey("PCBASN") ? __dicInsertTemp["PCBASN"] : "NA",
-                             __dicInsertTemp.ContainsKey("SPMAC") ? __dicInsertTemp["SPMAC"] : "NA",
-                              __dicInsertTemp.ContainsKey("KCODE") ? __dicInsertTemp["KCODE"] : "NA");       
+                        __dicInsertTemp.ContainsKey("SN") ? __dicInsertTemp["SN"] : "NA",
+                        __dicInsertTemp.ContainsKey("KT") ? __dicInsertTemp["KT"] : "NA",
+                        __dicInsertTemp.ContainsKey("PCBASN") ? __dicInsertTemp["PCBASN"] : "NA",
+                        __dicInsertTemp.ContainsKey("SPMAC") ? __dicInsertTemp["SPMAC"] : "NA",
+                        __dicInsertTemp.ContainsKey("KCODE") ? __dicInsertTemp["KCODE"] : "NA");
                 }
 
                 Dictionary<string, string> dicPrint = new Dictionary<string, string>();
                 if (!string.IsNullOrEmpty(ESN))
-                dicPrint.Add(ESN,ESNVALUE);
+                    dicPrint.Add(ESN, ESNVALUE);
 
                 if (!string.IsNullOrEmpty(MAC))
-                dicPrint.Add(MAC, MACVALUE);
+                    dicPrint.Add(MAC, MACVALUE);
 
                 if (!string.IsNullOrEmpty(SN))
-                dicPrint.Add(SN, SNVALUE);
+                    dicPrint.Add(SN, SNVALUE);
 
                 if (!string.IsNullOrEmpty(KT))
-                dicPrint.Add(KT, KTVALUE);
+                    dicPrint.Add(KT, KTVALUE);
 
                 if (!string.IsNullOrEmpty(PCBASN))
-                dicPrint.Add(PCBASN, PCBASNVALUE);
+                    dicPrint.Add(PCBASN, PCBASNVALUE);
 
                 if (!string.IsNullOrEmpty(SPMAC))
-                dicPrint.Add(SPMAC, SPMACVALUE);
+                    dicPrint.Add(SPMAC, SPMACVALUE);
 
                 if (!string.IsNullOrEmpty(KCODE))
                     dicPrint.Add(KCODE, KCODEVALUE);
 
-                Print_Label(dicPrint,Convert.ToInt32(numPrintQty.Value));
+                Print_Label(dicPrint, Convert.ToInt32(numPrintQty.Value));
 
-                #endregion           
-            
                 #endregion
+
             }
             catch (Exception ex)
             {
@@ -4849,13 +4364,14 @@ namespace SFIS_PRINT_SYSTEM_WIFI
             }
             finally
             {
-                if (ShowCartonIasyncresult == null || ShowCartonIasyncresult.IsCompleted)
+                if (_showCartonIasyncresult == null || _showCartonIasyncresult.IsCompleted)
                 {
                     eventshowcartondata = new delegateShowCartonData(this.ShowCartonData);
-                    ShowCartonIasyncresult = eventshowcartondata.BeginInvoke(this.chkShowdata.Checked, null, null);
-                }  
-              
+                    _showCartonIasyncresult = eventshowcartondata.BeginInvoke(this.chkShowdata.Checked, null, null);
+                }
+
                 #region 初始化变量
+
                 ESNVALUE = string.Empty;
                 MACVALUE = string.Empty;
                 SNVALUE = string.Empty;
@@ -4871,50 +4387,51 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 PCBASN = string.Empty;
                 SPMAC = string.Empty;
                 KCODE = string.Empty;
-              
+
                 #endregion
 
                 if (mRprint)
                 {
                     mRprint = false;
                     this.ShowMsg(mLogMsgType.Incoming, "关闭重复打印");
-                    
+
                 }
 
                 this.ShowMsg(mLogMsgType.Incoming, "初始化完成");
             }
         }
 
-        private void Print_Label(Dictionary<string,string> PrintDic,int PrintQTY)
+        private void Print_Label(Dictionary<string,string> printDic,int printQty)
         {
-            if (PrintQTY == 0)
+            if (printQty == 0)
                 return;
             try
             {
                 ShowMsg(mLogMsgType.Incoming, string.Format("{0}{1}", "初始化打印设备..", System.DateTime.Now.ToString("HH:mm:ss")));
-                if (PrintDic == null || PrintDic.Count < 1)
+                if (printDic == null || printDic.Count < 1)
                     throw new Exception("错误:没有需要打印的内容1,请检查..");
                 if (this.mLibdoc == null)
                     throw new Exception("模板文件没有初始化");
                 string log = string.Empty;
                 this.mLibdoc.ViewMode = enumViewMode.lppxViewModeSize;
 
-                foreach (KeyValuePair<string, string> _KeyValue in PrintDic)
+                foreach (KeyValuePair<string, string> keyValue in printDic)
                 {
                     try
                     {
-                        if (!string.IsNullOrEmpty(_KeyValue.Value))
+                        if (!string.IsNullOrEmpty(keyValue.Value))
                         {
-                            mLibdoc.Variables.FormVariables.Item(_KeyValue.Key).Value = _KeyValue.Value;
-                            ShowMsg(mLogMsgType.Normal, string.Format("填充模板信息{0}->{1}", _KeyValue.Key, _KeyValue.Value));
+                            mLibdoc.Variables.FormVariables.Item(keyValue.Key).Value = keyValue.Value;
+                            ShowMsg(mLogMsgType.Normal, string.Format("填充模板信息{0}->{1}", keyValue.Key, keyValue.Value));
                         }
                     }
                     catch
-                    { 
+                    {
+                        // ignored
                     }
                 }
 
-                mLibdoc.PrintDocument(PrintQTY);
+                mLibdoc.PrintDocument(printQty);
                 ShowMsg(mLogMsgType.Incoming, "打印完成...");
             }
             catch (Exception ex)
@@ -4925,7 +4442,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
             {
                 if (this.mLibdoc != null)
                 {
-                    for (int z = 0; z < this.mLibdoc.Variables.FormVariables.Count; z++)
+                    for (int z = 0; z < mLibdoc.Variables.FormVariables.Count; z++)
                     {
                         //  this.mLibdoc.Variables.FormVariables.Item(z + 1).Prefix = string.Empty;
                         this.mLibdoc.Variables.FormVariables.Item(z + 1).Value = string.Empty;
@@ -4933,7 +4450,6 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 }
             }
         }
-
 
         /// <summary>
         /// 打印卡通箱内容
@@ -4948,7 +4464,6 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 return "错误:没有需要打印的内容1,请检查..";
             if (this.mLibdoc == null)
                 return "模板文件没有初始化";
-            string log = string.Empty;
             this.mLibdoc.ViewMode = enumViewMode.lppxViewModeSize;
             //bool boxflag = false;
             try
@@ -4961,33 +4476,23 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                         //填充模板公式变量的内容 主要用来填充该箱的附加信息(箱号、工单、重量等)
                         for (int i = 0; i < this.mLibdoc.Variables.Formulas.Count; i++)
                         {
-                            //------2013-06-27
-                            //if (mLibdoc.Variables.Formulas.Item(i + 1).Name.ToUpper() == "BOXNUM")
-                            //    boxflag = true;
-                            //if (boxflag)
-                            //{
-                            //    string valTemp = string.Format("upper(\"{0}\")", printUserCartonId ? dtPrint.Rows[0]["cartonId"].ToString() : int.Parse(dtPrint.Rows[0]["cartonnumber"].ToString()).ToString()).Trim();
-                            //    mLibdoc.Variables.Formulas.Item("BOXNUM").Prefix = string.Empty;
-                            //    // mLibdoc.Variables.Formulas.Item("BOXNUM").Length = valTemp.Length;
-                            //    mLibdoc.Variables.Formulas.Item("BOXNUM").Expression = valTemp;
-                            //}
-                            //----------------------
-
                             //------2013-06-27------------
                             switch (mLibdoc.Variables.Formulas.Item(i + 1).Name.ToUpper())
                             {
                                 case "BOXNUM":
-                                    string valTemp = string.Format("upper(\"{0}\")", printUserCartonId ? dtPrint.Rows[0]["cartonId"].ToString() : int.Parse(dtPrint.Rows[0]["cartonnumber"].ToString()).ToString()).Trim();
+                                    string valTemp =
+                                        string.Format("upper(\"{0}\")",
+                                            printUserCartonId
+                                                ? dtPrint.Rows[0]["cartonId"].ToString()
+                                                : int.Parse(dtPrint.Rows[0]["cartonnumber"].ToString()).ToString()).Trim();
                                     mLibdoc.Variables.Formulas.Item("BOXNUM").Prefix = string.Empty;
-                                    // mLibdoc.Variables.Formulas.Item("BOXNUM").Length = valTemp.Length;
                                     mLibdoc.Variables.Formulas.Item("BOXNUM").Expression = valTemp;
                                     break;
+
                                 case "COUNT":
-                                    int icount = dtPrint.Rows.Count / (dtPrint.DefaultView.ToTable(true, "sntype").Rows.Count);
+                                    int icount = dtPrint.Rows.Count/dtPrint.DefaultView.ToTable(true, "sntype").Rows.Count;
                                     mLibdoc.Variables.Formulas.Item("COUNT").Prefix = string.Empty;
                                     mLibdoc.Variables.Formulas.Item("COUNT").Expression = icount.ToString();
-                                    break;
-                                default:
                                     break;
                             }
                             //------------------------------
@@ -5010,8 +4515,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 bool cflag = false;
                 if (!string.IsNullOrEmpty(err = this.GetPrintContentTable(ref dtPrint, out OutNewTable)))
                     return err;
-                //if (dtPrint.Rows.Count > this.mLibdoc.Variables.FormVariables.Count)
-                //    return "模板文件需要填充变量个数小于数据填充数量,请重新设置..";//2013-08-22
+
                 #region 一箱一张纸
                 if (CNSFlag.ToUpper() == "CNS")
                 {
@@ -5044,6 +4548,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                     return string.Empty;
                 }
                 #endregion
+
                 else
                 {
                     #region 一箱多张纸打印情况
@@ -5071,16 +4576,14 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                             VarCount = 0;
                             cflag = true;
                         }
-                        if (cflag)
-                        {//先清空再赋值
-                            for (int z = 0; z < this.mLibdoc.Variables.FormVariables.Count; z++)
-                            {
-                                this.mLibdoc.Variables.FormVariables.Item(z + 1).Prefix = string.Empty;
-                                this.mLibdoc.Variables.FormVariables.Item(z + 1).Value = string.Empty;
-                            }
-                            cflag = false;
-                        }
+                        if (!cflag) continue; //先清空再赋值
 
+                        for (int z = 0; z < this.mLibdoc.Variables.FormVariables.Count; z++)
+                        {
+                            this.mLibdoc.Variables.FormVariables.Item(z + 1).Prefix = string.Empty;
+                            this.mLibdoc.Variables.FormVariables.Item(z + 1).Value = string.Empty;
+                        }
+                        cflag = false;
                     }
                     //最后一箱未满箱打印
                     if (!string.IsNullOrEmpty(this.mLibdoc.Variables.FormVariables.Item(1).Value))
@@ -5089,90 +4592,8 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                     #endregion
                 #endregion
 
-                #region 2013-04-13 修改(不能对SN排序)(待测试)
-                //int __EsnRowCount = 0;
-                //try
-                //{
-                //    //dtPrint : woId,cartonId,cartonnumber,esn,sntype,snval
-                //    //1.判断用来填充模板的值的个数是否与模板变量数量一样多
-                //    if (dtPrint.Rows.Count > this.mLibdoc.Variables.FormVariables.Count)
-                //        return "模板文件需要填充变量个数小于数据填充数量,请重新设置..";
-
-
-                //    //2. 找出不重复的esn（即有多少个产品要打印到卡通箱上）
-                //    DataTable __EsnTable = dtPrint.DefaultView.ToTable(true, "esn");
-
-                //    //3. 循环找到的不重复的esn 根据esn在去找其对应的其他的序列号以及序号类型
-                //    for (int xx = 0; xx < __EsnTable.Rows.Count; xx++)
-                //    {
-                //        DataRow[] arrDr = dtPrint.Select(string.Format("esn='{0}'", __EsnTable.Rows[xx]["esn"].ToString()));
-                //        if (__EsnRowCount > 0)
-                //        {
-                //            if (__EsnRowCount != arrDr.Length)
-                //                return "ESN: " + __EsnTable.Rows[xx]["esn"].ToString() + "与其他的号内容数量不一致,请检查!!";
-                //        }
-                //        __EsnRowCount = arrDr.Length;
-                //        foreach (DataRow DrItem in arrDr)
-                //        {
-                //            try
-                //            {
-                //                this.mLibdoc.Variables.FormVariables.Item(string.Format("{0}{1}", DrItem["sntype"].ToString().Trim().ToUpper(), (xx + 1).ToString())).Length =
-                //                    DrItem["snval"].ToString().Trim().Length;
-
-                //                this.mLibdoc.Variables.FormVariables.Item(string.Format("{0}{1}", DrItem["sntype"].ToString().Trim().ToUpper(), (xx + 1).ToString())).Value =
-                //                    DrItem["snval"].ToString().Trim();
-                //            }
-                //            catch
-                //            {
-                //                return "模板文件中的类型异常";
-                //            }
-                //        }
-                //    }
-                //}
-                //catch (Exception ex)
-                //{
-                //    return "错误:" + ex.Message;
-                //}
-                #endregion
-
-                #region 打印多个类型序列号时会产生乱序  暂停使用
-                //使用需要打印的内容去填充模板变量
-                //Dictionary<string, DataTable> _dicPrintContent = new Dictionary<string, DataTable>();
-                //int varCount = 0;
-                //string __err = this.GetPrintContent(ref dtPrint, out _dicPrintContent, out varCount);
-                //if (!string.IsNullOrEmpty(__err))
-                //    return __err;
-                //if (_dicPrintContent == null || _dicPrintContent.Count < 1)
-                //    return "错误:没有需要打印的内容2,请检查..";
-                //if (varCount > this.mLibdoc.Variables.FormVariables.Count)
-                //    return "模板文件需要填充变量个数小于数据填充数量,请重新设置..";
-                //try
-                //{
-                //    foreach (string str in _dicPrintContent.Keys)
-                //    {
-                //        for (int x = 0; x < _dicPrintContent[str].Rows.Count; x++)
-                //        {
-                //            //if (this.mLibdoc.Variables.FormVariables.Item(x + 1).Name.ToUpper().IndexOf(str) == -1)
-                //            //    return "模板文件中不存在需要打印的类型:" + str;
-                //            try
-                //            {
-                //                this.mLibdoc.Variables.FormVariables.Item(string.Format("{0}{1}", str, (x + 1).ToString())).Length = _dicPrintContent[str].Rows[x]["snval"].ToString().Length;
-                //                this.mLibdoc.Variables.FormVariables.Item(string.Format("{0}{1}", str, (x + 1).ToString())).Value = _dicPrintContent[str].Rows[x]["snval"].ToString();
-                //                //MessageBox.Show(this.mLibdoc.Variables.FormVariables.Item(string.Format("{0}{1}", str, (x + 1).ToString())).Value);
-                //            }
-                //            catch
-                //            {
-                //                return "模板文件中的类型异常";
-                //            }
-                //        }
-                //    }
-                //}
-                //catch (Exception ex)
-                //{
-                //    return "错误:" + ex.Message;
-                //}
-                #endregion
                 return string.Empty;
+
                 #endregion
             }
             catch (Exception ex)
@@ -5182,18 +4603,14 @@ namespace SFIS_PRINT_SYSTEM_WIFI
             finally
             {
                 //模板内容
-                for (int y = 0; y < this.mLibdoc.Variables.Formulas.Count; y++)
+                for (int z = 0; z < mLibdoc.Variables.FormVariables.Count; z++)
                 {
-                    // mLibdoc.Variables.Formulas.Item(y + 1).Prefix = string.Empty;
-                    //  mLibdoc.Variables.Formulas.Item(y + 1).Expression = string.Format("upper(\"{0}\")", 0);
-                }
-                for (int z = 0; z < this.mLibdoc.Variables.FormVariables.Count; z++)
-                {
-                    this.mLibdoc.Variables.FormVariables.Item(z + 1).Prefix = string.Empty;
-                    this.mLibdoc.Variables.FormVariables.Item(z + 1).Value = string.Empty;
+                    mLibdoc.Variables.FormVariables.Item(z + 1).Prefix = string.Empty;
+                    mLibdoc.Variables.FormVariables.Item(z + 1).Value = string.Empty;
                 }
             }
         }
+
         /// <summary>
         /// 处理从数据库中导出的需要打印到卡通箱的内容
         /// </summary>
@@ -5227,11 +4644,11 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         /// 将table横向排列
         /// </summary>
         /// <param name="mdt"></param>
-        /// <param name="NewTable"></param>
+        /// <param name="newTable"></param>
         /// <returns></returns>
-        private string GetPrintContentTable(ref DataTable mdt, out DataTable NewTable)
+        private string GetPrintContentTable(ref DataTable mdt, out DataTable newTable)
         {
-            NewTable = new DataTable("Print");
+            newTable = new DataTable("Print");
             try
             {
                 //找出有多少种序列号类型
@@ -5239,7 +4656,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 bool sortsn = false;
                 foreach (DataRow dritem in sntypedt.Rows)
                 {
-                    NewTable.Columns.Add(dritem["sntype"].ToString().Trim());
+                    newTable.Columns.Add(dritem["sntype"].ToString().Trim());
                     if ("SN" == dritem["sntype"].ToString().Trim().ToUpper())
                         sortsn = true;
                 }
@@ -5247,16 +4664,16 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 for (int i = 0; i < esndt.Rows.Count; i++)
                 {
                     DataRow[] arrDr = mdt.Select(string.Format("esn='{0}'", esndt.Rows[i]["esn"].ToString().Trim()));
-                    DataRow Newdr = NewTable.NewRow();
+                    DataRow newdr = newTable.NewRow();
                     foreach (DataRow dr in arrDr)
                     {
-                        Newdr[dr["sntype"].ToString().Trim()] = dr["snval"].ToString();
+                        newdr[dr["sntype"].ToString().Trim()] = dr["snval"].ToString();
                     }
-                    NewTable.Rows.Add(Newdr);
+                    newTable.Rows.Add(newdr);
                 }
                 if (sortsn)
-                    NewTable.DefaultView.Sort = "sn asc";
-                NewTable = NewTable.DefaultView.ToTable();
+                    newTable.DefaultView.Sort = "sn asc";
+                newTable = newTable.DefaultView.ToTable();
                 return string.Empty;
             }
             catch (Exception ex)
@@ -5264,36 +4681,36 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 return ex.Message;
             }
         }
+
         private void dgvNotCloseBoxNumber_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex != -1 && e.ColumnIndex != -1)
-            {
+            if (e.RowIndex == -1 || e.ColumnIndex == -1) return;
+            return;
+            if (dgvNotCloseBoxNumber.Rows.Count < 1)
                 return;
-                if (dgvNotCloseBoxNumber.Rows.Count < 1)
+            if (this.dgvNotCloseBoxNumber["_lineId", e.RowIndex].Value.ToString() != cblineId.Text)
+            {
+                if (MessageBoxEx.Show("选中的数据不是有当前这条生产线进行生产的,是否继续?", "提示",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
                     return;
-                if (this.dgvNotCloseBoxNumber["_lineId", e.RowIndex].Value.ToString() != cblineId.Text)
+            }
+            if (this.dgvNotCloseBoxNumber["_cartonId", e.RowIndex].Value.ToString().ToUpper() !=
+                this.mCartonId.ToUpper())
+            {
+                if (MessageBoxEx.Show(string.Format("当前在包的卡通箱号码为:[{0}],变更后的卡通箱号码为:[{1}]\n是否确认更换卡通箱进行包装？\n确认 请选择[Yes] 否则请选择[No]",
+                    this.mCartonId, this.dgvNotCloseBoxNumber["_cartonId", e.RowIndex].Value.ToString()), "提示", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2) != DialogResult.No)
                 {
-                    if (MessageBoxEx.Show("选中的数据不是有当前这条生产线进行生产的,是否继续?", "提示",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
-                        return;
-                }
-                if (this.dgvNotCloseBoxNumber["_cartonId", e.RowIndex].Value.ToString().ToUpper() !=
-                    this.mCartonId.ToUpper())
-                {
-                    if (MessageBoxEx.Show(string.Format("当前在包的卡通箱号码为:[{0}],变更后的卡通箱号码为:[{1}]\n是否确认更换卡通箱进行包装？\n确认 请选择[Yes] 否则请选择[No]",
-                         this.mCartonId, this.dgvNotCloseBoxNumber["_cartonId", e.RowIndex].Value.ToString()), "提示", MessageBoxButtons.YesNo,
-                         MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2) != DialogResult.No)
-                    {
-                        this.mCartonId = this.dgvNotCloseBoxNumber["_cartonId", e.RowIndex].Value.ToString().ToUpper();
-                        this.gCartonInfo.woId = this.dgvNotCloseBoxNumber["_woId", e.RowIndex].Value.ToString().ToUpper();
-                        this.gCartonInfo.lineId = this.dgvNotCloseBoxNumber["_lineId", e.RowIndex].Value.ToString().ToUpper();
-                        this.gCartonInfo.mcartonnumber = this.dgvNotCloseBoxNumber["_cartonnumber", e.RowIndex].Value.ToString().ToUpper();
-                        this.gCartonInfo.number = int.Parse(this.dgvNotCloseBoxNumber["_number", e.RowIndex].Value.ToString());
-                        this.ShowCartonStation(this.gCartonInfo.number.ToString());
-                    }
+                    this.mCartonId = this.dgvNotCloseBoxNumber["_cartonId", e.RowIndex].Value.ToString().ToUpper();
+                    this.gCartonInfo.woId = this.dgvNotCloseBoxNumber["_woId", e.RowIndex].Value.ToString().ToUpper();
+                    this.gCartonInfo.lineId = this.dgvNotCloseBoxNumber["_lineId", e.RowIndex].Value.ToString().ToUpper();
+                    this.gCartonInfo.mcartonnumber = this.dgvNotCloseBoxNumber["_cartonnumber", e.RowIndex].Value.ToString().ToUpper();
+                    this.gCartonInfo.number = int.Parse(this.dgvNotCloseBoxNumber["_number", e.RowIndex].Value.ToString());
+                    this.ShowCartonStation(this.gCartonInfo.number.ToString());
                 }
             }
         }
+
         private void btRepearCartonBox_Click(object sender, EventArgs e)
         {
             try
@@ -5327,6 +4744,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 this.ShowMsg(mLogMsgType.Error, ex.Message);
             }
         }
+
         private void chkShowdata_CheckedChanged(object sender, EventArgs e)
         {
             try
@@ -5344,102 +4762,89 @@ namespace SFIS_PRINT_SYSTEM_WIFI
 
         private void s_Person_Enter(object sender, EventArgs e)
         {
-            ((TextBox)(sender)).BackColor = Color.Green;
-            ((TextBox)(sender)).ForeColor = Color.White;
+            ((TextBox)sender).BackColor = Color.Green;
+            ((TextBox)sender).ForeColor = Color.White;
         }
-        private void s_Person_Leave(object sender, EventArgs e)
-        {
-            ((TextBox)(sender)).BackColor = Color.White;
-            ((TextBox)(sender)).ForeColor = Color.Black;
-        }
+
         #region 功能页面切换
         private void tbcLable_SelectedTabChanged(object sender, TabStripTabChangedEventArgs e)
         {
             switch (e.NewTab.Name)
             {
                 case "tabItem1":
-                    this.mTabItem = e.NewTab;
-                    this.tbcLable.SelectedTab = mTabItem;
-                    this.gpotherprint.Controls.Clear();
-                    this.gpotherprint.Refresh();
+                    mTabItem = e.NewTab;
+                    tbcLable.SelectedTab = mTabItem;
+                    gpotherprint.Controls.Clear();
+                    gpotherprint.Refresh();
                     SetBtOkState(false);
                     break;
+
                 case "tabItem2":
                     if (MessageBoxEx.Show("切换后需要重新打开模板\n\n\n是否需要切换? ", "提示",
                            MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk,
                            MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                     {
-                        this.mTabItem = e.NewTab;
-                        this.tbcLable.SelectedTab = mTabItem;
-                        this.gpotherprint.Controls.Clear();
-                        this.gpotherprint.Refresh();
-                        //SetBtOkState(true);
-                        //this.bt_ok.Enabled = false;
-
-                        this.pictureBox1.Image = null;
-                        this.mPrintFileName = this.lb_showmfpath.Text = "";
+                        mTabItem = e.NewTab;
+                        tbcLable.SelectedTab = mTabItem;
+                        gpotherprint.Controls.Clear();
+                        gpotherprint.Refresh();
+                        pictureBox1.Image = null;
+                        mPrintFileName = lb_showmfpath.Text = "";
                     }
                     else
                     {
-                        this.tbcLable.SelectedTab = e.OldTab;
+                        tbcLable.SelectedTab = e.OldTab;
                         SetBtOkState(false);
                     }
                  
                     break;
-                default:
-                    break;
             }
-          
-             
         }
 
         private void SetBtOkState(bool ena)
         {
-            this.bt_ok.Invoke(new EventHandler(delegate
+            bt_ok.Invoke(new EventHandler(delegate
             {
-                this.bt_ok.Enabled = ena;
-                //this.label11.Visible = ena;
-                this.lb_cartoncount.Text = "";
-                this.lb_cartoncount.Visible = ena;
-                //this.tb_Boxcount.Visible = ena;
-                this.tb_Boxcount.Text = "";
-                //this.chkShowdata.Visible = ena;
-                if (!ena)
-                {
-                    this.EnableMacInputBox.Checked = false;
-                    this.EnableSnInputBox.Checked = false;
-                    this.EnableKtInputBox.Checked = false;
-                    this.EnablePCBASNInput.Checked = false;
-                    this.EnableSPMACInput.Checked = false;
-                    this.EnableDEKInput.Checked = false;
-                    this.EnablePSNInput.Checked = false;
-                    this.EnableESNInput.Checked = false;
-                    this.EnableKCODEInput.Checked = false;
-                }
+                bt_ok.Enabled = ena;
+                lb_cartoncount.Text = "";
+                lb_cartoncount.Visible = ena;
+                tb_Boxcount.Text = "";
+                if (ena) return;
+
+                EnableMacInputBox.Checked = false;
+                EnableSnInputBox.Checked = false;
+                EnableKtInputBox.Checked = false;
+                EnablePCBASNInput.Checked = false;
+                EnableSPMACInput.Checked = false;
+                EnableDEKInput.Checked = false;
+                EnablePSNInput.Checked = false;
+                EnableESNInput.Checked = false;
+                EnableKCODEInput.Checked = false;
             }));
         }
         #endregion
+
         #region 鼠标状态
         private void dataGridView1_MouseEnter(object sender, EventArgs e)
         {
-            this.bdebug = true;
+            bdebug = true;
         }
+
         private void dataGridView1_MouseLeave(object sender, EventArgs e)
         {
-            this.bdebug = false;
+            bdebug = false;
         }
-        private void rtb_Msg_MouseDown(object sender, MouseEventArgs e)
-        {
-            this.gpotherprint.Focus();
-        }
+
         private void rtb_Msg_MouseEnter(object sender, EventArgs e)
         {
             bdebug = true;
         }
+
         private void rtb_Msg_MouseLeave(object sender, EventArgs e)
         {
             bdebug = false;
         }
+
         #endregion
 
         private void cbstationId_Leave(object sender, EventArgs e)
@@ -5454,40 +4859,22 @@ namespace SFIS_PRINT_SYSTEM_WIFI
 
         public void imbtexit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
             System.Windows.Forms.Application.Exit();
         }
-        //private bool AteCheck = true;
-        //private void imbt_OpenAteChk_Click(object sender, EventArgs e)
-        //{
-        //    AteCheck = !AteCheck;
-        //    if (AteCheck)
-        //    {
-        //        this.ShowMsg(mLogMsgType.Outgoing, "ATE检查开启");
-        //        this.imbt_OpenAteChk.Text = "ATE途程检查 = 开启";
-        //    }
-        //    else
-        //    {
-        //        this.ShowMsg(mLogMsgType.Warning, "ATE检查关闭");
-        //        this.imbt_OpenAteChk.Text = "ATE途程检查 = 关闭";
-        //    }
-        //}
 
         private void dgvdata_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (this.mTabItem.Name.Trim().ToUpper() == "TABITEM2")
+            if (mTabItem.Name.Trim().ToUpper() != "TABITEM2") return;
+
+            string catonId = string.Empty;
+            if (e.RowIndex == -1 || e.ColumnIndex == -1) return;
+            if (!IsShowCartonContent)
             {
-                string catonId = string.Empty;
-                if (e.RowIndex != -1 && e.ColumnIndex != -1)
-                {
-                    if (!IsShowCartonContent)
-                    {
-                        catonId = this.dgvdata["cartonId", e.RowIndex].Value.ToString();
-                        this.dgvdata.DataSource = BLL.ReleaseData.arrByteToDataTable(refWebtWipTracking.Instance.GetCartonContent(catonId));
-                        IsShowCartonContent = true;
-                        this.dgvdata.ContextMenuStrip = null;
-                    }
-                }
+                catonId = this.dgvdata["cartonId", e.RowIndex].Value.ToString();
+                this.dgvdata.DataSource = BLL.ReleaseData.arrByteToDataTable(refWebtWipTracking.Instance.GetCartonContent(catonId));
+                IsShowCartonContent = true;
+                this.dgvdata.ContextMenuStrip = null;
             }
         }
 
@@ -5669,7 +5056,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                     int iinput = Convert.ToInt32(strinput.Substring(index));
                     int iend = Convert.ToInt32(strend.Substring(index));
                     string boxnum = this.tb_Boxcount.Text.Trim();
-                    int realboxnum = (iinput - istart) / 20 + Convert.ToInt32(minCarton);
+                    int realboxnum = (iinput - istart) / 20 + Convert.ToInt32(_minCarton);
                     int packboxnum = Convert.ToInt32(boxnum.Substring(boxnum.Length - 4));
                     if (realboxnum != packboxnum)
                     {
@@ -5751,7 +5138,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
 
         private void EnableESNInput_CheckedChanged(object sender, EventArgs e)
         {
-            if (miasyncresult != null && !miasyncresult.IsCompleted)
+            if (_miasyncresult != null && !_miasyncresult.IsCompleted)
             {
                 ShowMsg(mLogMsgType.Warning, "程序正在初始化,请稍候...");
                 ((CheckBox)sender).Checked = false;
@@ -5777,7 +5164,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         }
         private void EnableKCODEInput_CheckedChanged(object sender, EventArgs e)
         {
-            if (miasyncresult != null && !miasyncresult.IsCompleted)
+            if (_miasyncresult != null && !_miasyncresult.IsCompleted)
             {
                 ShowMsg(mLogMsgType.Warning, "程序正在初始化,请稍候...");
                 ((CheckBox)sender).Checked = false;
@@ -5818,18 +5205,13 @@ namespace SFIS_PRINT_SYSTEM_WIFI
     /// </summary>
     public class MyTextBox : TextBox
     {
-        private bool _NotErr = false;
         public MyTextBox()
-            : base()
         {
-            this._NotErr = false;
+            NotErr = false;
         }
-        public bool NotErr
-        {
-            get { return _NotErr; }
-            set { _NotErr = value; }
-        }
+        public bool NotErr { get; set; }
     }
+
     public class tUserInfo
     {
         /// <summary>
@@ -6010,105 +5392,13 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         /// </summary>
         public string CHECK_NO { get; set; }
 
-    //    public string ProductLine { get; set; }
-
         public enum ecpwd
         {
             PROG,
             FILE,
             USERDEF
         }
-
-
-
-        public enum WoInfoColumns
-        {
-            /// <summary>
-            /// 工单号
-            /// </summary>
-            woId,
-            /// <summary>
-            /// 工单数量
-            /// </summary>
-            qty,
-            /// <summary>
-            /// 工单状态
-            /// </summary>
-            wostate,
-            /// <summary>
-            /// 建立人
-            /// </summary>
-            userId,
-            /// <summary>
-            /// 料号
-            /// </summary>
-            partnumber,
-            /// <summary>
-            /// BOM版本
-            /// </summary>
-            bomver,
-            /// <summary>
-            /// 工单投入站
-            /// </summary>
-            inputgroup,
-            /// <summary>
-            /// 工单出口站
-            /// </summary>
-            outputgroup,
-            /// <summary>
-            /// 工单生产使用的流程号
-            /// </summary>
-            routgroupId,
-        }
-
-        ///// <summary>
-        ///// 工单类型
-        ///// </summary>
-        //public enum SnType
-        //{
-        //    正常工单 = 0,
-        //    重工工单,
-        //    RAM工单,
-        //    试产工单,
-        //    SMT工单,
-        //    组包工单,
-        //    外包工单
-        //}
     }
-
-    //public class tLineInfo
-    //{
-    //    /// <summary>
-    //    /// 线体编号
-    //    /// </summary>
-    //    public string lineId { get; set; }
-    //    /// <summary>
-    //    /// 线体描述
-    //    /// </summary>
-    //    public string linedesc { get; set; }
-    //    /// <summary>
-    //    /// 分配的起始IP地址
-    //    /// </summary>
-    //    public string startIpAddress { get; set; }
-    //    /// <summary>
-    //    /// 分配的结束IP地址
-    //    /// </summary>
-    //    public string endIpAddress { get; set; }
-    //    /// <summary>
-    //    /// 所属车间编号
-    //    /// </summary>
-    //    public string wsId { get; set; }
-    //    /// <summary>
-    //    /// 负责人
-    //    /// </summary>
-    //    public string userId { get; set; }
-    //    /// <summary>
-    //    /// 正在执行的计划编号
-    //    /// </summary>
-    //    public string plotId { get; set; }
-
-        
-    //}
 
     public class tCartonInfo
     {

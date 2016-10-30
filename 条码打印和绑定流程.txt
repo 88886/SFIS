@@ -1,3 +1,19 @@
 1. refWebtLineInfo获取所有的线体信息
 2. refWebtCraftInfo获取所有的站位信息
-3. 
+3. refWebtUserInfo获取用户信息
+4. refWebtUserInfo.Instance.ChkUserInfoIdAndPwd检测用户名密码
+5. CompareSerialnumber--判断序列号是否在工单区间范围内
+
+WebServices.tWoInfo.tWoInfo
+WebServices.tUserInfo.tUserInfo
+WebServices.tProduct.tProduct
+WebServices.tLineInfo.tLineInfo
+WebServices.tCraftInfo.tCraftInfo
+WebServices.RecodeSystemLog.RecodeSystemLog
+WebServices.tWipTracking.tWipTracking
+WebServices.tWipKeyPart.tWipKeyPart
+WebServices.tPublicStoredproc.tPublicStoredproc
+
+
+计算出MAC号对应的所有密码
+啥密码？
