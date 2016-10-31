@@ -1,4 +1,4 @@
-﻿namespace SFIS_PRINT_SYSTEM_WIFI
+﻿namespace SFIS_PRINT_SYSTEM_WIFI.Frm
 {
     partial class PrintMain
     {
@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menubar = new DevComponents.DotNetBar.Bar();
             this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.imbtopenlibfile = new DevComponents.DotNetBar.ButtonItem();
@@ -575,7 +575,6 @@
             this.cbstationId.TabIndex = 3;
             this.cbstationId.DropDown += new System.EventHandler(this.cbstation_DropDown);
             this.cbstationId.SelectedValueChanged += new System.EventHandler(this.cbstationId_SelectedValueChanged);
-            this.cbstationId.Leave += new System.EventHandler(this.cbstationId_Leave);
             // 
             // cblineId
             // 
@@ -593,7 +592,6 @@
             this.cblineId.TabIndex = 2;
             this.cblineId.DropDown += new System.EventHandler(this.cbline_DropDown);
             this.cblineId.SelectedValueChanged += new System.EventHandler(this.cblineId_SelectedValueChanged);
-            this.cblineId.Leave += new System.EventHandler(this.cblineId_Leave);
             // 
             // tbwoid
             // 
@@ -1608,14 +1606,14 @@
             // dgvdata
             // 
             this.dgvdata.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -1624,14 +1622,14 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvdata.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvdata.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvdata.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvdata.Location = new System.Drawing.Point(1, 1);
             this.dgvdata.Margin = new System.Windows.Forms.Padding(4);
@@ -1643,8 +1641,6 @@
             this.dgvdata.TabIndex = 0;
             this.dgvdata.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvdata_CellMouseDoubleClick);
             this.dgvdata.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvdata_RowPostPaint);
-            this.dgvdata.MouseEnter += new System.EventHandler(this.dataGridView1_MouseEnter);
-            this.dgvdata.MouseLeave += new System.EventHandler(this.dataGridView1_MouseLeave);
             // 
             // Column1
             // 
@@ -1786,8 +1782,6 @@
             this.rtbmsg.Size = new System.Drawing.Size(495, 275);
             this.rtbmsg.TabIndex = 0;
             this.rtbmsg.Text = "";
-            this.rtbmsg.MouseEnter += new System.EventHandler(this.rtb_Msg_MouseEnter);
-            this.rtbmsg.MouseLeave += new System.EventHandler(this.rtb_Msg_MouseLeave);
             // 
             // contextMenuStrip1
             // 
@@ -1854,11 +1848,10 @@
             // 
             this.lb_showmfpath.BackColor = System.Drawing.Color.Transparent;
             this.lb_showmfpath.Name = "lb_showmfpath";
-            this.lb_showmfpath.Size = new System.Drawing.Size(1134, 21);
+            this.lb_showmfpath.Size = new System.Drawing.Size(1173, 21);
             this.lb_showmfpath.Spring = true;
             this.lb_showmfpath.Text = " 123";
             this.lb_showmfpath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lb_showmfpath.Click += new System.EventHandler(this.lb_showmfpath_Click);
             // 
             // runprogbar
             // 

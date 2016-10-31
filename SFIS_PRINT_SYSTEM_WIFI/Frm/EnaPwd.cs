@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using SFIS_PRINT_SYSTEM_WIFI.Frm;
 
 namespace SFIS_PRINT_SYSTEM_WIFI
 {
@@ -25,7 +26,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
         {
             if (e.KeyValue == 13)
             {
-                this._frm.strEnaPwd = this.textBox1.Text.Trim();
+                this._frm.StrEnaPwd = this.textBox1.Text.Trim();
                 this.DialogResult = DialogResult.OK;
             }
         }

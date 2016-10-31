@@ -8,6 +8,7 @@ using System.Xml;
 using BLL;
 using CreateWebService;
 using DevComponents.DotNetBar;
+using SFIS_PRINT_SYSTEM_WIFI.Frm;
 
 #endregion
 
@@ -83,7 +84,7 @@ namespace SFIS_PRINT_SYSTEM_WIFI
             }
             if (iasyncresult != null && !iasyncresult.IsCompleted)
             {
-                mpm.ShowMsg(PrintMain.mLogMsgType.Warning, "正在与服务器通讯中,请稍后.");
+                mpm.ShowMsg(PrintMain.MLogMsgType.Warning, "正在与服务器通讯中,请稍后.");
                 return;
             }
 
@@ -102,28 +103,28 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 if (_dt.Rows[0]["USERSTATUS"].ToString() != "1")
                     throw new Exception(string.Format("用户名[{0}]已经停用\n请重新输入!!", tb_username.Text));
 
-                mpm.gUserInfo = new tUserInfo
+                mpm.GUserInfo = new UserInfo
                 {
-                    userId = _dt.Rows[0]["userId"].ToString(),
-                    pwd = _dt.Rows[0]["pwd"].ToString(),
-                    username = _dt.Rows[0]["username"].ToString(),
-                    useremail = _dt.Rows[0]["useremail"].ToString(),
-                    userphone = _dt.Rows[0]["userphone"].ToString(),
-                    userstatus = Convert.ToBoolean(int.Parse(_dt.Rows[0]["userstatus"].ToString())),
-                    deptname = _dt.Rows[0]["deptname"].ToString(),
-                    facId = _dt.Rows[0]["facId"].ToString(),
-                    rolecaption = _dt.Rows[0]["rolecaption"].ToString(),
-                    userPopList =
+                    UserId = _dt.Rows[0]["userId"].ToString(),
+                    Pwd = _dt.Rows[0]["pwd"].ToString(),
+                    Username = _dt.Rows[0]["username"].ToString(),
+                    Useremail = _dt.Rows[0]["useremail"].ToString(),
+                    Userphone = _dt.Rows[0]["userphone"].ToString(),
+                    Userstatus = Convert.ToBoolean(int.Parse(_dt.Rows[0]["userstatus"].ToString())),
+                    Deptname = _dt.Rows[0]["deptname"].ToString(),
+                    FacId = _dt.Rows[0]["facId"].ToString(),
+                    Rolecaption = _dt.Rows[0]["rolecaption"].ToString(),
+                    UserPopList =
                         ReleaseData.arrByteToDataTable(
                             refWebtUserInfo.Instance.GetUserJurisdictionByUserId(tb_username.Text.Trim()))
                 };
                 CreateAccessDb cad = new CreateAccessDb();
-                mpm.loginOk = true;
+                mpm.LoginOk = true;
                 DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
-                mpm.ShowMsg(PrintMain.mLogMsgType.Error, ex.Message);
+                mpm.ShowMsg(PrintMain.MLogMsgType.Error, ex.Message);
                 MessageBox.Show(ex.Message, "提示");
                 tb_username.SelectAll();
                 tb_username.Focus();
@@ -132,11 +133,11 @@ namespace SFIS_PRINT_SYSTEM_WIFI
 
         private void bt_exit_Click(object sender, EventArgs e)
         {
-            mpm.loginOk = false;
-            mpm.gUserInfo = new tUserInfo
+            mpm.LoginOk = false;
+            mpm.GUserInfo = new UserInfo
             {
-                userId = "",
-                username = ""
+                UserId = "",
+                Username = ""
             };
             DialogResult = DialogResult.OK;
             Dispose();

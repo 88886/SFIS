@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using SFIS_PRINT_SYSTEM_WIFI.Frm;
 
 namespace SFIS_PRINT_SYSTEM_WIFI
 {

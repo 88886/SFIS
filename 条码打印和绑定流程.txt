@@ -17,3 +17,14 @@ WebServices.tPublicStoredproc.tPublicStoredproc
 
 计算出MAC号对应的所有密码
 啥密码？
+
+refWebtWipTracking.Instance.GetQueryWipAllInfo("ESN",
+                            ESNVALUE)
+表结构啥样的？要怎么知道返回类型？
+
+refWebtWipKeyPart.Instance.ChkKeyParts 
+refWebtWipKeyPart.Instance.GetWipKeyPart 获取绑定关系信息
+refWebtPublicStoredproc.Instance.SP_TEST_MAIN_ONLY 检查过站
+refWebtWoInfo.Instance.GetWoSnRule 加载工单序列号
+refWebtProduct.Instance.GetProductInfoByWoId 获取机型SN
+refWebProcedure.Instance.ExecuteProcedure 过站，记录产能

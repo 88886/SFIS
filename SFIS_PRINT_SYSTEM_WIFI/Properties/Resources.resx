@@ -114,4 +114,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ShowData" xml:space="preserve">
+    <value>显示数据</value>
+  </data>
+  <data name="Colon" xml:space="preserve">
+    <value>:</value>
+  </data>
+  <data name="ChooseModelFile" xml:space="preserve">
+    <value>选择模板文件</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>(*.lab)|*.lab</value>
+  </data>
+  <data name="OpenSnRule" xml:space="preserve">
+    <value>使用SN规则 = 开启</value>
+  </data>
+  <data name="CloseSnRule" xml:space="preserve">
+    <value>使用SN规则 = 关闭</value>
+  </data>
+  <data name="Compare" xml:space="preserve">
+    <value>比对</value>
+  </data>
+  <data name="BackSlash" xml:space="preserve">
+    <value>/</value>
+  </data>
+  <data name="ZeroSlash" xml:space="preserve">
+    <value>0/</value>
+  </data>
+  <data name="Zero" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="OpenForceUpper" xml:space="preserve">
+    <value>强制输入大写 = 开启</value>
+  </data>
+  <data name="CloseForceUpper" xml:space="preserve">
+    <value>强制输入大写 = 关闭</value>
+  </data>
+  <data name="CheckMacFalse" xml:space="preserve">
+    <value>ChkMac  -  FALSE</value>
+  </data>
+  <data name="CheckMacTrue" xml:space="preserve">
+    <value>ChkMac  -  TRUE</value>
+  </data>
+  <data name="CheckSpMacFalse" xml:space="preserve">
+    <value>ChkSPMac  -  FALSE</value>
+  </data>
+  <data name="CheckSpMacTrue" xml:space="preserve">
+    <value>ChkSPMac  -  TRUE</value>
+  </data>
 </root>

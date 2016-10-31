@@ -59,5 +59,149 @@ namespace SFIS_PRINT_SYSTEM_WIFI.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   查找类似 / 的本地化字符串。
+        /// </summary>
+        internal static string BackSlash {
+            get {
+                return ResourceManager.GetString("BackSlash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 ChkMac  -  FALSE 的本地化字符串。
+        /// </summary>
+        internal static string CheckMacFalse {
+            get {
+                return ResourceManager.GetString("CheckMacFalse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 ChkMac  -  TRUE 的本地化字符串。
+        /// </summary>
+        internal static string CheckMacTrue {
+            get {
+                return ResourceManager.GetString("CheckMacTrue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 ChkSPMac  -  FALSE 的本地化字符串。
+        /// </summary>
+        internal static string CheckSpMacFalse {
+            get {
+                return ResourceManager.GetString("CheckSpMacFalse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 ChkSPMac  -  TRUE 的本地化字符串。
+        /// </summary>
+        internal static string CheckSpMacTrue {
+            get {
+                return ResourceManager.GetString("CheckSpMacTrue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 选择模板文件 的本地化字符串。
+        /// </summary>
+        internal static string ChooseModelFile {
+            get {
+                return ResourceManager.GetString("ChooseModelFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 强制输入大写 = 关闭 的本地化字符串。
+        /// </summary>
+        internal static string CloseForceUpper {
+            get {
+                return ResourceManager.GetString("CloseForceUpper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 使用SN规则 = 关闭 的本地化字符串。
+        /// </summary>
+        internal static string CloseSnRule {
+            get {
+                return ResourceManager.GetString("CloseSnRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 : 的本地化字符串。
+        /// </summary>
+        internal static string Colon {
+            get {
+                return ResourceManager.GetString("Colon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 比对 的本地化字符串。
+        /// </summary>
+        internal static string Compare {
+            get {
+                return ResourceManager.GetString("Compare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 (*.lab)|*.lab 的本地化字符串。
+        /// </summary>
+        internal static string Filter {
+            get {
+                return ResourceManager.GetString("Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 强制输入大写 = 开启 的本地化字符串。
+        /// </summary>
+        internal static string OpenForceUpper {
+            get {
+                return ResourceManager.GetString("OpenForceUpper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 使用SN规则 = 开启 的本地化字符串。
+        /// </summary>
+        internal static string OpenSnRule {
+            get {
+                return ResourceManager.GetString("OpenSnRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 显示数据 的本地化字符串。
+        /// </summary>
+        internal static string ShowData {
+            get {
+                return ResourceManager.GetString("ShowData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 0 的本地化字符串。
+        /// </summary>
+        internal static string Zero {
+            get {
+                return ResourceManager.GetString("Zero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 0/ 的本地化字符串。
+        /// </summary>
+        internal static string ZeroSlash {
+            get {
+                return ResourceManager.GetString("ZeroSlash", resourceCulture);
+            }
+        }
     }
 }

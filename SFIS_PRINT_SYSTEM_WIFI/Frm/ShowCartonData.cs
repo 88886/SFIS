@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using SFIS_PRINT_SYSTEM_WIFI.Frm;
 
 namespace SFIS_PRINT_SYSTEM_WIFI
 {
@@ -31,14 +32,14 @@ namespace SFIS_PRINT_SYSTEM_WIFI
             if (!clkchk)
             {
                 MessageBoxEx.Show(string.Format("选中数据所在的工单[{0}]与设置的工单[{1}]不符!!",
-                    this.dgvShowData["woId", e.RowIndex].Value.ToString().Trim().ToUpper(), this.mFrm.mWoInfo.woId));
+                    this.dgvShowData["woId", e.RowIndex].Value.ToString().Trim().ToUpper(), this.mFrm.MWoInfo.WoId));
                 return;
             }
-            this.mFrm.gCartonInfo.woId = this.dgvShowData["woId", e.RowIndex].Value.ToString();
-            this.mFrm.gCartonInfo.cartonId= this.dgvShowData["cartonId", e.RowIndex].Value.ToString();
-            this.mFrm.gCartonInfo.lineId = this.dgvShowData["lineId", e.RowIndex].Value.ToString();
-            this.mFrm.gCartonInfo.mcartonnumber = this.dgvShowData["cartonnumber", e.RowIndex].Value.ToString();
-            this.mFrm.gCartonInfo.number = int.Parse(this.dgvShowData["num", e.RowIndex].Value.ToString());
+            this.mFrm.GCartonInfo.WoId = this.dgvShowData["woId", e.RowIndex].Value.ToString();
+            this.mFrm.GCartonInfo.CartonId= this.dgvShowData["cartonId", e.RowIndex].Value.ToString();
+            this.mFrm.GCartonInfo.LineId = this.dgvShowData["lineId", e.RowIndex].Value.ToString();
+            this.mFrm.GCartonInfo.Mcartonnumber = this.dgvShowData["cartonnumber", e.RowIndex].Value.ToString();
+            this.mFrm.GCartonInfo.Number = int.Parse(this.dgvShowData["num", e.RowIndex].Value.ToString());
             this.DialogResult = DialogResult.Yes;
         }
         private bool clkchk = false;
@@ -52,10 +53,10 @@ namespace SFIS_PRINT_SYSTEM_WIFI
                 }
                 this.dgvShowData.Rows[e.RowIndex].Selected = true;
 
-                if (this.mFrm.mWoInfo.woId.ToUpper() != this.dgvShowData["woId", e.RowIndex].Value.ToString())
+                if (this.mFrm.MWoInfo.WoId.ToUpper() != this.dgvShowData["woId", e.RowIndex].Value.ToString())
                 {
                     this.dgvShowData[e.ColumnIndex, e.RowIndex].ToolTipText = string.Format("选中数据所在的工单[{0}]与设置的工单[{1}]不符\n是否切换工单!!",
-                    this.dgvShowData["woId", e.RowIndex].Value.ToString().Trim().ToUpper(), this.mFrm.mWoInfo.woId);
+                    this.dgvShowData["woId", e.RowIndex].Value.ToString().Trim().ToUpper(), this.mFrm.MWoInfo.WoId);
                     this.clkchk = false;
                 }
                 else

@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using SFIS_PRINT_SYSTEM_WIFI.Frm;
+
 namespace SFIS_PRINT_SYSTEM_WIFI
 {
     public partial class ShowData :Office2007Form// Form
@@ -71,20 +73,20 @@ namespace SFIS_PRINT_SYSTEM_WIFI
             #region PrintMain
             if (this.mFrm is PrintMain)
             {
-                (this.mFrm as PrintMain).mWoInfo = new T_WO_INFO()
+                (this.mFrm as PrintMain).MWoInfo = new WoInfo()
                 {
-                    woId = this.dgvdata["woId", e.RowIndex].Value.ToString(),
-                    poId = this.dgvdata["poId", e.RowIndex].Value.ToString(),
-                    bomnumber = this.dgvdata["bomnumber", e.RowIndex].Value.ToString(),
-                    inputgroup = this.dgvdata["inputgroup", e.RowIndex].Value.ToString(),
-                    outputgroup = this.dgvdata["outputgroup", e.RowIndex].Value.ToString(),
-                    partnumber = this.dgvdata["partnumber", e.RowIndex].Value.ToString(),
-                    qty = int.Parse(this.dgvdata["qty", e.RowIndex].Value.ToString()),
-                    routgroupId = this.dgvdata["routgroupId", e.RowIndex].Value.ToString(),
-                    bomver = this.dgvdata["bomver", e.RowIndex].Value.ToString(),
-                    wostate = int.Parse(this.dgvdata["wostate", e.RowIndex].Value.ToString()),
-                    cpwd = this.Getcpwd(this.dgvdata["cpwd", e.RowIndex].Value.ToString()),
-                    wotype = this.dgvdata["wotype", e.RowIndex].Value.ToString(),
+                    WoId = this.dgvdata["woId", e.RowIndex].Value.ToString(),
+                    PoId = this.dgvdata["poId", e.RowIndex].Value.ToString(),
+                    Bomnumber = this.dgvdata["bomnumber", e.RowIndex].Value.ToString(),
+                    Inputgroup = this.dgvdata["inputgroup", e.RowIndex].Value.ToString(),
+                    Outputgroup = this.dgvdata["outputgroup", e.RowIndex].Value.ToString(),
+                    Partnumber = this.dgvdata["partnumber", e.RowIndex].Value.ToString(),
+                    Qty = int.Parse(this.dgvdata["qty", e.RowIndex].Value.ToString()),
+                    RoutgroupId = this.dgvdata["routgroupId", e.RowIndex].Value.ToString(),
+                    Bomver = this.dgvdata["bomver", e.RowIndex].Value.ToString(),
+                    Wostate = int.Parse(this.dgvdata["wostate", e.RowIndex].Value.ToString()),
+                    Cpwd = this.Getcpwd(this.dgvdata["cpwd", e.RowIndex].Value.ToString()),
+                    Wotype = this.dgvdata["wotype", e.RowIndex].Value.ToString(),
                   //  ProductLine = this.dgvdata["LINEID", e.RowIndex].Value.ToString(),
                 };
                 (this.mFrm as PrintMain).tbwoid.Text = this.dgvdata["woId", e.RowIndex].Value.ToString();
@@ -92,22 +94,22 @@ namespace SFIS_PRINT_SYSTEM_WIFI
             }
             #endregion
         }
-        private  T_WO_INFO.ecpwd Getcpwd(string cpwd)
+        private  WoInfo.Ecpwd Getcpwd(string cpwd)
         {
-            T_WO_INFO.ecpwd _cpwd;
+            WoInfo.Ecpwd _cpwd;
             switch (cpwd.ToUpper())
             {
                 case "PROG":
-                    _cpwd=T_WO_INFO.ecpwd.PROG; //Entity.T_WO_INFO.ecpwd.PROG;
+                    _cpwd=WoInfo.Ecpwd.Prog; //Entity.T_WO_INFO.ecpwd.PROG;
                     break;
                 case "FILE":
-                    _cpwd = T_WO_INFO.ecpwd.FILE;
+                    _cpwd = WoInfo.Ecpwd.File;
                     break ;
                 case "USERDEF":
-                    _cpwd = T_WO_INFO.ecpwd.USERDEF;
+                    _cpwd = WoInfo.Ecpwd.Userdef;
                     break;
                 default:
-                    _cpwd = T_WO_INFO.ecpwd.PROG;
+                    _cpwd = WoInfo.Ecpwd.Prog;
                     break;
             }
             return _cpwd;
